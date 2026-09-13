@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "benchmark-video-structure-v1.schema.json",
+  "title": "Benchmark Video Replication Asset",
+  "type": "object",
+  "required": [
+    "schema",
+    "asset_id",
+    "source",
+    "source_sha256",
+    "output_path",
+    "source_cleaned",
+    "sentence_count",
+    "unit_count",
+    "sentence_group_count",
+    "framework_blocks",
+    "segmentation_contract",
+    "status"
+  ],
+  "properties": {
+    "schema": {"const": "benchmark-video-structure-v1"},
+    "asset_id": {"type": "string", "pattern": "^benchmark-video:[a-f0-9]{16}$"},
+    "source": {"type": "string", "minLength": 1},
+    "source_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "output_path": {"type": "string", "pattern": "（复刻拆解）\\.md$"},
+    "source_cleaned": {"const": true},
+    "sentence_count": {"type": "integer", "minimum": 1},
+    "unit_count": {"type": "integer", "minimum": 1},
+    "sentence_group_count": {"type": "integer", "minimum": 0},
+    "framework_blocks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "name_origin", "range"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^F\\d{2}$"},
+          "name": {"type": "string", "minLength": 1},
+          "name_origin": {"enum": ["processing-module", "dynamic"]},
+          "range": {"type": "string", "pattern": "^第 \\d{2}–\\d{2} 句$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "segmentation_contract": {"const": "sentence-group-v1"},
+    "status": {"const": "pending-audit"}
+  },
+  "additionalProperties": false
+}

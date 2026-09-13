@@ -1,0 +1,110 @@
+# ============================================================
+# AI爆款内容工厂 — Source Available 发布排除规则
+# 默认只发布核心系统源码、合同、空白模板和已确认自有示例。
+# 原始资料、个人工作纪实、运行记录及未完成人工权利确认的业务资产不得进入发布包。
+# ============================================================
+
+# ---- 安全红线：密钥 / 凭证（用户指定唯一不公开项）----
+.env
+.env.*
+!.env.example
+*.local
+
+# ---- WorkBuddy 清洁上传规则 ----
+# 上传可复用 memory/automation/配置；排除垃圾、备份、临时、沙箱、候选和验证目录。
+.workbuddy/_trash/
+.workbuddy/_tmpdel/
+.workbuddy/backups/
+.workbuddy/sandbox_test*/
+.workbuddy/candidates/
+.workbuddy/jinju_split/
+.workbuddy/v10_verify/
+.workbuddy/local_only/
+.workbuddy/memory/
+.workbuddy/automations/*/memory.md
+.workbuddy/cleanup_structures.py
+.workbuddy/sync_tables.py
+.workbuddy/rename_map.json
+.workbuddy/test_struct_*.md
+
+# ---- 改造期历史垃圾与一次性迁移产物：不进入 GitHub / SkillHub / WorkBuddy 包 ----
+_trash_expired_*/
+tools/_backup_chunk*/
+tools/_migrate_*
+tools/_verify_*.py
+tools/_batch*_entries.json
+tools/patch_*.json
+tools/rewrites_*.json
+tools/_align_money_attempt3_bridge.py
+tools/_fix_money_attempt3_preflight.py
+tools/_repair_money_attempt3.py
+tools/tmp_fix_neighbor_bindings.py
+tools/tmp_*.py
+tools/tmp_*.py
+tools/recover.py
+tools/migrate.py
+tools/migrate_11to10.py
+tools/transform_11to10.py
+tools/acc.py
+tools/check_audit.py
+tools/validate.py
+nul
+
+# ---- 会员专享资产红线：目录骨架公开，目录内容不公开 ----
+# 任何带「（会员专享）」后缀的目录，只提交 .gitkeep 占位文件。
+# 这样 GitHub / SkillHub 能看到会员内容位，但不会包含会员内容本身。
+**/*（会员专享）/**
+!**/*（会员专享）/.gitkeep
+
+# ---- 工程惯例排除（非业务资产，仅构建/运行产物，任何开源项目均忽略）----
+tmp/
+.runtime/
+.obsidian/
+dist/
+PUBLIC_ASSETS_MANIFEST.json
+*.tmp
+_rewrite_*.py
+rewrite_*.py
+_tmp_*.py
+99_temp_*.py
+__del_probe.txt
+err.txt
+__pycache__/
+*.pyc
+.agents/skills/*/.generated-manifest.json
+.DS_Store
+__MACOSX/
+venv/
+.venv/
+env/
+
+# IP视觉PPT 运行产物（生成物，非 Skill 资产）
+10_Skills武器库/IP视觉PPT生成Skill/outputs/
+10_Skills武器库/IP视觉PPT生成Skill/smoke-pages/
+10_Skills武器库/IP视觉PPT生成Skill/smoke-test-work/
+10_Skills武器库/IP视觉PPT生成Skill/work/
+
+# 爆款开头拆解增量状态文件（运行产物，由脚本自动维护）
+02_资产中心/02_处理库/03_爆款开头/*/_ghk_sync_state.json
+02_资产中心/02_处理库/03_爆款开头/01_干货型-拆解/*.pending.json
+
+# ---- 品牌尾注一次性改写脚本（已完成使命，可清理）----
+tools/quality/swap_brand_footer_30d_to_3h.py
+
+# ---- 临时文件统一出口（目录保留，内容不进版本库）----
+_TEMP/
+
+# ---- Agent 本地运行记录与审核回执：本机保留，不公开 ----
+01_Agent系统/*/99_*/
+01_Agent系统/*/00_正式审核回执/
+03_工作流中心/*/99_运行记录/
+# Release boundary: local runtime, audit and dispatch records must never publish.
+.runtime/
+.workbuddy/
+03_工作台/runtime/
+**/.processed_registry.jsonl
+**/skip_list.jsonl
+**/99_历史处理记录/
+**/*.pending.json
+04_数据中心/02_事件流水/by-date/
+04_数据中心/02_事件流水/by-date/

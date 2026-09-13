@@ -1,0 +1,5 @@
+{
+  "grid": 24,
+  "strokeWidth": 1.7,
+  "icons": ["nav-dashboard", "nav-pipeline", "nav-assets", "nav-team", "nav-data", "home", "help", "document", "check-circle", "chevron-right", "chevron-down", "calendar", "inbox", "layers", "target", "microphone", "flame", "lightbulb", "puzzle", "play", "structure", "pencil", "hand-writing", "audit", "output", "gallery", "folder", "lock", "copy", "close", "chat", "book", "spark", "chart-pie", "batch-generate", "list-check", "queue-status", "refresh", "pipeline-arrow", "thinking-card", "featured-books", "opening-card", "selected-topic", "copy-structure", "filled-structure", "final-copy", "freeze-columns"]
+}

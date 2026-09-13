@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "benchmark-topic-v4.1.schema.json",
+  "type": "object",
+  "required": ["核心关键词", "选题", "原爆款元素", "博主名", "点赞数", "链接", "是否选中", "结构类型", "状态", "文案结构"],
+  "properties": {
+    "是否选中": {"enum": ["", "是", "否"]},
+    "结构类型": {"enum": ["", "干货型", "推荐型"]},
+    "状态": {"enum": ["", "待生成结构", "已生成结构", "已手动优化", "已生成正文"]},
+    "文案结构": {"type": "string"}
+  },
+  "additionalProperties": true
+}

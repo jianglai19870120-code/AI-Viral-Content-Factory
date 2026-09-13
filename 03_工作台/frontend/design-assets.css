@@ -1,0 +1,6 @@
+/* Dynamic visual assets remain separate from layout tokens. */
+.home-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.assistant-avatar{display:block;width:100%;height:100%;background:url("assets/aip-team-portraits-v1.png") 0 0/400% 200% no-repeat;border-radius:50%}
+.flow-arrow{position:relative;height:24px;font-size:0}.flow-arrow:before{content:"";position:absolute;top:11px;left:1px;right:1px;border-top:1px solid var(--orange)}.flow-arrow:after{content:"";position:absolute;top:7px;right:1px;width:7px;height:7px;border-top:1px solid var(--orange);border-right:1px solid var(--orange);transform:rotate(45deg)}
+.connector{position:relative;width:20px;height:20px;font-size:0}.connector:before{content:"";position:absolute;top:9px;left:0;right:1px;border-top:1px solid var(--orange)}.connector:after{content:"";position:absolute;top:5px;right:1px;width:7px;height:7px;border-top:1px solid var(--orange);border-right:1px solid var(--orange);transform:rotate(45deg)}
+.pipeline-note{display:flex;align-items:center;justify-content:center;gap:8px}.pipeline-note svg{width:18px;height:18px;stroke-width:1.7}.radar-shape{overflow:visible}.radar-shape b{z-index:2;color:var(--ink);white-space:nowrap}

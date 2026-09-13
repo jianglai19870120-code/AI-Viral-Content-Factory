@@ -1,0 +1,4 @@
+interface:
+  display_name: "01_小姜调度Skill"
+  short_description: "AI爆款内容工厂的唯一调度入口。"
+  default_prompt: "使用 $xiaojiang-dispatch 按AI爆款内容工厂正式调度和审核链执行任务。"

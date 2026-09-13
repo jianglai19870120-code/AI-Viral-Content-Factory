@@ -1,0 +1,4 @@
+interface:
+  display_name: "今日复盘-案例卡拆解Skill（会员专享）"
+  short_description: "小拆把今日复盘录音或笔记整理为可直接进入文案结构的第一人称案例卡；只产真实案例卡，不做选题匹配或正文成稿。"
+  default_prompt: "使用 $breakdown-work-journal 按AI爆款内容工厂正式调度和审核链执行任务。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "03_小息信息采集Skill"
+  short_description: "AI爆款内容工厂原始资料标准化与入库统计入口。用户上传PDF、音频、文档或要求OCR、命名清洗、分类归位、入库统计时，由小姜分配后使用；不做内容拆解和文案生成。"
+  default_prompt: "使用 $xiaoxi-ingest 按AI爆款内容工厂正式调度和审核链执行任务。"

@@ -1,0 +1,360 @@
+/* Shared motion system: page entry, module hover and clear click affordances. */
+:root {
+  --motion-fast: 160ms;
+  --motion-card: 200ms;
+  --motion-page: 260ms;
+  --motion-ease: cubic-bezier(.2,.8,.25,1);
+  --motion-shadow: 0 12px 26px #5c350f16;
+  --motion-hover-bg: #fff8f1;
+  --motion-hover-border: #e8a66d;
+  --motion-hover-lift: -2px;
+  --motion-hover-scale: 1.012;
+}
+
+button,
+.asset-tile,
+.today-queue-task,
+.today-minor-task,
+.today-primary-card,
+.today-calendar-card,
+.chart-card,
+.asset-v10 .gallery,
+.team-v10 .team-person-card,
+.team-v10 .employee,
+.today-calendar-card .plan-row {
+  transition: transform var(--motion-card) var(--motion-ease), border-color var(--motion-card) ease, box-shadow var(--motion-card) ease, background-color var(--motion-fast) ease, filter var(--motion-fast) ease;
+}
+
+button:focus-visible,
+[data-today-folder]:focus-visible,
+.today-queue-task:focus-visible,
+.today-minor-task:focus-visible {
+  outline: 3px solid #ff720055;
+  outline-offset: 3px;
+}
+
+button:not(:disabled):active { transform: translateY(1px); }
+
+/* Shared navigation feedback. */
+.nav-item:hover:not(.active) { transform: translateX(3px); }
+.nav-item.active { animation: motion-nav-select var(--motion-fast) both var(--motion-ease); }
+.help-nav:hover { transform: translateX(3px); }
+
+/* Refresh controls communicate that they are actionable without suggesting a task has run. */
+.refresh-button:hover:not(:disabled) img,
+.today-card-action.refresh:hover:not(:disabled) img { transform: rotate(45deg); }
+.refresh-button img,
+.today-card-action.refresh img { transition: transform var(--motion-fast) var(--motion-ease), filter var(--motion-fast) ease; }
+.today-card-action.refresh:hover:not(:disabled) { transform: none; }
+.refresh-button.is-syncing img,
+.today-card-action.refresh.is-syncing img { animation: motion-refresh-spin .78s linear infinite; }
+
+/* Keep the fixed global sync control above all page-specific content layers. */
+.topbar { position:relative; z-index:20; }
+.topbar-actions,
+.refresh-button { position:relative; z-index:21; pointer-events:auto; }
+
+/* The primary library action uses a guided light sweep instead of a jumping button. */
+.today-start-button {
+  overflow:hidden;
+  isolation:isolate;
+  transition:border-color var(--motion-card) ease, box-shadow var(--motion-card) var(--motion-ease), background-color var(--motion-card) ease;
+}
+.today-start-button::before {
+  position:absolute;
+  z-index:1;
+  top:7px;
+  right:7px;
+  bottom:7px;
+  left:7px;
+  border-radius:13px;
+  background:linear-gradient(108deg,transparent 24%,#ffffff42 46%,transparent 68%);
+  content:"";
+  pointer-events:none;
+  transform:translateX(-135%);
+  transition:transform 460ms cubic-bezier(.2,.8,.25,1);
+}
+.today-start-button span { position:relative; z-index:0; }
+.today-start-button i { z-index:2; transition:transform var(--motion-card) var(--motion-ease), background-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease; }
+.today-start-button:hover:not(:disabled) {
+  border-color:#ff9a3e;
+  background:#fff3e7;
+  box-shadow:0 0 0 4px #ff79001c,0 12px 22px #c850001f,0 0 0 1px #ffdfc5 inset;
+}
+.today-start-button:hover:not(:disabled)::before { transform:translateX(135%); }
+.today-start-button:hover:not(:disabled) i {
+  background:#ffffff1c;
+  box-shadow:0 0 0 3px #ffffff22;
+  transform:translateY(-50%) translateX(3px) scale(1.06);
+}
+
+/* Page entry only runs after navigation, the first load, or a manual snapshot refresh. */
+/* Today uses one calm, left-to-right card sequence.  The data attributes are
+   attached to the actual fixed-canvas cards, rather than retired v9 wrappers. */
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="today-calendar"] { animation:motion-rise var(--motion-page) 0ms both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="today-input"] { animation:motion-rise var(--motion-page) 30ms both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="today-output"] { animation:motion-rise var(--motion-page) 60ms both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="today-topics"] { animation:motion-rise var(--motion-page) 90ms both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="today-cases"] { animation:motion-rise var(--motion-page) 120ms both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="today-gallery"] { animation:motion-rise var(--motion-page) 150ms both var(--motion-ease); }
+
+#app[data-motion="initial"] .pipeline-stage-card,
+#app[data-motion="page-switch"] .pipeline-stage-card,
+#app[data-motion="manual-refresh"] .pipeline-stage-card { animation: motion-rise var(--motion-page) both var(--motion-ease); }
+#app[data-motion] .pipeline-stage-card:nth-of-type(1) { animation-delay: 0ms; }
+#app[data-motion] .pipeline-stage-card:nth-of-type(2) { animation-delay: 25ms; }
+#app[data-motion] .pipeline-stage-card:nth-of-type(3) { animation-delay: 50ms; }
+#app[data-motion] .pipeline-stage-card:nth-of-type(4) { animation-delay: 75ms; }
+#app[data-motion] .pipeline-stage-card:nth-of-type(5) { animation-delay: 100ms; }
+#app[data-motion] .pipeline-stage-card:nth-of-type(6) { animation-delay: 125ms; }
+#app[data-motion] .pipeline-stage-card:nth-of-type(7) { animation-delay: 150ms; }
+#app[data-motion="initial"] .pipeline-arrow,
+#app[data-motion="page-switch"] .pipeline-arrow,
+#app[data-motion="manual-refresh"] .pipeline-arrow { animation: motion-fade var(--motion-fast) 360ms both ease-out; }
+#app[data-motion="initial"] .pipeline-action-slot,
+#app[data-motion="page-switch"] .pipeline-action-slot,
+#app[data-motion="manual-refresh"] .pipeline-action-slot { animation: motion-rise var(--motion-page) 175ms both var(--motion-ease); }
+
+/* Asset Center has its own fan-shaped reveal: the three orbit nodes open from
+   the centre, then the directory map spreads out, and the skill library lands last. */
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="asset-flow-left"] { transform-origin:50% 115%; animation:motion-asset-fan-left 460ms 0ms both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="asset-flow-center"] { transform-origin:50% 115%; animation:motion-asset-fan-center 460ms 80ms both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="asset-flow-right"] { transform-origin:50% 115%; animation:motion-asset-fan-right 460ms 160ms both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry^="asset-arrow"] { animation:motion-fade var(--motion-fast) 230ms both ease-out; }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="asset-map"][data-motion-fan="left"] { transform-origin:50% 120%; animation:motion-asset-fan-left 420ms var(--asset-motion-delay) both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="asset-map"][data-motion-fan="center"] { transform-origin:50% 120%; animation:motion-asset-fan-center 420ms var(--asset-motion-delay) both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="asset-map"][data-motion-fan="right"] { transform-origin:50% 120%; animation:motion-asset-fan-right 420ms var(--asset-motion-delay) both var(--motion-ease); }
+#app:is([data-motion="initial"],[data-motion="page-switch"],[data-motion="manual-refresh"]) [data-motion-entry="asset-skills"] { animation:motion-rise var(--motion-page) 540ms both var(--motion-ease); }
+
+#app[data-motion="initial"] .team-v10 .team-rail span,
+#app[data-motion="page-switch"] .team-v10 .team-rail span,
+#app[data-motion="manual-refresh"] .team-v10 .team-rail span {
+  opacity: 0;
+  animation: motion-team-rail-step 340ms both cubic-bezier(.18,.8,.26,1);
+}
+#app[data-motion="initial"] .team-v10 .team-rail span:nth-child(1),
+#app[data-motion="page-switch"] .team-v10 .team-rail span:nth-child(1),
+#app[data-motion="manual-refresh"] .team-v10 .team-rail span:nth-child(1) { animation-delay: 0ms; }
+#app[data-motion="initial"] .team-v10 .team-rail span:nth-child(2),
+#app[data-motion="page-switch"] .team-v10 .team-rail span:nth-child(2),
+#app[data-motion="manual-refresh"] .team-v10 .team-rail span:nth-child(2) { animation-delay: 80ms; }
+#app[data-motion="initial"] .team-v10 .team-rail span:nth-child(3),
+#app[data-motion="page-switch"] .team-v10 .team-rail span:nth-child(3),
+#app[data-motion="manual-refresh"] .team-v10 .team-rail span:nth-child(3) { animation-delay: 160ms; }
+#app[data-motion="initial"] .team-v10 .team-rail span:nth-child(4),
+#app[data-motion="page-switch"] .team-v10 .team-rail span:nth-child(4),
+#app[data-motion="manual-refresh"] .team-v10 .team-rail span:nth-child(4) { animation-delay: 240ms; }
+#app[data-motion="initial"] .team-v10 .team-rail span:nth-child(5),
+#app[data-motion="page-switch"] .team-v10 .team-rail span:nth-child(5),
+#app[data-motion="manual-refresh"] .team-v10 .team-rail span:nth-child(5) { animation-delay: 320ms; }
+#app[data-motion="initial"] .team-v10 .team-rail span:nth-child(6),
+#app[data-motion="page-switch"] .team-v10 .team-rail span:nth-child(6),
+#app[data-motion="manual-refresh"] .team-v10 .team-rail span:nth-child(6) { animation-delay: 400ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > *,
+#app[data-motion="page-switch"] .team-v10 .team-flow > *,
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > * {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0 round 14px);
+  animation: motion-team-flow-shutter 420ms both cubic-bezier(.18,.8,.26,1);
+}
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(1),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(1),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(1) { animation-delay: 70ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(2),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(2),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(2) { animation-delay: 125ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(3),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(3),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(3) { animation-delay: 180ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(4),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(4),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(4) { animation-delay: 235ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(5),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(5),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(5) { animation-delay: 290ms; animation-duration:500ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(6),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(6),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(6) { animation-delay: 360ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(7),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(7),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(7) { animation-delay: 415ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(8),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(8),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(8) { animation-delay: 470ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(9),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(9),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(9) { animation-delay: 525ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(10),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(10),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(10) { animation-delay: 580ms; }
+#app[data-motion="initial"] .team-v10 .team-flow > :nth-child(11),
+#app[data-motion="page-switch"] .team-v10 .team-flow > :nth-child(11),
+#app[data-motion="manual-refresh"] .team-v10 .team-flow > :nth-child(11) { animation-delay: 635ms; }
+#app[data-motion="initial"] .team-v10 .planned-team,
+#app[data-motion="page-switch"] .team-v10 .planned-team,
+#app[data-motion="manual-refresh"] .team-v10 .planned-team { animation: motion-rise var(--motion-page) 210ms both var(--motion-ease); }
+
+
+/* Every usable card shares the same pale-orange hover state. Locked and disabled cards stay still. */
+.today-primary-card:not(:has(.today-start-button:disabled)):hover,
+.today-calendar-card:hover,
+.today-queue-task:not(:has(.today-card-action.locked)):not(:disabled):hover,
+.today-minor-task:not(:has(.today-card-action.locked)):not(:disabled):hover,
+.asset-v10 .asset-tile:not(:has(.asset-membership)):not(:disabled):hover,
+.asset-v10 .gallery:hover,
+.pipeline-stage-card:not(:disabled):hover,
+.team-v10 .team-person-card:not(:disabled):hover,
+.team-v10 .employee:not(:disabled):hover,
+body[data-page="data"] .chart-card:hover,
+.today-calendar-card .plan-row:hover {
+  position:relative;
+  z-index:2;
+  border-color:var(--motion-hover-border);
+  background:var(--motion-hover-bg);
+  box-shadow:var(--motion-shadow);
+  transform:translateY(var(--motion-hover-lift)) scale(var(--motion-hover-scale));
+}
+
+/* Data charts are display modules, but use the same hover affordance as the
+   actionable Today cards so every dashboard panel feels responsive. */
+body[data-page="data"] #app .data-dashboard > .chart-card {
+  cursor:pointer;
+  transition:transform var(--motion-card) var(--motion-ease), border-color var(--motion-card) ease, box-shadow var(--motion-card) ease, background-color var(--motion-fast) ease;
+}
+body[data-page="data"] #app .data-dashboard > .chart-card:hover {
+  will-change:transform;
+  border-color:var(--motion-hover-border) !important;
+  background:var(--motion-hover-bg) !important;
+  box-shadow:var(--motion-shadow) !important;
+  transform:translateY(-3px) scale(1.012) !important;
+}
+.asset-v10 .asset-tile:has(.asset-membership),
+.today-queue-task:has(.today-card-action.locked),
+.today-minor-task:has(.today-card-action.locked) { cursor:default; }
+.asset-v10 .asset-tile:has(.asset-membership):hover {
+  border-color:#e4ded7;
+  background:transparent;
+  box-shadow:none;
+  transform:none;
+}
+.today-primary-card:has(.today-start-button:disabled):hover,
+.today-queue-task:disabled:hover,
+.today-minor-task:disabled:hover,
+.pipeline-stage-card:disabled:hover,
+.one-click-orb:disabled:hover {
+  box-shadow:none;
+  transform:none;
+}
+.today-calendar-card .calendar-days button:hover:not(.muted) { transform:translateY(-1px) scale(1.04); }
+.team-v10 .team-person-card:hover .agent-avatar,
+.team-v10 .employee:hover .agent-avatar { filter:drop-shadow(0 5px 7px #4e31171b); }
+
+/* Small icon affordances. */
+.today-card-action:not(.locked) .brand-icon,
+.today-start-button i,
+.asset-v10 .gallery button .brand-icon,
+.today-plan-button .brand-icon,
+.plan-edit .brand-icon,
+.plan-complete .brand-icon { transition:transform var(--motion-fast) var(--motion-ease); }
+.today-queue-task:hover .today-card-action:not(.locked) .brand-icon,
+.asset-v10 .gallery button:hover .brand-icon { transform:translateX(3px); }
+.today-plan-button:hover .brand-icon,
+.plan-edit:hover .brand-icon { transform:rotate(-8deg) scale(1.05); }
+.plan-complete:hover .brand-icon { transform:scale(1.12); }
+.plan-delete:hover { transform:scale(1.08); }
+
+/* The approved sidebar wordmark has a tactile hover response without implying navigation. */
+body[data-page] .brand {
+  position:relative;
+  z-index:1;
+}
+body[data-page] .brand img {
+  display:block;
+  transform-origin:center center;
+  transition:transform 260ms var(--motion-ease), filter 260ms ease;
+}
+body[data-page] .brand:hover img {
+  filter:drop-shadow(0 10px 16px #ff790052) drop-shadow(0 0 10px #ff790032);
+  transform:translateY(-3px) scale(1.045);
+}
+
+/* A usable one-click action has a restrained, non-looping arrival and a very slow idle halo. */
+.one-click-orb:not(:disabled)::after { position:absolute; inset:-18px; border:1px solid #ff790055; border-radius:50%; content:""; opacity:.45; }
+.one-click-orb:not(:disabled):hover { transform:translateY(var(--motion-hover-lift)) scale(var(--motion-hover-scale)); }
+.one-click-orb:not(:disabled):hover::after { opacity:.9; transform:scale(1.08); }
+
+/* Modal transitions apply to every existing dialog, including the help center. */
+.modal:not([hidden]) .modal-backdrop { animation: motion-backdrop-in var(--motion-fast) both ease-out; }
+.modal:not([hidden]) .modal-card { animation: motion-modal-in 260ms both var(--motion-ease); }
+.modal.is-closing { pointer-events:none; }
+.modal.is-closing .modal-backdrop { animation: motion-backdrop-out var(--motion-fast) both ease-in; }
+.modal.is-closing .modal-card { animation: motion-modal-out var(--motion-fast) both ease-in; }
+
+/* Data charts must remain still after local re-renders or status polling. */
+body[data-page="data"] #app[data-motion="none"] .chart-card,
+body[data-page="data"] #app[data-motion="local-update"] .chart-card,
+body[data-page="data"] #app[data-motion="none"] .distribution-ring,
+body[data-page="data"] #app[data-motion="local-update"] .distribution-ring,
+body[data-page="data"] #app[data-motion="none"] .trend-area,
+body[data-page="data"] #app[data-motion="local-update"] .trend-area,
+body[data-page="data"] #app[data-motion="none"] .trend-line,
+body[data-page="data"] #app[data-motion="local-update"] .trend-line,
+body[data-page="data"] #app[data-motion="none"] .conversion-stage,
+body[data-page="data"] #app[data-motion="local-update"] .conversion-stage,
+body[data-page="data"] #app[data-motion="none"] .module-radar-shape,
+body[data-page="data"] #app[data-motion="local-update"] .module-radar-shape,
+body[data-page="data"] #app[data-motion="none"] .module-radar-node,
+body[data-page="data"] #app[data-motion="local-update"] .module-radar-node,
+body[data-page="data"] #app[data-motion="none"] .output-bar,
+body[data-page="data"] #app[data-motion="local-update"] .output-bar,
+body[data-page="data"] #app[data-motion="none"] .plan-rings,
+body[data-page="data"] #app[data-motion="local-update"] .plan-rings,
+body[data-page="data"] #app[data-motion="none"] .plan-metric,
+body[data-page="data"] #app[data-motion="local-update"] .plan-metric,
+body[data-page="data"] #app[data-motion="none"] .plan-ring,
+body[data-page="data"] #app[data-motion="local-update"] .plan-ring,
+body[data-page="data"] #app[data-motion="none"] .plan-metric > span,
+body[data-page="data"] #app[data-motion="local-update"] .plan-metric > span,
+body[data-page="data"] #app[data-motion="none"] .plan-value,
+body[data-page="data"] #app[data-motion="local-update"] .plan-value { animation:none !important; }
+body[data-page="data"] #app[data-motion="none"] .trend-area,
+body[data-page="data"] #app[data-motion="local-update"] .trend-area { opacity:1; }
+body[data-page="data"] #app[data-motion="none"] .trend-line,
+body[data-page="data"] #app[data-motion="local-update"] .trend-line { stroke-dashoffset:0; }
+body[data-page="data"] #app[data-motion="none"] .conversion-stage,
+body[data-page="data"] #app[data-motion="local-update"] .plan-metric,
+body[data-page="data"] #app[data-motion="local-update"] .plan-metric > span,
+body[data-page="data"] #app[data-motion="none"] .plan-value,
+body[data-page="data"] #app[data-motion="local-update"] .plan-value { opacity:1; transform:none; }
+body[data-page="data"] #app[data-motion="none"] .output-bar,
+body[data-page="data"] #app[data-motion="local-update"] .output-bar { transform:scaleX(1); }
+body[data-page="data"] #app[data-motion="none"] .output-bar,
+body[data-page="data"] #app[data-motion="local-update"] .output-bar { transform:scaleY(1); }
+body[data-page="data"] #app[data-motion="none"] .plan-ring,
+body[data-page="data"] #app[data-motion="local-update"] .plan-ring { --plan-ring-progress:244deg; opacity:1; transform:rotate(-90deg) scale(1); }
+
+@keyframes motion-rise { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+@keyframes motion-fade { from { opacity:0; } to { opacity:1; } }
+@keyframes motion-asset-fan-left { from { opacity:0; transform:translate(-28px,24px) rotate(-5deg); } to { opacity:1; transform:none; } }
+@keyframes motion-asset-fan-center { from { opacity:0; transform:translateY(28px) scale(.98); } to { opacity:1; transform:none; } }
+@keyframes motion-asset-fan-right { from { opacity:0; transform:translate(28px,24px) rotate(5deg); } to { opacity:1; transform:none; } }
+@keyframes motion-team-rail-step { from { opacity:0; transform:translateX(-14px) translateY(2px); } to { opacity:1; transform:translateX(0) translateY(0); } }
+@keyframes motion-team-flow-shutter { from { opacity:0; clip-path:inset(0 100% 0 0 round 14px); } to { opacity:1; clip-path:inset(0 0 0 0 round 14px); } }
+@keyframes motion-team-rail-light { from { border-color:#e8e4df; color:#24201d; } to { border-color:var(--orange); color:var(--orange); } }
+@keyframes motion-team-dot-light { from { background:#cfcac4; box-shadow:none; } to { background:var(--orange); box-shadow:0 0 0 4px #ff79001a; } }
+@keyframes motion-team-connector-light { from { color:#b8b1aa; text-shadow:none; } to { color:var(--orange); text-shadow:0 0 10px #ff790036; } }
+@keyframes motion-team-card-light { from { border-color:#ded8d1; background:rgba(255,254,253,.9); box-shadow:none; color:var(--ink); } to { border-color:var(--orange); background:#fff5eb; box-shadow:0 10px 24px #d3651617; color:var(--orange); } }
+@keyframes motion-team-caption-light { from { color:#79736d; } to { color:#b96114; } }
+@keyframes motion-team-audit-label-light { from { border-color:#d8d0c8; color:#817971; } to { border-color:#efad75; color:var(--orange); } }
+@keyframes motion-team-member-light { from { border-color:#e5dfd9; background:#fffefd; } to { border-color:#f0bf94; background:#fffaf5; } }
+@keyframes motion-team-copy-light { from { color:var(--ink); } to { color:var(--orange); } }
+@keyframes motion-nav-select { from { box-shadow:inset 0 0 transparent; } to { box-shadow:inset 7px 0 var(--orange),0 0 22px #ff72004a; } }
+@keyframes motion-refresh-spin { to { transform:rotate(360deg); } }
+@keyframes motion-backdrop-in { from { opacity:0; } to { opacity:1; } }
+@keyframes motion-backdrop-out { from { opacity:1; } to { opacity:0; } }
+@keyframes motion-modal-in { from { opacity:0; transform:translateY(12px) scale(.985); } to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes motion-modal-out { from { opacity:1; transform:translateY(0) scale(1); } to { opacity:0; transform:translateY(8px) scale(.99); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-delay:0ms !important; animation-duration:1ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition-duration:1ms !important; }
+}

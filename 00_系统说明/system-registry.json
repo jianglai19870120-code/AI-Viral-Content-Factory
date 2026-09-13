@@ -1,0 +1,51 @@
+{
+  "system": {"id":"ai-viral-content-factory","displayName":"AI爆款内容工厂","version":"3.0.0","canonicalAgentContract":"01_Agent系统/{agentDir}/AGENT.md","canonicalSkillRoot":"10_Skills武器库","codexSkillRoot":".agents/skills","runtimeRoot":".runtime"},
+  "release": {
+    "positioning": "source-available",
+    "status": "stable",
+    "releaseVersion": "3.0.0",
+    "publicName": "AI爆款内容工厂",
+    "commercialUse": "prohibited",
+    "supportedPlatforms": ["windows", "codex-desktop"],
+    "minimumPython": ">=3.11,<3.14",
+    "publicAssetPolicy": {
+      "id": "formal-non-member-public-v3",
+      "default": "public-formal-non-member-assets",
+      "memberContent": "placeholder-only",
+      "localOnly": [".env", ".runtime", ".workbuddy", "dist", "logs", "audit-records", "temporary-files", "historical-recovery-materials", "source-input-assets", "generated-gallery-assets", "vendored-node-dependencies", "licensed-local-fonts"]
+    }
+  },
+  "schemas": {"benchmarkTopic":"benchmark-topic-v4.2","benchmarkVideoStructure":"benchmark-video-structure-v2","copyStructure":"copy-structure-v16","finalCopy":"final-copy-v3","auditReceipt":"audit-receipt-v3"},
+  "agents": [
+    {"id":"xiaojiang","displayName":"小姜","dir":"01_小姜-CEO助理Agent","status":"active","skill":"xiaojiang-dispatch"},
+    {"id":"xiaoshen","displayName":"小审","dir":"02_小审-质量审核Agent","status":"active","skill":"xiaoshen-audit"},
+    {"id":"xiaoxi","displayName":"小息","dir":"03_小息-信息采集Agent","status":"active","skill":"xiaoxi-ingest"},
+    {"id":"xiaochai","displayName":"小拆","dir":"04_小拆-内容拆解Agent","status":"active","skill":"xiaochai-breakdown"},
+    {"id":"xiaojing","displayName":"小镜","dir":"05_小镜-对标结构研究Agent","status":"active","skill":"benchmark-video-structure-breakdown"},
+    {"id":"xiaoce","displayName":"小策","dir":"06_小策-选题策略Agent","status":"active","skill":"xiaoce-topic-strategy"},
+    {"id":"xiaoxie","displayName":"小写","dir":"07_小写-文案生产Agent","status":"active","skill":"final-copy-generation"},
+    {"id":"xiaotu","displayName":"小图","dir":"08_小图-视觉生产Agent","status":"active","skill":"generate-ip-ppt"},
+    {"id":"xiaoshu","displayName":"小数","dir":"09_小数-内容复盘Agent","status":"planned","skill":""},
+    {"id":"xiaojian","displayName":"小剪","dir":"10_小剪-视频制作Agent","status":"planned","skill":""},
+    {"id":"xiaofa","displayName":"小发","dir":"11_小发-发布运营Agent","status":"planned","skill":""}
+  ],
+  "skills": [
+    {"id":"xiaojiang-dispatch","displayName":"01_小姜调度Skill","sourceDir":"01_小姜调度Skill","owner":"xiaojiang","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"receipt-v2.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"xiaoshen-audit","displayName":"02_小审审核Skill","sourceDir":"02_小审审核Skill","owner":"xiaoshen","status":"active","inputSchema":"receipt-v2.schema.json","outputSchema":"audit-receipt-v3.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"xiaoxi-ingest","displayName":"03_小息信息采集Skill","sourceDir":"03_小息信息采集Skill","owner":"xiaoxi","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"asset-manifest-v1.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"xiaochai-breakdown","displayName":"04_小拆内容拆解Skill","sourceDir":"04_小拆内容拆解Skill","owner":"xiaochai","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"asset-manifest-v1.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"xiaoce-topic-strategy","displayName":"06_小策选题策略Skill","sourceDir":"06_小策选题策略Skill","owner":"xiaoce","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"benchmark-topic-v4.2.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"breakdown-book-modules","displayName":"好书解读-内容模块拆解Skill","sourceDir":"好书解读-内容模块拆解Skill","owner":"xiaochai","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"asset-manifest-v1.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"breakdown-podcast-modules","displayName":"播客解读-内容模块拆解Skill（会员专享）","sourceDir":"播客解读-内容模块拆解Skill（会员专享）","owner":"xiaochai","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"asset-manifest-v1.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"breakdown-work-journal","displayName":"今日复盘-案例卡拆解Skill（会员专享）","sourceDir":"今日复盘-案例卡拆解Skill（会员专享）","owner":"xiaochai","status":"active","platforms":["codex","workbuddy"],"contractVersion":"12.1.0","inputSchema":"asset-request-v1.schema.json","outputSchema":"work-journal-case-card-v12.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"classify-benchmark-topics","displayName":"爆款选题分类Skill","sourceDir":"爆款选题分类Skill","owner":"xiaoce","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"benchmark-topic-v4.2.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"generate-ip-ppt","displayName":"IP视觉PPT生成Skill","sourceDir":"IP视觉PPT生成Skill","owner":"xiaotu","status":"active","contractVersion":"4.1.0","inputSchema":"final-copy-v3.schema.json","outputSchema":"asset-manifest-v1.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"benchmark-video-structure-breakdown","displayName":"对标视频-结构拆解Skill（会员专享）","sourceDir":"对标视频-结构拆解Skill（会员专享）","owner":"xiaojing","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"benchmark-video-structure-v2.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"copy-structure-generation","displayName":"文案结构生成 Skill","sourceDir":"文案结构生成 Skill","owner":"xiaochai","status":"active","inputSchema":"benchmark-video-structure-v2.schema.json","outputSchema":"copy-structure-v16.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"final-copy-generation","displayName":"正文成稿生成 Skill","sourceDir":"正文成稿生成 Skill","owner":"xiaoxie","status":"active","inputSchema":"结构四Markdown→完整FNN框架级冻结快照","outputSchema":"final-copy-v3.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"standardize-and-inventory-sources","displayName":"原始资料入库统计Skill","sourceDir":"原始资料入库统计Skill","owner":"xiaoxi","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"asset-manifest-v1.schema.json","auditor":"xiaoshen-audit"},
+    {"id":"breakdown-video-pain-cards","displayName":"视频文案-痛点卡拆解Skill（会员专享）","sourceDir":"视频文案-痛点卡拆解Skill（会员专享）","owner":"xiaochai","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"asset-manifest-v1.schema.json","auditor":"xiaoshen-audit"}
+  ],
+  "benchmarkCases": {"registry":"00_系统说明/benchmark-case-registry.json","idFormat":"<类型代码>-<三位流水号>","contentTypeRouting":false},
+  "pipeline": {"id":"universal-copy-v1","steps":["选题表选中并填写对标复刻拆解编号","按唯一选题行锁定已审核对标复刻拆解","文案结构生成","小审发布包审核","受控发布索引与状态回写","用户冻结结构四","正文成稿生成","小审","输出库"],"contentTypeRouting":false}
+}

@@ -1,0 +1,77 @@
+/* Today v8: the PNG at design/今日工作/I-今日工作定稿AIP帮助中心-v8.png is the desktop source of truth. */
+body[data-page="today"]{--sidebar:320px;background:#f8f7f5}
+body[data-page="today"] .sidebar{padding:88px 17px 30px;background:radial-gradient(ellipse at 105% 31%,#25201c 0 1%,transparent 1.3%),linear-gradient(145deg,#171717,#080808)}
+body[data-page="today"] .sidebar:after{top:109px;width:48px;height:168px;border-color:#bc5700;opacity:.86}
+body[data-page="today"] .brand{width:234px;margin:0 37px 73px}
+body[data-page="today"] .brand img{width:234px}
+body[data-page="today"] .nav{gap:15px}
+body[data-page="today"] .nav-item{height:78px;gap:19px;padding:0 29px;border-radius:14px;font-family:var(--side);font-size:28px;letter-spacing:1.2px}
+body[data-page="today"] .nav-item i,body[data-page="today"] .nav-item i svg{width:29px;height:29px}
+body[data-page="today"] .nav-item.active{box-shadow:inset 7px 0 var(--orange),0 0 19px #ff72005c}
+body[data-page="today"] .help-nav{height:68px;padding-left:28px;font-family:var(--side);font-size:27px;letter-spacing:1px}
+body[data-page="today"] .main{padding:0 47px 48px;background-color:#fbfaf8;background-image:radial-gradient(#e6e1da .7px,transparent .8px);background-size:12px 12px}
+body[data-page="today"] .topbar{height:96px;border-bottom:0}
+body[data-page="today"] .crumb{font-size:22px;font-weight:500;letter-spacing:.15px}
+body[data-page="today"] .home-icon{width:50px;height:50px;margin-right:17px;border-radius:10px;background:#fff;box-shadow:0 2px 8px #2017080a}
+body[data-page="today"] .type-picker{min-width:197px;justify-content:center;gap:13px;padding:14px 18px;border-radius:10px;font-size:21px;font-weight:600}
+body[data-page="today"] .type-picker span:last-child{font-size:0}
+body[data-page="today"] .type-picker span:last-child:after{content:"";display:block;width:9px;height:9px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg) translateY(-2px)}
+body[data-page="today"] .page{max-width:none;margin:20px 0 0}
+body[data-page="today"] .mobile-type-picker,body[data-page="today"] .assistant{display:none}
+.today-v8{display:grid;grid-template-columns:minmax(330px,420px) minmax(470px,560px) minmax(390px,490px);gap:23px;max-width:1510px}
+.today-primary-card,.today-queue-card,.today-calendar-card,.today-minor-task{border:1px solid #e2ded9;border-radius:15px;background:rgba(255,254,253,.72);box-shadow:0 5px 16px #40322105}
+.today-primary-card{min-height:860px;display:flex;flex-direction:column;align-items:center;overflow:hidden;padding-top:69px;text-align:center}
+.today-doc-icon{display:grid;place-items:center;width:108px;height:108px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fbfaf8,#e9e6e2)}
+.today-doc-icon svg{width:48px;height:48px;stroke-width:1.65}
+.today-primary-card h1{margin:39px 0 33px;font:600 36px/1.2 var(--sans);letter-spacing:.4px}
+.today-primary-card>strong{font:700 136px/.78 var(--sans);letter-spacing:-7px}
+.today-primary-card em{display:flex;align-items:center;gap:6px;margin:38px 0 50px;padding:10px 16px 9px;border:1px solid #d4cec6;border-radius:13px;background:#fffefd;font:500 19px/1 var(--sans);font-style:normal}
+.today-primary-card em svg{width:19px;height:19px;stroke-width:1.9}
+.today-start-button{display:flex;align-items:center;justify-content:center;gap:46px;width:318px;height:93px;padding:7px;border:1px solid #ff7200;border-radius:20px;background:#fff7ef;box-shadow:0 0 0 1px #ffdfc5 inset,0 7px 16px #ff720012}
+.today-start-button span{display:flex;align-items:center;justify-content:center;flex:1;height:100%;border-radius:14px;background:linear-gradient(112deg,#ff8c0d,#ff6900);color:#fff;font:600 28px/1 var(--sans);text-shadow:0 1px 1px #a44100}
+.today-start-button i{display:grid;place-items:center;width:41px;height:41px;margin-left:-55px;border:2px solid #fff;border-radius:50%;color:#fff;pointer-events:none}
+.today-start-button i svg{width:24px;height:24px;stroke-width:1.7}
+.today-primary-card footer{width:100%;margin-top:auto;padding:39px 20px 84px;border-top:1px solid #e4e0dc;color:#79736c;font:400 19px/1 var(--sans)}
+.today-work-column{display:grid;grid-template-rows:548px 289px;gap:23px}
+.today-queue-card{overflow:hidden}
+.today-queue-task{width:100%;height:calc(100% / 3);display:grid;grid-template-columns:minmax(0,1fr) 115px 1fr 45px;align-items:center;gap:9px;padding:0 27px;border:0;border-bottom:1px solid #e5e1dc;background:transparent;color:var(--ink);text-align:left;transition:background .16s ease}
+.today-queue-task:last-child{border-bottom:0}
+.today-queue-task:hover{background:#fff8f1}
+.today-queue-title{font:600 25px/1.2 var(--sans);white-space:nowrap}
+.today-queue-task strong{font:700 56px/.85 var(--sans);letter-spacing:-3px;text-align:center}
+.today-queue-task small{color:#827c75;font:400 18px/1.2 var(--sans);white-space:nowrap;text-align:right}
+.today-chevron{display:grid;place-items:center;width:43px;height:43px;border:1px solid #d8d2cb;border-radius:10px;color:#181818}
+.today-chevron svg{width:23px;height:23px;stroke-width:1.65}
+.today-minor-row{display:grid;grid-template-columns:1fr 1fr;gap:23px}
+.today-minor-task{display:grid;grid-template-rows:auto 1fr auto;min-height:0;padding:31px 27px 27px;border-radius:15px;background:rgba(255,254,253,.72);color:var(--ink);text-align:left;transition:background .16s ease}
+.today-minor-task:hover{background:#fff8f1}
+.today-minor-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;font:600 24px/1.2 var(--sans);white-space:nowrap}
+.today-minor-task strong{align-self:center;margin-top:9px;font:700 72px/.9 var(--sans);letter-spacing:-4px}
+.today-minor-task small{color:#817a72;font:400 18px/1.2 var(--sans);white-space:nowrap}
+.today-calendar-card{min-height:860px;display:flex;flex-direction:column;padding:31px 24px 25px}
+.today-calendar-head h2{margin:0;font:600 31px/1 var(--sans)}
+.today-month-nav{display:grid;grid-template-columns:42px 1fr 42px;align-items:center;gap:10px;margin-top:27px;text-align:center}
+.today-month-nav button{display:grid;place-items:center;width:42px;height:42px;border:1px solid #d8d2cb;border-radius:10px;background:#fff;color:var(--ink)}
+.today-month-nav button:first-child svg{transform:rotate(180deg)}
+.today-month-nav button svg{width:24px;height:24px;stroke-width:1.6}
+.today-month-nav b{font:500 23px/1 var(--sans)}
+.today-calendar-card .weekdays,.today-calendar-card .calendar-days{gap:0}
+.today-calendar-card .weekdays{margin:29px 0 10px;color:#7e7973}
+.today-calendar-card .weekdays b{font:500 17px/1 var(--sans)}
+.today-calendar-card .calendar-days span{height:57px;font:400 19px/57px var(--sans)}
+.today-calendar-card .calendar-days .muted{color:#c9c4bf}
+.today-calendar-card .calendar-days .planned:after{bottom:5px;left:calc(50% - 4px);width:8px;height:8px}
+.today-plan-summary{margin-top:auto;padding-top:25px;border-top:1px solid #e3dfda}
+.today-plan-summary h3{margin:0 0 20px;font:600 22px/1 var(--sans)}
+.today-calendar-card .plans-list{margin:0;padding:0;border:1px solid #e7e2dd;border-radius:10px;overflow:hidden;background:#fff}
+.today-calendar-card .plans-list div{min-height:64px;gap:12px;padding:0 14px;border-bottom:1px solid #e7e2dd}
+.today-calendar-card .plans-list div:last-child{border:0}
+.today-calendar-card .plans-list b{font:500 17px/1 var(--sans)}
+.today-calendar-card .plans-list small{margin-left:auto;font:500 17px/1 var(--sans);color:var(--ink)}
+.today-calendar-card .plans-list button{display:none}
+.today-calendar-card .plans-list p{padding:12px 14px;color:#817a72;font-size:16px}
+.today-plan-button{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;height:59px;margin-top:24px;border:1px solid #bdb6ae;border-radius:10px;background:#fff;color:var(--ink);font:500 21px/1 var(--sans)}
+.today-plan-button svg{width:25px;height:25px;stroke-width:1.8}
+@media(max-width:1630px) and (min-width:1081px){body[data-page="today"]{--sidebar:276px}body[data-page="today"] .main{padding:0 36px 40px}body[data-page="today"] .sidebar{padding-top:72px}body[data-page="today"] .brand{margin-left:27px}.today-v8{grid-template-columns:minmax(315px,365px) minmax(435px,486px) minmax(360px,430px)}.today-primary-card,.today-calendar-card{min-height:754px}.today-work-column{grid-template-rows:480px 251px}.today-primary-card{padding-top:62px}.today-primary-card footer{padding-bottom:31px}.today-doc-icon{width:88px;height:88px}.today-doc-icon svg{width:42px;height:42px}.today-primary-card h1{font-size:34px;margin:37px 0 23px}.today-primary-card>strong{font-size:118px}.today-primary-card em{margin:28px 0 43px}.today-start-button{width:290px;height:82px}.today-queue-task strong{font-size:52px}.today-minor-task strong{font-size:62px}.today-calendar-card .calendar-days span{height:45px;line-height:45px}}
+@media(max-width:1080px) and (min-width:651px){body[data-page="today"]{--sidebar:82px}body[data-page="today"] .sidebar{padding:30px 10px}body[data-page="today"] .brand{margin:0 auto 44px}body[data-page="today"] .main{padding:0 20px 40px}.today-v8{grid-template-columns:1fr 1fr;max-width:none}.today-calendar-card{grid-column:span 2}.today-primary-card,.today-calendar-card{min-height:0}.today-work-column{grid-template-rows:440px 230px}}
+@media(max-width:650px){body[data-page="today"]{--sidebar:0}body[data-page="today"] .main{padding:0 13px 88px}.today-v8{display:flex;flex-direction:column;gap:20px}.today-primary-card{min-height:620px;padding-top:47px}.today-primary-card>strong{font-size:104px}.today-primary-card footer{padding:28px 18px}.today-start-button{width:min(318px,calc(100% - 44px));height:78px}.today-start-button span{font-size:24px}.today-work-column{display:flex;flex-direction:column;gap:20px}.today-queue-card{min-height:420px}.today-queue-task{grid-template-columns:minmax(0,1fr) 75px 42px;padding:0 18px}.today-queue-task small{display:none}.today-queue-task strong{font-size:44px}.today-queue-title{font-size:20px}.today-minor-row{grid-template-columns:1fr;gap:20px}.today-minor-task{min-height:190px}.today-calendar-card{min-height:760px;padding:25px 18px 20px}.today-calendar-card .calendar-days span{height:44px;line-height:44px}.today-calendar-card .weekdays{margin-top:23px}.today-plan-summary{margin-top:20px}.today-plan-button{margin-top:18px}}

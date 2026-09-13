@@ -1,0 +1,4480 @@
+{
+  "schema": "ai-traffic-release-checksums-v1",
+  "files": [
+    {
+      "path": ".agents/skills/benchmark-video-structure-breakdown/.generated-manifest.json",
+      "sha256": "687dd8f883f0287c79f6c70b079714281969762b7814d16aad4293741d1a4f00",
+      "bytes": 347
+    },
+    {
+      "path": ".agents/skills/benchmark-video-structure-breakdown/agents/openai.yaml",
+      "sha256": "5c8a6754c6588dd0f642d7eddb41701895199da96da86d2641cbe93b8e5fb35e",
+      "bytes": 364
+    },
+    {
+      "path": ".agents/skills/benchmark-video-structure-breakdown/SKILL.md",
+      "sha256": "b49635c6052bc3283371d517e3763744cbfe662574b9f10d813f6c6feac923e7",
+      "bytes": 812
+    },
+    {
+      "path": ".agents/skills/breakdown-book-modules/.generated-manifest.json",
+      "sha256": "ab0d9cadb8d66801be3aafa2df4dbd62d788b4a4c99e277b4f51f7f8cb96a3f7",
+      "bytes": 310
+    },
+    {
+      "path": ".agents/skills/breakdown-book-modules/agents/openai.yaml",
+      "sha256": "4a941b6697f1ba603053a5b14617557eedf459858aafaabcee5f68e4d143a635",
+      "bytes": 456
+    },
+    {
+      "path": ".agents/skills/breakdown-book-modules/SKILL.md",
+      "sha256": "c468671020ded3cf1319c4d6711aca1ff00b828a00d5fa72cb4b5e203b52eff9",
+      "bytes": 892
+    },
+    {
+      "path": ".agents/skills/breakdown-podcast-modules/.generated-manifest.json",
+      "sha256": "dc88b092dfaf2620b84dfe1f949db0f3ec3877a8357cd35e2bd30019898a9590",
+      "bytes": 349
+    },
+    {
+      "path": ".agents/skills/breakdown-podcast-modules/agents/openai.yaml",
+      "sha256": "96253132fa7ca00d92652b2d4856f1343b3ce5d3246cba5841c0bc2f42d23613",
+      "bytes": 521
+    },
+    {
+      "path": ".agents/skills/breakdown-podcast-modules/SKILL.md",
+      "sha256": "d520ab53b5ae2974cdacc64e0217357270c2db664b9c3410150e1b6a2689405f",
+      "bytes": 1033
+    },
+    {
+      "path": ".agents/skills/breakdown-video-pain-cards/.generated-manifest.json",
+      "sha256": "f1333e8f70abab7469e07ec67bb072ee896a736a8f1760419f8b85cb5f91b8cf",
+      "bytes": 344
+    },
+    {
+      "path": ".agents/skills/breakdown-video-pain-cards/agents/openai.yaml",
+      "sha256": "25dcacf55dc513540ccc183370f6bbf1f4383d275ceaa3377344894061dcaaef",
+      "bytes": 412
+    },
+    {
+      "path": ".agents/skills/breakdown-video-pain-cards/SKILL.md",
+      "sha256": "14ea478646d574d3c0bd8bbb8575e30455ba68423d41278ce42665e93266be15",
+      "bytes": 863
+    },
+    {
+      "path": ".agents/skills/breakdown-work-journal/.generated-manifest.json",
+      "sha256": "3beda8278cb704ab85c79c6dc8350145c624a75e19783618ba156084aa701080",
+      "bytes": 341
+    },
+    {
+      "path": ".agents/skills/breakdown-work-journal/agents/openai.yaml",
+      "sha256": "9c60985058ffaaa4b8b574114bce4806f0a4b363966ca07c787ea4786c4aa778",
+      "bytes": 378
+    },
+    {
+      "path": ".agents/skills/breakdown-work-journal/SKILL.md",
+      "sha256": "79c86638446af43f9857fd2164e31897ad92de76dd9bda0428bf9b4e9a83da32",
+      "bytes": 830
+    },
+    {
+      "path": ".agents/skills/classify-benchmark-topics/.generated-manifest.json",
+      "sha256": "db9c639e5abeb599f1ed672a1431b73c96ee6677b001815995eadad8bcc57004",
+      "bytes": 287
+    },
+    {
+      "path": ".agents/skills/classify-benchmark-topics/agents/openai.yaml",
+      "sha256": "53bd846ce896979ef31cc5392803b8b1a71a1f2a94b6eb0fa7389b03fa04e5f2",
+      "bytes": 412
+    },
+    {
+      "path": ".agents/skills/classify-benchmark-topics/SKILL.md",
+      "sha256": "b0adcd2129b86dd7e116e8760dc3532248b4db43d34a913227d3a37fa10c34cd",
+      "bytes": 835
+    },
+    {
+      "path": ".agents/skills/copy-structure-generation/.generated-manifest.json",
+      "sha256": "ec3f1c2b91b0928d3fa0b03235947286f6316cfdbd52d367a2b28535fbd680cc",
+      "bytes": 289
+    },
+    {
+      "path": ".agents/skills/copy-structure-generation/agents/openai.yaml",
+      "sha256": "d6e6e7aa72a188b1fb731f3bdc1ff09ab90074fbd9b827972881d6d3664b9c18",
+      "bytes": 326
+    },
+    {
+      "path": ".agents/skills/copy-structure-generation/SKILL.md",
+      "sha256": "0c3663221aeef72e560be8c807c0c99d40751313c6cb0cae1f4d083e9eb72d81",
+      "bytes": 750
+    },
+    {
+      "path": ".agents/skills/final-copy-generation/.generated-manifest.json",
+      "sha256": "cf21af524ca055de3e9122d4586cb40ac24f112c47f66e8136d0bd57686c5f44",
+      "bytes": 285
+    },
+    {
+      "path": ".agents/skills/final-copy-generation/agents/openai.yaml",
+      "sha256": "9cb49a2fa00ad952f9e8a8764f3872d6df944beb79c89098567e8065950f962e",
+      "bytes": 334
+    },
+    {
+      "path": ".agents/skills/final-copy-generation/SKILL.md",
+      "sha256": "17a9dfcaa1152efd1afca2477ec046e3930688ab592ed3322724ce3f8b5c1121",
+      "bytes": 758
+    },
+    {
+      "path": ".agents/skills/generate-ip-ppt/.generated-manifest.json",
+      "sha256": "1a2087f556657a37bb79b04ea275fd8f2b1e9360093f6feffe153597aafa63e7",
+      "bytes": 275
+    },
+    {
+      "path": ".agents/skills/generate-ip-ppt/agents/openai.yaml",
+      "sha256": "df34242d56cae383a5f7439e006bc4f8083ec3d0d4fe089919a0a09204e54654",
+      "bytes": 319
+    },
+    {
+      "path": ".agents/skills/generate-ip-ppt/SKILL.md",
+      "sha256": "3bddfb1e506210dce6d0ced75cc67e7d218a2c599dcabde8d03eed68dfedd981",
+      "bytes": 741
+    },
+    {
+      "path": ".agents/skills/standardize-and-inventory-sources/.generated-manifest.json",
+      "sha256": "ec211165aaf73ebe0a3293e21fcc5950ebfcc4cfe412b790af7ea7c085c20ac7",
+      "bytes": 307
+    },
+    {
+      "path": ".agents/skills/standardize-and-inventory-sources/agents/openai.yaml",
+      "sha256": "779b5ab077a8a10afe38b43de430282a166550f08ade4b41881ee56397fd7a53",
+      "bytes": 347
+    },
+    {
+      "path": ".agents/skills/standardize-and-inventory-sources/SKILL.md",
+      "sha256": "e8255eaaa0597f5b6a20944aa834412d56e848955eec95c5152037f70f112b53",
+      "bytes": 776
+    },
+    {
+      "path": ".agents/skills/xiaoce-topic-strategy/.generated-manifest.json",
+      "sha256": "8205678b1a977598a6b215b374f03afcae9d37cbacbc05bcb50e008759b32ad1",
+      "bytes": 289
+    },
+    {
+      "path": ".agents/skills/xiaoce-topic-strategy/agents/openai.yaml",
+      "sha256": "1056b4da42b7df9aa368819d39d8f7495add7bcff0bb5467a62b7b31a2eef051",
+      "bytes": 375
+    },
+    {
+      "path": ".agents/skills/xiaoce-topic-strategy/SKILL.md",
+      "sha256": "f43b1c65744da870b38ecec4c889d2875a2de2ff4345963a9a14d6950ca8de8a",
+      "bytes": 801
+    },
+    {
+      "path": ".agents/skills/xiaochai-breakdown/.generated-manifest.json",
+      "sha256": "3558823063cfee9b790bfa9491b852c9c5b7ae7b090a43491657e531cf000aed",
+      "bytes": 286
+    },
+    {
+      "path": ".agents/skills/xiaochai-breakdown/agents/openai.yaml",
+      "sha256": "2f5af58063a316b3086d148d6016c5689173e81aa9faa5823747ddafdfcce569",
+      "bytes": 250
+    },
+    {
+      "path": ".agents/skills/xiaochai-breakdown/SKILL.md",
+      "sha256": "92abfda74a5dcf080d70cec7dc2b215cbae68669ba6cd7e17925c09f995c3f8b",
+      "bytes": 676
+    },
+    {
+      "path": ".agents/skills/xiaojiang-dispatch/.generated-manifest.json",
+      "sha256": "6ce8ff78a72d8b68a49f99513640eecab9ac6171fc4ab94442b1a6543bc44670",
+      "bytes": 274
+    },
+    {
+      "path": ".agents/skills/xiaojiang-dispatch/agents/openai.yaml",
+      "sha256": "d7c340ee5c0d8426f676ec9cb6538c2c9a435406ed39d7e5a3738c28ca70c2c0",
+      "bytes": 228
+    },
+    {
+      "path": ".agents/skills/xiaojiang-dispatch/SKILL.md",
+      "sha256": "390cd6b406b0277dc8f9c900d7529dc289258e885fe95b558b5215f1e955317d",
+      "bytes": 648
+    },
+    {
+      "path": ".agents/skills/xiaoshen-audit/.generated-manifest.json",
+      "sha256": "1ead12ad9020dd7f2dcb670e0f77c315d7aed6249dcdb1acf638c4b2ba4eb9c2",
+      "bytes": 270
+    },
+    {
+      "path": ".agents/skills/xiaoshen-audit/agents/openai.yaml",
+      "sha256": "564e7c36d357d268a5a3a581cb9453b5d0492e4f8c8eaf03de78055758e30886",
+      "bytes": 227
+    },
+    {
+      "path": ".agents/skills/xiaoshen-audit/SKILL.md",
+      "sha256": "ac4005dacadbf93cc583334e1164f12f86575eceb0b17baf847ecab763803f99",
+      "bytes": 647
+    },
+    {
+      "path": ".agents/skills/xiaoxi-ingest/.generated-manifest.json",
+      "sha256": "a779cf4345c8a85fed60a000c3fd566508c65e927b69cb5a9eae8147a1791048",
+      "bytes": 281
+    },
+    {
+      "path": ".agents/skills/xiaoxi-ingest/agents/openai.yaml",
+      "sha256": "d695eb2b5a9f47542778025ceb178a8008c1698fd5cae2cbeb3e7e568160a891",
+      "bytes": 409
+    },
+    {
+      "path": ".agents/skills/xiaoxi-ingest/SKILL.md",
+      "sha256": "0a6f62fee134c313aea3674487a9ed05a707a47238b8289b5350c23d63e14e9b",
+      "bytes": 835
+    },
+    {
+      "path": ".env.example",
+      "sha256": "5a0bbce81a70bec5428305b79ab8a97c534a132152c1cf96479f617b0ba7ca5c",
+      "bytes": 363
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "38299b83139b1d361423617adf0f0824ba88a33b9d79b3a381fa06b30e708cb8",
+      "bytes": 122
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "sha256": "302e0aa3cb6db34135349f2ac30287fae119b5e78e32cf6dfebf3d96eaa0bf57",
+      "bytes": 1012
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "sha256": "6420590409413f56a439321d35ca94ceaf49a7538b0248b66091be31d4c76ebd",
+      "bytes": 845
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "bbc599da39509177f993a0539fe3ef655dad8716d66920ea550d1aa75c289453",
+      "bytes": 3532
+    },
+    {
+      "path": "00_系统说明/benchmark-case-registry.json",
+      "sha256": "64992d7b343d0a4e6f68102f375a7c22de9d00f697cadb9358b26ed0140f8c27",
+      "bytes": 3519
+    },
+    {
+      "path": "00_系统说明/README.md",
+      "sha256": "8a32f26902e74e2f5079496c52acb9a507c06b0b904424955a305af085cf7035",
+      "bytes": 491
+    },
+    {
+      "path": "00_系统说明/schemas.md",
+      "sha256": "353768acfb6a740995b299ca434e603cf383a2b6bfcf5f4104c04c39f360122c",
+      "bytes": 1925
+    },
+    {
+      "path": "00_系统说明/Skill公开状态矩阵.md",
+      "sha256": "f08028f88d3aab66c1318f7236764ac6dbe0e90b8c4edd6f9d90052b01c2dbe0",
+      "bytes": 2074
+    },
+    {
+      "path": "00_系统说明/Skill来源映射表.md",
+      "sha256": "aa0e326340ebfda207a2be4f5404a7cbacd52f5d1683d6348f9cf98a32c36332",
+      "bytes": 3219
+    },
+    {
+      "path": "00_系统说明/system-registry.json",
+      "sha256": "27c0cd00a76280060981296b748b5d589d2da0f7b2478b0e0de4a3646c51b6d6",
+      "bytes": 7528
+    },
+    {
+      "path": "00_系统说明/system-state.json",
+      "sha256": "94be6807be0411adbd43d0b7275fffb9852cbc1e0556eee008d704b7f185b7d6",
+      "bytes": 253
+    },
+    {
+      "path": "00_系统说明/跨电脑安装与发布.md",
+      "sha256": "33aea47cbd396417666bb035007f99ca1abd0726cb363cb41191dfdf7df8a135",
+      "bytes": 2515
+    },
+    {
+      "path": "00_系统说明/通用文案总流水线说明.md",
+      "sha256": "8113b007bc3f6034c0226898a10ddf815177914abe31bcee9b8c98ed819ba655",
+      "bytes": 1269
+    },
+    {
+      "path": "01_Agent系统/01_小姜-CEO助理Agent/AGENT.md",
+      "sha256": "0de3cd0ae505f2f722c8ffe0a5c309075a362a2229596debc8643ea6a8b4e464",
+      "bytes": 2071
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/AGENT.md",
+      "sha256": "353005078a7a353848f2c2c060973b11cea889248c6c522f3872bada64fcc1eb",
+      "bytes": 2978
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/references/copy-structure-audit-contract.md",
+      "sha256": "073f49d330a8f5bbc5d1a5e09c2584ee1ff3eda3785574434dc8cc1d37793d36",
+      "bytes": 4001
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/references/video-pain-angle-matching-audit-contract.md",
+      "sha256": "d6282e57869280053300b46389b8c13dbcae008299806b7c7097ac709f1366b9",
+      "bytes": 2809
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/references/video-pain-batch-audit-contract.md",
+      "sha256": "429caa9e46d592c86568995466e720f05f654b32720670a463c2e04774d0acfb",
+      "bytes": 4207
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_benchmark_topics.py",
+      "sha256": "40b870796e7a394531fb4e513a1dd79a551759f83aaefd5ae1bc525050d82d44",
+      "bytes": 6258
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_copy_structure.py",
+      "sha256": "2877e1dfc55f042e70567c41c8ecd83a892cacd91432caa9daacbeb1b670f055",
+      "bytes": 15571
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_final_copy.py",
+      "sha256": "3f2fe5f6dc0534e931f74bdfa26d0e29954df811a7aa9e7377ef98c321cba832",
+      "bytes": 5363
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_modules.py",
+      "sha256": "c493c14c894d709f64b41628096ee048924ea77dd52bb0aba853ff6394935635",
+      "bytes": 25338
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_raw_materials.py",
+      "sha256": "7424f5c82bfd94666abc9de7257d01fb881788752ec8a57849cbffcb26c94960",
+      "bytes": 8407
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_replication_profile.py",
+      "sha256": "7336510c1fb9e00a54a6fad88a20d2f440369d0bee5c0230a1e3c174187ed6f3",
+      "bytes": 2613
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_video_pain_angle_matching.py",
+      "sha256": "3f49c52a5673abc3324b39e6b4971c112b5c624c518f1dace31d37751a5c65dc",
+      "bytes": 31336
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_video_pain_batches.py",
+      "sha256": "9d5dcd166b287d6459bce394d2efe09a3710493d2c4b1810939272797e57980d",
+      "bytes": 59166
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_video_pain_cards.py",
+      "sha256": "cbc7318c1be67cf9c18a54c186833b3d6a699db16f5373cb7fc30eaf76032043",
+      "bytes": 54881
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_video_pain_taxonomy.py",
+      "sha256": "6fa7736a156d7dbb962bf2a221552f0d4267274ca5cef58abb5de5f77e165230",
+      "bytes": 5745
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_video_source_correction.py",
+      "sha256": "a2bbb97ae2bea6f68551b9cf6647eb2e21dfde2cedfd87b11e716995bf522fc0",
+      "bytes": 17388
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_visual_outputs.py",
+      "sha256": "b7634a0d83b287b365bfffb3cef9add53f928b05a9bfe3a209c948f861c8b57b",
+      "bytes": 73921
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_visual_work_package.py",
+      "sha256": "8d0ff4213f155465828185b5980f5584820e9259d4a7f9e1dbd819c48814991f",
+      "bytes": 53712
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/audit_work_journal_thinking.py",
+      "sha256": "452ca866bc36881eb31b9289bd984efaeab21c79481953eabf674c7c0c8fc126",
+      "bytes": 11769
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/complete_final_copy_semantic_review.py",
+      "sha256": "32ff83870d6cf08c8e725442c50591577743cfa0690d51917e93d6c311b1b27d",
+      "bytes": 10141
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/final_copy_semantic_quality.py",
+      "sha256": "81de38d522fdf117f784ce289733859c38db9f89a1adabb6a8783975e3d674f6",
+      "bytes": 495
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/independent_copy_semantic_review.py",
+      "sha256": "c381aed33d45610b82517ea14b2f4ebf8efa1cafef95ece641aa5e06c1c87328",
+      "bytes": 16414
+    },
+    {
+      "path": "01_Agent系统/02_小审-质量审核Agent/scripts/prepare_framework_final_copy_semantic_review.py",
+      "sha256": "0459e56ec72fcc9051983b815c8d87047d58180c25eb4272e016632b24bbf3c1",
+      "bytes": 2251
+    },
+    {
+      "path": "01_Agent系统/03_小息-信息采集Agent/AGENT.md",
+      "sha256": "51a6cc38585ecbd205043e1c4777dab1e65d9a2fa6ea11225ad975a8557f0e92",
+      "bytes": 999
+    },
+    {
+      "path": "01_Agent系统/04_小拆-内容拆解Agent/AGENT.md",
+      "sha256": "3407c88abd78a2d1fdb7e4d196c2cad86453382bdcb7539338356e7e782b9260",
+      "bytes": 1198
+    },
+    {
+      "path": "01_Agent系统/05_小镜-对标结构研究Agent/AGENT.md",
+      "sha256": "ce7f19ed9ca97954910210fd6a5b64fdd0ab52fe1ee88df06a0f6164e43a15b5",
+      "bytes": 1392
+    },
+    {
+      "path": "01_Agent系统/06_小策-选题策略Agent/AGENT.md",
+      "sha256": "4a8f98891f8255f60f5618a8f7bc98c67e15c9247209317f7c5596ad91b2a8c4",
+      "bytes": 1219
+    },
+    {
+      "path": "01_Agent系统/07_小写-文案生产Agent/AGENT.md",
+      "sha256": "fbd88f27715ef0b2dcf2a180e281b26b387fc5616f87ce693469c486ecce014b",
+      "bytes": 835
+    },
+    {
+      "path": "01_Agent系统/08_小图-视觉生产Agent/AGENT.md",
+      "sha256": "5d6a9bdd66fd942065ffdf2a464055929f16ef413023a318637bea5496479968",
+      "bytes": 511
+    },
+    {
+      "path": "01_Agent系统/09_小数-内容复盘Agent/AGENT.md",
+      "sha256": "83346ca3e786c978f4f38aa8ab7785020d0430fd599412692d3003a751fd03ba",
+      "bytes": 620
+    },
+    {
+      "path": "01_Agent系统/10_小剪-视频制作Agent/AGENT.md",
+      "sha256": "7f08f7b7061d0e593d969b3a2dddf2785d1a071e71af2292b4a876dac3c6572c",
+      "bytes": 612
+    },
+    {
+      "path": "01_Agent系统/11_小发-发布运营Agent/AGENT.md",
+      "sha256": "12b0a5284c4731aac4b94c31a9b8380761ef8a9977eb49b5049624a13bc6b98e",
+      "bytes": 616
+    },
+    {
+      "path": "02_资产中心/01_输入库/02_热门播客-源文件（会员专享）/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": "02_资产中心/01_输入库/03_热点事件-源文件（会员专享）/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": "02_资产中心/01_输入库/04_视频文案-源文件（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/01_输入库/04_视频文案-源文件（会员专享）/00_标准化源文档/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/01_输入库/04_视频文案-源文件（会员专享）/00_标准化源文档/anxiansheng/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/01_输入库/04_视频文案-源文件（会员专享）/00_标准化源文档/baiye/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/01_输入库/04_视频文案-源文件（会员专享）/00_标准化源文档/jingwei-01/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/01_输入库/04_视频文案-源文件（会员专享）/00_标准化源文档/jingwei-02/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/01_输入库/99_今日复盘-源文件（会员专享）/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": "02_资产中心/02_处理库/01_观点_内容模块/02_热门播客（会员专享）/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": "02_资产中心/02_处理库/01_观点_内容模块/03_热点事件（会员专享）/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": "02_资产中心/02_处理库/02_痛点_内容模块（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/02_痛点_内容模块（会员专享）/00_分类法/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/02_痛点_内容模块（会员专享）/00_审核样例/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/02_痛点_内容模块（会员专享）/创业/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/02_痛点_内容模块（会员专享）/成长/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/02_痛点_内容模块（会员专享）/消费/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/02_痛点_内容模块（会员专享）/自媒体/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/01_案例卡/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/01_案例卡/2026-03-17_20-38_短视频账号流量与成交内容布局思考/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/01_案例卡/2026-03-18_18-59_短视频运营与变现的当前核心目标梳理/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/01_案例卡/2026-03-19_11-17_短视频流量不稳定问题分析与优化方向思考/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/01_案例卡/2026-03-20_18-39_近两日短视频创作工作梳理与创作方法优化总结/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/01_案例卡/2026-03-23_20-08_短视频内容日更的新方案尝试/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/01_案例卡/2026-03-26_09-20_短视频爆款核心是内容质量而非选题/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/01_案例卡/2026-03-31_19-28_当日工作复盘与后续工作安排规划/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/01_案例卡/2026-04-01_17-18_短视频创作复盘与内容生产方案规划/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/01_案例卡/2026-04-03_10-58_文案写作逻辑复盘：大框架缺失导致文案结构松散/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/02_案例卡索引/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/04_案例卡处理记录/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/05_案例_内容模块（会员专享）/05_案例卡跳过记录/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/06_推荐理由_内容模块（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/06_推荐理由_内容模块（会员专享）/01_推荐好书/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/06_推荐理由_内容模块（会员专享）/02_热门播客/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/06_推荐理由_内容模块（会员专享）/02_热门播客/Riding AGI, AI Anxiety, Who Funded COVID, Defending Taiwan, and California/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/02_处理库/06_推荐理由_内容模块（会员专享）/03_热点事件/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/03_输出库/01_文案结构/02_推荐型文案结构（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/03_输出库/01_文案结构/03_获客型文案结构（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/03_输出库/02_正文成稿/02_推荐型（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/04_选题库/01_对标账号/dontbesilent 聊赚钱.xlsx",
+      "sha256": "473253a608f31bb4af112da1d27da02f639e363aa360b3fe9e85f7d458ae5286",
+      "bytes": 109056
+    },
+    {
+      "path": "02_资产中心/04_选题库/01_对标账号/hello 阿敏.xlsx",
+      "sha256": "a33d0e6cf6a1c03b627e5d3e04ae2f01c9cb73d4774fee9cd39ac9e05f0c76fc",
+      "bytes": 478720
+    },
+    {
+      "path": "02_资产中心/04_选题库/01_对标账号/README.md",
+      "sha256": "e5850316d4c97d5c9ef97de9df289c2caa3802c3e572e7afc3fbfcd1c9bcc1b4",
+      "bytes": 278
+    },
+    {
+      "path": "02_资产中心/04_选题库/01_对标账号/南溪.xlsx",
+      "sha256": "ae36e35327bde444e65e57a5553422708b9eca43733a053afb2dcd199df87402",
+      "bytes": 61440
+    },
+    {
+      "path": "02_资产中心/04_选题库/01_对标账号/姜来已来2046.xlsx",
+      "sha256": "8415a1101f1f52cbdab697d7cca26f43d4e2ec9142ed2617265a83bece4484b0",
+      "bytes": 178176
+    },
+    {
+      "path": "02_资产中心/04_选题库/01_对标账号/姜胡说.xlsx",
+      "sha256": "c5d0a101e9bd9ee5e03658c092399374eee648381866bf3efce83cc72d9fbd8c",
+      "bytes": 1240786
+    },
+    {
+      "path": "02_资产中心/04_选题库/01_对标账号/小马Pro.xlsx",
+      "sha256": "dd8245dbae0dbacac5a62373b9d8fe57cdac17a94a815dd00498c09421c09b1f",
+      "bytes": 63488
+    },
+    {
+      "path": "02_资产中心/04_选题库/01_对标账号/洪树.xlsx",
+      "sha256": "57bfa4e72367c10c98f72a58766a577f32d8fcb391b5f1e4a80209176b329593",
+      "bytes": 494592
+    },
+    {
+      "path": "02_资产中心/04_选题库/01_对标账号/第四种黑猩猩.xlsx",
+      "sha256": "92a3da9e2761db70dd016989433cb21bc42238e15319751dca17c6dff2dd70c6",
+      "bytes": 337049
+    },
+    {
+      "path": "02_资产中心/04_选题库/01_对标账号/鑫子讲轻创业.xlsx",
+      "sha256": "ca69719f47218bb58ba33d819e56fc80639a40c6f1633a255b3cb2d4a71ee7b1",
+      "bytes": 44032
+    },
+    {
+      "path": "02_资产中心/04_选题库/02_选题分类/01_科学创业选题表.md",
+      "sha256": "179043ea3c83ea4c26579abb8e81c92c1e6d2964408ffe3dcac2f70f736bd7f4",
+      "bytes": 9507
+    },
+    {
+      "path": "02_资产中心/04_选题库/02_选题分类/02_能力成长选题表.md",
+      "sha256": "3d90827f2d1036cb68ea1ad63782ca7f3ccf8c0f0f12bbb1468411e795189b69",
+      "bytes": 26419
+    },
+    {
+      "path": "02_资产中心/04_选题库/02_选题分类/03_赚钱财富选题表.md",
+      "sha256": "542c3d9dee0b41191a28890cdf3681103d44f4ce4170cc9eb9080a2645d6c5db",
+      "bytes": 27255
+    },
+    {
+      "path": "02_资产中心/04_选题库/02_选题分类/04_个人IP选题表.md",
+      "sha256": "5f629ca937768321577988250573e9ce947d1cf022f2144dedf367c5283587b4",
+      "bytes": 15605
+    },
+    {
+      "path": "02_资产中心/04_选题库/02_选题分类/05_AI科技选题表.md",
+      "sha256": "7cebfbd8c23bc41acb93878c28cf6b2e4a9098c2678e283036eaa199c2b4f9ed",
+      "bytes": 15771
+    },
+    {
+      "path": "02_资产中心/04_选题库/02_选题分类/99_其他类型选题表.md",
+      "sha256": "aa583baac148bfe0f2f05f607859794dd38c5c8ba96b35b0d59a3b4c2e36ab98",
+      "bytes": 13201
+    },
+    {
+      "path": "02_资产中心/04_选题库/02_选题分类/README.md",
+      "sha256": "0160a20d650f07e4c0aa688112840ddf0ab2fe9f827e3e10e4466df4d06324eb",
+      "bytes": 1779
+    },
+    {
+      "path": "02_资产中心/05_案例库/01_对标视频原文/01_干货型原文/干货型_创业成长_做一件事儿，只要你没去执行，本质上你就是想逃避（视频原文）.md",
+      "sha256": "a219cc4c346fca65018a97d7a1fa43855f2c61273c942d1d388a83e538b28f67",
+      "bytes": 3122
+    },
+    {
+      "path": "02_资产中心/05_案例库/01_对标视频原文/01_干货型原文/干货型_创业成长：如何才能避免一辈子给人打工？（视频原文）.md",
+      "sha256": "5134dd157c56172b9b738b74afafcf7b57e2342aec9d357a2ab1875c8c717a09",
+      "bytes": 3179
+    },
+    {
+      "path": "02_资产中心/05_案例库/01_对标视频原文/02_推荐型原文（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/05_案例库/01_对标视频原文/03_获客型原文（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/05_案例库/02_对标复刻拆解/01_干货型拆解/干货型_创业成长【开场引导-误区一-误区二-解决方案一-解决方案二-观点】GHX-002.md",
+      "sha256": "4ab40903363f69907d04eadab8912c82ca89a682770f3deaa86853805311b57a",
+      "bytes": 3697
+    },
+    {
+      "path": "02_资产中心/05_案例库/02_对标复刻拆解/01_干货型拆解/干货型_创业成长【观点-痛点-误区一-误区二-解决方案-行动引导】GHX-001.md",
+      "sha256": "19e27081437c64eb5a8ed7ebc57effeeccf964bab68c69bb02c58228e3cfd0b7",
+      "bytes": 3618
+    },
+    {
+      "path": "02_资产中心/05_案例库/02_对标复刻拆解/02_推荐型拆解（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/05_案例库/02_对标复刻拆解/03_获客型拆解（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/05_案例库/清单/对标案例清单.jsonl",
+      "sha256": "692081a5f28bf410f5e6cd2a849580d891cd77d62590784e41fc78cd9c40fca3",
+      "bytes": 6084
+    },
+    {
+      "path": "02_资产中心/05_案例库/清单/对标案例清单.md",
+      "sha256": "dca0ee3d9d5094c12e1a1a5b720c55e59ddf327b7e1d36f26707b12f799bdaf4",
+      "bytes": 5526
+    },
+    {
+      "path": "02_资产中心/06_配图库/02_推荐型配图（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/06_配图库/03_获客型配图（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "02_资产中心/06_配图库/04_播客解读型配图（会员专享）/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": "02_资产中心/06_配图库/05_热点事件型配图（会员专享）/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": "02_资产中心/README.md",
+      "sha256": "cc473f8d9c19012e4a7e1a8db2c0f73f68332b483527212a1bb1e9b74e8a015b",
+      "bytes": 1338
+    },
+    {
+      "path": "03_工作台/.gitignore",
+      "sha256": "3249234012ef56719873ce550d0b1cf54ce053a5a74089fa36e7353fddc91325",
+      "bytes": 105
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/_生成工具/assemble_portrait_library.ps1",
+      "sha256": "4837282fc60face46ffc0f64c427925ba1a2afb402d69c87bebc97a501f5477c",
+      "bytes": 2450
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/_生成工具/build_icon_library.py",
+      "sha256": "0736a91b1f6d777400ef09a3ebdda9895c3999751880e58019cc628f5b8ca323",
+      "bytes": 4153
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/_生成工具/extract_xiaojiang_master.ps1",
+      "sha256": "aa108a14e7129a2400120f24ec45d6163b2e362757f089ac58c9db918755b39b",
+      "bytes": 955
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/_生成工具/normalize_portrait_backgrounds.py",
+      "sha256": "baaeb5a8b3000e4d167f240872cfd3a8275c2798fcca8d290c157c35e7be45dd",
+      "bytes": 1719
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/portrait-manifest.json",
+      "sha256": "f09f5746c3f9daa665c627bc4a967d06b20a885dfd80e13023b6476d55305dd6",
+      "bytes": 825
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaoce-v4.png",
+      "sha256": "2efe4f0d248e61c6a8e9fa70031ba965cf5595a309f6e1671b00a66e9b4286ce",
+      "bytes": 1249326
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaochai-v4.png",
+      "sha256": "d271269ef23473a39831effb8baaf5851334307fa583ead31439ae9ae8d58862",
+      "bytes": 1170595
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaofa-v4.png",
+      "sha256": "197c3e1a2f29402b410eeb809989faf40a65b296096521d143d31c12fab11ce3",
+      "bytes": 1389305
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaojian-v4.png",
+      "sha256": "1c2f6ae6eb377fcec1e03c0d763d21f584c385fcaaa4a620dcd5a060c901b278",
+      "bytes": 1171897
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaojiang-master.png",
+      "sha256": "a1625f736340f0ec4fd93e36f3e1cbb36610dc5845f03c15dfdf4e216afda585",
+      "bytes": 211099
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaojing-v4.png",
+      "sha256": "540ec269b03c8295ec6084137d63d63737cff54a1f62ece4d526fe60c98fc38e",
+      "bytes": 1206025
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaoshen-v4.png",
+      "sha256": "b06af0af377d4d4592ae7716c6ea5f95c59e6aac5df3fa666f8df83416e8713e",
+      "bytes": 1379919
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaoshu-v4.png",
+      "sha256": "152df44ba4336ab97a201868bae824472b1e4f907b1831cdc5ddba4b0fd1ab31",
+      "bytes": 1266810
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaotu-v4.png",
+      "sha256": "ea4df4415673f9ad4ad9f3aef77022b689a9aa1d891b8a43233ef3267d96f345",
+      "bytes": 1330640
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaoxi-v4.png",
+      "sha256": "2bb0c4f4f970c000117bd90e0aa2c49b55d43eaee558553e614abf3122b145b4",
+      "bytes": 1170896
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/正式头像/xiaoxie-v4.png",
+      "sha256": "0d28249fa9ac29879a64003caa8d89385e2bd0df656fc73df3784acf303ff0c9",
+      "bytes": 1242652
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/状态徽标/auditing.svg",
+      "sha256": "362f7b66c4f4f2b0773f882aa63308848174b2aa11c66977ec0ef1bff9fc8117",
+      "bytes": 202
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/状态徽标/available.svg",
+      "sha256": "16c936301c33dc7eb324247a83d21689961355fd490a0a1a97080e93f36aa3e8",
+      "bytes": 114
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/状态徽标/completed.svg",
+      "sha256": "9dcc4b10fcd7abd188e91d68e2eaf074313f1d28625d4869cfc6e8324042e7c0",
+      "bytes": 237
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/状态徽标/needs-user.svg",
+      "sha256": "6857dcb962e1d8f7a3254dec2f3a5de1f81cea89620b16a4f6d291286efc29f6",
+      "bytes": 148
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/状态徽标/planned.svg",
+      "sha256": "55ceb3b3d4ded32e4c2953d9870bfdc20e0e7f98203841a461309e62a4296d81",
+      "bytes": 168
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/状态徽标/running.svg",
+      "sha256": "b8528191805813147bc38c71fd54405425ef612b590ba105ed293f8c99f90f7a",
+      "bytes": 174
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/状态徽标/status-manifest.json",
+      "sha256": "c56278847b5951716f87f2f9f285b9216607c085f370da72f3d551a2b050aa1e",
+      "bytes": 488
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/人物头像/角色设定.md",
+      "sha256": "8df4eca9456e91902d39c6574f68ed358028525c85796b8b723feadfe4a6c67f",
+      "bytes": 2920
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/品牌规范/brand-tokens.json",
+      "sha256": "d2e8c967cb9119f5380005ea43dc3a5fdc9da6ab23366e024a21ce5eee1f0f83",
+      "bytes": 1503
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/品牌规范/tokens.css",
+      "sha256": "f6b0218c29b5bbd98e193a333b3650de42e8eb2a385885a270269a18b4ad7068",
+      "bytes": 1743
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/品牌规范/UI设计规范.md",
+      "sha256": "661e6ff3d06024f99c56af17c0aff654166947d9acb389788c40c6f5b553f11f",
+      "bytes": 2751
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/品牌规范/字体规范.md",
+      "sha256": "48166359e50103de2689c673a05d02dd8830b1412c5186b697789a9b29580d3c",
+      "bytes": 1367
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/品牌规范/色彩规范.md",
+      "sha256": "03725b3e973ab01edcb9e591bd7686768677f490791a6dd649e76ddc585bc21f",
+      "bytes": 617
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/audit.svg",
+      "sha256": "431f9618ff76ccbacf9817aac2659628dc1eb78455e648914876d47a063ba945",
+      "bytes": 256
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/batch-generate.svg",
+      "sha256": "4fdac08abb9223cb1bce140ce201264af83d7bef76f756f2923121f8a89c53b6",
+      "bytes": 292
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/book.svg",
+      "sha256": "d8667e69c022c7d37942b8a112adf7be9746a364c16de928a6727efedd69a412",
+      "bytes": 295
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/calendar.svg",
+      "sha256": "0cdb1218688925297b695934d82b3313943ce490017dce1eff71bf47ac943a8b",
+      "bytes": 250
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/chart-pie.svg",
+      "sha256": "2ef330ce39fcb599fc627854e33ca56480a1c451a20c437627b4b413429204ee",
+      "bytes": 243
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/chat.svg",
+      "sha256": "eadb152b91fdcc4cf59f31200f62cf7174b3426451d6333d77a6980b043cdd03",
+      "bytes": 239
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/check-circle.svg",
+      "sha256": "b9ee3c1bdf611b01693c7bbf84ba10016b5f741e8f2d618a4c91ba2b75675a34",
+      "bytes": 232
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/chevron-down.svg",
+      "sha256": "c4d36573bba3be886f2ef6633a9e939fd9fae0bddf289f27197d6f22a0dec58a",
+      "bytes": 192
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/chevron-right.svg",
+      "sha256": "7a35b13d4c0ce4841b2214e832eb0c6f632cd1251607c6dcfef7d16b81dad022",
+      "bytes": 192
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/close.svg",
+      "sha256": "fe5ae01f8fdb60b2e1800dda144667897dbf9527d87c848e61e104bbd95c6ba0",
+      "bytes": 200
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/copy-structure.svg",
+      "sha256": "2c0ed6e0fe2817a63f15d77c7c9e01d68d159432e03b5c2f295d32355cb5295b",
+      "bytes": 301
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/copy.svg",
+      "sha256": "6e87b72a33197f52186389c7a94ab4ad5b3a1b7a519d65eafa69bb811f7a87b8",
+      "bytes": 284
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/document.svg",
+      "sha256": "034ab634c1391e8bafc9a4b9fd5f29b258f2a2b28de34638fe34e85cdc624225",
+      "bytes": 231
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/featured-books.svg",
+      "sha256": "a29b9a6178a0350ba22374f5f37af352d7af150eace336254ffb99c2b30f658b",
+      "bytes": 398
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/filled-structure.svg",
+      "sha256": "df3c3d2d9715edc8115b7f19352a28e5435b2133c9b7f53a08db76edb729ff13",
+      "bytes": 294
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/final-copy.svg",
+      "sha256": "0bf3ef4c91fcf7caeea430b431d79b8c34422f220bb717eaf7e7f663d0b55059",
+      "bytes": 284
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/flame.svg",
+      "sha256": "4c886d08bee3c9edfa34315af5fe69579562858472d00af8b3d3352d9c037fc9",
+      "bytes": 307
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/folder.svg",
+      "sha256": "421252208c72f50f79bf6b6bfa19b8fffd311681525d9e13ca38c96dba1e1137",
+      "bytes": 227
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/freeze-columns.svg",
+      "sha256": "7a73a15cdca08a047e76f1c004d7c09b7f69e36378ea8040d6f255bc64576ba5",
+      "bytes": 301
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/gallery.svg",
+      "sha256": "462d85d32eb99bfac1413dd9f1680edb0dd8762d370cc436ca1261c01c4fda98",
+      "bytes": 283
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/hand-writing.svg",
+      "sha256": "ffeba8949194b523b349140e080edf70b7460e6ac591cc7f1ed2090d38eacb10",
+      "bytes": 350
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/help.svg",
+      "sha256": "8b6873e42776ed437e96adaeebff4d410717f881c6ba63fd92d0b5ea593f4042",
+      "bytes": 271
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/home.svg",
+      "sha256": "3e7e3aa482c9892165bde21a51f34ffd9d93c84a87f0fae38b42d0c0d438757a",
+      "bytes": 211
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/inbox.svg",
+      "sha256": "4c8f70250b4e34508ddbdf577769ff934918835f3b15ca23d3b9b10a36320aa8",
+      "bytes": 227
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/layers.svg",
+      "sha256": "67fd224f46952a78d284069d7752134f3d0719430625d535f7a9c8cc3cf55236",
+      "bytes": 224
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/lightbulb.svg",
+      "sha256": "026e50b2a41126987975e4cb284724743c7d3772a7edcbcea3badde112a9119f",
+      "bytes": 261
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/list-check.svg",
+      "sha256": "49a6fd1f6ffc9517c6512570f40b62a7a09f3c193584ee0b2368423082747ebb",
+      "bytes": 286
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/lock.svg",
+      "sha256": "c8cfb6dc75f1b2343011edd906a7792d8bfc211629dc03bd58566af02e8937ac",
+      "bytes": 253
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/manifest.json",
+      "sha256": "2c744e47b1b24cf408662fc1d15ab8be7857e6921f8479725b4bfac8edeef9e6",
+      "bytes": 653
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/microphone.svg",
+      "sha256": "0faf4861f9f5397d9b1c6883e5166cfcc5a242f8b267dd34f358b8099b50f885",
+      "bytes": 263
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/nav-assets.svg",
+      "sha256": "bd0e49cd5d0df4ebe4d13ad6faf261cd7574171132e872eb7823050b6d341f9e",
+      "bytes": 283
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/nav-dashboard.svg",
+      "sha256": "ee6d8c6103373a90b199e95d602cfc69f65c3180609a5aeaeac02efe9aeeb719",
+      "bytes": 360
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/nav-data.svg",
+      "sha256": "295f734b41e7dee484906eae6f10162e12d22386bf375d09a8dd9ad7fa5bbc1e",
+      "bytes": 219
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/nav-pipeline.svg",
+      "sha256": "03290a2c89bdd2013217697db51bd165896260ebc9118470a9031dff10a0fb90",
+      "bytes": 299
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/nav-team.svg",
+      "sha256": "022c4bf7b8818b0abef940c52a54d55734fef99b5aa4ac7f62584c8e0816a8a1",
+      "bytes": 278
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/opening-card.svg",
+      "sha256": "83a0446944afd9d7d2a242aba0dba6662a4294b54d8472cc8d1942d0ff7fe54a",
+      "bytes": 328
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/output.svg",
+      "sha256": "d4283fa653e3740132c6b07047e63106be6e075cdba082b3720c015e6152da87",
+      "bytes": 229
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/pencil.svg",
+      "sha256": "731cf0e3fba597b9fdfa6df4e66231074ae598469e4da0cc9bdbdb12d6bdb9a0",
+      "bytes": 260
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/pipeline-arrow.svg",
+      "sha256": "d99b231296fb303b092af64dd31ebc014118163473038ccc71335b4518377429",
+      "bytes": 223
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/play.svg",
+      "sha256": "dd4cc1b3763c3ae8c213e64b8a1a0179d7173571521ed2caa3b939cf1cc23fb2",
+      "bytes": 243
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/puzzle.svg",
+      "sha256": "d60ad4f34587ea83197d94ea454dc99229c8ec9afa4ac2cf5306649ee20a3bd1",
+      "bytes": 259
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/queue-status.svg",
+      "sha256": "308c0f5719e669d687794148e45948b4324a303f061db2dc03a01223a5d01e58",
+      "bytes": 235
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/refresh.svg",
+      "sha256": "b4b5a21e54d41e6691cbdf1f2be51bf62b5fe714adb984858aa4544c05dd84a4",
+      "bytes": 303
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/selected-topic.svg",
+      "sha256": "1a69cb5a58e86559380934f791bc2de36041be0d2b272d869335d879b5ef84be",
+      "bytes": 285
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/spark.svg",
+      "sha256": "4ebf6fbc1f2ae15a46323aa48bb605bd7e883355a35a4552fa2bb36df1a77dc2",
+      "bytes": 291
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/structure.svg",
+      "sha256": "c774dbc9cf8f6492cf6c530faa7ff782c7c59d78df04721fb9e3aeff2b7c4596",
+      "bytes": 343
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/target.svg",
+      "sha256": "07373800823a8fc3186114696a1fb4eae6db6a031b37d053b5fecb966f933cde",
+      "bytes": 252
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/图标/thinking-card.svg",
+      "sha256": "08b08421143fc40091490fc8459c0418c386ed418cc045ff19949f0148bb886d",
+      "bytes": 291
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/标志/logo.png",
+      "sha256": "651c107e06374ef30224d29c8d295eadd593d03b47129030d5b0245c7f4ce9d2",
+      "bytes": 1136350
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/标志/logo2.png",
+      "sha256": "61ed892aa9cd77409517080b3596e81eaa8bc45b4dd93e1e79524045efd1a5e5",
+      "bytes": 931400
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/社群介绍/community-intro-01.png",
+      "sha256": "0c815249aef8b2105674b2b437244e68bfffcd05483b04666cc6c745c8991972",
+      "bytes": 41515
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/社群介绍/community-intro-02.png",
+      "sha256": "bb5845bccd06340e9f591806ec475ce3329c324b18809994f54644eb5c5441ef",
+      "bytes": 125294
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/社群介绍/community-intro-03.png",
+      "sha256": "928e0eb24bb7f18da4c81c3b8cfe897d5715949b6e3235473becc9345dcdd92f",
+      "bytes": 81040
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/社群介绍/community-wechat-qr.jpg",
+      "sha256": "d8b0d784660ec428f396d032c64076b438d13b4bdb47df00b0abf93383b3eb38",
+      "bytes": 150248
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/社群介绍/vip-crown.png",
+      "sha256": "59b500eeb870d921f27f68f453ed609298434e436e3cb1d435f1b6e4d213cd04",
+      "bytes": 1246911
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/组件目录/catalog.css",
+      "sha256": "2576858eb9fc48618d931f1e87a5670266e43468289d6cd0fb562808e588d08a",
+      "bytes": 5190
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/组件目录/index.html",
+      "sha256": "fc0ae55e9a0f8c4ee9ded761bcb152e5c494b7ae9303f0655f8ac3fde0e4358a",
+      "bytes": 6313
+    },
+    {
+      "path": "03_工作台/01_品牌设计系统/组件目录/人物总览-v1.png",
+      "sha256": "8a803f56529c4a0ec1e827364cd90a44a212fea59ab2c252bbe78545412e42fd",
+      "bytes": 559304
+    },
+    {
+      "path": "03_工作台/config/content-types.json",
+      "sha256": "be697d6244c4ba2f119975d77b72dd77db602056ea779eb547cdd2f082191d86",
+      "bytes": 1945
+    },
+    {
+      "path": "03_工作台/config/member-capabilities.example.json",
+      "sha256": "0d3040e87a0c17ae0b7d2b5eadd0826b12918cca69c0b90e396bf8b5f6629f34",
+      "bytes": 140
+    },
+    {
+      "path": "03_工作台/config/prompts/today-tasks/breakdown-work-journal.md",
+      "sha256": "418bc808c72bae3198544056c9361d9415aaf033e40a46fd6b762e9f9f452bbb",
+      "bytes": 2057
+    },
+    {
+      "path": "03_工作台/config/prompts/today-tasks/classify-benchmark-topics.md",
+      "sha256": "3bc12f7b30636f7d5fd1c110f0462692e79b2589891883af383058921df7e130",
+      "bytes": 284
+    },
+    {
+      "path": "03_工作台/config/today-work-modules.json",
+      "sha256": "96338bb36eaf5b28cb88b1736aef5c3a50b903e42fc8ed93420a248b3c8fc9f8",
+      "bytes": 2810
+    },
+    {
+      "path": "03_工作台/design/brand/星球新logo-透明.png",
+      "sha256": "be474affe8f5958bc0ab5bfc601d276ceefe2c6e2ed44d56aa8cdb4febe6142f",
+      "bytes": 1088810
+    },
+    {
+      "path": "03_工作台/design/今日工作/A-优先级驾驶舱.png",
+      "sha256": "972db0b269bbbff1cb96c6a3ce8f7a6b3c9a2633fe70134d4afe75b3685965ab",
+      "bytes": 2436054
+    },
+    {
+      "path": "03_工作台/design/今日工作/A-真实任务优先级-v2.png",
+      "sha256": "bb96df7c89c509aa2d407276aacbfc72acde61b2b1d4f325a370d0033037642f",
+      "bytes": 1401870
+    },
+    {
+      "path": "03_工作台/design/今日工作/B-今日行动台.png",
+      "sha256": "520ff1a6b03d3f2037df7e32520f212fefd75bd0825b1fb2cf3ba054b7b16f28",
+      "bytes": 2196455
+    },
+    {
+      "path": "03_工作台/design/今日工作/B-真实任务行动台-v2.png",
+      "sha256": "3bb7a5e781c2bf5766f5addd4f8d07f98dc14df686e76b7b84ed05e1648d939d",
+      "bytes": 1298166
+    },
+    {
+      "path": "03_工作台/design/今日工作/C-工作量总览盘.png",
+      "sha256": "083307564754f0cde3380a6a270a2a9fc909d2dbd11714222a8c10580c8ea07b",
+      "bytes": 2835060
+    },
+    {
+      "path": "03_工作台/design/今日工作/C-真实任务地图-v2.png",
+      "sha256": "775c05b9a662e2e24c3123fe9afe3afc6bf4773274a3049901b033f88b5fe8f2",
+      "bytes": 1407192
+    },
+    {
+      "path": "03_工作台/design/今日工作/D-今日工作左栏类型-v3.png",
+      "sha256": "ae89dacb7050229865ff83b804062f9c0e21b6e63b714a0007aeb2b3613720de",
+      "bytes": 2087870
+    },
+    {
+      "path": "03_工作台/design/今日工作/E-今日工作Notion数字日历-v4.png",
+      "sha256": "65e6ae1d6bd33969a5dad1bdfcfdb4004e85284aeb92b272ae5c6b6a60fde543",
+      "bytes": 2169405
+    },
+    {
+      "path": "03_工作台/design/今日工作/F-今日工作Notion细节版-v5.png",
+      "sha256": "aa29e7c7873d3fd909e03213e43912f31770643f75306173de0e930dd8408e9b",
+      "bytes": 2247977
+    },
+    {
+      "path": "03_工作台/design/今日工作/G-今日工作定稿侧栏IP版-v6.png",
+      "sha256": "8abac439898192b85150c29f1ad6e5ea2ba87bbc87061e3bda1d3f28ad9356dd",
+      "bytes": 2255493
+    },
+    {
+      "path": "03_工作台/design/今日工作/H-今日工作定稿AIP品牌版-v7.png",
+      "sha256": "9c99386cba0cd5f9556dbf2cb1cd5e5f16677115142897665ade54265fc4cb4b",
+      "bytes": 2159304
+    },
+    {
+      "path": "03_工作台/design/今日工作/I-今日工作定稿AIP帮助中心-v8.png",
+      "sha256": "a6357ee4413a06c59c87e02f5ee448a739f8ef8e4b410d2729dce046c86f8e29",
+      "bytes": 2214646
+    },
+    {
+      "path": "03_工作台/design/今日工作/I-今日工作定稿AIP帮助中心版-v8.png",
+      "sha256": "62123fc03d9c12722b064f32f75e479594193aafffd4ff89fc77b64221aaa5fc",
+      "bytes": 2166239
+    },
+    {
+      "path": "03_工作台/design/帮助中心/A-帮助中心品牌尾注弹窗-v1.png",
+      "sha256": "2ab4e1f742b760acd1a5c486449e913442753e848cca7c683f371b4b253d98c4",
+      "bytes": 1858302
+    },
+    {
+      "path": "03_工作台/design/帮助中心/B-帮助中心添加我的微信-v2.png",
+      "sha256": "f2315a48bed4298638f04393642257414f564a42e19364970421a7582d11c8a0",
+      "bytes": 2343425
+    },
+    {
+      "path": "03_工作台/design/我的AI团队/A-我的AI团队协作结构-v1.png",
+      "sha256": "0b6c67685dc83e242aa05b9859cf73b15a81221700437e21f34cdbd186f82d3a",
+      "bytes": 2040690
+    },
+    {
+      "path": "03_工作台/design/我的AI团队/B-我的AI团队头像状态-v2.png",
+      "sha256": "b4ff9f3390e31e0916ecd639835147472f8e3b1fdcd56c2f19d26b60343dbce9",
+      "bytes": 2144815
+    },
+    {
+      "path": "03_工作台/design/我的AI团队/C-我的AI团队主形象统一-v3.png",
+      "sha256": "ec4b5208917e18ec4c0bc2a81d910572f576cd75c5b6d8205a0373da0dd50578",
+      "bytes": 2442551
+    },
+    {
+      "path": "03_工作台/design/我的AI团队/D-我的AI团队小审头像修正-v4.png",
+      "sha256": "c7b0682c8418cd478a797ca06f04503d3a03d0413db71128830e3ca991984652",
+      "bytes": 2459735
+    },
+    {
+      "path": "03_工作台/design/数据中心/B-数据中心多图表统计-v2.png",
+      "sha256": "e863cf3bcab347100146568e998ba85128d46b02db216c91b2d316ea19f50ed5",
+      "bytes": 1954524
+    },
+    {
+      "path": "03_工作台/design/数据中心/数据中心-内容区样图-v3.png",
+      "sha256": "bb26a108a9af090553ee4ba8758a91ee1d2a0b4ac7cfc20bb1e5fc61c6df2ffa",
+      "bytes": 1121084
+    },
+    {
+      "path": "03_工作台/design/数据中心/数据中心-图表化定稿-v4.png",
+      "sha256": "3e63994c94d770e981b1f50ff4fce5d0583567184a796e2eec91fd2205ceedf0",
+      "bytes": 1195774
+    },
+    {
+      "path": "03_工作台/design/数据中心/数据中心-图表化样图-v1.png",
+      "sha256": "7bda4b0a4aa520829fba8b10fe0d1cfb06e24c22d80fec3394f64a0702ae71ce",
+      "bytes": 1095371
+    },
+    {
+      "path": "03_工作台/design/数据中心/数据中心-图表化样图-v2.png",
+      "sha256": "05cf9689e94b4643953ed72936c335eb2b67106041b61a941c03f40002a7bacb",
+      "bytes": 1125050
+    },
+    {
+      "path": "03_工作台/design/爆款流水线/A-爆款流水线干货型-v1.png",
+      "sha256": "d46ccf5fe8e0baa42090e1ac091787da73cdd98cd846ca27313c145df574c945",
+      "bytes": 1707587
+    },
+    {
+      "path": "03_工作台/design/资产中心/A-资产中心三库配图库-v1.png",
+      "sha256": "f92ef916487df7ef07ce82578117ac6e64dedc42e2c197d7a4b8e11489a27175",
+      "bytes": 2142672
+    },
+    {
+      "path": "03_工作台/frontend/app-pages-v10.css",
+      "sha256": "5259d80e6c46ad8d3e41793931f194c4614e965d3c387b1878e05d3e0833af90",
+      "bytes": 102351
+    },
+    {
+      "path": "03_工作台/frontend/app.js",
+      "sha256": "4678c981b9a220447699bf82df62e11511e92db7724d8fa5c3458e2b745cfa0a",
+      "bytes": 139756
+    },
+    {
+      "path": "03_工作台/frontend/assets/aip-brand.svg",
+      "sha256": "2908975cf8f94ed09169394d71b545c6be12207b705144ec0bccf3dc69edbf17",
+      "bytes": 711
+    },
+    {
+      "path": "03_工作台/frontend/assets/aip-team-portraits-v1.png",
+      "sha256": "f01854222ec9a25a38fd63bfec1b743e85660f8e605a066481b09d3dd2763ff0",
+      "bytes": 1740562
+    },
+    {
+      "path": "03_工作台/frontend/assets/fonts/.gitkeep",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "bytes": 2
+    },
+    {
+      "path": "03_工作台/frontend/assets/team-reference.png",
+      "sha256": "2a573f0a1eda1068aaa8df35bf1f2ce7b0bceedcd1380eaeeded28aea8141e19",
+      "bytes": 1897135
+    },
+    {
+      "path": "03_工作台/frontend/assets/xiaojiang-guide.png",
+      "sha256": "d3f4f6bfc2eb2e9370dae589a55fa459f97dcc7364023ea58bbcc68d2627133d",
+      "bytes": 2049336
+    },
+    {
+      "path": "03_工作台/frontend/design-assets.css",
+      "sha256": "fa6a1ea14726cd398ed934976e0cf423f563c8beaf60ea68ba0a950ad0ed009b",
+      "bytes": 1278
+    },
+    {
+      "path": "03_工作台/frontend/design-system.css",
+      "sha256": "3dcdcd15f088b90ef3ef8e1431cc583aa5949fff234e094b5e14c1a9b37ecd94",
+      "bytes": 21687
+    },
+    {
+      "path": "03_工作台/frontend/fixed-canvas.css",
+      "sha256": "ce51037c1be11b81cb182b95789333fc35f27dc733343154b1a3d06a5a9d6d15",
+      "bytes": 8981
+    },
+    {
+      "path": "03_工作台/frontend/index.html",
+      "sha256": "a123fad3b6e8a9cc88d81c2a737d00aa23c9199acc75c108c2de324feeb74005",
+      "bytes": 1917
+    },
+    {
+      "path": "03_工作台/frontend/motion-system.css",
+      "sha256": "23f471473e35cc94b9af678cd1d72731c6d360b21475f327386587d734f9077f",
+      "bytes": 23807
+    },
+    {
+      "path": "03_工作台/frontend/reference.css",
+      "sha256": "b24caefe721c5e37689d3841a96539f4b1399b795cbe260db69d1d68d2d54c57",
+      "bytes": 15607
+    },
+    {
+      "path": "03_工作台/frontend/styles.css",
+      "sha256": "edef55209aa490bd153f2f6c6bf0115022234189d60091670c040124091c0faf",
+      "bytes": 19473
+    },
+    {
+      "path": "03_工作台/frontend/today-v8.css",
+      "sha256": "bafb96534b61549ca0957a86d7fb92242bb62f935eb0cc241ca29e30fba08ed2",
+      "bytes": 10351
+    },
+    {
+      "path": "03_工作台/frontend/today-v9.css",
+      "sha256": "74f0a8b21f049f91e889bc7ed98d36b95be13328ce1b124b9a48a43345275d87",
+      "bytes": 40191
+    },
+    {
+      "path": "03_工作台/install-workbench-watchdog.ps1",
+      "sha256": "7554ceceac2748c993f7a0da44d8f50ca0527f35635a05f1a9202b66cd1dd424",
+      "bytes": 11560
+    },
+    {
+      "path": "03_工作台/launch-workbench-watchdog.ps1",
+      "sha256": "7ec2bd7bbf99688ebf65186c7da580d462c4f36c097591aab07b480133ea13e1",
+      "bytes": 1303
+    },
+    {
+      "path": "03_工作台/launch-workbench.cmd",
+      "sha256": "8c08129dbdac838c2b7c48efd7835a487728a8f201ca9d44af38e81419d5c87d",
+      "bytes": 139
+    },
+    {
+      "path": "03_工作台/README.md",
+      "sha256": "96278a138b9d8a7957244dfa078f92982bdf44f6eb005cad58577dbdeb6df9b2",
+      "bytes": 1242
+    },
+    {
+      "path": "03_工作台/run-workbench-watchdog.ps1",
+      "sha256": "83337c2c326dc885302c23f6852836b7c69a1e266bad33187c6eafef9a10b594",
+      "bytes": 972
+    },
+    {
+      "path": "03_工作台/scripts/codex_desktop_bridge.py",
+      "sha256": "e3a86015bc0234bbf1665142eff1fb9063058993d0245c0aa67f5e41fa87bfb2",
+      "bytes": 31604
+    },
+    {
+      "path": "03_工作台/scripts/codex_desktop_bridge_agent.py",
+      "sha256": "ceb493d17824f05561e6c71395c7263e0e1501d8005305045af3b7a9cdd13551",
+      "bytes": 17026
+    },
+    {
+      "path": "03_工作台/scripts/launch_detached_watchdog.py",
+      "sha256": "3cab8b6c56cebb776939c86eef2311a39404b00a0d80ce4e59b32cd3b6172c0d",
+      "bytes": 3770
+    },
+    {
+      "path": "03_工作台/scripts/report_visible_task_event.py",
+      "sha256": "378b27010263df8f94a8074dea2c70a0bd88ef0616c39cacf1dfc32be6835902",
+      "bytes": 4235
+    },
+    {
+      "path": "03_工作台/scripts/watch_workbench.py",
+      "sha256": "a8cc0d7b53e189d8af316373d697e58f23fc3a65b4e94202c9ce604138a4259d",
+      "bytes": 8879
+    },
+    {
+      "path": "03_工作台/server.py",
+      "sha256": "b23bf48a145cc015505b46a3c6e57bff52c3ff4e8ab0818ccae4c477c8a4d7bc",
+      "bytes": 266658
+    },
+    {
+      "path": "03_工作台/start-desktop-bridge-agent.ps1",
+      "sha256": "c291d8a68932c60cc19cad6cbb2e6a412c36ba71517e325c76cd56d5398d7d05",
+      "bytes": 458
+    },
+    {
+      "path": "03_工作台/start-workbench.ps1",
+      "sha256": "18631a061dbb2e04c0809d90a703450ecd143ed6a434c829354ad49d74436a68",
+      "bytes": 4035
+    },
+    {
+      "path": "03_工作台/SYNC_CHECKLIST_2026-08-29.md",
+      "sha256": "4b8274bce6b200db768e6db9bf4852615a9178b8144c380fd9943cdbe58f165d",
+      "bytes": 1498
+    },
+    {
+      "path": "03_工作台/tests/test_active_pipeline_contract.py",
+      "sha256": "c5ccd1efc39ce6b0e2fb2a660b3c8faf74912971b8eb97d1a7a3d58d668e6dc7",
+      "bytes": 35996
+    },
+    {
+      "path": "03_工作台/tests/test_input_inventory_contract.py",
+      "sha256": "8d28684dcce582d4c3b962c4bf0af590d41da3b2804e5bb9488154ddd196b21e",
+      "bytes": 11985
+    },
+    {
+      "path": "03_工作台/tests/test_workbench_v1_contract.py",
+      "sha256": "524b13afa2b7b2f5d0e420dacef1b92b6c6ac9f7c939c4cdfdd6d6c580f5bb22",
+      "bytes": 32292
+    },
+    {
+      "path": "03_工作台/V1基线记录.md",
+      "sha256": "cc0ca3942517ef8c100a713467c8e5659fe1409e457da11965905027603ff861",
+      "bytes": 3276
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ApplyPatchApprovalParams.json",
+      "sha256": "179d91081c3c84d0f79fc544a3d6d423f280c0f9d93512cdd0344c80e09b99a3",
+      "bytes": 2657
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ApplyPatchApprovalResponse.json",
+      "sha256": "a5e145b4794ea91da6eb478626fac96bbbd4485c3399fabd1c9972d53d2d9010",
+      "bytes": 4278
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/AttestationGenerateParams.json",
+      "sha256": "b85df8f169cfbca98724df3a5f7550fc4649fa69b23f5160aafdb52e027133a8",
+      "bytes": 118
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/AttestationGenerateResponse.json",
+      "sha256": "2eb86b2a37bca01a8cb5d0822f28cf13d46dd106c8b1d38e7ba097e436b5ab30",
+      "bytes": 277
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ChatgptAuthTokensRefreshParams.json",
+      "sha256": "03b7a734b8b3180d9cb477b33564385d29b22a2528165a614891f13849060503",
+      "bytes": 971
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ChatgptAuthTokensRefreshResponse.json",
+      "sha256": "06d6b30436fc962d80b5d7920f8f323de12a052214d9148c5f0dfbaedd5eec6c",
+      "bytes": 406
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ClientNotification.json",
+      "sha256": "706cf248d75027c84a3c63348d0ed507182e8eba40069dd17541793de029145a",
+      "bytes": 431
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ClientRequest.json",
+      "sha256": "51cb1b3c21b123ce591b54ffbdf2d9032b6dfee7f8d5595579ba584f5285b274",
+      "bytes": 265405
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/codex_app_server_protocol.schemas.json",
+      "sha256": "4f4a8d8f53f971b97f818639f58c8d26bb68bfcdfa2d2f20572cb97e6761ab91",
+      "bytes": 762136
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/codex_app_server_protocol.v2.schemas.json",
+      "sha256": "6f76cce25156d405f1da54f205751e38f7b9eb42246ac0742b9958dd60275350",
+      "bytes": 658031
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/CommandExecutionRequestApprovalParams.json",
+      "sha256": "94dc336210d981ab4df0d998068f059fa6f409ea9b4e3e217046c7aa69b77edf",
+      "bytes": 15539
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/CommandExecutionRequestApprovalResponse.json",
+      "sha256": "6d0767113e22f311381809b6b236b0dde2b99b01992879c26bf7b1ea0e003cb7",
+      "bytes": 3202
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/CurrentTimeReadParams.json",
+      "sha256": "2e1a0e6b766f9a31fa937c957cf0b3c0505e8b01503d559b41022a4d523d4c95",
+      "bytes": 220
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/CurrentTimeReadResponse.json",
+      "sha256": "9a858fdc278ba457ff86f1408a7a99b008f3d8364b33bd95b45ea79906f57896",
+      "bytes": 318
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/DynamicToolCallParams.json",
+      "sha256": "401bba20cfbd95762bef0467d840430c46be53369093ad9f26425ba757e34efc",
+      "bytes": 519
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/DynamicToolCallResponse.json",
+      "sha256": "abb082cad67f11fcc98ba75f2eff75d7d1723af0c657655329b83ff160451a02",
+      "bytes": 2010
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ExecCommandApprovalParams.json",
+      "sha256": "653116614df1aa5011c3cc399cf79bae6b9eb28c1d527df27275abf61ceb1365",
+      "bytes": 3768
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ExecCommandApprovalResponse.json",
+      "sha256": "80dba6d9f28d19c57960db72340554c193624f014cd496714a0c7aabe1120046",
+      "bytes": 4279
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FileChangeRequestApprovalParams.json",
+      "sha256": "13848b26814c286ad6425a20d01c1691c86790e1f9e2529399677a8a22fe0d18",
+      "bytes": 968
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FileChangeRequestApprovalResponse.json",
+      "sha256": "b95b03ee6be674e25cee2e863cc135a28620e1070addd2f34685aadee27cde08",
+      "bytes": 1158
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FuzzyFileSearchParams.json",
+      "sha256": "0291dbb87a7c3d8ef7f7cdf8d5d61f929deabab8c0ea79f064da95984d7d5f4f",
+      "bytes": 413
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FuzzyFileSearchResponse.json",
+      "sha256": "4984c3dba591e240407c39531d41c6b499c4816017de70a3371c7d6fa2d0951f",
+      "bytes": 1332
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FuzzyFileSearchSessionCompletedNotification.json",
+      "sha256": "d3af2e301142ac0cb2462d95b052162ff4f25d83f9c1b21e319d5ce9c860d401",
+      "bytes": 244
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FuzzyFileSearchSessionStartParams.json",
+      "sha256": "5478b30d07638eae3befbf8ced3a0413ca984785b665d7aefff92c5bcb0c6ebe",
+      "bytes": 342
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FuzzyFileSearchSessionStartResponse.json",
+      "sha256": "396bc50ae21f418bdded994321b54ca184c718521c2de0698b939adf75961670",
+      "bytes": 128
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FuzzyFileSearchSessionStopParams.json",
+      "sha256": "f9bb71dd45717a673bc6dd682ed04335a960433badaca1ed70aedbafdaf31b6c",
+      "bytes": 233
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FuzzyFileSearchSessionStopResponse.json",
+      "sha256": "808dd79e9bb5e0463abc18d34c4a3c4ee2341199ba5ee924dd96e602988b7130",
+      "bytes": 127
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FuzzyFileSearchSessionUpdatedNotification.json",
+      "sha256": "b8626521028e0c68611c57d458f27dbc9bf8be542e804865ae0d14acd78cf2e6",
+      "bytes": 1474
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FuzzyFileSearchSessionUpdateParams.json",
+      "sha256": "492893ca73a4979f92feea2b659af3d7577472514f70fa0204e71140e8efbae8",
+      "bytes": 293
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/FuzzyFileSearchSessionUpdateResponse.json",
+      "sha256": "c3032906065fd9d513926088a685da71a645d104c0157887297f1db2ff166d46",
+      "bytes": 129
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/JSONRPCError.json",
+      "sha256": "d7ea353d4875ae204625da5a00a1ecb5afc69101d5778b9acc253a49f8932992",
+      "bytes": 893
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/JSONRPCErrorError.json",
+      "sha256": "12cc5cd5d9df9246defa609c472375020fe5250f3aeabd7d529076cecd9f541e",
+      "bytes": 314
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/JSONRPCMessage.json",
+      "sha256": "6da4cc373a7ccd01f5608ad4496eeb4d44b6a9b0d3158e85ed66b59f3c0b5114",
+      "bytes": 2888
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/JSONRPCNotification.json",
+      "sha256": "c2b43f26880db331393fe09f34bdd76dfeb4dc30d8418d1c26e18db166d6c8c8",
+      "bytes": 303
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/JSONRPCRequest.json",
+      "sha256": "31bd6f360b2dd8a7ceaf682708105d40d38cb0b9d0821357a04da67028438f73",
+      "bytes": 1093
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/JSONRPCResponse.json",
+      "sha256": "4796738c04c74288213a08fb8d820c7b4df19e0977cdcd35b65ffcb43cfc93ab",
+      "bytes": 520
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/McpServerElicitationRequestParams.json",
+      "sha256": "d056440b1c92d660364b671a39156b87dac4ab6537178499289d4b7204743c61",
+      "bytes": 13251
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/McpServerElicitationRequestResponse.json",
+      "sha256": "792a012fdfe53ac211575a6c37ffbd492be848d15cb313d1bb4b534ade1f54ac",
+      "bytes": 741
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/PermissionsRequestApprovalParams.json",
+      "sha256": "c6d165e1b0c65d5dcf1e099b4c226c7e4dad79fe2b88b03621a1fc6c1d3c86c2",
+      "bytes": 7719
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/PermissionsRequestApprovalResponse.json",
+      "sha256": "23f3f24e9dbf35db3e0b85703f0d934da5a1cff3cbb611fba8bcd41f3b4a04b0",
+      "bytes": 7068
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/RequestId.json",
+      "sha256": "9c72d59a306d827113020c6d31a14c326d55210d9bd6954f825196a52009f1c7",
+      "bytes": 197
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ServerNotification.json",
+      "sha256": "4adf8e56241a81b83b1552d834f59f92d9d356101243af395da0cc3a8951c786",
+      "bytes": 183296
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ServerRequest.json",
+      "sha256": "41187d1422afe9890b528749d13c497fbfecb8cb1ae6dd3de1a2a82d7b4ba687",
+      "bytes": 50686
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ToolRequestUserInputParams.json",
+      "sha256": "fda15b62e7446105b59c8ed85c908abed2a47db70653e57c92c47a2f204fa77a",
+      "bytes": 2143
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/ToolRequestUserInputResponse.json",
+      "sha256": "5073b245f741fa8ce62ec52e4dd1809b7831f9c4284c279a78abc9b171f8e3f2",
+      "bytes": 793
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v1/InitializeParams.json",
+      "sha256": "6f0094be9a65242ec779a40794cbd4fdfa32fca1e45084a16adfb50501d33ea2",
+      "bytes": 2143
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v1/InitializeResponse.json",
+      "sha256": "62ad689c2cb6379913c1d72749cfd8de5089d35760214123518eb92eef11acc9",
+      "bytes": 1286
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AccountLoginCompletedNotification.json",
+      "sha256": "d81e8821fd5a4a9ad118dfc3506ea156d32dcb18da388b336501bbc6a5ccb4a6",
+      "bytes": 720
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AccountRateLimitsUpdatedNotification.json",
+      "sha256": "c50daa6abb4723ca1edffdae9d0d6ca452770669ed045fae48d0fe9b20c6ea81",
+      "bytes": 4532
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AccountUpdatedNotification.json",
+      "sha256": "058273da476a4d77170493a5e28a8311c27cadcf3743a651f6bdd05c4255abbd",
+      "bytes": 2555
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AgentMessageDeltaNotification.json",
+      "sha256": "996e6c0ea65e57bed5a00f410b94381fe5ebf804333e5d00c2b6e6d47e5c55f6",
+      "bytes": 406
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AppListUpdatedNotification.json",
+      "sha256": "2c67a3bc676309afdd0d6952ad454c2a040a3d4c09d38c8f63ca7fb632034cce",
+      "bytes": 5703
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AppsInstalledParams.json",
+      "sha256": "c2027510d5d041c2205349036f9c2bea10b20df309de5330beab9de8a9e50bdb",
+      "bytes": 570
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AppsInstalledResponse.json",
+      "sha256": "d8ef8dd14dcba8aaaaaf2b0b80db90d66edf8f4ff422589b844ae2b0edcb46d4",
+      "bytes": 1343
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AppsListParams.json",
+      "sha256": "e880d0c24811118a2d3c2c7f0569a14aae5b12a31b0efe56809ccca8bbd85802",
+      "bytes": 904
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AppsListResponse.json",
+      "sha256": "5811fda68d6274decfc11744ad72bbe93e601d8514549e94f361ba3131d1adeb",
+      "bytes": 5888
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AppsReadParams.json",
+      "sha256": "61e6a9d35515f3164a7f7e7a5b0c5ac92817c5a3b5d7fb27e9a704fe2935ddf7",
+      "bytes": 823
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/AppsReadResponse.json",
+      "sha256": "f3b73c2c31f16a2cff013c9682dfea48f26571f94002195c93ce10722a288791",
+      "bytes": 2443
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/BedrockDiscoverParams.json",
+      "sha256": "ef0eb4b2393219944e5df3a0cda9970b19487e734de7cd45df8ff26dee02c321",
+      "bytes": 114
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/BedrockDiscoverResponse.json",
+      "sha256": "621a651585d1d1f89e18f9ba337f4c84e34f811a7189cfb7597fd191d1d29bcc",
+      "bytes": 1244
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/BedrockSetupParams.json",
+      "sha256": "a2640d86b8f16eaddfaa3231a186766e3aa801a73404bb6fac67fbd2133242ae",
+      "bytes": 1968
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/BedrockSetupResponse.json",
+      "sha256": "245ac1cc67ba7d7b89477c46bb19e7c95411113b50604f365c2ec3705a16d03b",
+      "bytes": 113
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CancelLoginAccountParams.json",
+      "sha256": "a4570a7542b82b918f69199f1e214ef747151c678473a5af58c58b088fdf58b6",
+      "bytes": 221
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CancelLoginAccountResponse.json",
+      "sha256": "06bc17624df01600fdc399d3c0f222f875c010d2d952c1d1191cb84de9b59014",
+      "bytes": 404
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CollaborationModeListParams.json",
+      "sha256": "20991b8d69722b301ef860307a4df89f20c475e4a4f1cd5212d6b71ab1507655",
+      "bytes": 188
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CollaborationModeListResponse.json",
+      "sha256": "d51cd5bd1b7cdf93a1a665adc333867ee12fa85ee811a873cb0131bf5d49d3e6",
+      "bytes": 1682
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CommandExecOutputDeltaNotification.json",
+      "sha256": "28e74454b211ab677a256129e623fc5a2a29ce5394da1c69d3bc5136f7e37c57",
+      "bytes": 1585
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CommandExecParams.json",
+      "sha256": "fd034b4c85d7b6f466e30a3cbb73db86be1263aca3f81b89b547f14817dfb62e",
+      "bytes": 7673
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CommandExecResizeParams.json",
+      "sha256": "b748fee19979d2c32ac17a460ccfdc761e125cc2939bc551945e1e2c2af34197",
+      "bytes": 1216
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CommandExecResizeResponse.json",
+      "sha256": "01da20d70957fa5b43cf41365c5fee4fb3a69927947a45f92866f9bcf0895d0f",
+      "bytes": 188
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CommandExecResponse.json",
+      "sha256": "dec52d187121e8dd48124b47a4a8d8428ef3717b98b9200345bb404f73b62c9d",
+      "bytes": 699
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CommandExecTerminateParams.json",
+      "sha256": "979ece7059c6713d0909ab1690daec27149510f4ea2ec10014600bfb1d631c97",
+      "bytes": 404
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CommandExecTerminateResponse.json",
+      "sha256": "d46aa76d952bb3ac95d0bd64de609fb8a82efd98d9ee38264fe3673fd184ce5d",
+      "bytes": 194
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CommandExecutionOutputDeltaNotification.json",
+      "sha256": "841fa94098ddb63a71acf1bf5f9e3fac1b0491f4ed3fa8ef86f9a6ca1260b539",
+      "bytes": 416
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CommandExecWriteParams.json",
+      "sha256": "3e8e849ce321c85987bbe96ce1f913df0047696a5207bc97dfa1409b0142eda8",
+      "bytes": 716
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/CommandExecWriteResponse.json",
+      "sha256": "22887250f84443b2a6f5fc6f9c46cf9e2af072ff631574340018c48771411571",
+      "bytes": 186
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ConfigBatchWriteParams.json",
+      "sha256": "d11e244258ffaf8a37a0ca4afdbe589d07cb7881b72f06b7f730fddbab9ad613",
+      "bytes": 1325
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ConfigReadParams.json",
+      "sha256": "257c54a423b47c1d209ff1076765a1564d82322fd5161670fd489a2874de1bac",
+      "bytes": 495
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ConfigReadResponse.json",
+      "sha256": "ae669f85697dd15555a13f1e79a9147b0944b7755c4a416f36ee5ad8d9d68e3a",
+      "bytes": 22498
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ConfigRequirementsReadResponse.json",
+      "sha256": "79b7e492d8bd3c72337372155547afc495daa3a57bd46cfea7bd98d4f8ce85cd",
+      "bytes": 18756
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ConfigValueWriteParams.json",
+      "sha256": "b9032e35bf64d4628bfc72e22b58b71bbcf754aeb720a86eacb091e0137547c9",
+      "bytes": 763
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ConfigWarningNotification.json",
+      "sha256": "533e713405b582cce4d772d0b4ebbc75e840f0fe71cedbb17c2c83da285a21d4",
+      "bytes": 1640
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ConfigWriteResponse.json",
+      "sha256": "1d690287d9e8a0c552f664038d3810dfc3903ec8042eb2c0f772856414f59954",
+      "bytes": 8685
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ConsumeAccountRateLimitResetCreditParams.json",
+      "sha256": "ce36a9f59ce3b8138fccdca042538f723e93d0e34d08441e6846d3153ee0b291",
+      "bytes": 594
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ConsumeAccountRateLimitResetCreditResponse.json",
+      "sha256": "6d4144c00dcb7f73be6ad24693ff7e539bad56064e4432f7f2bf8d20b3bab724",
+      "bytes": 1177
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ContextCompactedNotification.json",
+      "sha256": "c9f9a58ef680e09d568cff5f24b45895841e1cf138b650bae64dcf6c85f177af",
+      "bytes": 362
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/DeprecationNoticeNotification.json",
+      "sha256": "29fdb44fc0a09bfdc5c4924ff34e33679acc9201730fa4fe9be7ed1978af0b72",
+      "bytes": 457
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/EnvironmentAddParams.json",
+      "sha256": "0019c91a9d4952d37ab14f33daa54b2be5bde5b86787fa85ebe66ec480e2eefc",
+      "bytes": 546
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/EnvironmentAddResponse.json",
+      "sha256": "d3cc7b30fa2505d2e75322ce904574984c63bb0b809b691b6b075509b1c8c300",
+      "bytes": 115
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/EnvironmentConnectionNotification.json",
+      "sha256": "007e9a6ccae0003a56476bb7cdc9a097141e964c168e7ae43d213a763c93fb56",
+      "bytes": 306
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/EnvironmentInfoParams.json",
+      "sha256": "1d9c3b2fcfbdf3a4952e825a2fd084cf8bd87189126e1b339efaa33803fdf320",
+      "bytes": 230
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/EnvironmentInfoResponse.json",
+      "sha256": "9b3fdf205daedad7ce230c8b8b2423b325a087b9b960ea3f82289667ecc2e7d4",
+      "bytes": 1018
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/EnvironmentStatusParams.json",
+      "sha256": "27fd22e3c478b3fe1a53e7adadbd9647f0f86d78abfde8c63be5b0cd1799e008",
+      "bytes": 376
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/EnvironmentStatusResponse.json",
+      "sha256": "43798149b75ee5c6fb8e3113019f9b0db9860102ec87be4f17fb84d8f10068b6",
+      "bytes": 2178
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ErrorNotification.json",
+      "sha256": "eb2c1291cd21ca2c1fca72fc7ee647f8809fa0cb04620a981a9e5ce3fee35cbd",
+      "bytes": 5467
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExperimentalFeatureEnablementSetParams.json",
+      "sha256": "00aaf2ef719cc336e4d20eb26dd6158be1eb26161fb7647372804b80a02e3131",
+      "bytes": 509
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExperimentalFeatureEnablementSetResponse.json",
+      "sha256": "5ecd92ee95380d7cadc4c109091530aa71245e41b9f1b530a5e9d5c5c9eda95b",
+      "bytes": 386
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExperimentalFeatureListParams.json",
+      "sha256": "4db92977e59fea4125710babb4cd2128dc2cebef8292e3619d0844089e7fc1f5",
+      "bytes": 827
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExperimentalFeatureListResponse.json",
+      "sha256": "4084a25f32333b3f58eb5e9803a5983739b57f945c4e7e4002e85851622ce597",
+      "bytes": 3066
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExternalAgentConfigDetectParams.json",
+      "sha256": "db6c6ea654efb4095dc745a1e65bee76d0d063b03f2bc3202b9077a1569211f8",
+      "bytes": 1414
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExternalAgentConfigDetectResponse.json",
+      "sha256": "36c4173d5f30ebd04be3d40389c904bc4ecadfbb8e5d1dd46b9b589254f7e1d9",
+      "bytes": 5240
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExternalAgentConfigImportCompletedNotification.json",
+      "sha256": "c54702d40c3a40bcb3e3e835d99860473831725acbd3576fc26d2d4fa3a7617a",
+      "bytes": 3025
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExternalAgentConfigImportHistoriesReadResponse.json",
+      "sha256": "1c09641e957333a2f602a350532acd99cf538a73ea45f39a2294289907a0bd96",
+      "bytes": 3890
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExternalAgentConfigImportHistoryRecordParams.json",
+      "sha256": "6a3e8071854771b0f34c6623fb7dcfbeaa7518a90779cc4a40c97fe92ac6f3ed",
+      "bytes": 3237
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExternalAgentConfigImportHistoryRecordResponse.json",
+      "sha256": "a252a2c2a03b4460bf3635d517c0735fa487a2f8a97de1aa0637f930419ae656",
+      "bytes": 245
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExternalAgentConfigImportParams.json",
+      "sha256": "6b8d0a8fbd5a7ddd455ec0dea6d1b578f56841480c8a5fffbfcd045db79458ee",
+      "bytes": 5152
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExternalAgentConfigImportProgressNotification.json",
+      "sha256": "dae7bfc12026811ba24cc6f32dc01ae9ffaee7d9340d7768f9afce94575c23d2",
+      "bytes": 3024
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ExternalAgentConfigImportResponse.json",
+      "sha256": "0ad2fc7dff7b1bdc471cc365985f559490f253ea127263417f0a0a1edcb33cef",
+      "bytes": 232
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FeedbackUploadParams.json",
+      "sha256": "aa958cd74b37fb28cc49ce22345a1efcda9d4cf5fa47e7cce6949e5366ff8b2e",
+      "bytes": 726
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FeedbackUploadResponse.json",
+      "sha256": "604390e864944eed2c4268675978dd8082f0884909d73cc79fda59dbe03a2d58",
+      "bytes": 221
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FileChangeOutputDeltaNotification.json",
+      "sha256": "04c3df83d46725ffc048577e7a5aa25de9a6c8ea9eff713bbae2b408672481c5",
+      "bytes": 544
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FileChangePatchUpdatedNotification.json",
+      "sha256": "cfb69d18658610a0510f213e09c6847f70517410ed91cf99cc4713c15a795213",
+      "bytes": 2159
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsChangedNotification.json",
+      "sha256": "197693fcb852a85fedfbcf1cd00c9a3cc74dddfa09bdf6b11fdafebbcd12ea2d",
+      "bytes": 1061
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsCopyParams.json",
+      "sha256": "bc1135070827681e4d9a14f79b5b06a4f5652e538ae6a89642d27dbc8b2a2af1",
+      "bytes": 1198
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsCopyResponse.json",
+      "sha256": "c88392d6c3ff394441231cdf5614794ba0c2b4ba683811f6033a01fe65528a59",
+      "bytes": 162
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsCreateDirectoryParams.json",
+      "sha256": "405fd718ebafe7f47ffd82c86540ab4af663659c737ea2b25acd3e04a1bc94ea",
+      "bytes": 1047
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsCreateDirectoryResponse.json",
+      "sha256": "a658fbd34d5e3d6300bcb7015f10fc1764aa8aca3088abc79af9caa2e848e527",
+      "bytes": 184
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsGetMetadataParams.json",
+      "sha256": "382bbf3a8b5c7e8cb16a1a29f853ce49c2904e563325e33a9e41dcbf632dab5e",
+      "bytes": 851
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsGetMetadataResponse.json",
+      "sha256": "b8355f112eda37d7ff25ad0eda7dae912dba695961855c5cb8444a7f867d66c2",
+      "bytes": 1005
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsReadDirectoryParams.json",
+      "sha256": "c4ca6cdc129d70375fe638c723c1b1bb07a9716101525970cf77bf7560fec657",
+      "bytes": 862
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsReadDirectoryResponse.json",
+      "sha256": "2cfb28c3c1ab1487f6b778f4d76871e3a9f590597bdf0da502cc41b202269dbc",
+      "bytes": 1139
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsReadFileParams.json",
+      "sha256": "74b325108195fe955e6ffcb6032e9380d3bfdee8aed7d115f5f1e4b127c5d706",
+      "bytes": 844
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsReadFileResponse.json",
+      "sha256": "fd67dd725b5bf5c7f27e78cc3d66fe24314f08913fc00ace9dbb663bf2f487e1",
+      "bytes": 354
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsRemoveParams.json",
+      "sha256": "c453f8ae4b3311f5da88f67f743fdabbcdc323dc3d9eaa40d750ceae147bb630",
+      "bytes": 1199
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsRemoveResponse.json",
+      "sha256": "6371aba2cae2f92be487be05c1ce531ca4139da5004b740a0010ccfdba548100",
+      "bytes": 166
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsUnwatchParams.json",
+      "sha256": "3134d42c231f40769a4d1ac4adcf051be5205e7a1b70bb32c4a8655fea730175",
+      "bytes": 368
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsUnwatchResponse.json",
+      "sha256": "9c59c3473df1f1873ee0d87ed33cecec0766b24c8357ee7dc8b29a57ca21e104",
+      "bytes": 168
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsWatchParams.json",
+      "sha256": "10bd9c01b3819db1ed8e2487a277f20b35e3a9f74ae77214654f1a529fc1444d",
+      "bytes": 1042
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsWatchResponse.json",
+      "sha256": "d32e77e7d6f619c5f4183c335ecddd3c4ffb95a51761198985c47838ae891a6c",
+      "bytes": 864
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsWriteFileParams.json",
+      "sha256": "2167e05c7f3eb26d475f9c1ce71697ba3b635efd8761a00b22abfd6af175bd2f",
+      "bytes": 970
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/FsWriteFileResponse.json",
+      "sha256": "0e4153ee7baa5c1203c2c573504baaa40e1dd8738d78e4c1e3a179fb49df6b16",
+      "bytes": 172
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/GetAccountParams.json",
+      "sha256": "30b545275f60975b55bd6fbaafd70f15505801d14168ee82d3931b6e93c78aab",
+      "bytes": 485
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/GetAccountRateLimitsResponse.json",
+      "sha256": "c102f41b28ee782008b0fc98adb2cefe172bfe6c347770a0896453f23e3d812a",
+      "bytes": 7259
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/GetAccountResponse.json",
+      "sha256": "08a7dd8c570c905b0bb6998d43ed133e72e2445f08125f86dfc96887e288701a",
+      "bytes": 2399
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/GetAccountTokenUsageResponse.json",
+      "sha256": "a58e58c852c888e5de925d99a66688d55ebb2fff038e795aadf04f8a8426dff8",
+      "bytes": 3838
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/GetWorkspaceMessagesResponse.json",
+      "sha256": "3ebd00f0acca088e5ee0309ec09b9a571e7f2eea5b63a32cda67be01c6886d67",
+      "bytes": 1565
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/GuardianWarningNotification.json",
+      "sha256": "5325551d2efb47d578665e3deb846f6369e05f98fbc5bfbffc5d9fe0cb0bd167",
+      "bytes": 423
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/HookCompletedNotification.json",
+      "sha256": "33d8f8be8cd81d0e9d702d0ecaac1f0a75cea09a19af99b72c4c03d9c89e3721",
+      "bytes": 4266
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/HooksListParams.json",
+      "sha256": "07638c3a8a3690cf368fa92c7ff697fdd0132865e8c59d53f6e5789e5a260053",
+      "bytes": 311
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/HooksListResponse.json",
+      "sha256": "b5fc9f72851b27e67eef89163fc94b60179313c69655d99cc64850ebd97d7446",
+      "bytes": 5829
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/HookStartedNotification.json",
+      "sha256": "906754dc6e2d0f98373502be30911af9210a2d9a1da44327992057af79d9cd29",
+      "bytes": 4264
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ItemCompletedNotification.json",
+      "sha256": "cc98144607b39aeacbba18a76c5494569681ba6cae1a6480d71eb506838d3dc8",
+      "bytes": 41525
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ItemGuardianApprovalReviewCompletedNotification.json",
+      "sha256": "c13715f6e08d69345f0eca65a87682cfb4abef7decdfd9317d479c9ccd1d1f99",
+      "bytes": 15879
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ItemGuardianApprovalReviewStartedNotification.json",
+      "sha256": "438ec1febf8c9b77b699084a1372789b0d3ab28b0f0216e8a2f8df56f85030c8",
+      "bytes": 15381
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ItemStartedNotification.json",
+      "sha256": "509d37a7f2669850e41c3dcb2d8e48ce2e12947a9d9da0576c8cbc618d9cd8fe",
+      "bytes": 41517
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ListMcpServerStatusParams.json",
+      "sha256": "33b1933595d844c61f76bdcfbc874c8456b65079877fed6e86e2710ea3d49f1b",
+      "bytes": 1030
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ListMcpServerStatusResponse.json",
+      "sha256": "95e72e24735b25d069cb72d288af593e757c9f843bc71f1204eea933dbefdbf5",
+      "bytes": 5001
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/LoginAccountParams.json",
+      "sha256": "68cbb2156f0c9d449af9356915c7c2fb73d2ce1cbce1e6e2e6b6bb3e6fb7f646",
+      "bytes": 3518
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/LoginAccountResponse.json",
+      "sha256": "72e6d77f49bc5809c3af50f183e2a0862dd8f7836816d4796ff69bb13eae0e89",
+      "bytes": 2521
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/LogoutAccountResponse.json",
+      "sha256": "ac14ddfca2ec6092b0039be8720262d5a9930484d23e62544d2ef0b7e1db7926",
+      "bytes": 114
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/MarketplaceAddParams.json",
+      "sha256": "e6c92ca2a3889641ca2281cca7684569b1187653b25b57f9beabf85519d638a2",
+      "bytes": 431
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/MarketplaceAddResponse.json",
+      "sha256": "a37633e9ecc2fdd87ea582861bcdcbf7963a8fab6db9fbc1bc8eac7d2f7f9a8b",
+      "bytes": 865
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/MarketplaceRemoveParams.json",
+      "sha256": "220c2475a96f32ca095f80f3ecbad427477b4ba37dfad7fb48a0acabdeb1f4eb",
+      "bytes": 236
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/MarketplaceRemoveResponse.json",
+      "sha256": "98deb2f721d57ed727f7cc7b4f478db5f604b6b6d40e6261928dfd5f586405e3",
+      "bytes": 869
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/MarketplaceUpgradeParams.json",
+      "sha256": "93fc5d331d353b1b89262625c38eed54c6c16b2fb8aa0eac718245c7bdcbe4dc",
+      "bytes": 228
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/MarketplaceUpgradeResponse.json",
+      "sha256": "2402379cb0ed1168a7dc327c412fd61bafdea2ad13ea7a3b3ebaee3b43c45963",
+      "bytes": 1348
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/McpResourceReadParams.json",
+      "sha256": "a8241b056a65473b2b9bf0a14c1a49146de52dbc1cfc276549f52f4db13f3be6",
+      "bytes": 608
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/McpResourceReadResponse.json",
+      "sha256": "a48af749203ed3307414750d5070facb5ae6ef8b00253f1cfd9a8124bdfcfe41",
+      "bytes": 1664
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/McpServerOauthLoginCompletedNotification.json",
+      "sha256": "d3b7ca4f2626a623b4b5a97eeedc711cc27d41b3ee56fed8b0304857c5c9b13c",
+      "bytes": 455
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/McpServerOauthLoginParams.json",
+      "sha256": "83446fb61e04a361691f84fe236a51fff2ee4fb12a8f58e2e828a32cf6f6cc75",
+      "bytes": 1003
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/McpServerOauthLoginResponse.json",
+      "sha256": "95d7d00622866ac49dbe459164b8be665b2c9ad7b26772eadfc610a0537aa6d4",
+      "bytes": 242
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/McpServerRefreshResponse.json",
+      "sha256": "54a77812db02175dc69053870e582d3b314af6f161f0c76846f3563b0f9487c4",
+      "bytes": 117
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/McpServerStatusUpdatedNotification.json",
+      "sha256": "d6f4cb120b2363d321247592f03b9afbbf2762ad6d8af31b88c1b1bf39c4c7aa",
+      "bytes": 973
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/McpServerToolCallParams.json",
+      "sha256": "7039a7583a1cbf38e9e0f5fe6398ff3711acd4d654b81b0be562514087fce6ba",
+      "bytes": 380
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/McpServerToolCallResponse.json",
+      "sha256": "04a59b2064922c37b0c49bdb2470b8fff08d943e56dba4f7280a6b34bfa52c68",
+      "bytes": 374
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/McpToolCallProgressNotification.json",
+      "sha256": "64a32b8282226876e749bc107a81db89d20d5ce5cb86ee6a043b960763214b1d",
+      "bytes": 412
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/MemoryResetResponse.json",
+      "sha256": "e73baacf6ef4858e859079d060e405c3ee5a58881db6e4e9cb46a7ea439404b3",
+      "bytes": 112
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/MockExperimentalMethodParams.json",
+      "sha256": "e78079b0190db35f07b927bae64f8c4e5a17de7f02d17395df0b7e2ffaa197c3",
+      "bytes": 271
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/MockExperimentalMethodResponse.json",
+      "sha256": "7d6b4770b687f0a2a6fb2ab78cba71429c24e8f693fd4688cf39e088e9388a43",
+      "bytes": 275
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ModelListParams.json",
+      "sha256": "de29a536c00a5b8f46f34dba417dabd93365305571a8ed200e33bea85db68b5a",
+      "bytes": 688
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ModelListResponse.json",
+      "sha256": "c7b58b332f6cf18fd64235409a6daf27bb9e6c09d12dcd0daa2f3dc628b55f6f",
+      "bytes": 6002
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ModelProviderCapabilitiesReadParams.json",
+      "sha256": "9db732188a15476cabb42cf05e495ae0803a1ada993fca7348c21c30a998388d",
+      "bytes": 128
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ModelProviderCapabilitiesReadResponse.json",
+      "sha256": "5c42590f728289daaa441b947617398a0ca3aa17479013b3c564a5d314a3c9cf",
+      "bytes": 395
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ModelReroutedNotification.json",
+      "sha256": "37cd3c1b3a3560b85b01d4061a07d830fc9ed93b80e4663f975f9197cdb501ef",
+      "bytes": 636
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ModelSafetyBufferingUpdatedNotification.json",
+      "sha256": "4cf853e3a2f968fdfde75206fd497d3d530b26769026bee343c3ef09ce438cfd",
+      "bytes": 746
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ModelVerificationNotification.json",
+      "sha256": "4f27a99d0c8664c29abb4d65384ab16853bbc29b61de5e749111cefdc6994655",
+      "bytes": 574
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/NullableGetAccountTokenUsageParams.json",
+      "sha256": "a992c6ea0fe02b0e9f46b18afb51b8ee2635e7f0c7d546f71e7f95e2a98bebba",
+      "bytes": 573
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/NullableRemoteControlDisableParams.json",
+      "sha256": "13ebf6bd89cb651240be24aa648613acc29115a0a037b69508474a9dc0312202",
+      "bytes": 410
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/NullableRemoteControlEnableParams.json",
+      "sha256": "44c7965add2bc02d9d28b770b6178c386cd737fe63405bb2d4c48156b0fe3d1f",
+      "bytes": 407
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PermissionProfileListParams.json",
+      "sha256": "576d405f6c94cbde982a9f65c9301717043683b83ca35d564247907feb16b1b4",
+      "bytes": 667
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PermissionProfileListResponse.json",
+      "sha256": "4a290b5b9d47c2fc671033e22754671161bc563027ba387e861bd935398f0def",
+      "bytes": 1174
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PlanDeltaNotification.json",
+      "sha256": "a5cf42ccfc6cf905ede0fa9041e9c951ea7870aba4e3a7c7f68d85f01416d3af",
+      "bytes": 565
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginInstalledParams.json",
+      "sha256": "0b56f55a817b6e82ea104496281cd43714ee96800f9b984412a3a858f444f68c",
+      "bytes": 1174
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginInstalledResponse.json",
+      "sha256": "8afc8a16fa5c21d67f66d1855bf29890bad10a6229bafc960b3503281fc878e2",
+      "bytes": 15679
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginInstallParams.json",
+      "sha256": "d6a8ff6356aed22c916cfd5a791ecce34ee2ac509750f690e7d0ef483fec7472",
+      "bytes": 1136
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginInstallResponse.json",
+      "sha256": "ae283e1ecb9f454f7614c6a4348fda5a7aba5af99e9ab9177b9a0cd3e1cd7db7",
+      "bytes": 1190
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginListParams.json",
+      "sha256": "bc6b499161306df7082c5a8cc51fd793cd6d28dda93555b12ae299445132270a",
+      "bytes": 1629
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginListResponse.json",
+      "sha256": "a405d2514d6236df75130c87c749e0e070b946a889f143a0448bbcd27d1d8501",
+      "bytes": 15802
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginReadParams.json",
+      "sha256": "f15952a2828c90501cc32f347c1e1691ea65cd2d97f503ab40e7be08757de74d",
+      "bytes": 947
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginReadResponse.json",
+      "sha256": "faf15dc05b09363dc367471b69ccd94cbc317d88df869a8557cfbdb1a75aa909",
+      "bytes": 23615
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginSearchParams.json",
+      "sha256": "9a531ed727cf716302e611d98153f4ed09598b7b27a5629074648c0e57f24e09",
+      "bytes": 1345
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginSearchResponse.json",
+      "sha256": "d98f7926f5bf62c228f8c39e83214e2140e80ea7a1db3c221eb1babe26ff8fed",
+      "bytes": 14650
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginShareCheckoutParams.json",
+      "sha256": "25fd868fff9500ff244150a4ecd36322c0d31b339a4709649594b79aa1349185",
+      "bytes": 236
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginShareCheckoutResponse.json",
+      "sha256": "d6271afa9bba5531574ba255d22b03f70fe10b8ef159185355625d92b6f9fac6",
+      "bytes": 1187
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginShareDeleteParams.json",
+      "sha256": "d422a3fdecf91612bdf839d4fea6f1cddccb794869dc03ad3b8998bcb8e27fff",
+      "bytes": 234
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginShareDeleteResponse.json",
+      "sha256": "ae881a7f898f5287354de5adf6f42094cef9029a9b9376bfd12aa1b0fe0b3106",
+      "bytes": 118
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginShareListParams.json",
+      "sha256": "0d71280d2a655ffc26375044ec1693203848614f99fdb4563e0cb5a4ee40122b",
+      "bytes": 114
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginShareListResponse.json",
+      "sha256": "d349a496947956fd5f4d125b8348faa2ef0c91daf7f3cd74ae0616f55c8e328b",
+      "bytes": 14477
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginShareSaveParams.json",
+      "sha256": "ec937521a40437506ceb2dcfe79cedd03812dd1b8233c651b89c2ddd76e148fe",
+      "bytes": 1974
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginShareSaveResponse.json",
+      "sha256": "3eb7c0ed6e6c72126c7bb3d845e73d5de98ad0d4ea8639d2f227fecd16c15411",
+      "bytes": 417
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginShareUpdateTargetsParams.json",
+      "sha256": "0ecf16212022bca115211cbf13a1302f8995d7be5664ca268b926b7d00add7b0",
+      "bytes": 1369
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginShareUpdateTargetsResponse.json",
+      "sha256": "caf42dec67940f9e686ac7b4e77484921d62fee400b3af73fc85e6f46eaa03f4",
+      "bytes": 1380
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginSkillReadParams.json",
+      "sha256": "8850a9a45b9cf6e8b016f014c7c65f7062937be896d4fa0eafdaccc816909a56",
+      "bytes": 388
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginSkillReadResponse.json",
+      "sha256": "dedaf95c4a8f70c022f5cac6fe3882603ed2b27d5efef710b52ae370869956cc",
+      "bytes": 220
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginUninstallParams.json",
+      "sha256": "4c9e1da7048fc99ef5269d4c3f4c6c3297dac01992c2756340fa210ae8f800cc",
+      "bytes": 220
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/PluginUninstallResponse.json",
+      "sha256": "f6a0c9c8dfd9e3fc4a535ecfa606f12922c09e469a37d6b1c6e189f45cacb89e",
+      "bytes": 116
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProcessExitedNotification.json",
+      "sha256": "06cb5f39c67f84c227063d7f40e5e78fb62afdb76778c3d603687181896e8440",
+      "bytes": 1419
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProcessKillParams.json",
+      "sha256": "b4b86a505dc6013c3379deab0f55eeb312f0b104c7b1c1fa011bcc66ebea62d9",
+      "bytes": 388
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProcessKillResponse.json",
+      "sha256": "e61f339de76aec9c17ce83113bff71fbc30e3de6d535efc05da4bb75cd48e2aa",
+      "bytes": 175
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProcessOutputDeltaNotification.json",
+      "sha256": "c31714aa83297b83fd69dee98db877be7d4a3f98551dbeb517750efba0ecd79d",
+      "bytes": 1436
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProcessResizePtyParams.json",
+      "sha256": "0abb0b6c6b37859e8eed9ed9ab7bb8cf6e932de6c43cc8ccda47934cf28c7234",
+      "bytes": 1201
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProcessResizePtyResponse.json",
+      "sha256": "4c8a640c34225bfd6f9a677f3498fda1d05a5fecd0a208c79e46a7b6b0e422b3",
+      "bytes": 185
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProcessSpawnParams.json",
+      "sha256": "eee34185e44cde6355516d9347e6bde6801efd19f06887406c0b10823003fa28",
+      "bytes": 3904
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProcessSpawnResponse.json",
+      "sha256": "d74557d195c802651fdb55815a40851f7c146800c2773a32eaede3fe57f18c92",
+      "bytes": 174
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProcessWriteStdinParams.json",
+      "sha256": "e9c640afc816330019daf79bff5bed4a71d166a5669394b5588319ffea5fb277",
+      "bytes": 710
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProcessWriteStdinResponse.json",
+      "sha256": "80acb093e2877783ac59e1292f50a44c98d4c6a737bd616ffe196f2123aaa31e",
+      "bytes": 187
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectChangedNotification.json",
+      "sha256": "b32151fcb7ef78fc5c969db44255756e5e6e1754398a5b6b09244dcff0c1eab9",
+      "bytes": 481
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectCreateParams.json",
+      "sha256": "4fb1b90646d4af61d486b3616d09ff98909e446d14b5e6f3c5c6567341de9188",
+      "bytes": 1225
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectCreateResponse.json",
+      "sha256": "ff5eea85651a676bf829036724448318c95b01467d587d2d1cb7c08c4dcc24e5",
+      "bytes": 1789
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectDeleteParams.json",
+      "sha256": "8c4c0f12d3605e9c2dc61d773d52a7e4ed3d72bcd86012e5541f4e79b245ba19",
+      "bytes": 220
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectDeleteResponse.json",
+      "sha256": "aade653dd65fdacd246b1a312e20e0de9a3dc76e11f15f9c4362b13931ceac78",
+      "bytes": 114
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectImportParams.json",
+      "sha256": "1f52ce36a40b6e09ff4a002cb322cbd6bea86946e79ac4624655a8ebc1706ee8",
+      "bytes": 1356
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectImportResponse.json",
+      "sha256": "62e95f682d426280bfe6444fc15295d8def15557f235d1090e5cd2753a1e7cce",
+      "bytes": 1789
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectListParams.json",
+      "sha256": "fd40c6fda38154d26ee74e87d17df777e60462c258549a2649aef41ff65d710a",
+      "bytes": 340
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectListResponse.json",
+      "sha256": "9ae7e04b413919ba5ccde70a3684ff4b65e5c30ce4f731ed1686351aad2389c4",
+      "bytes": 1915
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectMoveParams.json",
+      "sha256": "fa0975a08c1a5dc65faf346f98d611c121104163c9df5d5a6253bd1f27674f26",
+      "bytes": 307
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectMoveResponse.json",
+      "sha256": "767cb254e71f4be818896fb4331091fafcf793b913afdb16219c53d8a1835ad8",
+      "bytes": 112
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectReadParams.json",
+      "sha256": "e999c102295041ea24c1b0b9e80a9d9897e6661c8daa4cf38658d93841046e60",
+      "bytes": 218
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectReadResponse.json",
+      "sha256": "218769df4d603f5074a0b7572f73ce45a03b306df6ded0e4c87e468bfe1f23a2",
+      "bytes": 1787
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectUpdateParams.json",
+      "sha256": "f1a0ad152dc8a3bee8ad6f4d0955154914fc24df3bf44f73199413bcac487acf",
+      "bytes": 1258
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ProjectUpdateResponse.json",
+      "sha256": "6d0fce06ba0b4db6be835ad5aaa63619a84c4d5b6dc8b5a2d692b20d27e2b03b",
+      "bytes": 1789
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RawResponseCompletedNotification.json",
+      "sha256": "dab430b6c6e2ebb51d1fa2acdc597418ce68b12710382d4d93b652efd47fb61a",
+      "bytes": 1525
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RawResponseItemCompletedNotification.json",
+      "sha256": "00b511b8a25c599d859163100af913693d28afbd0fcf1d0921dba318e5f2ce4b",
+      "bytes": 31067
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ReasoningSummaryPartAddedNotification.json",
+      "sha256": "c8dfcb82d773d0f5d297ae1a47749e2b719013e82030a3af5d4550f9feb8eed6",
+      "bytes": 454
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ReasoningSummaryTextDeltaNotification.json",
+      "sha256": "895bdca00b4674634c25a5c4d1f82e55e65767d81ddcac4bb7b00aa3d438e62f",
+      "bytes": 512
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ReasoningTextDeltaNotification.json",
+      "sha256": "16cdc13080a7523b44f00fb6fdb660c56a7c4c8cda96b2f9b87b7e72264170fb",
+      "bytes": 505
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlClientsListParams.json",
+      "sha256": "1fd48133e06991ca7507a0a313ac91f2b58951809ce1c1454a6f38807134fa94",
+      "bytes": 771
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlClientsListResponse.json",
+      "sha256": "f8b283a238c8b5ef6eb543af2f659cfa4ed42ec0ad696eabbcba8c8cae74c8ea",
+      "bytes": 1389
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlClientsRevokeParams.json",
+      "sha256": "9de7576f92d72ec179e1cd760988beca64a95eefd7a9e57e9218610906eeceac",
+      "bytes": 305
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlClientsRevokeResponse.json",
+      "sha256": "66968cc1d1a9e2ec01168b459bac90ebe8e58f14755d3b14fb2dc5ab02e3ed65",
+      "bytes": 127
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlDisableResponse.json",
+      "sha256": "a8a61df25583fa0a32f0ab90efa56ab256c712adc461174eaf8ad01781cefd7b",
+      "bytes": 689
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlEnableResponse.json",
+      "sha256": "955555c2bd534d6e404eb86b52a23af91ec8af0af9f32ca79d0a3eb903703750",
+      "bytes": 688
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlPairingStartParams.json",
+      "sha256": "d5c2ad19e70385d16e0238e75376d4c3bd216640505f5895b18ac20d223689ef",
+      "bytes": 197
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlPairingStartResponse.json",
+      "sha256": "9a1adbbed53d369cfc95e285ba8f1db9f64a1308aef5c92b79d63b5d7a77a435",
+      "bytes": 495
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlPairingStatusParams.json",
+      "sha256": "336a75c4cada29be925cb3d5dafa715bcb6d8051e57051c49bb1ed51be01ea36",
+      "bytes": 323
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlPairingStatusResponse.json",
+      "sha256": "298061860624a52b245c824e9f7fda08fddecb0e7fdb1c2dd0736854d2950759",
+      "bytes": 232
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlStatusChangedNotification.json",
+      "sha256": "56aa1d58294238557cd8b16199909c2c157a7542b9259ef2deddf40fe4c02c91",
+      "bytes": 800
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/RemoteControlStatusReadResponse.json",
+      "sha256": "6504a09081b79fc0c222ff72be6a983bd553bf4712151e37a77daf106e04be90",
+      "bytes": 692
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ReviewStartParams.json",
+      "sha256": "c55c510988a34d2e95752aeb95e5d165f7083724a0945d7fccd1c568ad85dbb0",
+      "bytes": 3200
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ReviewStartResponse.json",
+      "sha256": "9b3c01e85c7d55d58f17b6a5956702e7eb1e000508b698f6cfa34458382822c6",
+      "bytes": 49111
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/SendAddCreditsNudgeEmailParams.json",
+      "sha256": "91b380293f5685573f8dcdf46c99eba6f8a2adb7a206df9ac987f7fe6cb282a1",
+      "bytes": 420
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/SendAddCreditsNudgeEmailResponse.json",
+      "sha256": "389978f741476c7cbcaec716b11a5bfb7f17581a28013e18cbf7a73ec8a45ae6",
+      "bytes": 417
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ServerDiagnosticsParams.json",
+      "sha256": "5a4235de371d1a58a45300e14fbfbc9ab0a3ecef3078ae35d60f1470b6e4e4f1",
+      "bytes": 116
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ServerDiagnosticsResponse.json",
+      "sha256": "0b3b35e623761a05bcd4a20085be8395986d2b98037c8ebda4dcda2204689d1d",
+      "bytes": 1338
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ServerRequestResolvedNotification.json",
+      "sha256": "4f03d586a5af04edd912cad08cc97eceb658e7e06744565e6d41a93e04a55966",
+      "bytes": 514
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/SkillsChangedNotification.json",
+      "sha256": "84f7f1d327c5c774899992f32c98e9e95ee3e010a410d233ec0c33221e4ccbfb",
+      "bytes": 341
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/SkillsConfigWriteParams.json",
+      "sha256": "6e7dea83b649bfd118828b60446eb2eab2f5ce3cafe287c933b830c9cae9b170",
+      "bytes": 1011
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/SkillsConfigWriteResponse.json",
+      "sha256": "628bc112ca64f5475eb02a0eda718e82d670c40299444494e02a8dc278a772c7",
+      "bytes": 241
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/SkillsExtraRootsSetParams.json",
+      "sha256": "bb60389a0c7d4b73f625b9a40965e5e67b56b6503989f2d732cae12e9ca9698a",
+      "bytes": 761
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/SkillsExtraRootsSetResponse.json",
+      "sha256": "b659ec17a196eaa3a23273a3e2d5596460ea329bc3ade249971576bc723d9e96",
+      "bytes": 120
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/SkillsListParams.json",
+      "sha256": "1d245374e64c5acc9739dfc68a4fe5114c6c9147af04c480886f1846d2ca6239",
+      "bytes": 453
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/SkillsListResponse.json",
+      "sha256": "de701e72b6b1e9f0b13ed67b1da13ac96e368cd6d2830b4ea9a1d7cc065d3348",
+      "bytes": 5102
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/StrictReviewRequiredNotification.json",
+      "sha256": "16b50621c0982d84bd83b6e85586c1038ff309337e4253219895be7c118df470",
+      "bytes": 470
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TerminalInteractionNotification.json",
+      "sha256": "5383b3d9681d3c071c9845fd4f043afd60fbe1bcc3650939356cb03848a7d627",
+      "bytes": 474
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadApproveGuardianDeniedActionParams.json",
+      "sha256": "082e5278ed4fb1fc23eafbe658e95ec21d81c446bb6daf2b57e25e8cd3aebd5e",
+      "bytes": 360
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadApproveGuardianDeniedActionResponse.json",
+      "sha256": "628336c7cdabd508d5202695502bb0f9ce42fdde380f5efdd4b033cf215d93e5",
+      "bytes": 134
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadArchivedNotification.json",
+      "sha256": "54ca94956719ade8682c766f31419ee9953dee8f4587b5b30efd0927de6ca26e",
+      "bytes": 225
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadArchiveParams.json",
+      "sha256": "dc2c0b133b814a5d9d543cc37afdb3f4f22feca35b7cea4272834b20a1e47705",
+      "bytes": 218
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadArchiveResponse.json",
+      "sha256": "2e021dabd0930ae3e2beb68cd0ddbafc40fc20cfbf8dbcb5e2f9c0493d06a08c",
+      "bytes": 114
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadBackgroundTerminalsCleanParams.json",
+      "sha256": "e07820971c6e4ef8ee1ca5565a6eb78b04a96e001a5828e136b8aca927096a51",
+      "bytes": 235
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadBackgroundTerminalsCleanResponse.json",
+      "sha256": "a594a65b4eb1ddf4613e868e382d7cda24daaa09b86de919fbece99e75b55478",
+      "bytes": 131
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadBackgroundTerminalsListParams.json",
+      "sha256": "7ac232410d59afd308dca04f8c0b08f20fa6e87f00bd0d3b5892b7ce8b31d2ee",
+      "bytes": 564
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadBackgroundTerminalsListResponse.json",
+      "sha256": "b56b1cbcb1d60079ee9f9caaeef29cad869a25b4a6d356566f7c9f672faa7bf4",
+      "bytes": 1529
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadBackgroundTerminalsTerminateParams.json",
+      "sha256": "4af4973b4e965228e7c6ffdff341c22c227c26bc48d4b44a8696993869b64103",
+      "bytes": 305
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadBackgroundTerminalsTerminateResponse.json",
+      "sha256": "1f5dfb3fdd3c1fef2ef9b9b2c26eb2f2c7346cdf695d4ca291ede076050d1bc7",
+      "bytes": 246
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadClosedNotification.json",
+      "sha256": "d504cceb70e3397ad684924b08d3bff328a927be02ef4e3d482a18e27bab73de",
+      "bytes": 223
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadCompactStartParams.json",
+      "sha256": "684b20adf20213a9fcbca31b59108feadcd5a8b693c16431c20d701049df3737",
+      "bytes": 223
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadCompactStartResponse.json",
+      "sha256": "74674e47f33e37d7d97d144eac1789ef0580a1fc12d45a5675bb97caa08d803a",
+      "bytes": 119
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadDecrementElicitationParams.json",
+      "sha256": "52e26befe05ab05767107f9f43724505b889016de3ea663be08d561d199a2e41",
+      "bytes": 390
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadDecrementElicitationResponse.json",
+      "sha256": "202c2995634aef062ce9d1195808f4d2f59011af064646f4ae5fe2463fd41a4b",
+      "bytes": 558
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadDeletedNotification.json",
+      "sha256": "6f8d6fa96700ec6fff4b8c2bddf6768539b7ec7ba5dc05483aba53f5183386f9",
+      "bytes": 224
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadDeleteParams.json",
+      "sha256": "0d5425d94af95e3dd20971cee052b2cb8c7d0d23195db1d17fde4e59cfbdec4a",
+      "bytes": 217
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadDeleteResponse.json",
+      "sha256": "333c0c5df96d78d1bcbdb19b57ddfa941de9a02bdae1c29d13c5311c2cdf6527",
+      "bytes": 113
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadForkParams.json",
+      "sha256": "e85f848452eb9568431ca031f96c09891bd92b9a3d00382036e46a0db4f10bf7",
+      "bytes": 6457
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadForkResponse.json",
+      "sha256": "fbaa17ade4871521bc70348e200623ed6f72737a29e592165db25bad940bb01d",
+      "bytes": 69706
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadGoalClearedNotification.json",
+      "sha256": "ad6c2cf53970e45cae55d36dbddd84ecc7b34837846616493efa7b132a35a051",
+      "bytes": 228
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadGoalClearParams.json",
+      "sha256": "896c8b1997edf913382393f7d0f20ced4344714b9f0e8ce1f6564a11403e1675",
+      "bytes": 220
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadGoalClearResponse.json",
+      "sha256": "2652c2d0072be8ccb71c8dcaaa054aa74f974e68156a73451baf72c8597669c2",
+      "bytes": 221
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadGoalGetParams.json",
+      "sha256": "1a5de89b3c5c49528af404a65411a73ef05dc7c9c49c3f00c90d9926dfe34137",
+      "bytes": 218
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadGoalGetResponse.json",
+      "sha256": "f610000963194731c96ce2b45e46722ca700f1b6ccc1fc55a2fd95e526018fd9",
+      "bytes": 1491
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadGoalSetParams.json",
+      "sha256": "93162f095e9b3b5a051ceb24318b8922c663edefc1f8c67bd378085c0d6c01d2",
+      "bytes": 804
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadGoalSetResponse.json",
+      "sha256": "b1c61b6068b3b73dd3d97b38f8a269593f8f7added4643bfdb2016315b71ad8e",
+      "bytes": 1428
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadGoalUpdatedNotification.json",
+      "sha256": "52010479c7efcc6dc749e2d9bf1e27c134453d92a1f0b367193d8125eec1fedc",
+      "bytes": 1580
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadIncrementElicitationParams.json",
+      "sha256": "1fa0353a274885581bc242eb7a00a4f4e26ce99a24a89184381f0cccbcca73a0",
+      "bytes": 390
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadIncrementElicitationResponse.json",
+      "sha256": "b6f12f99d3a99fd48e66aa3a1c062941b5dd7db3160fa2cc6aec640c0b12013d",
+      "bytes": 553
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadInjectItemsParams.json",
+      "sha256": "8d7e754402a2bb71bd817882076d2f8ac4cd75d4573306db082a83b841aa3532",
+      "bytes": 397
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadInjectItemsResponse.json",
+      "sha256": "93d909e5b49b44da02072d340f8ad0ecd417d448ccf27fe50be7e369c7864159",
+      "bytes": 118
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadItemsListParams.json",
+      "sha256": "ff56040c327ecdd30ef02affac9bc71fab64031e8980f2b4fea9fd8a888160b4",
+      "bytes": 1138
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadItemsListResponse.json",
+      "sha256": "0aaf5288cb4491e83f59ce43985009c748b898e4ec7a1bd4d3b90ffe315afad7",
+      "bytes": 42063
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadListParams.json",
+      "sha256": "e321f00bbc81b7e65e8596b8c286deaf2f5c48e76fa179db3abc4ff337d85199",
+      "bytes": 4322
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadListResponse.json",
+      "sha256": "7ad88100fd04eca5ae61caed763ff87d78aa7cd36b51fe548f5881760a02495f",
+      "bytes": 62455
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadLoadedListParams.json",
+      "sha256": "42c2d124ab2b2998d84f0126daae2d32b0bf9c5a7ea7266e3a0814e5e37cf00d",
+      "bytes": 489
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadLoadedListResponse.json",
+      "sha256": "1ea02c4710083e552b2a3a89b931b9049d5bf05b7db46278b8352cf9fd80cd52",
+      "bytes": 565
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadMemoryModeSetParams.json",
+      "sha256": "12d62f765492ef7fdbdbd5ea9cbb3b3d3ff2ca5ef6a52fca9a82379eb4dadb79",
+      "bytes": 446
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadMemoryModeSetResponse.json",
+      "sha256": "908b6eadcd2909936ff1a44152721baee9400f8bebd4ea99dc613551824236d9",
+      "bytes": 120
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadMetadataUpdateParams.json",
+      "sha256": "4698633f92f107083311d0924cf730bc31cdd56ba4c2950a30f06ce30ba7fab8",
+      "bytes": 1690
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadMetadataUpdateResponse.json",
+      "sha256": "a5069007197a86ed038c1a503b4c98b052721f0eb0cac8eea9d31582dbacbb5b",
+      "bytes": 61801
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadNameUpdatedNotification.json",
+      "sha256": "06d5e6b0e1eaf03eb88891af58eff14368a76e300a40a9bed71bacce2093b960",
+      "bytes": 312
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadProjectUpdatedNotification.json",
+      "sha256": "ad31b029957a9259f26352ce879219cbe25f0314ae883d02ab811a0c6427a1e5",
+      "bytes": 331
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueAddParams.json",
+      "sha256": "39bda9d790b315eea17fc04298afb0135a8b43e7d375b54eaa4a2e88ad0d4aff",
+      "bytes": 5753
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueAddResponse.json",
+      "sha256": "c42b0adfa32874c341a2012216a5f5b9949b50f840ffc666e606fa65b117bd22",
+      "bytes": 6021
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueChangedNotification.json",
+      "sha256": "0a960da43fb14f69dae2550ac4f8517760464eedbf95a9977718548739fdcf21",
+      "bytes": 229
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueDeleteParams.json",
+      "sha256": "35d17cc17897a7f560250d0148ec9df0482ba3d33bdcca039dde8391d3b4edbe",
+      "bytes": 306
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueDeleteResponse.json",
+      "sha256": "5983c0a94e89f93340caecfe96e16d8f535edca39142920bc0ba60ec90a52919",
+      "bytes": 223
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueListParams.json",
+      "sha256": "b4c889089eee8a0f785ff85e0128a4d3f347353870fa848221096a472223773b",
+      "bytes": 598
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueListResponse.json",
+      "sha256": "fe3251d1d4099a1642ff9df36f92a15cb5d4e8187d7f012a11c73cda16627fbd",
+      "bytes": 6227
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueReorderParams.json",
+      "sha256": "524bc69a166160f234c7f7de9f6386ace09ce8165b1409504c5164fbaf9267a6",
+      "bytes": 359
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueReorderResponse.json",
+      "sha256": "161491f6310bcdeac60cd7cb0594cebc51857e9caccb592b7f96cefaa5f4a061",
+      "bytes": 119
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueStartParams.json",
+      "sha256": "d92f1e985c183fa3f261bbfa004416f0f572a225a53e5de1744682e154cce936",
+      "bytes": 313
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueStartResponse.json",
+      "sha256": "a1b662b1d8f35cbf6268d9aa6c05ecf6bc1ba669ed56af6a87a838306835879d",
+      "bytes": 48853
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueUpdateParams.json",
+      "sha256": "55899d99d56f089bcf82b8d55d5328d2479f46efd2669c9bfad4e5de3cc6b60c",
+      "bytes": 5754
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadQueueUpdateResponse.json",
+      "sha256": "da62310ccda19d279b9acd20fdbe177727e6cbd607e047cba3a9966cc55efb64",
+      "bytes": 6024
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadReadParams.json",
+      "sha256": "7222da641029c071811f6bcb651de347fe037e6689db22b3fad0c5b17b7f1c21",
+      "bytes": 355
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadReadResponse.json",
+      "sha256": "edda29f4aa93f542ddbbfe5dc4afc4de96123979fc92a450e57bece1a7dfa3f8",
+      "bytes": 61791
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeAppendAudioParams.json",
+      "sha256": "10e3a38def5978afe7417d5754f28fda86863126ba7ae2746e77d56520c84130",
+      "bytes": 1239
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeAppendAudioResponse.json",
+      "sha256": "e1e020945423a35d6feb7d529f6d75462bb220c4ec42fa54fbda07b62445b602",
+      "bytes": 206
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeAppendSpeechParams.json",
+      "sha256": "864db8a10d2a390e257db29eb0530e80f4e3e569b0d29011b1893083deeab926",
+      "bytes": 364
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeAppendSpeechResponse.json",
+      "sha256": "deceb9fdcc69931ed293c977976ceaa7734297bcb1f68dae3eb7e671bf518096",
+      "bytes": 202
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeAppendTextParams.json",
+      "sha256": "27f2531b0b441253ad3adfc03fa3c75e4063005aeabddbf0ca2eac1e56d19b46",
+      "bytes": 669
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeAppendTextResponse.json",
+      "sha256": "b160a533fc2dbe9ac987413b0b142d4c4b8041b66e3054bcda2c085f4e8c565b",
+      "bytes": 204
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeClosedNotification.json",
+      "sha256": "5290a73f8d4652b59d2f82d89c7bd289003fe2981fb0c628a61e801fa2123364",
+      "bytes": 393
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeErrorNotification.json",
+      "sha256": "aeba7e4b477b4825b41990a4da69b0f3cb3a00f44cf9e2e42e275b944b7cb040",
+      "bytes": 377
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeItemAddedNotification.json",
+      "sha256": "48aabfcbfd2361b5830a93257bc9eb31a6933f6e390694e188bfb287acbad9b4",
+      "bytes": 358
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeListVoicesParams.json",
+      "sha256": "ef4d55618412bfb2c95179e0a8441996b48d7b1311d395996517be1abeb85d53",
+      "bytes": 200
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeListVoicesResponse.json",
+      "sha256": "8fff8adbc97b4d6d38eca88c2edf71ad3fcf1ecf6f78939d5347b568c4a58124",
+      "bytes": 1382
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeOutputAudioDeltaNotification.json",
+      "sha256": "4f73a5c606fda4984da4fc14e4cd98f62c8f9aa75b2db17cff76562c2d176ec0",
+      "bytes": 1261
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeSdpNotification.json",
+      "sha256": "1e276f48d346e6cace65551f84ef9b0bc8daba2a3ce93499f3a902551de239fc",
+      "bytes": 376
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeStartedNotification.json",
+      "sha256": "483d324381a8ced04c8ab158c825bca2b64c06a4e85b350a086730050fe8f188",
+      "bytes": 661
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeStartParams.json",
+      "sha256": "9e02eb2aee9b117faaa8724835ecf6ae9c1e83dfa423e3dfbddd1403d97428ba",
+      "bytes": 7194
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeStartResponse.json",
+      "sha256": "2133c6226dbd546189da197a30f60df910b5b5e197f61b1bbfc5679a92377d65",
+      "bytes": 194
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeStopParams.json",
+      "sha256": "da0e765e71d37c3c0b331e7666ad5c32483e2b0775e8439b642ec63602c974cb",
+      "bytes": 280
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeStopResponse.json",
+      "sha256": "0a138fb932680fd38add3e74473ff998266fb7c79e1dcec1d8762b42a29b9562",
+      "bytes": 193
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeTranscriptDeltaNotification.json",
+      "sha256": "1a6add677534de891026eb56aac815b2585fbd4a6d6475f679a722c52b778703",
+      "bytes": 533
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRealtimeTranscriptDoneNotification.json",
+      "sha256": "0000453425e300fd19ac2bc5fba4ebf3fbce48ac9a9b62ceb8bc5db8b6c77fff",
+      "bytes": 528
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadResumeParams.json",
+      "sha256": "f0ffd32fbe09750f27d1c27d7e815db7389167dba4e4b438c8411095cdff5d92",
+      "bytes": 39051
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadResumeResponse.json",
+      "sha256": "a0929c4c011a1fbf38718494de2ab29aef3f80655eaf49e2b69a26f8f13ce55a",
+      "bytes": 71139
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRevertedNotification.json",
+      "sha256": "570995a91a4436d403bafbf9a4c34ead666b137ecd5406803e14826a6d84cf22",
+      "bytes": 225
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRevertParams.json",
+      "sha256": "3a5e85a67906c8ea3ad9f5065559d263d968a28a957739e7a1d9e4e1981e4eb8",
+      "bytes": 579
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRevertResponse.json",
+      "sha256": "7cbad6b3e95dfe79e3e6ed8d3863b6c51bdec52b6d4bf20dd5d66fdc6bb2b0fb",
+      "bytes": 62601
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRollbackParams.json",
+      "sha256": "27002ceab514bcbab10ad2e0a7b9b842f9ae51bd5e8c084ed14960889b422ebd",
+      "bytes": 667
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadRollbackResponse.json",
+      "sha256": "6a36c6f12c630fe4f5a551a994235a2f5cbb76a232c4fcc0358b0e9e8bac7d07",
+      "bytes": 62122
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSearchOccurrencesParams.json",
+      "sha256": "ea50391f431b2a4361635e9f62cf9cb70fcf162a217a4b79d6f8c53394f7acb9",
+      "bytes": 886
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSearchOccurrencesResponse.json",
+      "sha256": "193e1f78e427a93f5a6471b7b69ea3f6d980c924ca26e20845992bc5b33d9dd9",
+      "bytes": 2040
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSearchParams.json",
+      "sha256": "5c3bbb9d37d7d83f3f7747423427ff9c8b0f1154ac8cd7c832995a763dfa8e61",
+      "bytes": 2314
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSearchResponse.json",
+      "sha256": "861a4c92561b99227fedc6ff48374d35b73a102e440e49ce9ac2fee2e5cb1344",
+      "bytes": 62753
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSectionCreateParams.json",
+      "sha256": "e3bf941ceab7a4dd39ce1b4063168621d60162aa97f7171cef59819c999c501e",
+      "bytes": 969
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSectionCreateResponse.json",
+      "sha256": "2b0b0e7a2651354aac35aa5d1a423b9f207ee8d46b2de077df747f4ed4f4c8de",
+      "bytes": 1548
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSectionDeleteParams.json",
+      "sha256": "93cc3d12bd5580966b59bbab8f2ccddd31b3b4bce56f76d49cfe41f1916b5deb",
+      "bytes": 401
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSectionDeleteResponse.json",
+      "sha256": "9bbee5cca1fca02e4a65c2481dc3b24f090bca7afb786923ee481017b133b091",
+      "bytes": 201
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSectionListParams.json",
+      "sha256": "6aea71b3fba46351fcaf648eab0da564080ba424599a012648abd9fd44464cf8",
+      "bytes": 570
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSectionListResponse.json",
+      "sha256": "dc3b5e5501a56ea2a1a83cb97c5221b355629f8c9468793d94e22673424140bc",
+      "bytes": 1760
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSectionMoveParams.json",
+      "sha256": "48bc921055838df25c5595c96be7bd25beef3accb8bd1d28026fcaa7d81487b1",
+      "bytes": 768
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSectionMoveResponse.json",
+      "sha256": "243299d7eebd4fb264d4e75efeb5058982681202371c2b83ff1a63b3369ddbb6",
+      "bytes": 118
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSectionUpdateParams.json",
+      "sha256": "6cc7b7e486026a59d6fcc0701407d9293c0fe8b96e41894630c3a39fee967980",
+      "bytes": 1211
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSectionUpdateResponse.json",
+      "sha256": "4588cbf0374204c17f02f15eecb5390cd5346bc551675e07e541bbfd28d020bf",
+      "bytes": 1552
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSetNameParams.json",
+      "sha256": "8e334c816bbaeb80f807aca61bf659246f3f60c245c21b5cb7e3ca4ee3ce4820",
+      "bytes": 274
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSetNameResponse.json",
+      "sha256": "f8763716433feea94f7c1ebd59b6cea4c261432e83240c13a8d49ba8185aa567",
+      "bytes": 114
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSettingsUpdatedNotification.json",
+      "sha256": "f7865eabaa34c7895a1ae345e51c1ba181a63c649237d36583b80f9d759b0f53",
+      "bytes": 10618
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSettingsUpdateParams.json",
+      "sha256": "a3abd34e80b3e9473fc1ed68d1e3738001733898405da816d7494be0e307c789",
+      "bytes": 10691
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadSettingsUpdateResponse.json",
+      "sha256": "adb6c5232ff2474b61ac1811c9fe0faf8beae7f629c9bb2182190679d82bf0b1",
+      "bytes": 121
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadShellCommandParams.json",
+      "sha256": "7f3e8b33d33c23746e07c1f173ddff03a6f04bfbd1cea1b27092139316fdc664",
+      "bytes": 567
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadShellCommandResponse.json",
+      "sha256": "fd4911613f6a6da2ca13b75342501d4d61f64e00a1083c6d60038369b8caeefe",
+      "bytes": 119
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadStartedNotification.json",
+      "sha256": "622b88f70d820fc2207228de5f54eeea504cdce3a2c4d31fe09a3271b7c49eaa",
+      "bytes": 61798
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadStartParams.json",
+      "sha256": "25f490368ec6df52a2a3b82a5469d2413307eb93439121b309f415b5648eee7a",
+      "bytes": 12971
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadStartResponse.json",
+      "sha256": "d0875e67991189e22766bb42408cfe08b4feacea4fdb512bac523c04afabcf92",
+      "bytes": 69707
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadStatusChangedNotification.json",
+      "sha256": "26f3c60c1b73f7fa2d31c74429cdc36f8746c76c33e3d314b3fb61d3661f05f6",
+      "bytes": 2207
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadTokenUsageUpdatedNotification.json",
+      "sha256": "aba4f6c7e4a19b2b842c08ee793b57000c07dafd57b922ad0d8e7c76609108c2",
+      "bytes": 1727
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadTurnsListParams.json",
+      "sha256": "2a8b93d7d4437cc25e16a1dde16d8db3c338d39e16c5eece2a56e943a21577d7",
+      "bytes": 1889
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadTurnsListResponse.json",
+      "sha256": "dbbf32f33a618df707182ed43bcfe4adfdad6712aae64acc15f0ec86ed32b637",
+      "bytes": 49476
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadUnarchivedNotification.json",
+      "sha256": "fc00949cdc588b84800a26403647eda0e22d6f28663dc032a90db9c20dfa822d",
+      "bytes": 227
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadUnarchiveParams.json",
+      "sha256": "a1d5d847b61ea16ab09d5b9d1c1461134a7829292aae02a7e11b0a69b00c76ca",
+      "bytes": 220
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadUnarchiveResponse.json",
+      "sha256": "bc473242657935460906655e567a6bfc89ab1eb2cd654c52de717d2e58d68da1",
+      "bytes": 61796
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadUnsubscribeParams.json",
+      "sha256": "77c67e0dc0a729af2d4612f30ed63f1297160232e96cd32b7cb9cc3e7fff0233",
+      "bytes": 222
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/ThreadUnsubscribeResponse.json",
+      "sha256": "9cad5e71a589c3c20e0980ce34a894a29e2898a075b10b1493bc87f32500081a",
+      "bytes": 431
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnCompletedNotification.json",
+      "sha256": "237d7f5ded4a245473634422f5f7c3170b99dd19d413fec0d515077ff577fd29",
+      "bytes": 48918
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnDiffUpdatedNotification.json",
+      "sha256": "59a02535094b591b926cdc11a8e5f5babf73b442323a02cace1661c62f0c2918",
+      "bytes": 494
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnInterruptParams.json",
+      "sha256": "6dff382dae73d1dbc58406ed045605f647e7a49660e2540fbd2c6c24d60c5f2b",
+      "bytes": 278
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnInterruptResponse.json",
+      "sha256": "531de6be06fe979b5963f249bab82498a175e614bf65ac12fb2e849dfe60bcf1",
+      "bytes": 114
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnModerationMetadataNotification.json",
+      "sha256": "90fe9ade83c46fd42af9d023737a9990595dac71e059158744950f538e802876",
+      "bytes": 331
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnPlanUpdatedNotification.json",
+      "sha256": "2522f743be0a1e9666dec5ad4f18d8ecba3c4f16e66d510b1491d4117d1dd0ba",
+      "bytes": 948
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnStartedNotification.json",
+      "sha256": "4630c58b3c9096203379bfc5bf84378a591ee44dd30b5f816ce171cb99ac8261",
+      "bytes": 48916
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnStartParams.json",
+      "sha256": "95f35a9f01beea390cc4e478b4030e46ef37e5d769438d50f40b7aeabbf1ad74",
+      "bytes": 19160
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnStartResponse.json",
+      "sha256": "1203962cc16ebf6e1474935a979e07bb054afb9b47060cafb5f4674e56a589d2",
+      "bytes": 48846
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnSteerParams.json",
+      "sha256": "2e0cdcea6a90d6c8bc584fdc2ff838e824754b1eef0d2d16aa71bec4276fef44",
+      "bytes": 7248
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/TurnSteerResponse.json",
+      "sha256": "866ba9a77c12b5d570c837d58f73bf40b24e50fa93404bdf792dd984d313b1aa",
+      "bytes": 212
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/WarningNotification.json",
+      "sha256": "f83c400591b923400ca0beaaaab1341c712d5ac0dee4ce6868a8e590f46490f9",
+      "bytes": 454
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/WindowsSandboxReadinessResponse.json",
+      "sha256": "077f60a3d6d1fc226c45059472b29caf675fdc3fdebb29569eaab94bd05ceb00",
+      "bytes": 435
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/WindowsSandboxSetupCompletedNotification.json",
+      "sha256": "dc5383ae8fc2a46badbc2dab3ccd0447fed97729c2d5a177e28c4a7e2a60c329",
+      "bytes": 556
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/WindowsSandboxSetupStartParams.json",
+      "sha256": "8610d077fff4fc5811f2e33dea82617a15ffb82f08e55e1540aef877133f5b4f",
+      "bytes": 1002
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/WindowsSandboxSetupStartResponse.json",
+      "sha256": "830bf89deac3e73e36b7d9799ceed32ee25e782c30b1d25266374aa020d3bc7e",
+      "bytes": 230
+    },
+    {
+      "path": "03_工作台/vendor/codex-app-server-schema/v2/WindowsWorldWritableWarningNotification.json",
+      "sha256": "bfa34d4890c8121a04412b8d53314a13adf98289fdd948857fd97b808dcbe79e",
+      "bytes": 478
+    },
+    {
+      "path": "03_工作台/vendor/codex-cli/package-lock.json",
+      "sha256": "91bd9ad0e8cba4205fc8635b2d253e99a5ddd4e62568e547571dbfb751323447",
+      "bytes": 4199
+    },
+    {
+      "path": "03_工作台/vendor/codex-cli/package.json",
+      "sha256": "df5252d0223dc505ee42d40f4c3952fe2df04dc4ab474a4a640f41b976e58088",
+      "bytes": 60
+    },
+    {
+      "path": "03_工作台/verify-workbench-watchdog.ps1",
+      "sha256": "dbfb5d3dd0151630d96d30904c653c07b3318166fadbedfc1544574f6322e073",
+      "bytes": 1580
+    },
+    {
+      "path": "03_工作台/watch-workbench.ps1",
+      "sha256": "e2579201a4b8ead9d458edf3c59086c73cf9865ccc1ac9290c4d59fba92d5258",
+      "bytes": 3652
+    },
+    {
+      "path": "03_工作台/workbench-control.ps1",
+      "sha256": "55e4c5167fceb733ef6f2b48b6407ac28a391c79ec969ef6a6e169f67febf1a8",
+      "bytes": 8219
+    },
+    {
+      "path": "03_工作台/启动工作台.bat",
+      "sha256": "0ae08d6874625d51341a48073739a76f0178b5cd4629802578249510ab270fe3",
+      "bytes": 62
+    },
+    {
+      "path": "03_工作台/安装工作台守护（管理员）.cmd",
+      "sha256": "24cbdbbb6d5eb56368873ce7953d3c28445baa1902b8824c6dd331b6fdd07a2b",
+      "bytes": 268
+    },
+    {
+      "path": "03_工作台/安装并验证工作台守护.cmd",
+      "sha256": "43c3d2e229427e2ccb6963412c94f94f3deef3c8d42dc46efe1ed418ed7fdb86",
+      "bytes": 544
+    },
+    {
+      "path": "03_工作台/登录启动健康守护.cmd",
+      "sha256": "8c08129dbdac838c2b7c48efd7835a487728a8f201ca9d44af38e81419d5c87d",
+      "bytes": 139
+    },
+    {
+      "path": "10_Skills武器库/01_小姜调度Skill/references/routing-table.md",
+      "sha256": "eeb27a167149d78dd7e675d4dfcc34a8500c2fa88db1d2ecc34ff7a25218e467",
+      "bytes": 3160
+    },
+    {
+      "path": "10_Skills武器库/01_小姜调度Skill/SKILL.md",
+      "sha256": "0af530e9a7c6ade5296d2a87e7314264d431015ee20605e9bc78571a534b035f",
+      "bytes": 1248
+    },
+    {
+      "path": "10_Skills武器库/02_小审审核Skill/SKILL.md",
+      "sha256": "1dc12f5f12f0f0391342668a4c0e6e39d887ac571b29290415f12b388a4b6d8b",
+      "bytes": 7899
+    },
+    {
+      "path": "10_Skills武器库/03_小息信息采集Skill/SKILL.md",
+      "sha256": "8c03f493f5f7ebfb8a74a8e8e2ed7d3e0edaed76beea7ec11d5ee11d7733fdf6",
+      "bytes": 1699
+    },
+    {
+      "path": "10_Skills武器库/04_小拆内容拆解Skill/SKILL.md",
+      "sha256": "a1b73d048b84854ee869f5e8c3d02b956919133d612b753b462f51df1752ac45",
+      "bytes": 1227
+    },
+    {
+      "path": "10_Skills武器库/06_小策选题策略Skill/SKILL.md",
+      "sha256": "241c4a437bd225082dec021418dbeff87380e19efc16c7c19fa91403da59676f",
+      "bytes": 2379
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/assets/quality-reference/approved-visual-note-page-01.png",
+      "sha256": "6b5774cbcec3c68e224de41bb717041716b4fcf79acb4a2687e3cd3579f92016",
+      "bytes": 2077070
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/references/approved-image-baseline.md",
+      "sha256": "3fd70e297bbdbb7ce1ac0732a007333acb987052ba7f61d045e2e2f0f04a2fd6",
+      "bytes": 1396
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/references/human-character-spec.md",
+      "sha256": "2f0d490e2bdc1b26c21d2688d2797cf0247e5b997196a0ae18833110f6ed2264",
+      "bytes": 786
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/references/page-spec.md",
+      "sha256": "9d4c3cfd8ca38eddea28b5e7f85d6a03784d316f496a517591549864dc1bf651",
+      "bytes": 4678
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/scripts/build_ip_ppt.py",
+      "sha256": "f89f3876ef3bf1d644942e3ec0402b9a4cf95191743cfc1694437721dd0f1c0b",
+      "bytes": 425830
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/scripts/common.py",
+      "sha256": "2e32fdc48e6abea26808e391a3a23f2f44cb6fea52619b2abd75cc0c986d331c",
+      "bytes": 5119
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/scripts/normalize_reserved_zone.py",
+      "sha256": "52a545c3f9c1ac3d208bc80783c3420ba82a027b8c1fac515fcf94fdda988971",
+      "bytes": 7925
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/scripts/register_character.py",
+      "sha256": "5c984648ad40dbe3428820d7fd1e074650f578b105adbb6e9af66d525555e523",
+      "bytes": 10233
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/scripts/render_recovery_loop.py",
+      "sha256": "e015b249483743731622f3ec641a85101f1c1e174a3f373869e6906fc4b14cf9",
+      "bytes": 17789
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/scripts/verify_codex_render_job.py",
+      "sha256": "45e18054b333223a1d149eb20eb5608a1da3213c0f4a6f62b55c19805d62c602",
+      "bytes": 1384
+    },
+    {
+      "path": "10_Skills武器库/IP视觉PPT生成Skill/SKILL.md",
+      "sha256": "854a81c3a344a6c2f24d79db132d9da6e934dd553729f677c352eff4e9015d4e",
+      "bytes": 8303
+    },
+    {
+      "path": "10_Skills武器库/今日复盘-案例卡拆解Skill（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "10_Skills武器库/今日复盘-案例卡拆解Skill（会员专享）/SKILL.md",
+      "sha256": "cc78470eba8b0e58af725b5a58cd3f9df6c50d3475d0cc5addab49c0b6157e2d",
+      "bytes": 382
+    },
+    {
+      "path": "10_Skills武器库/原始资料入库统计Skill/references/视频文案五篇批次校对准入合同.md",
+      "sha256": "dea1e440434bb86f2067beffb46dcdc63f9ee6c30d4389bf21bddd90dab8e320",
+      "bytes": 1767
+    },
+    {
+      "path": "10_Skills武器库/原始资料入库统计Skill/references/视频文案校对版合同.md",
+      "sha256": "14d5ce6c5d68536c5e0484546e8f26b2561f87093f432bdc760349b1823a3bdc",
+      "bytes": 1921
+    },
+    {
+      "path": "10_Skills武器库/原始资料入库统计Skill/scripts/process_video_correction_batch.py",
+      "sha256": "ade03faacf94487f0b6aa5be4e615e62af1df0f064c226cb60dc001f617d927c",
+      "bytes": 15900
+    },
+    {
+      "path": "10_Skills武器库/原始资料入库统计Skill/scripts/proofread_video_source.py",
+      "sha256": "be1adf4551a19f530b300838b2f05430c10ab6992441de26d7e34303d0f828f3",
+      "bytes": 11043
+    },
+    {
+      "path": "10_Skills武器库/原始资料入库统计Skill/scripts/rebuild_input_inventory.py",
+      "sha256": "65e932e417e2831f792beeb733235fe2b8dd1d2e060b7884e54b14d280325462",
+      "bytes": 767
+    },
+    {
+      "path": "10_Skills武器库/原始资料入库统计Skill/scripts/refresh_after_approved.py",
+      "sha256": "64b4be389943821b80f9d8c1b153b3b387033b3a1704a097f0c789185b2b656b",
+      "bytes": 1147
+    },
+    {
+      "path": "10_Skills武器库/原始资料入库统计Skill/scripts/requirements-video-source.txt",
+      "sha256": "c0f3f5be8c208c560193cf98b15ab138233c7153bca8dcfe3ec6d23313a60988",
+      "bytes": 112
+    },
+    {
+      "path": "10_Skills武器库/原始资料入库统计Skill/scripts/standardize_input.py",
+      "sha256": "d9f4904ee93e983a1cc3fd3247587a9f99c136dcfb3d2a5da83fdc99d8fa17f6",
+      "bytes": 6769
+    },
+    {
+      "path": "10_Skills武器库/原始资料入库统计Skill/scripts/standardize_video_sources.py",
+      "sha256": "93e7804fa9b8b6c9dadf516ee99d31017eb3a8e0a250b80ad85d2a811d33c7b1",
+      "bytes": 16697
+    },
+    {
+      "path": "10_Skills武器库/原始资料入库统计Skill/SKILL.md",
+      "sha256": "c700bb66dd06d0c44d43b0d80fabba6fd2b034015b3f880fdc441e4fe7b30cb9",
+      "bytes": 8702
+    },
+    {
+      "path": "10_Skills武器库/好书解读-内容模块拆解Skill/scripts/execute_book_module_breakdown.py",
+      "sha256": "989e1e91932921de8ec5da85ca5532d280770853e87ca1a400e18be947639357",
+      "bytes": 4509
+    },
+    {
+      "path": "10_Skills武器库/好书解读-内容模块拆解Skill/SKILL.md",
+      "sha256": "75986266b41338bdb3fcbbec2d4b55d6dcd1a49a871d47bdaebcbfe021b2eea4",
+      "bytes": 15440
+    },
+    {
+      "path": "10_Skills武器库/对标视频-结构拆解Skill（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "10_Skills武器库/对标视频-结构拆解Skill（会员专享）/SKILL.md",
+      "sha256": "db6aa08306e88d3b239d0456ca1efbe1b7ccc6d79055bafa2c788543f3e21fb0",
+      "bytes": 368
+    },
+    {
+      "path": "10_Skills武器库/播客解读-内容模块拆解Skill（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "10_Skills武器库/播客解读-内容模块拆解Skill（会员专享）/SKILL.md",
+      "sha256": "d86de83aaaeef60ac6e817c3e0dd10d1ca552caaa53dc6080de2c6e25ab4916f",
+      "bytes": 583
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/references/spoken-structure-writing.md",
+      "sha256": "9ef2a29d9d3f4fd2e4f3e9a57423e5ef1d9c7f6d6eaa9f1092afc0ab485be00f",
+      "bytes": 4242
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/references/structure-contract.md",
+      "sha256": "c0878067fb1be48ef2da54e0105ae61bdc2c3979ca5352523d2ad7981e27cf11",
+      "bytes": 5087
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/build_portable_package.py",
+      "sha256": "9b18277fb3c61fb99aa2be4e7958dc13572daca4cf57e3676b7682bc4ec1fa68",
+      "bytes": 331
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/build_structure_candidate.py",
+      "sha256": "3cd1d4c5647e2a661410acde0cb49795f8fea8ee8f63a175b81112c1049e478c",
+      "bytes": 8255
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/install_to_codex.py",
+      "sha256": "16172eeb1def87e91cab5c672b59bb658061acb49a1e551aadca2f380b0aebe9",
+      "bytes": 558
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/migrate_v7_runtime_candidate.py",
+      "sha256": "47e88c3fccaf7cb8d4977d549ca03d4e5935f534d0bd7ff63afe5256f489aad5",
+      "bytes": 6276
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/prepare_structure_from_topic.py",
+      "sha256": "5b8e2257a7e8b5d8c5b9e7aecd326f6eeb0e3730740a8f3bea824f29afd945c8",
+      "bytes": 2306
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/prepare_structure_release_plan.py",
+      "sha256": "a8669b76b62f9db4c5535ad2339a92ba36c9c0f63141d6aa9dfa49a9d368b03d",
+      "bytes": 2990
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/prepare_structure_task.py",
+      "sha256": "5c46c47fe4595a5f2330c56b668200261bed1939fc7d543a6c873f9ff1b45d1c",
+      "bytes": 27924
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/prepare_structure_task_v13.py",
+      "sha256": "2bd354b4e78692dc59d82ee111b90f1c759a84132afdc786320170b8508f6fa5",
+      "bytes": 1240
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/render_structure_markdown.py",
+      "sha256": "1b8a004d3a2494fb4527964862ae8151d65a52ec8988fc66df9a846b91567533",
+      "bytes": 15287
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/repair_structure_three_processing_sources.py",
+      "sha256": "065cec6b72c1998bd0d8eeed35d0b4d21b12244bcaa7f593f6f2daf13d55ba43",
+      "bytes": 5933
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/structure_v13.py",
+      "sha256": "fb8096d6629fa813c47aa9bd800b0b3d72391d87edb2a369428432003d59b0cf",
+      "bytes": 18363
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/structure_v14.py",
+      "sha256": "64688adb99d2a323e136cd1e29f6c5fb719eaea31617cb27d2c5f613e2621c2b",
+      "bytes": 6596
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/structure_v15.py",
+      "sha256": "6d8478acf3a84b2c9797e08affce6f26241619cc1cbbeee23a496f9294737748",
+      "bytes": 6204
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/structure_v16.py",
+      "sha256": "4f373f35d12a566a8d568f77b19e1ebfde16dcca13733829418cb8927de359e8",
+      "bytes": 9232
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/validate_structure_output.py",
+      "sha256": "eb0d85ab687c2d9ec2b0eb789d35813c4704695b63aec7afe2bffa5460193282",
+      "bytes": 27601
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/validate_structure_v12.py",
+      "sha256": "f6dcfa5e16dcf3f831b8520f17729165b367330962aa302bc267b13c9ac04c31",
+      "bytes": 10157
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/scripts/validate_structure_v13.py",
+      "sha256": "57340749d0fbd60382d68613ef28e9a693cd94b2a79e4280338dc7ec5b3a149b",
+      "bytes": 774
+    },
+    {
+      "path": "10_Skills武器库/文案结构生成 Skill/SKILL.md",
+      "sha256": "5de0d9f01444360184fbcbf22e7928e7b2cb1e7289ea77bcb822effad83590f9",
+      "bytes": 4742
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/references/copy-contract.md",
+      "sha256": "d2a7464358fcdf8d3fa7295050b6f77b03555b2faf16d2e6c669dd21b51ac2c2",
+      "bytes": 2218
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/references/final-copy-semantic-quality-gate.md",
+      "sha256": "8ec614fc87262272bb844942f4b0fe64d944481c6afe3805dd63f03984a4723a",
+      "bytes": 1851
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/build_final_copy_candidate.py",
+      "sha256": "29b78a508d2ad8280295319da367060e8da058ae40e50ac5f949ad5215644f38",
+      "bytes": 4993
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/build_framework_copy_candidate.py",
+      "sha256": "6b9c6b02a9704dae5132aa26bdb61fe4cfa367d38e2ac028bae0b79be236e759",
+      "bytes": 2646
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/build_portable_package.py",
+      "sha256": "4f58b3313dae260aae00d854bec1f5faabf2bcb5646025c758f5a8ab449b9835",
+      "bytes": 327
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/build_runtime_replication_profile.py",
+      "sha256": "3e3e5a84f8ba2cdc96feb9f05adb9121a11ae163ea2510767d8ba7bc5229bc3b",
+      "bytes": 2486
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/build_shape_source_from_constraints.py",
+      "sha256": "6e8d8ccd8d31021cc3c5144e16e0159ec6d0266eeab50bdd75a84bc4a605e964",
+      "bytes": 2440
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/build_structure_intent_map.py",
+      "sha256": "465fc652c94405442f4594bd48894b6cd6319bd48ccf64edc3caf70901c695d1",
+      "bytes": 3083
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/complete_structure_intent_map.py",
+      "sha256": "a8f05d385d386b7a7b6b8f2ff538617ee98405218bf9a0e345c8f0ea11fc4a0f",
+      "bytes": 5462
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/framework_copy_contract.py",
+      "sha256": "14c19bac43828bfc81e022da8100bcc1d8c053691cd86cca12603360310093cc",
+      "bytes": 2433
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/freeze_structure_four_markdown.py",
+      "sha256": "b16e5191ded5d48e8702ac8854d1ae2665606d1f2778f54d9238e04d39efa45d",
+      "bytes": 6761
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/install_to_codex.py",
+      "sha256": "bd7068bdc224a05cb0e99bb109667fa37ea22137fe168e1f30c25b200c1ff55c",
+      "bytes": 550
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/prepare_copy_task.py",
+      "sha256": "175e02a35de6863c499338796e35aa373a9dc6e8e96789d6be0f13b8cd65d7bd",
+      "bytes": 23012
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/prepare_framework_copy_task.py",
+      "sha256": "46e349ea40e467ea8d042e3e654b1f13cc2902d6cda5e3b2dd19079062f02fbb",
+      "bytes": 5910
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/publish_framework_final_copy.py",
+      "sha256": "f9cc292fa861d309791c3b39de42c6212d538fe07bdce6402dbc9958e2c3777c",
+      "bytes": 5691
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/render_final_copy.py",
+      "sha256": "2d08846d78c5aab5d71bafce77edc81a6f99fb4ebff6e94099be40d59b866950",
+      "bytes": 7115
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/render_framework_copy.py",
+      "sha256": "1b1c4962ba87de3a9750d69d1e5d28534b8aefaabebd7c53216349174a901be0",
+      "bytes": 3884
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/validate_copy_plan.py",
+      "sha256": "b223f532b853541fe2b4a06f95552f6ddeaf8a4351dc78381b6bea7c6404e7a7",
+      "bytes": 17225
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/scripts/validate_framework_copy.py",
+      "sha256": "536e820d8256211e0305a564595ff570f5464ab51802d3a1b4ce3297e6bae94d",
+      "bytes": 3545
+    },
+    {
+      "path": "10_Skills武器库/正文成稿生成 Skill/SKILL.md",
+      "sha256": "f8303b4f5ec314e49134b5f11bfdea68c3135de2ac71b1850817df6b00a165d9",
+      "bytes": 4216
+    },
+    {
+      "path": "10_Skills武器库/爆款选题分类Skill/scripts/classify_benchmark_topics.py",
+      "sha256": "eb33f6e5aa4e99845a5dad9c8c9e391c84a80fe7bd35a077f7866fcc82e22912",
+      "bytes": 106399
+    },
+    {
+      "path": "10_Skills武器库/爆款选题分类Skill/scripts/migrate_topic_tables_v42.py",
+      "sha256": "3d09313246429409a833ed173d87174dd494df56cac0f85eb240656adb5d7414",
+      "bytes": 2263
+    },
+    {
+      "path": "10_Skills武器库/爆款选题分类Skill/scripts/refresh_topic_stats.py",
+      "sha256": "cb2e7038b342191b3d69390da967fcb4ceb84d3af631156f642fc3094b4abaf2",
+      "bytes": 10530
+    },
+    {
+      "path": "10_Skills武器库/爆款选题分类Skill/scripts/review_other_topics.py",
+      "sha256": "c2bba8201f49d004c7a0018147fbe8dbe358e094ae5440c425795d5148616338",
+      "bytes": 4983
+    },
+    {
+      "path": "10_Skills武器库/爆款选题分类Skill/SKILL.md",
+      "sha256": "2327cc4af3d696aca6dd8ed71352b1eb37c09e269a0441c890b0e9369484959a",
+      "bytes": 16908
+    },
+    {
+      "path": "10_Skills武器库/视频文案-痛点卡拆解Skill（会员专享）/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "10_Skills武器库/视频文案-痛点卡拆解Skill（会员专享）/SKILL.md",
+      "sha256": "151e5eb632494591f9f52dfa6f809456c119c97e6615e156e8c8b3c1b940afe4",
+      "bytes": 416
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "7575027f3c9705c4cb83a1853cba09f341190ec121db12b1437e69bc36ccb7f1",
+      "bytes": 1442
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "d106374b184e6326c77e3107321fca8f12748ce7c38a02e00049121cb4a72550",
+      "bytes": 984
+    },
+    {
+      "path": "COMMERCIAL-LICENSE.md",
+      "sha256": "81c9845c2a6463bb70f620baa03355ed4db07b26103beffcff64a5a7149daee5",
+      "bytes": 705
+    },
+    {
+      "path": "CONTENT-RIGHTS.md",
+      "sha256": "95d4a041db487ba6d98d4b84643b69c07090f063f4003348e7aed438964f5890",
+      "bytes": 974
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "5f71296c3c83defc0e9712d242cc3b145240423474d9c9d0f8ff9bf0324280d9",
+      "bytes": 1336
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "0ea72ec416e394ea35a654c7ddb3a442bb36fd1d333d4a5bb43addb619c2bec2",
+      "bytes": 1524
+    },
+    {
+      "path": "PUBLIC_ASSETS_MANIFEST.json",
+      "sha256": "bcd4f0a4438c88dc2919d4ed868a7284d928edcd176ed20b840456410b1ef5e3",
+      "bytes": 7198714
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "e86e267f714598511d66b8a4fa2a8e6009de3d8e0aec7ad21b028ff8f9a68bb6",
+      "bytes": 385
+    },
+    {
+      "path": "README.md",
+      "sha256": "b73774de5ed13246bf3e51ed6ad4a03f00e54635eb1c635f3f4a7a64d20dbee8",
+      "bytes": 2474
+    },
+    {
+      "path": "requirements-dev.txt",
+      "sha256": "2dd01ba3ad1ab63541b7af6b9e646d0b75ba3646e59043c8573df18de383db72",
+      "bytes": 52
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "ca1667679f13123e0d1175e333e6de6917a025183e6652a6fc1b43eb205e1ff5",
+      "bytes": 70
+    },
+    {
+      "path": "run.py",
+      "sha256": "218b5b8ec3cc0d1565fb50cdaf5ad9f6a39dd5daf371da7d966099b201dd97b7",
+      "bytes": 8948
+    },
+    {
+      "path": "schemas/asset-manifest-v1.schema.json",
+      "sha256": "7ee406612e498bdc03d4608421257668a97c1fbbc54a5ef02bbfb5af7dd8ab49",
+      "bytes": 867
+    },
+    {
+      "path": "schemas/asset-request-v1.schema.json",
+      "sha256": "aa2fb515ff62ca1d096e7e6d53910f7d9f03004d7997d13b2e377791c4ca8d3b",
+      "bytes": 735
+    },
+    {
+      "path": "schemas/audit-receipt-v3.schema.json",
+      "sha256": "6394dba7658c6c90b0aaa7e98a99cec3fc6210bb4540564ff1f641e5febe70b1",
+      "bytes": 647
+    },
+    {
+      "path": "schemas/benchmark-replication-profile-v2.schema.json",
+      "sha256": "95fc6354025d5b7d459a9fe304d254f502e765331c7d99be602b41a49ed29126",
+      "bytes": 1331
+    },
+    {
+      "path": "schemas/benchmark-topic-v4.1.schema.json",
+      "sha256": "89b1453277201a277735b37c149906ecdf6cc8bfefacd6375d903755cd734082",
+      "bytes": 599
+    },
+    {
+      "path": "schemas/benchmark-topic-v4.2.schema.json",
+      "sha256": "8d3ca3fc4fb406f372bade349ab737182d33d0c57c0823109109cf196f422c1b",
+      "bytes": 576
+    },
+    {
+      "path": "schemas/benchmark-video-structure-v1.schema.json",
+      "sha256": "3b7f25ceacc1c91d9d091ddb8b462ff7dfac52ffd3283d5b732967b7f31cf9b8",
+      "bytes": 1674
+    },
+    {
+      "path": "schemas/benchmark-video-structure-v2.schema.json",
+      "sha256": "d869c1d08bceff47036c566c17ed4c88c8f9c7bbd7797d7b10942b90099c2bce",
+      "bytes": 872
+    },
+    {
+      "path": "schemas/copy-structure-v16.schema.json",
+      "sha256": "834b6601565cb4efc8a1a7b3d0c70b151928914126b7190274da14ae20519869",
+      "bytes": 691
+    },
+    {
+      "path": "schemas/copy-structure-v2.schema.json",
+      "sha256": "c7dd239e5dad4992aa6812df2cf671d8181d2308626317b5f6c64b30c9bf7cd5",
+      "bytes": 803
+    },
+    {
+      "path": "schemas/final-copy-v1.schema.json",
+      "sha256": "9b9e5dc28e649a64e1589e8d52e1b378f54785769e074a1ae6bb410d430446ca",
+      "bytes": 493
+    },
+    {
+      "path": "schemas/final-copy-v3.schema.json",
+      "sha256": "cbba83d1986214608faae70d9c8cb7a88fe86ec7652f52d1085f3d0f657b5686",
+      "bytes": 371
+    },
+    {
+      "path": "schemas/handoff-v2.schema.json",
+      "sha256": "17634862aa589c001098303a82b0bafab499e8835b3098cfeb33779b72fe5e6c",
+      "bytes": 1770
+    },
+    {
+      "path": "schemas/receipt-v2.schema.json",
+      "sha256": "c87af0927a447f7b73e829b98c2f49e4cc03681285c4ce1963ef1aad4a5d81dd",
+      "bytes": 838
+    },
+    {
+      "path": "schemas/work-journal-case-card-v12.schema.json",
+      "sha256": "dfecb59e7ff6f5b37de4f2c0c69a67dc4350583ec34141c1214044f2fa7a778d",
+      "bytes": 595
+    },
+    {
+      "path": "schemas/work-journal-thinking-v10.schema.json",
+      "sha256": "1661c1652ac0a003b8047d587387574c4f9d58407bc4a62e85e142388ced5412",
+      "bytes": 6015
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "2493d8d3cbd4fb5b932e7945940063e6f3032c0a42f02274b52583139ca0b1c4",
+      "bytes": 647
+    },
+    {
+      "path": "tools/dashboard/status_dashboard.py",
+      "sha256": "e044ed7d7c498f856c610b2934d8f23a1dd370831845d2d8afe0baa869d704e5",
+      "bytes": 1042
+    },
+    {
+      "path": "tools/dispatch/create_dispatch.py",
+      "sha256": "d507c18f19989c774b5390c3846ef28ae74de4216522d040752a24e067e105b0",
+      "bytes": 885
+    },
+    {
+      "path": "tools/dispatch/gate.py",
+      "sha256": "7114ea7b4ab9bba7591aa443660ca72a6f1a34329ebc5dee2bd216c7bc9fc282",
+      "bytes": 846
+    },
+    {
+      "path": "tools/platform/activate_skill_contract.py",
+      "sha256": "2cb6fdfeca27b08e546f7873bb05ebbee999565021db6f2bdaef8f1f0f66b7c9",
+      "bytes": 4698
+    },
+    {
+      "path": "tools/platform/render_skill_catalog.py",
+      "sha256": "e204c28eced572c950cd655d88aec0d6418cb2eebfd084bbb13558358337b9d4",
+      "bytes": 3358
+    },
+    {
+      "path": "tools/platform/skill_contract.py",
+      "sha256": "ed0e1e2a0d91c0268ebe8c5ab44a2c5b6d61bbd635b2f2ae7de99c2fbe534a1a",
+      "bytes": 1333
+    },
+    {
+      "path": "tools/platform/sync_skills.py",
+      "sha256": "8a5d378ae362f9142ee0b3c03877d0bea7712914359fc6e05397d5f42df4f807",
+      "bytes": 8991
+    },
+    {
+      "path": "tools/quality/apply_cleanup_manifest.py",
+      "sha256": "936b6e71269bce90bb992488c031b8cd96642b2e826b4019f655099b4fbb947f",
+      "bytes": 2217
+    },
+    {
+      "path": "tools/quality/apply_ghk_v3_cleanup_manifest.py",
+      "sha256": "5c5f4439b1bdbdc3dca25cfd048d658d99857f1b61ac7a0f04483c0231464cea",
+      "bytes": 1868
+    },
+    {
+      "path": "tools/quality/apply_second_pass_cleanup_manifest.py",
+      "sha256": "2ab2f83867587783cc5046571c17c7113e0327d6359a2b5afd6d7ebd1f68d582",
+      "bytes": 2392
+    },
+    {
+      "path": "tools/quality/audit_github_baseline.py",
+      "sha256": "ace36f3f030959e4944e21c4c4faa0042997df99deae770dfa496ebeb7752064",
+      "bytes": 14408
+    },
+    {
+      "path": "tools/quality/build_cleanup_manifest.py",
+      "sha256": "83aa92ab295472c65d3eeaa8f79f64c3652170089aa02d755143aec7a3a1d080",
+      "bytes": 5947
+    },
+    {
+      "path": "tools/quality/check_brand_footer_residual.py",
+      "sha256": "7d334fcdcc033000af4903bdc09ef0d73a7897d3cc42827e3ae6ba5032cc0525",
+      "bytes": 2772
+    },
+    {
+      "path": "tools/quality/clean_precise_junk.py",
+      "sha256": "0eeae90b620e560ab518d20296b1e8bf97409c8e8e1b722027be5405b3124d45",
+      "bytes": 7086
+    },
+    {
+      "path": "tools/quality/doctor.py",
+      "sha256": "65145f52b613b969afd4dc89efd331aa3ed3353fe9f37a0ec19e25d3cba92159",
+      "bytes": 1943
+    },
+    {
+      "path": "tools/quality/fix_brand_footer_skill.py",
+      "sha256": "1d1c61a90277041fccbf1168a51c39121aad629c0629a947a5ce36df3e20f099",
+      "bytes": 528
+    },
+    {
+      "path": "tools/quality/generate_system_docs.py",
+      "sha256": "76ea5102f9b68cd13efe15e61e264123d4d2f117d08eb048875c00c4b4b24a81",
+      "bytes": 4389
+    },
+    {
+      "path": "tools/quality/normalize_brand_footer.py",
+      "sha256": "b51524bd8a91ff2e6057a226df4cc877bb9a361237f33bf51db046b5cc2b25e4",
+      "bytes": 1541
+    },
+    {
+      "path": "tools/quality/release_check.py",
+      "sha256": "d1ff41dc4376c6cc4ecedb1ee3220cd716142fc93dc9befafd065c4edb71f6ce",
+      "bytes": 3685
+    },
+    {
+      "path": "tools/quality/run_tests.py",
+      "sha256": "fc64fdffb6652fff769fe534fa267be95bb2e57b551298e463fad5bb0990895c",
+      "bytes": 1842
+    },
+    {
+      "path": "tools/quality/validate_system.py",
+      "sha256": "5c7b6c26a30f5b3be5d7467fea63e820be6ce7bef6accfecd83b23b22d747d35",
+      "bytes": 2227
+    },
+    {
+      "path": "tools/release/build_asset_manifest.py",
+      "sha256": "6ac3278bca8ada1f37e42d36aca8f68c47758b6be9513036c2121adf37df584c",
+      "bytes": 4772
+    },
+    {
+      "path": "tools/release/build_release.py",
+      "sha256": "d1ffabb66a8ce8699405b126f736d84ff8253257db1d4bc410e97e59962f93ee",
+      "bytes": 16691
+    },
+    {
+      "path": "tools/release/public_policy.py",
+      "sha256": "fb6e1f83847941a8e7a8c6edc059976403964c63f06f589f442d0995f067e500",
+      "bytes": 7776
+    },
+    {
+      "path": "tools/release/recover_video_pain_batch7.py",
+      "sha256": "54093f01a0d2d454e0b0f51c00d77e2801e429f0a0dc90b44c484f75dd5278c6",
+      "bytes": 31674
+    },
+    {
+      "path": "tools/tests/fixtures/dry-goods/structure-four.md",
+      "sha256": "f5d19cde4d0da1392c2a754e62ea8ac79a75203b44d0325d3598195e38158949",
+      "bytes": 1137
+    },
+    {
+      "path": "tools/tests/fixtures/dry-goods/topic-table.md",
+      "sha256": "1bfa9a7165991cdc718bfc9638c83225f65c88ab30db9b5cfd26f5325cea0daa",
+      "bytes": 319
+    },
+    {
+      "path": "tools/tests/test_audit_copy_structure.py",
+      "sha256": "14db59eafd79aef31a2aac82625d2aeb13e5b668038c4a3ae343f52c933d7d37",
+      "bytes": 1270
+    },
+    {
+      "path": "tools/tests/test_audit_video_pain_angle_matching.py",
+      "sha256": "95debc7c18917263c7d71c9d3788c084dc0a13eedef4c3e735ccea14586362ff",
+      "bytes": 5469
+    },
+    {
+      "path": "tools/tests/test_audit_video_pain_batches.py",
+      "sha256": "67a90466829fd483e2f21a3f4e5bc535cdd20cf9d721834a7dc76aa1e581a445",
+      "bytes": 6980
+    },
+    {
+      "path": "tools/tests/test_audit_video_pain_cards.py",
+      "sha256": "8997dec83b3650d42df8cd202344f9fd201ceba0c16cab4f68e82dec49f4ea3e",
+      "bytes": 15159
+    },
+    {
+      "path": "tools/tests/test_audit_video_source_correction.py",
+      "sha256": "0d069a32e1df332d85865c8c0f78bf7a61599fc0405606b86b9ff1cf2275c680",
+      "bytes": 4061
+    },
+    {
+      "path": "tools/tests/test_case_card_v12_structure_binding.py",
+      "sha256": "b9cbe41cbbd4b9f1d883d41ef165a879c0c8c7c56968e4f8460037556f03f3a6",
+      "bytes": 1356
+    },
+    {
+      "path": "tools/tests/test_ip_visual_v4_contract.py",
+      "sha256": "f81e88de22d8bcfcb1f35bf771088043db5bcef82e073b0891d3019a30835aaa",
+      "bytes": 61043
+    },
+    {
+      "path": "tools/tests/test_public_release_policy.py",
+      "sha256": "e574ccea61c739b41328f29c09a2b0ff80f011faa63858c6377ecfa90feef20e",
+      "bytes": 2879
+    },
+    {
+      "path": "tools/tests/test_search_video_modules.py",
+      "sha256": "dfbafc802eba113e72c7da8e3b370f934203323098ebfcc41be620756e1909dc",
+      "bytes": 2296
+    },
+    {
+      "path": "tools/tests/test_topic_structure_releases.py",
+      "sha256": "e5671d83d93f662aae92b5d82a2adf94e7072424b3f91b3055d85f2cf530372d",
+      "bytes": 17677
+    },
+    {
+      "path": "tools/tests/test_visual_request_routing.py",
+      "sha256": "3293a700e7ef02d1795c89bf5a7d49603523763cfb1969e2a3e522ad9be7b7bc",
+      "bytes": 1951
+    },
+    {
+      "path": "tools/tests/test_work_journal_thinking.py",
+      "sha256": "404ef8ef698002eb337662c7a922fcc7976cf8ace133a1c8ec5c8e1c96ada79b",
+      "bytes": 1167
+    },
+    {
+      "path": "workflow/__init__.py",
+      "sha256": "6bf73480b2c733a710e2f429750b1080453d09367dc71ed6c541a6c43cdb926b",
+      "bytes": 32
+    },
+    {
+      "path": "workflow/active_batch.py",
+      "sha256": "738782e1f6ae0f46097bd74af8f73a1fdfa30d033377471ecc2c40cd14c949bc",
+      "bytes": 6904
+    },
+    {
+      "path": "workflow/asset_paths.py",
+      "sha256": "cbbfe7f13177ed48ffecac56ad5efbe4e5402580d38f63fa9423a906bf32bbfe",
+      "bytes": 3056
+    },
+    {
+      "path": "workflow/benchmark_cases.py",
+      "sha256": "4f63bcee13706e3dce3d530a3621557e85df719c7be5324b0ccae3c32aa7fa51",
+      "bytes": 13128
+    },
+    {
+      "path": "workflow/benchmark_structure_v2.py",
+      "sha256": "bea03dd251350fd9ed36618b8900ffc2c198a940928df4e62a7f5be691b10b0c",
+      "bytes": 4935
+    },
+    {
+      "path": "workflow/common.py",
+      "sha256": "567795039ebf3ac1feb7584d4bbb03db53c8a5f5cf10705736fdcc3e1b07a28c",
+      "bytes": 11653
+    },
+    {
+      "path": "workflow/data_center.py",
+      "sha256": "e26e0e3d47a26b6d11ec154b135dabe6ef4f00d6881df32c6520cfd5268fa828",
+      "bytes": 20754
+    },
+    {
+      "path": "workflow/ima_client.py",
+      "sha256": "ac176ff74dd24b3aee787211fdb75fd1217d8870ea5ab01af78f6b12c06defa8",
+      "bytes": 11519
+    },
+    {
+      "path": "workflow/input_inventory.py",
+      "sha256": "5a09da2ee555e6de87fca3d2023b9c1fdd37410d853710abb01810ded9dae253",
+      "bytes": 19960
+    },
+    {
+      "path": "workflow/inventory_refresh.py",
+      "sha256": "2b748e1e91f4274954f7946048f45cb32752b85460465fd407631e5222a8a7ac",
+      "bytes": 6665
+    },
+    {
+      "path": "workflow/module_function_index.py",
+      "sha256": "a5299cd4bede0ccfad3694336263962f31de3b248414a1129b43625bfb0eefa4",
+      "bytes": 11253
+    },
+    {
+      "path": "workflow/README.md",
+      "sha256": "153ccfd941a7d8f7839bd532b1a96126b4d8735f92f81e5c6be2ce5ae14ba666",
+      "bytes": 441
+    },
+    {
+      "path": "workflow/registry.py",
+      "sha256": "be39f6256c6c4cea6c652edbb7d9ea736bb9e8cfe39a1b64dfe945b5f9904f74",
+      "bytes": 934
+    },
+    {
+      "path": "workflow/runtime.py",
+      "sha256": "2d90cf4bb0dc67612ebf31a38b3fe769ffd34761e8d0abb3a4ccaf54e5038331",
+      "bytes": 489
+    },
+    {
+      "path": "workflow/tests/test_benchmark_case_sync.py",
+      "sha256": "8d8d27ed6fb06893ca0095a18f0aaf0f13c0dd66263d84ecead519081edd304b",
+      "bytes": 5510
+    },
+    {
+      "path": "workflow/tests/test_copy_structure_formal_framework.py",
+      "sha256": "ef896cfc9ac80b57f28f68752289b71669a0c373520b41c8bd464eaa9b4b5673",
+      "bytes": 1008
+    },
+    {
+      "path": "workflow/topic_structure_releases.py",
+      "sha256": "f1304639cb3e7cbea34ba411200f89aa418b147aaf2f561ea5ae2b1233f5f298",
+      "bytes": 26826
+    },
+    {
+      "path": "workflow/universal_copy_contract.py",
+      "sha256": "5908e5328f6831522c8a1209672dada6baf50f57631d1c4f5b0e152785d0b53d",
+      "bytes": 8605
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python run.py release-check --output dist/release-check
+      - uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          body: |
+            Windows 11 + Python 3.11-3.13 + Codex Desktop are the supported environment.
+            Run `python run.py workbench install` from an elevated PowerShell after installation.
+          files: |
+            dist/release-check/github.zip
+            dist/release-check/github.zip.sha256
+            dist/release-check/skillhub.zip
+            dist/release-check/skillhub.zip.sha256
+            dist/release-check/workbuddy-expert.zip
+            dist/release-check/workbuddy-expert.zip.sha256

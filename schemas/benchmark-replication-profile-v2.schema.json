@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "benchmark-replication-profile-v2.schema.json",
+  "title": "Runtime Benchmark Replication Profile",
+  "type": "object",
+  "required": ["schema", "benchmark_case_id", "benchmark_sha256", "units"],
+  "properties": {
+    "schema": {"const": "benchmark-replication-profile-v2"},
+    "benchmark_case_id": {"type": "string", "pattern": "^[A-Z]{3}-\\d{3}$"},
+    "benchmark_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "units": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["unit_no", "sentence_shape", "clause_roles", "sentence_form", "source_text_sha256", "required_punctuation", "word_range"],
+        "properties": {
+          "unit_no": {"type": "string", "pattern": "^\\d{2}$"},
+          "sentence_shape": {"type": "string", "minLength": 1},
+          "clause_roles": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "sentence_form": {"type": "string", "minLength": 1},
+          "source_text_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "required_punctuation": {"type": "string"},
+          "word_range": {"type": "string", "pattern": "^\\d+–\\d+$"}
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

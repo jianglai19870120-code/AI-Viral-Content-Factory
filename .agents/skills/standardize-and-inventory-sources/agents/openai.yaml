@@ -1,0 +1,4 @@
+interface:
+  display_name: "原始资料入库统计Skill"
+  short_description: "小息用于原始资料标准化入库，以及 approved 正式发布后的清单与数据中心回写；不再维护独立统计文档。"
+  default_prompt: "使用 $standardize-and-inventory-sources 按AI爆款内容工厂正式调度和审核链执行任务。"

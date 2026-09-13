@@ -1,0 +1,4 @@
+interface:
+  display_name: "对标视频-结构拆解Skill（会员专享）"
+  short_description: "清洗并拆解对标视频原文，只输出按原文顺序排列的大框架三列表；不输出小框架、逐句或复刻约束。"
+  default_prompt: "使用 $benchmark-video-structure-breakdown 按AI爆款内容工厂正式调度和审核链执行任务。"

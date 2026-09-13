@@ -1,0 +1,4 @@
+interface:
+  display_name: "播客解读-内容模块拆解Skill（会员专享）"
+  short_description: "完整读取播客、访谈、博客或长视频原文，先生成高传播力推荐理由，再按“总命题、主题板块、高密度分支观点金句、2到4个结构化拓展点”重组全文内容模块，并把金句与拓展写成更适合直接讲出来的表达，保存为推荐理"
+  default_prompt: "使用 $breakdown-podcast-modules 按AI爆款内容工厂正式调度和审核链执行任务。"

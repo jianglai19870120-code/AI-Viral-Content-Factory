@@ -1,0 +1,4 @@
+interface:
+  display_name: "好书解读-内容模块拆解Skill"
+  short_description: "把一本已标准化并通过原始资料入库审核的书，正式拆成金句、误区、步骤三类干货内容模块，并写入干货型内容模块库；用于“拆一本书”的默认正式入口，不用于推荐型好书三段式拆解。"
+  default_prompt: "使用 $breakdown-book-modules 按AI爆款内容工厂正式调度和审核链执行任务。"

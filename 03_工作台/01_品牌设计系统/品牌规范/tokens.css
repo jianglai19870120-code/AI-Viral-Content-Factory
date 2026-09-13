@@ -1,0 +1,60 @@
+/* Generated brand-token source. Pages import these variables; do not redefine them locally. */
+@font-face {
+  font-family: "OPPOSans L";
+  src: local("OPPOSans L"), local("OPPOSans Light");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OPPOSans";
+  src: url("../字体/OPPOSans/OPPOSans-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OPPOSans";
+  src: url("../字体/OPPOSans/OPPOSans-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OPPOSans";
+  src: url("../字体/OPPOSans/OPPOSans-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OPPOSans";
+  src: url("../字体/OPPOSans/OPPOSans-Heavy.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+:root {
+  --aip-ink: #151515;
+  --aip-paper: #fffefd;
+  --aip-canvas: #fbfaf8;
+  --aip-line: #e3dfd9;
+  --aip-line-strong: #cfc8bf;
+  --aip-muted: #827d76;
+  --aip-orange: #ff7900;
+  --aip-orange-soft: #fff1e5;
+  --aip-blue: #3775d1;
+  --aip-green: #35b95d;
+  --aip-yellow: #ffb400;
+  --aip-status-gray: #8e8e8e;
+  --aip-font-display: "OPPOSans", "Microsoft YaHei", sans-serif;
+  --aip-font-light: "OPPOSans L", "OPPOSans", "Microsoft YaHei", sans-serif;
+  --aip-font-sidebar: "Adobe Fangsong Std", FangSong, serif;
+  --aip-weight-light: 300;
+  --aip-weight-display: 700;
+  --aip-weight-heading: 500;
+  --aip-weight-body: 400;
+  --aip-icon-stroke: 1.7;
+  --aip-card-radius: 15px;
+  --aip-control-radius: 10px;
+}

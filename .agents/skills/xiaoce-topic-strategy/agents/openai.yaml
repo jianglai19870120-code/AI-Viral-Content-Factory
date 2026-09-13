@@ -1,0 +1,4 @@
+interface:
+  display_name: "06_小策选题策略Skill"
+  short_description: "AI爆款内容工厂爆款选题分类与9列Markdown选题库维护入口。由小姜分配后，从对标账号资料提取、去重、分类选题并校正状态；不写正文。"
+  default_prompt: "使用 $xiaoce-topic-strategy 按AI爆款内容工厂正式调度和审核链执行任务。"

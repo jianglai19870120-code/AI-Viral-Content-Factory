@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "work-journal-thinking-v10.schema.json",
+  "title": "Work Journal Thinking Card V10",
+  "description": "今日复盘 TH 思考卡 V10 索引/卡片记录。underlying_principle 为第一主匹配键；故事可调用层服务正文误区案例与小审门禁。",
+  "type": "object",
+  "required": [
+    "real_event",
+    "mistake",
+    "underlying_principle",
+    "correct_view",
+    "story_brief",
+    "scene_atoms",
+    "turning_sentence",
+    "usable_as_misconception",
+    "usable_as_step_case",
+    "missing_evidence",
+    "case_structure",
+    "principle_profiles",
+    "retrieval_profile"
+  ],
+  "anyOf": [
+    {"required": ["thinking_id"]},
+    {"required": ["id"]}
+  ],
+  "properties": {
+    "thinking_id": {"type": "string", "pattern": "^TH-"},
+    "id": {"type": "string", "pattern": "^TH-"},
+    "schema_version": {"const": "work-journal-thinking-v10"},
+    "title": {"type": "string", "minLength": 1},
+    "real_event": {"type": "string", "minLength": 1, "maxLength": 180},
+    "mistake": {"type": "string", "minLength": 1, "maxLength": 180},
+    "underlying_principle": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1, "maxLength": 120}
+    },
+    "correct_view": {"type": "string", "minLength": 1, "maxLength": 180},
+    "story_brief": {
+      "type": "string",
+      "minLength": 80,
+      "maxLength": 180,
+      "description": "第一人称口播故事核，只还原源文件已有事实，不补编场景、心理活动、对话或结果。"
+    },
+    "scene_atoms": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "turning_sentence": {"type": "string", "minLength": 1},
+    "usable_as_misconception": {"type": "boolean"},
+    "usable_as_step_case": {"type": "boolean"},
+    "missing_evidence": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "case_structure": {
+      "type": "object",
+      "required": [
+        "background",
+        "trigger",
+        "goal",
+        "core_conflict",
+        "constraints",
+        "options",
+        "reasoning_chain",
+        "turning_point",
+        "decision",
+        "result",
+        "verification_status",
+        "evidence_boundary"
+      ],
+      "properties": {
+        "background": {"type": "string", "minLength": 1},
+        "trigger": {"type": "string", "minLength": 1},
+        "goal": {"type": "string", "minLength": 1},
+        "core_conflict": {"type": "string", "minLength": 1},
+        "constraints": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "options": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "reasoning_chain": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 1}},
+        "turning_point": {"type": "string", "minLength": 1},
+        "decision": {"type": "string", "minLength": 1},
+        "result": {"type": "string", "minLength": 1},
+        "verification_status": {"enum": ["已验证结果", "部分验证", "阶段性判断", "待验证", "无结果"]},
+        "evidence_boundary": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "principle_profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "principle",
+          "mechanism_name",
+          "causal_chain",
+          "applicable_conditions",
+          "failure_boundaries",
+          "cross_domain_tests",
+          "can_support",
+          "cannot_support"
+        ],
+        "properties": {
+          "principle": {"type": "string", "minLength": 1},
+          "mechanism_name": {"type": "string", "minLength": 1},
+          "causal_chain": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 1}},
+          "applicable_conditions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "failure_boundaries": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "cross_domain_tests": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 1}},
+          "can_support": {"type": "array", "minItems": 2, "items": {"type": "string", "minLength": 1}},
+          "cannot_support": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "retrieval_profile": {
+      "type": "object",
+      "required": [
+        "mechanism_tags",
+        "conflict_tags",
+        "applicable_questions",
+        "narrative_roles",
+        "use_positions",
+        "misconception_types",
+        "preferred_slots",
+        "cannot_support_claims"
+      ],
+      "properties": {
+        "mechanism_tags": {"type": "array", "minItems": 2, "maxItems": 5, "items": {"type": "string", "minLength": 1}},
+        "conflict_tags": {"type": "array", "minItems": 1, "maxItems": 5, "items": {"type": "string", "minLength": 1}},
+        "applicable_questions": {"type": "array", "minItems": 5, "maxItems": 12, "items": {"type": "string", "minLength": 1}},
+        "narrative_roles": {"type": "array", "minItems": 1, "items": {"enum": ["证明观点", "反驳误区", "解释原因", "展示转折", "提供方法", "风险提醒", "决策依据", "个人经历"]}},
+        "use_positions": {"type": "array", "minItems": 1, "items": {"enum": ["开头引入", "误区后", "原因解释后", "步骤前", "步骤后", "结尾升维"]}},
+        "misconception_types": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "preferred_slots": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "cannot_support_claims": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

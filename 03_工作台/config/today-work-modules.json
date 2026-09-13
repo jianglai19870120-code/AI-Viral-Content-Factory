@@ -1,0 +1,22 @@
+{
+  "schema": "today-work-modules-v1",
+  "groups": [
+    {
+      "id": "input",
+      "label": "输入库",
+      "description": "原始资料标准化入库与统计",
+      "modules": [
+        {"id": "books", "label": "推荐好书", "root": "01_输入库/01_推荐好书-源文件", "skill": "breakdown-book-modules", "skillLabel": "好书解读-内容模块拆解Skill", "agent": "小拆", "editable": false},
+        {"id": "podcasts", "label": "热门播客", "root": "01_输入库/02_热门播客-源文件（会员专享）", "skill": "breakdown-podcast-modules", "skillLabel": "播客解读-内容模块拆解Skill（会员专享）", "memberOnly": true, "agent": "小拆", "editable": false},
+        {"id": "events", "label": "热点事件", "root": "01_输入库/03_热点事件-源文件（会员专享）", "skill": "", "skillLabel": "等待接入", "refreshMode": "waiting-integration", "memberOnly": true, "agent": "", "editable": false},
+        {"id": "video-sources", "label": "视频文案", "root": "01_输入库/04_视频文案-源文件（会员专享）", "skill": "breakdown-video-pain-cards", "skillLabel": "视频文案-痛点卡拆解Skill（会员专享）", "memberOnly": true, "agent": "小拆", "editable": false},
+        {"id": "work-journals", "label": "今日复盘", "root": "01_输入库/99_今日复盘-源文件（会员专享）", "skill": "breakdown-work-journal", "skillLabel": "今日复盘-案例卡拆解Skill（会员专享）", "memberOnly": true, "agent": "小拆", "editable": false}
+      ]
+    },
+    {"id": "topics", "label": "选题库", "root": "04_选题库/02_选题分类", "sourceRoot": "04_选题库/01_对标账号", "skill": "classify-benchmark-topics", "skillLabel": "爆款选题分类Skill", "agent": "小策", "editable": true, "surface": "topics"},
+    {"id": "cases", "label": "案例库", "root": "05_案例库/02_对标复刻拆解", "sourceRoot": "05_案例库/01_对标视频原文", "skill": "benchmark-video-structure-breakdown", "skillLabel": "对标视频-结构拆解Skill（会员专享）", "agent": "小拆", "editable": true, "surface": "cases"},
+    {"id": "structures", "label": "文案结构", "root": "03_输出库/01_文案结构", "skill": "copy-structure-generation", "skillLabel": "文案结构生成Skill", "agent": "小拆", "editable": true, "surface": "structure"},
+    {"id": "copies", "label": "正文成稿", "root": "03_输出库/02_正文成稿", "skill": "final-copy-generation", "skillLabel": "正文成稿生成Skill", "agent": "小写", "editable": true, "surface": "copy"},
+    {"id": "gallery", "label": "配图库", "root": "06_配图库/01_干货型配图", "skill": "generate-ip-ppt", "skillLabel": "配图生成Skill", "agent": "小图", "editable": false, "selection": "approved-final-copies"}
+  ]
+}
