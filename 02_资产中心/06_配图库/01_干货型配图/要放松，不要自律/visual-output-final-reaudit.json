@@ -1,0 +1,93 @@
+{
+  "schema": "visual-output-final-reaudit-v1",
+  "audit_contract": "ip-visual-output-v5",
+  "auditor": "xiaoshen",
+  "auditor_mode": "independent-final-reaudit",
+  "status": "rejected",
+  "dispatch_record": "2026-08-31_161439",
+  "subject": "02_资产中心/06_配图库/01_干货型配图/要放松，不要自律",
+  "source_copy": {
+    "path": "02_资产中心/03_输出库/02_正文成稿/01_干货型/√要放松，不要自律_20260830_153423（正文优化）.md",
+    "sha256": "700DC6FD252AD6F0FE49962EF5D579AD7E4706D4B6B308E3C5B0EEA74044DD4C"
+  },
+  "work_package": {
+    "pages_spec_path": "pages-spec.json",
+    "pages_spec_sha256": "99E0D2999647C7BEA437D814083802319C6F07ADD3253611754A62BBCC08870A",
+    "required_pages_spec_sha256": "99E0D2999647C7BEA437D814083802319C6F07ADD3253611754A62BBCC08870A",
+    "pages_spec_hash_match": true,
+    "handoff_present": true,
+    "workflow_present": true,
+    "preflight_present": true
+  },
+  "scope": "只审当前正式目录的10张正文PNG及2张封面；逐页比对当前pages-spec白名单和源文案。不复用旧回执，不执行正文审核，不修改PNG。",
+  "method": [
+    "读取小审Agent合同、xiaoshen-audit Skill、IP视觉PPT生成Skill、现行视觉审核脚本和上一轮拒绝回执。",
+    "核验pages-spec SHA-256，并运行不带 --human-approved 的机械视觉审核。",
+    "逐张人工查看所有PNG，核对可见文字与本页白名单/源文案、标题、人物、背景、模块和左下3cm禁绘区。"
+  ],
+  "mechanical_evidence": {
+    "receipt": "visual-output-final-mechanical-audit.json",
+    "png_integrity_and_metadata": "passed",
+    "reserved_zone_pixel_rejected_pages": ["page-03", "page-04", "page-08", "page-09", "page-10"],
+    "detail": "机械审计在上述正文页的左下3cm x 3cm检测区发现非背景像素，违反纯底色禁绘合同。"
+  },
+  "page_reviews": [
+    {
+      "asset": "page-01.png", "sha256": "49844FD01E0CB4BD45A4FE537B6A6DEC2F753EEBCFB433CF4BA8018F7B73171D", "status": "passed",
+      "evidence": ["主标题、提问及在家工作段落均可回指本页白名单和源文案。", "单人物、白西装黑内搭、背头侧分和眼镜符合身份合同；黄底、手绘卡片模块和左下留白可见。"]
+    },
+    {
+      "asset": "page-02.png", "sha256": "CC07D8D490D84196995461568FDD93EB9421C96D77524DFCBF1FBBE68B10741A", "status": "passed",
+      "evidence": ["“误区1：排满日程”及两段可见配字均为当前页原文白名单内容。", "深蓝背景、白线卡片、角色动作与排满日程的阻挡/跨越结构相符，未见封面式整篇标题。"]
+    },
+    {
+      "asset": "page-03.png", "sha256": "A1C0C529F64113017D2DB37FCAC0769697A0C138D13399319C87CC40C1D0E9D5", "status": "rejected",
+      "evidence": ["标题和三段可见配字均可回指当前页白名单，双人物的意志力硬抗/破窗结构可读。", "机械检测确认左下3cm x 3cm禁绘区出现非背景元素；正文页留白硬门禁失败。"]
+    },
+    {
+      "asset": "page-04.png", "sha256": "F24871B2F15F7CC8ACCE14B493061AC4F558976B0CDA06A4FE2C1C3A502817FE", "status": "rejected",
+      "evidence": ["显式标题与“必须学会放松的：3大原因”均来自本页白名单，三原因图形结构存在。", "机械检测确认左下3cm x 3cm禁绘区被左侧人物/画面元素侵入；正文页留白硬门禁失败。"]
+    },
+    {
+      "asset": "page-05.png", "sha256": "5209E4E641EF57FB31F44A916F20B080AE7FE5181122087CE3A0FAE28AA2A5A7", "status": "passed",
+      "evidence": ["标题及“10小时/10分钟”“每天工作2小时，就可以完成10小时的工作量”等关键原文均完整可见。", "黄底、卡片式模块、人物身份与心力有限主题的心力/休息图形关系可读；左下禁绘区未见侵入。"]
+    },
+    {
+      "asset": "page-06.png", "sha256": "69787EE6FA513FE882AD7367A81AEF0096336BC61931A93F523C54F657BAF54F", "status": "passed",
+      "evidence": ["标题及“人只有安静下来”“不然只是在重复执行”“就如了正向循环”等均为本页原文白名单。", "双人物、循环箭头和手绘卡片模块表达深度思考/正向循环；深蓝背景、白线和左下留白符合合同。"]
+    },
+    {
+      "asset": "page-07.png", "sha256": "6529F0E96272CCCFB8F46C84FDCB97F892F75F1791EBFFCC3C3958C60201E56B", "status": "rejected",
+      "evidence": ["标题和“我的自己的3步法”来自当前页白名单。", "三个核心步骤卡片只有图标没有任何原文短标签，未将“3步法”以可指认的标签模块锚住；多节点流程页亦未按结构提供2至3个角色分工。"]
+    },
+    {
+      "asset": "page-08.png", "sha256": "1888FCE7B4134FDCFE2D0474DDE47E93028980A008AEC052EFAF3C119AB8E38B", "status": "rejected",
+      "evidence": ["标题及流程标签均可回指当前页白名单，人物、AI和写文案流程有语义对应。", "当前页要求背景为#122142，成图为白底，背景颜色合同失败；机械检测也确认左下3cm x 3cm禁绘区有非背景元素。"]
+    },
+    {
+      "asset": "page-09.png", "sha256": "5A551F81016E5B022C16916BCA48D822847A520B1523B715363F1E2CA450E2CD", "status": "rejected",
+      "evidence": ["标题和“2小时的高效时间，比10小时的自律更有用”等关键原文均完整可见，并配有时间分块结构。", "机械检测确认左下3cm x 3cm禁绘区有非背景元素；正文页留白硬门禁失败。"]
+    },
+    {
+      "asset": "page-10.png", "sha256": "6C0E11D4D4446018CAB579C05803573AF2502608B91E643D23422ECB7118504E", "status": "rejected",
+      "evidence": ["标题和“真正的衡量标准是：你完成的事，能帮你接下来省多少时间，赚多少钱”等可回指当前页白名单。", "当前页要求背景为#122142，成图为白底；机械检测确认左下3cm x 3cm禁绘区有非背景元素，两个硬约束均失败。"]
+    },
+    {
+      "asset": "cover-3x4.png", "sha256": "0DC14481BD3FC5623500FE39243C357827E1E32523003E5BDAB852DADC6D89BB", "status": "passed",
+      "evidence": ["可见中文“要放松，不要自律”“那到底是哪里出了问题”均可回指源文案；未见新增英文。", "单角色、白西装黑内搭、背头侧分、眼镜与黄底封面合同一致；封面不继承正文左下禁绘区。"]
+    },
+    {
+      "asset": "cover-4x3.png", "sha256": "E91BDBE396622EEF123AB21C007A605A9746224FD191FDDBCE20975FACDEB712", "status": "passed",
+      "evidence": ["可见中文均为源文案原句组合，未见新增英文。", "单角色、白西装黑内搭、背头侧分、眼镜与主脸身份特征一致；黄底封面及完整画布构图符合封面合同。"]
+    }
+  ],
+  "failed_pages": ["page-03", "page-04", "page-07", "page-08", "page-09", "page-10"],
+  "repair_constraints": [
+    "只重做page-03、page-04、page-07、page-08、page-09、page-10；不得修改已审PNG。",
+    "所有正文页左下3cm x 3cm保持连续纯背景，禁止任何人物、文字、图标、线条或边框进入。",
+    "page-07在三个步骤卡片中填入当前页原文短标签，并按多节点流程合同安排2至3个角色分工。",
+    "page-08和page-10改回#122142深蓝背景并以白线完成手绘卡片模块。",
+    "重做后重新核验当前PNG哈希、当前pages-spec SHA256和逐页视觉证据；不得使用 --human-approved 代签。"
+  ],
+  "created_at": "2026-08-31T16:20:00+08:00"
+}

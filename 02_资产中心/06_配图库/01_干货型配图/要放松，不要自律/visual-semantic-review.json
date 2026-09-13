@@ -1,0 +1,37 @@
+{
+  "schema": "visual-semantic-review-v1",
+  "auditor": "xiaoshen",
+  "review_mode": "independent-work-package-semantic-review",
+  "subject": "E:\\AI爆款内容工厂\\02_资产中心\\06_配图库\\01_干货型配图\\要放松，不要自律\\pages-spec.json",
+  "subject_hash": "99e0d2999647c7bea437d814083802319c6f07add3253611754a62bbcc08870a",
+  "source_document": "E:\\AI爆款内容工厂\\02_资产中心\\03_输出库\\01_干货型成稿\\√要放松，不要自律_20260830_153423（正文优化）.md",
+  "status": "approved",
+  "checks": {
+    "key_information_selection": "passed",
+    "formula_preservation": "passed",
+    "semantic_completeness": "passed",
+    "transition_text_exclusion": "passed",
+    "semantic_priority": "passed",
+    "visual_module_mapping": "passed"
+  },
+  "pages": [
+    {"page_index": 1, "status": "approved", "issues": [], "evidence": "问题链与在家工作时间流失片段均保留为完整语义单元，并映射 question-ladder / icon-tag-block。"},
+    {"page_index": 2, "status": "approved", "issues": [], "evidence": "日程安排和排满日程导致拖延均以原文完整句进入图形标签模块。"},
+    {"page_index": 3, "status": "approved", "issues": [], "evidence": "意志力硬抗、破窗效应及追问均为原文完整语义单元，并各有模块映射。"},
+    {"page_index": 4, "status": "approved", "issues": [], "evidence": "“必须学会放松的：3大原因”作为结论锚点，映射 conclusion-anchor。"},
+    {"page_index": 5, "status": "approved", "issues": [], "evidence": "心力有限、10小时与10分钟对比、10分钟结论和2小时至10小时效率结论均保留并映射可视模块。"},
+    {"page_index": 6, "status": "approved", "issues": [], "evidence": "安静思考与重复执行的对比、正向循环和忙碌破坏循环均有原文锚定模块。"},
+    {"page_index": 7, "status": "approved", "issues": [], "evidence": "“我的自己的3步法”作为步骤入口，映射 action-node。"},
+    {"page_index": 8, "status": "approved", "issues": [], "evidence": "选择一件事、研究爆款文案、形成方法论和AI自动处理等关键动作均为完整原文语义单元并有模块映射。"},
+    {"page_index": 9, "status": "approved", "issues": [], "evidence": "时间分块、一心二用的风险和“2小时的高效时间，比10小时的自律更有用”均保留并映射模块。"},
+    {"page_index": 10, "status": "approved", "issues": [], "evidence": "旧衡量标准、成果衡量标准及“否则再忙，再自律，都没用”均保留并映射对比或图形标签模块。"}
+  ],
+  "missing_key_information_pages": [],
+  "formula_omission_pages": [],
+  "transition_text_misused_pages": [],
+  "incomplete_phrase_pages": [],
+  "semantic_priority_failed_pages": [],
+  "visual_module_mismatch_pages": [],
+  "visible_text_density_failed_pages": [],
+  "issues": []
+}

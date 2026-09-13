@@ -1,0 +1,5 @@
+config/member-capabilities.json
+runtime/
+__pycache__/
+.pytest_cache/
+vendor/codex-cli/node_modules/

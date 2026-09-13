@@ -1,0 +1,1 @@
+{"schema":"ai-traffic-system-state-v3","contractSource":"00_系统说明/system-registry.json","systemVersion":"3.0.0","pipeline":"universal-copy-v1","status":"reset-required","note":"数据中心将在保留资产重新索引后写入当前状态。"}

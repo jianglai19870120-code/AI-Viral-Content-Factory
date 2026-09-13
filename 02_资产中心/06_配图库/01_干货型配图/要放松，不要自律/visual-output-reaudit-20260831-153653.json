@@ -1,0 +1,137 @@
+{
+  "schema": "visual-output-reaudit-v1",
+  "audit_contract": "ip-visual-output-v5",
+  "auditor": "xiaoshen",
+  "status": "rejected",
+  "subject": "02_资产中心/06_配图库/01_干货型配图/要放松，不要自律",
+  "dispatch_record": "2026-08-31_153653（质量审核→小审）",
+  "source_copy": {
+    "path": "02_资产中心/03_输出库/02_正文成稿/01_干货型/√要放松，不要自律_20260830_153423（正文优化）.md",
+    "sha256": "700dc6fd252ad6f0fe49962ef5d579ad7e4706d4b6b308e3c5b0eea74044dd4c"
+  },
+  "scope": "逐页视觉配字复审；不执行正文 V6.11 审核，也不改动正文或 PNG。",
+  "method": [
+    "读取当前正文、生成 Skill 的页面规格与配字合同、视觉审核脚本。",
+    "逐页查看 10 张正文 PNG 与 2 张封面，逐字比对画面可见中文和英文配字。",
+    "不沿用旧 visual-output-audit.json 的 approved 结论；旧回执主体指向已清理的工作目录，不能证明当前正式目录。"
+  ],
+  "mechanical_findings": [
+    {
+      "check": "当前正式目录的生成工作包元数据",
+      "status": "failed",
+      "detail": "缺少 pages-spec.json、codex-handoff.json、codex-workflow.txt；无法验证白名单、原文回指、分页和渲染合同。"
+    },
+    {
+      "check": "旧 approved 回执的主体绑定",
+      "status": "failed",
+      "detail": "visual-output-audit.json 的 subject 是 10_Skills武器库/IP视觉PPT生成Skill/outputs/要放松，不要自律-work，但该工作目录已不存在，且元数据未随成品归档。"
+    }
+  ],
+  "page_reviews": [
+    {
+      "asset": "page-01.png",
+      "sha256": "31c442061aaec34c20a17ff1a0e8e78ce7624056e8248ec2a9225ade1f7129c8",
+      "status": "rejected",
+      "issues": [
+        "画面把整篇标题“要放松，不要自律”作为正文页主标题；但本页实际承载开场提问，未有可验证的本页规格证明可使用整篇标题。",
+        "可见配字“有时候看起来一天没有闲着”是原文逗号前半句，未在自然句末或完整语义边界截取，违反禁止半句话上图。"
+      ]
+    },
+    {
+      "asset": "page-02.png",
+      "sha256": "ef3d597c615ddf4588e660aa2daf38c4f4d49a53eb2b456a9e000e3e71ef7f20",
+      "status": "rejected",
+      "issues": [
+        "显式标题“误区1：排满日程”正确，但缺工作包白名单和原文回指元数据，不能作为正式放行。"
+      ]
+    },
+    {
+      "asset": "page-03.png",
+      "sha256": "3f21b1d8a45b057382efab9a1f09c7a8b247ec370078c9311efe4d87f8dac602",
+      "status": "rejected",
+      "issues": [
+        "可见配字“但一旦一件事没做”是逗号前条件从句，不是完整可独立理解的原文短句。",
+        "可见配字“于是又开始逼自己”缺少后续冒号与动作内容，信息不完整。"
+      ]
+    },
+    {
+      "asset": "page-04.png",
+      "sha256": "70834db3c4338608201aea8684bb3713ee9f7b9eb6790dfdec671b9e6942bd8e",
+      "status": "rejected",
+      "issues": [
+        "可见配字“必须学会放松的”截断自“必须学会放松的：3大原因”，语法不完整。"
+      ]
+    },
+    {
+      "asset": "page-05.png",
+      "sha256": "d9f456b095872091949613d42f4dd80611c32e35ec545041da60bf01d3d39e72",
+      "status": "rejected",
+      "issues": [
+        "只呈现三条标签，漏掉本页关键因果“每完成一项工作，切换一次任务，都会消耗心力”和“每天工作2小时，就可以完成10小时的工作量”；不能证明信息密度和关键结论完整性。"
+      ]
+    },
+    {
+      "asset": "page-06.png",
+      "sha256": "ac115c80f9a9a01c26b83c846c83285cb02bab691bb4a3fc647690b994cbbebb",
+      "status": "rejected",
+      "issues": [
+        "“人只有安静下来”和“不然只是在重复执行”均为原文逗号前半句，不能独立表达完整含义。",
+        "画面没有呈现本页的关键正向循环关系，图形与本页重点不充分对应。"
+      ]
+    },
+    {
+      "asset": "page-07.png",
+      "sha256": "2ff68dff913ffb55f70b358141e331f523764cb27e4f21d51fd414db3792d381",
+      "status": "rejected",
+      "issues": [
+        "页面的三个核心步骤圆点均为空，未用本页原文标签锚住“最重要的事只有一件、给时间分块、用成果说话”，结构没有实际呈现。"
+      ]
+    },
+    {
+      "asset": "page-08.png",
+      "sha256": "0b85cd43ada0c28e1cc76abdc90c87db95e6afedf0693874c11157ae44f3f11c",
+      "status": "rejected",
+      "issues": [
+        "“先问自己”是冒号前引导语，未呈现其后完整的关键问题；配字不具独立完整含义。",
+        "“就是写文案”脱离“最重要的一件事”这一原文限定，造成标签语义缩窄。"
+      ]
+    },
+    {
+      "asset": "page-09.png",
+      "sha256": "c1bc8a3f5a9cb3dec1f878f5af3bc26c4c1bfbc406f8a726d243e752747cc99c",
+      "status": "rejected",
+      "issues": [
+        "漏掉本页关键结论“2小时的高效时间，比10小时的自律更有用”，只写“28定位”不能完成信息呈现。"
+      ]
+    },
+    {
+      "asset": "page-10.png",
+      "sha256": "e1382fd7773b8cf0e711cfb5ece75b827980d579841bd6bfe5b462817125a3cd",
+      "status": "rejected",
+      "issues": [
+        "“真正的衡量标准是”是冒号前半句，未呈现其后的实际标准。",
+        "左右两个结构圆环为空，未表达“省多少时间，赚多少钱”的结果衡量内容。"
+      ]
+    },
+    {
+      "asset": "cover-3x4.png",
+      "sha256": "7926ac777aa13df11cb1a2b9eca5b4249367aed1de4373408aa6bb897a056883",
+      "status": "rejected",
+      "issues": ["出现英文“RELAX”，该词不在输入原文，违反可见配字只能来自原文。"]
+    },
+    {
+      "asset": "cover-4x3.png",
+      "sha256": "a14923341d53b23bdaf89ff0c28a20652a3faacd9ff52b2a716d72447d92047c",
+      "status": "rejected",
+      "issues": ["出现英文“RELAX”，该词不在输入原文，违反可见配字只能来自原文。"]
+    }
+  ],
+  "repair_constraints": [
+    "从当前正文逐页重建 pages-spec.json、codex-handoff.json、codex-workflow.txt，并连同新版成图归档；不得把工作包元数据清理掉。",
+    "每个正文页的主标题必须使用该页对应显式标题；不得把整篇标题代替其他页标题。",
+    "所有可见标签必须是当前页原文中完整、自然语义边界的短句；禁止逗号前半句、冒号前引导语、截断词组和任何新增英文。",
+    "每页用原文标签填实关键流程/节点，并覆盖该页定义、结论、因果或步骤动作；空节点或只有主题图不算呈现。",
+    "重新生成后进行逐页人工视觉复审，复审回执必须绑定正式目录的当前 PNG 与工作包元数据。"
+  ],
+  "created_at": "2026-08-31T15:36:53+08:00"
+}

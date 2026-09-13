@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "receipt-v2.schema.json",
+  "type": "object",
+  "required": ["schema", "task_id", "actor", "skill_id", "skill_version", "status", "output_schema", "outputs", "handoff_binding_sha256"],
+  "properties": {
+    "schema": {"const": "ai-traffic-receipt-v2"},
+    "task_id": {"type": "string", "pattern": "^[a-f0-9]{16}$"},
+    "actor": {"type": "string", "minLength": 1},
+    "skill_id": {"type": "string"},
+    "skill_version": {"type": "string"},
+    "status": {"enum": ["completed", "rejected", "blocked"]},
+    "output_schema": {"type": "string"},
+    "outputs": {"type": "array", "items": {"type": "object", "required": ["path", "sha256", "bytes"]}},
+    "handoff_binding_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "additionalProperties": true
+}

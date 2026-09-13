@@ -1,0 +1,69 @@
+{
+  "schema": "ai-content-workbench-content-types-v1",
+  "types": [
+    {
+      "id": "dry-goods",
+      "name": "干货型",
+      "memberOnly": false,
+      "icon": "file",
+      "workflowMode": "full",
+      "roots": {
+        "input": "04_选题库/01_对标账号",
+        "process": "03_输出库/01_文案结构/01_干货型文案结构",
+        "output": "03_输出库/02_正文成稿/01_干货型"
+      }
+    },
+    {
+      "id": "recommend",
+      "name": "推荐型",
+      "memberOnly": true,
+      "icon": "star",
+      "workflowMode": "assets-plan",
+      "deploymentStatus": "not-deployed",
+      "roots": {
+        "input": "01_输入库/01_推荐好书-源文件",
+        "process": "03_输出库/01_文案结构/02_推荐型文案结构（会员专享）",
+        "output": null
+      }
+    },
+    {
+      "id": "acquisition",
+      "name": "获客型",
+      "memberOnly": true,
+      "icon": "users",
+      "workflowMode": "assets-plan",
+      "deploymentStatus": "not-deployed",
+      "roots": {
+        "input": "05_案例库/01_对标视频原文/03_获客型原文（会员专享）",
+        "process": "03_输出库/01_文案结构/03_获客型文案结构（会员专享）",
+        "output": null
+      }
+    },
+    {
+      "id": "hot-events",
+      "name": "热点事件型",
+      "memberOnly": true,
+      "icon": "bolt",
+      "workflowMode": "assets-plan",
+      "deploymentStatus": "not-deployed",
+      "roots": {
+        "input": "01_输入库/03_热点事件-源文件（会员专享）",
+        "process": null,
+        "output": null
+      }
+    },
+    {
+      "id": "podcast",
+      "name": "播客解读型",
+      "memberOnly": true,
+      "icon": "mic",
+      "workflowMode": "assets-plan",
+      "deploymentStatus": "not-deployed",
+      "roots": {
+        "input": "01_输入库/02_热门播客-源文件（会员专享）",
+        "process": null,
+        "output": null
+      }
+    }
+  ]
+}

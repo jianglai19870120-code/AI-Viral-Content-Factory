@@ -1,0 +1,44 @@
+{
+  "schema": "visual-output-final-release-reaudit-v1",
+  "audit_contract": "ip-visual-output-v5",
+  "auditor": "xiaoshen",
+  "auditor_mode": "independent-final-human-visual-review",
+  "status": "rejected",
+  "dispatch_record": "2026-08-31_162756",
+  "subject": "02_资产中心/06_配图库/01_干货型配图/要放松，不要自律",
+  "source_copy": {
+    "path": "02_资产中心/03_输出库/02_正文成稿/01_干货型/√要放松，不要自律_20260830_153423（正文优化）.md",
+    "sha256": "700DC6FD252AD6F0FE49962EF5D579AD7E4706D4B6B308E3C5B0EEA74044DD4C"
+  },
+  "work_package": {
+    "pages_spec_path": "pages-spec.json",
+    "pages_spec_sha256": "99E0D2999647C7BEA437D814083802319C6F07ADD3253611754A62BBCC08870A",
+    "mechanical_receipt": "visual-output-audit-current-pending.json",
+    "mechanical_result": "passed_with_issues_0"
+  },
+  "scope": "独立查看当前10张正文PNG及2张封面；核验可见配字、原文对应、图形和标签、人物、背景、留白。未使用 --human-approved 或旧回执作为放行依据。",
+  "finding_summary": "page-07 的三张无文字卡片可作为‘我的自己的3步法’的视觉结构，未新增可见文字，配字维度通过；但整套仍有正文页把左下3cm x 3cm禁绘区画成可见的色块/占位矩形，且page-03额外出现非原文标签，故不能放行。",
+  "page_reviews": [
+    {"asset":"page-01.png","sha256":"49844FD01E0CB4BD45A4FE537B6A6DEC2F753EEBCFB433CF4BA8018F7B73171D","status":"rejected","evidence":["标题和可见配字可回指首页原文；单角色身份、黄底和卡片模块符合。","左下3cm禁绘区可见单独的浅黄矩形，与周围背景不连续；这是禁止的占位色块。"]},
+    {"asset":"page-02.png","sha256":"CC07D8D490D84196995461568FDD93EB9421C96D77524DFCBF1FBBE68B10741A","status":"passed","evidence":["标题、两段配字均来自本页原文。","深蓝底白线、排满日程场景、角色身份和左下连续背景符合。"]},
+    {"asset":"page-03.png","sha256":"EDDE27D0F4C09A98B88E9AB69FDF1F60A4B2A5232E9EAF2D9006CAF115EE70E7","status":"rejected","evidence":["标题和主体流程文字均能回指原文，双角色破窗结构可读。","画面新增‘错误路径（硬扛）’，该文字不在本页白名单也不是原文短语。","左下3cm禁绘区另有可见浅黄矩形，非连续纯背景。"]},
+    {"asset":"page-04.png","sha256":"218A5682FECC4E29B6239B03573F7C275996AEB5F847C1D2D17007DBC8EED2EA","status":"rejected","evidence":["显式标题和‘必须学会放松的：3大原因’可回指本页原文，三卡图形可作为总标签下的结构。","左下3cm禁绘区出现明显深蓝矩形，与页面深蓝背景不连续，违反纯底色禁绘要求。"]},
+    {"asset":"page-05.png","sha256":"5209E4E641EF57FB31F44A916F20B080AE7FE5181122087CE3A0FAE28AA2A5A7","status":"passed","evidence":["标题和关键心力、10小时/10分钟、2小时配字均完整回指原文。","人物身份稳定、黄底手绘卡片模块和左下连续背景符合。"]},
+    {"asset":"page-06.png","sha256":"69787EE6FA513FE882AD7367A81AEF0096336BC61931A93F523C54F657BAF54F","status":"passed","evidence":["标题与循环相关配字均为本页完整原文短语。","双角色和循环结构匹配深度思考主题，深蓝白线和左下留白符合。"]},
+    {"asset":"page-07.png","sha256":"5E8BDF58EC3BFCDA19A075DC6CEF2954ABBE381D5188F5E8028EC02F6D782F13","status":"rejected","evidence":["仅出现标题和‘我的自己的3步法’，两者均在白名单；三张无文字卡片可被接受为该总标签的视觉结构，并未新增可见文字。","左下3cm禁绘区存在单独的浅黄矩形；即使配字通过，留白硬门禁仍失败。"]},
+    {"asset":"page-08.png","sha256":"A7B33458961F6C33BEAFBFCD658C2F4D47F9623821C9C98E66DF8AC3030ADC5F","status":"rejected","evidence":["标题和流程卡内配字均可回指本页原文，双角色和AI写文案结构可读。","左下3cm禁绘区可见深蓝占位矩形，违反连续纯背景要求。"]},
+    {"asset":"page-09.png","sha256":"1BF6426155F96EA44D986A4F256DCB1D8EEDD2F1D9AC01A58F413175E1C17A1C","status":"rejected","evidence":["标题和28定位、时间分块、一心二用等文字来自本页原文，图形结构相符。","左下3cm禁绘区可见单独的浅黄矩形，违反连续纯背景要求。"]},
+    {"asset":"page-10.png","sha256":"C4B91E69312786F00E1F59C371E62C9DD45FF8165D752F009B974A5DF28B153F","status":"rejected","evidence":["标题、衡量标准和结果文字均可回指本页原文，双角色的对比关系可读。","左下3cm禁绘区可见深蓝占位矩形，违反连续纯背景要求。"]},
+    {"asset":"cover-3x4.png","sha256":"0DC14481BD3FC5623500FE39243C357827E1E32523003E5BDAB852DADC6D89BB","status":"passed","evidence":["中文标题及副句均可回指源文案，未见英文。","单角色、白西装黑内搭、背头侧分、眼镜和黄底符合封面合同。"]},
+    {"asset":"cover-4x3.png","sha256":"E91BDBE396622EEF123AB21C007A605A9746224FD191FDDBCE20975FACDEB712","status":"passed","evidence":["中文标题及副句均可回指源文案，未见英文。","主角色身份稳定；右侧小人仅作为放松情景图标，未构成第二主持人或封面分身。"]}
+  ],
+  "failed_assets": ["page-01.png","page-03.png","page-04.png","page-07.png","page-08.png","page-09.png","page-10.png"],
+  "repair_constraints": [
+    "仅重做失败正文页；page-02、page-05、page-06和两张封面不得覆盖。",
+    "正文页左下3cm x 3cm必须是与相邻背景自然连续的纯底色，不得绘制任何可辨别的色块、框、边、文字、人物、图标、线条或占位提示。",
+    "page-03移除‘错误路径（硬扛）’，不得用任何非原文可见配字替代。",
+    "page-07保留‘标题 + 我的自己的3步法 + 三张无文字结构卡’的原文配字边界；无需强行给三卡新增文字。",
+    "重做后重新做机械审核和独立人工复审，并以新PNG SHA-256与当前pages-spec SHA-256绑定最终回执。"
+  ],
+  "created_at": "2026-08-31T16:35:00+08:00"
+}

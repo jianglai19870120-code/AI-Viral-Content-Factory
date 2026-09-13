@@ -1,0 +1,8 @@
+{
+  "available": {"label": "可调度", "color": "#35B95D", "shape": "solid-dot"},
+  "running": {"label": "执行中", "color": "#FF7200", "shape": "pulse-dot"},
+  "needs-user": {"label": "等待用户", "color": "#FFB400", "shape": "ring-dot"},
+  "auditing": {"label": "审核中", "color": "#FF7200", "shape": "shield"},
+  "completed": {"label": "已完成", "color": "#8E8E8E", "shape": "check-dot"},
+  "planned": {"label": "即将上线", "color": "#8E8E8E", "shape": "dashed-dot"}
+}

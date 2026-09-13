@@ -1,0 +1,2124 @@
+{
+  "schema": "visual-work-package-preflight-audit-result-v2",
+  "auditor": "xiaoshen",
+  "auditor_version": "1.1.0",
+  "audit_contract": "ip-visual-work-package-preflight-v2",
+  "subject": "E:\\AI爆款内容工厂\\02_资产中心\\06_配图库\\01_干货型配图\\要放松，不要自律",
+  "status": "approved",
+  "checks": [
+    {
+      "layer": "mechanical",
+      "name": "pages-spec.json",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "codex-handoff.json",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "codex-workflow.txt",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "codex-render-job.json",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "prompts",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "generate-ip-ppt-contract-version",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-3x4-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-4x3-action-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "global-render-signature-uniqueness-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "mic-pose-limit-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-support-label-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-label-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-visible-text-source-mode",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-visible-text-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-visible-text-repeat-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-visible-text-overlap-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-support-label-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-cue-flow-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-deck-title-visibility-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-visible-text-whitelist-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-label-module-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-micro-visual-pairing-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-support-label-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-label-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-visible-text-source-mode",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-visible-text-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-visible-text-repeat-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-visible-text-overlap-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-support-label-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-cue-flow-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-deck-title-visibility-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-visible-text-whitelist-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-label-module-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-micro-visual-pairing-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-support-label-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-label-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-visible-text-source-mode",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-visible-text-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-visible-text-repeat-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-visible-text-overlap-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-support-label-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-cue-flow-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-deck-title-visibility-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-visible-text-whitelist-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-label-module-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-micro-visual-pairing-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-support-label-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-label-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-visible-text-source-mode",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-visible-text-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-visible-text-repeat-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-visible-text-overlap-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-support-label-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-cue-flow-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-deck-title-visibility-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-visible-text-whitelist-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-label-module-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-micro-visual-pairing-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-support-label-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-label-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-visible-text-source-mode",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-visible-text-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-visible-text-repeat-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-visible-text-overlap-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-support-label-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-cue-flow-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-deck-title-visibility-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-visible-text-whitelist-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-label-module-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-micro-visual-pairing-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-support-label-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-label-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-visible-text-source-mode",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-visible-text-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-visible-text-repeat-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-visible-text-overlap-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-support-label-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-cue-flow-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-deck-title-visibility-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-visible-text-whitelist-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-label-module-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-micro-visual-pairing-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-support-label-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-label-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-visible-text-source-mode",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-visible-text-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-visible-text-repeat-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-visible-text-overlap-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-support-label-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-cue-flow-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-deck-title-visibility-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-visible-text-whitelist-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-label-module-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-micro-visual-pairing-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-support-label-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-label-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-visible-text-source-mode",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-visible-text-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-visible-text-repeat-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-visible-text-overlap-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-support-label-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-cue-flow-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-deck-title-visibility-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-visible-text-whitelist-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-label-module-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-micro-visual-pairing-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-support-label-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-label-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-visible-text-source-mode",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-visible-text-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-visible-text-repeat-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-visible-text-overlap-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-support-label-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-cue-flow-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-deck-title-visibility-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-visible-text-whitelist-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-label-module-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-micro-visual-pairing-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-support-label-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-label-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-visible-text-source-mode",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-visible-text-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-visible-text-repeat-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-visible-text-overlap-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-support-label-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-cue-flow-source-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-deck-title-visibility-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-visible-text-whitelist-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-label-module-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-micro-visual-pairing-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-01-key-information",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-01-formula-preservation",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-01-transition-exclusion",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-01-semantic-completeness",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-01-semantic-priority",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-01-visual-module-mapping",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-01-visible-text-density",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-02-key-information",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-02-formula-preservation",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-02-transition-exclusion",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-02-semantic-completeness",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-02-semantic-priority",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-02-visual-module-mapping",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-02-visible-text-density",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-03-key-information",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-03-formula-preservation",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-03-transition-exclusion",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-03-semantic-completeness",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-03-semantic-priority",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-03-visual-module-mapping",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-03-visible-text-density",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-04-key-information",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-04-formula-preservation",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-04-transition-exclusion",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-04-semantic-completeness",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-04-semantic-priority",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-04-visual-module-mapping",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-04-visible-text-density",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-05-key-information",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-05-formula-preservation",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-05-transition-exclusion",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-05-semantic-completeness",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-05-semantic-priority",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-05-visual-module-mapping",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-05-visible-text-density",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-06-key-information",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-06-formula-preservation",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-06-transition-exclusion",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-06-semantic-completeness",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-06-semantic-priority",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-06-visual-module-mapping",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-06-visible-text-density",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-07-key-information",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-07-formula-preservation",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-07-transition-exclusion",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-07-semantic-completeness",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-07-semantic-priority",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-07-visual-module-mapping",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-07-visible-text-density",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-08-key-information",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-08-formula-preservation",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-08-transition-exclusion",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-08-semantic-completeness",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-08-semantic-priority",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-08-visual-module-mapping",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-08-visible-text-density",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-09-key-information",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-09-formula-preservation",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-09-transition-exclusion",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-09-semantic-completeness",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-09-semantic-priority",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-09-visual-module-mapping",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-09-visible-text-density",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-10-key-information",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-10-formula-preservation",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-10-transition-exclusion",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-10-semantic-completeness",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-10-semantic-priority",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-10-visual-module-mapping",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-contract",
+      "name": "page-10-visible-text-density",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "semantic-review",
+      "name": "independent-semantic-review",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-micro-visual-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-micro-visual-container-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-bare-line-icon-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-ui-icon-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-micro-visual-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-micro-visual-container-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-bare-line-icon-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-ui-icon-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-micro-visual-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-micro-visual-container-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-bare-line-icon-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-ui-icon-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-micro-visual-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-micro-visual-container-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-bare-line-icon-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-ui-icon-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-micro-visual-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-micro-visual-container-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-bare-line-icon-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-ui-icon-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-micro-visual-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-micro-visual-container-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-bare-line-icon-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-ui-icon-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-micro-visual-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-micro-visual-container-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-bare-line-icon-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-ui-icon-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-micro-visual-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-micro-visual-container-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-bare-line-icon-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-ui-icon-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-micro-visual-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-micro-visual-container-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-bare-line-icon-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-ui-icon-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-micro-visual-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-micro-visual-container-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-bare-line-icon-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-ui-icon-style-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-explicit-heading-title-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-explicit-heading-title-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-explicit-heading-title-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-explicit-heading-title-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-explicit-heading-title-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-explicit-heading-title-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-explicit-heading-title-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-explicit-heading-title-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-explicit-heading-title-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-explicit-heading-title-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-single-role-contract",
+      "status": "passed",
+      "detail": "single-role-only"
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-3x4-single-role-contract",
+      "status": "passed",
+      "detail": "single-role-only"
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-4x3-single-role-contract",
+      "status": "passed",
+      "detail": "single-role-only"
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-body-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-body-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-body-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-body-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-body-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-body-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-body-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-body-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-body-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-body-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-3x4-cover-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-4x3-cover-reserved-zone-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-multi-role-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-multi-role-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-multi-role-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-multi-role-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-multi-role-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-3x4-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-3x4-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-3x4-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-4x3-identity-anchor-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-4x3-identity-drift-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-4x3-hair-lock-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "selected-pages-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "pages-spec-page-count-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "pages-spec-cover-count-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-3x4-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-4x3-spec-handoff-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-01-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-02-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-03-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-04-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-05-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-06-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-07-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-08-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-09-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "page-10-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-3x4-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "cover-4x3-prompt-contract",
+      "status": "passed",
+      "detail": ""
+    },
+    {
+      "layer": "mechanical",
+      "name": "codex-render-job-contract",
+      "status": "passed",
+      "detail": ""
+    }
+  ],
+  "issues": [],
+  "rejected_pages": [],
+  "rejected_covers": [],
+  "missing_support_labels_pages": [],
+  "label_anchor_contract_failed_pages": [],
+  "visible_text_source_contract_failed_pages": [],
+  "support_label_source_mismatch_pages": [],
+  "cue_phrase_source_mismatch_pages": [],
+  "deck_title_visible_pages": [],
+  "visible_text_repeat_contract_failed_pages": [],
+  "visible_text_overlap_contract_failed_pages": [],
+  "label_module_contract_failed_pages": [],
+  "micro_visual_pairing_contract_failed_pages": [],
+  "page_visible_text_whitelist_failed_pages": [],
+  "semantic_review_failed_pages": [],
+  "missing_key_information_pages": [],
+  "formula_omission_pages": [],
+  "transition_text_misused_pages": [],
+  "incomplete_phrase_pages": [],
+  "semantic_priority_failed_pages": [],
+  "visual_module_mismatch_pages": [],
+  "visible_text_density_failed_pages": [],
+  "micro_visual_style_drift_pages": [],
+  "bare_line_icon_violation_pages": [],
+  "ui_icon_style_violation_pages": [],
+  "micro_visual_container_missing_pages": [],
+  "explicit_heading_title_contract_failed_pages": [],
+  "summary_title_exception_failed_pages": [],
+  "single_role_contract_failed_targets": [],
+  "body_reserved_zone_contract_failed_pages": [],
+  "reserved_zone_violation_pages": [],
+  "cover_reserved_zone_inheritance_failed_covers": [],
+  "multi_role_contract_failed_pages": [],
+  "render_signature_repeat_pages": [],
+  "mic_pose_violation_pages": [],
+  "identity_anchor_missing_pages": [],
+  "face_identity_drift_pages": [],
+  "hair_identity_drift_pages": [],
+  "style_identity_drift_pages": [],
+  "spec_handoff_mismatch_pages": [],
+  "spec_handoff_mismatch_covers": [],
+  "prompt_handoff_mismatch_pages": [],
+  "prompt_handoff_mismatch_covers": [],
+  "created_at": "2026-08-31T08:00:59.936351+00:00"
+}

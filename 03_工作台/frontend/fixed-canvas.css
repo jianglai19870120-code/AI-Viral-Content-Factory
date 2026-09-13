@@ -1,0 +1,252 @@
+/* One workbench, one coordinate system.
+   Everything is composed at 1920×1080 and then transformed as a whole by
+   --workbench-canvas-scale.  Do not add viewport breakpoints to this surface. */
+:root {
+  --workbench-canvas-width: 1920px;
+  --workbench-canvas-height: 1080px;
+}
+
+html.workbench-canvas-fit-root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--canvas);
+}
+
+body[data-page] {
+  width: var(--workbench-canvas-width) !important;
+  min-width: var(--workbench-canvas-width) !important;
+  height: var(--workbench-canvas-height) !important;
+  min-height: var(--workbench-canvas-height) !important;
+  overflow: hidden !important;
+  transform: scale(var(--workbench-canvas-scale));
+  transform-origin: top left;
+}
+
+body[data-page] .sidebar {
+  display: flex !important;
+  width: 340px !important;
+  height: 1080px !important;
+  padding: 34px 17px 25px !important;
+}
+body[data-page] .brand { display: block !important; width: 300px !important; margin: 0 auto 42px !important; }
+body[data-page] .help-nav { display: flex !important; }
+body[data-page] .nav { display: grid !important; grid-template-columns: 1fr !important; }
+body[data-page] .nav-item { display: flex !important; height: 69px !important; padding: 0 25px !important; }
+body[data-page] .nav-item span { display: block !important; }
+
+body[data-page] .main {
+  width: 1580px !important;
+  min-width: 1580px !important;
+  min-height: 1080px !important;
+  margin-left: 340px !important;
+  padding: 0 42px 46px !important;
+  overflow: visible !important;
+}
+body[data-page] .topbar { height: 90px !important; }
+body[data-page] .page { width: 1496px !important; max-width: none !important; margin: 18px 0 0 !important; }
+body[data-page] .assistant { right: 28px !important; bottom: 25px !important; }
+body[data-page] .mobile-type-picker { display: none !important; }
+body[data-page] .topbar .type-picker { display: flex !important; }
+
+/* Modal geometry is also logical-canvas geometry, never viewport geometry. */
+.modal { width: 1920px; height: 1080px; }
+.modal-card { width: 900px; max-width: none; max-height: 900px; margin: 80px auto; }
+.modal-card:has(.generation-select-modal),
+.modal-card:has(.gallery-select-modal) { width: 1040px; height: 780px; max-height: none; margin: 78px auto; }
+.modal-card:has(.topic-case-modal) { width: 1000px; height: 750px; max-height: none; margin: 72px auto; }
+.modal-card:has(.plan-modal) { width: 680px; max-width: none; margin: 120px auto; }
+body[data-page="assets"] #modal .modal-card:has(.asset-case-dialog) { width: 1080px; height: 720px; max-height: none; margin: 120px auto; }
+.modal-card:has(.team-profile-modal) { width: 620px; max-width: none; }
+.modal-card:has(.community-modal) { width: 1720px; height: 1016px; max-height: none; margin: 32px auto; }
+.community-gallery { height: 916px; }
+.modal-card:has(.task-console) { width: 900px; max-width: none; }
+.type-menu { max-height: 520px; }
+.workbench-splash img { width: 360px; }
+
+body[data-page="today"] .today-editor-workspace { width: 1496px; min-height: 930px; }
+body[data-page="today"] .main { --sidebar: 340px; }
+
+/* Approved Today typography scale. */
+body[data-page="today"] .today-input-item button {
+  font: 500 18px/1 var(--sans);
+}
+body[data-page="today"] .today-pending-count {
+  display: inline-block;
+  margin: 0;
+  color: #7a726a;
+  font-family: "OPPOSans Variable" !important;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+  font-synthesis: none;
+}
+
+/* Input-source queues stay compact; asset-library queues use the larger label tier. */
+body[data-page="today"] .today-library-card .today-pending-count,
+body[data-page="today"] .today-gallery-card .today-pending-count {
+  font-size: 22px !important;
+}
+
+/* `hidden` must win over the base grid rules for recurring-plan controls. */
+body[data-page="today"] .plan-weekdays[hidden],
+body[data-page="today"] .plan-month-day[hidden] {
+  display: none !important;
+}
+body[data-page="today"] [data-today-library="structures"] .today-library-title,
+body[data-page="today"] [data-today-library="copies"] .today-library-title {
+  font-family: OPPOSans, "Microsoft YaHei", sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 700 !important;
+}
+
+/* Editor focus mode is intentionally application-local: browser chrome and
+   the Windows taskbar remain visible, while the workbench navigation yields
+   its space to the current editor. */
+html.today-editor-focus-root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--canvas);
+}
+body[data-page].today-editor-focus-mode {
+  position: fixed;
+  inset: 0;
+  width: 100vw !important;
+  min-width: 0 !important;
+  height: 100vh !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  transform: none !important;
+  background: var(--canvas);
+}
+body[data-page].today-editor-focus-mode .sidebar,
+body[data-page].today-editor-focus-mode .topbar,
+body[data-page].today-editor-focus-mode .assistant {
+  display: none !important;
+}
+body[data-page].today-editor-focus-mode .main {
+  width: 100vw !important;
+  min-width: 0 !important;
+  min-height: 100vh !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: auto !important;
+}
+body[data-page].today-editor-focus-mode .page {
+  width: 100% !important;
+  min-width: 1100px;
+  min-height: 100%;
+  height: 100%;
+  margin: 0 !important;
+}
+body[data-page="today"].today-editor-focus-mode .today-editor-workspace {
+  width: 100% !important;
+  min-width: 1100px;
+  height: 100% !important;
+  min-height: 0 !important;
+  gap: 0;
+}
+body[data-page="today"].today-editor-focus-mode .today-editor-header,
+body[data-page="today"].today-editor-focus-mode .today-editor-layout {
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+body[data-page="today"].today-editor-focus-mode .today-editor-header {
+  min-height: 92px;
+  padding: 17px 30px;
+}
+body[data-page="today"].today-editor-focus-mode .today-editor-layout {
+  grid-template-columns: clamp(300px, 22vw, 440px) minmax(0, 1fr);
+  transition: grid-template-columns .2s ease;
+}
+body[data-page="today"].today-editor-focus-mode .today-editor-files {
+  min-width: 0;
+  overflow: hidden;
+  transition: opacity .16s ease, border-color .16s ease;
+}
+body[data-page="today"].today-editor-focus-mode .today-editor-workspace.is-files-collapsed .today-editor-layout {
+  grid-template-columns: 0 minmax(0, 1fr);
+}
+body[data-page="today"].today-editor-focus-mode .today-editor-workspace.is-files-collapsed .today-editor-files {
+  border-right-color: transparent;
+  opacity: 0;
+  pointer-events: none;
+}
+body[data-page="today"].today-editor-focus-mode .today-editor-file-list {
+  max-height: none;
+}
+body[data-page="today"].today-editor-focus-mode .today-editor-compare {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+body[data-page].today-editor-focus-mode .modal {
+  width: 100vw;
+  height: 100vh;
+}
+body[data-page].today-editor-focus-mode .modal-card {
+  max-height: calc(100vh - 48px);
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.today-editor-focus-toggle,
+.today-editor-files-toggle {
+  position: absolute;
+  top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 8px 13px;
+  border: 1px solid #cfc7be;
+  border-radius: 8px;
+  background: #fffefd;
+  color: #3c352f;
+  font: 500 14px/1 var(--sans);
+  box-shadow: 0 1px 2px #3e25100a;
+  transition: border-color .16s ease, background .16s ease, color .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+.today-editor-focus-toggle { right: 18px; }
+.today-editor-files-toggle { right: 130px; }
+.today-editor-header { position: relative; }
+.today-editor-header .today-editor-back {
+  /* Keep the return control on the same horizontal centerline as the
+     top-right focus control, without moving the page title beneath it. */
+  transform: translateY(-3px);
+}
+.today-editor-header .today-editor-save {
+  /* The file path remains useful context, while save progress stays in the
+     background and errors still surface through the existing reload action. */
+  margin-right: 98px;
+}
+body[data-page="today"].today-editor-focus-mode .today-editor-header .today-editor-save { margin-right: 216px; }
+.today-editor-header .today-editor-save small { margin-top: 0; }
+.today-editor-focus-toggle i,
+.today-editor-files-toggle i {
+  display: grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+}
+.today-editor-focus-toggle svg,
+.today-editor-files-toggle svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 1.9;
+}
+.today-editor-focus-toggle:hover,
+.today-editor-focus-toggle[aria-pressed="true"],
+.today-editor-files-toggle:hover,
+.today-editor-files-toggle[aria-expanded="false"] {
+  border-color: #ff9b48;
+  background: #fff5ec;
+  color: #c75a00;
+  box-shadow: 0 7px 16px #d86a1824;
+  transform: translateY(-1px);
+}
+.today-editor-focus-toggle:active,
+.today-editor-files-toggle:active {
+  transform: translateY(0) scale(.98);
+}

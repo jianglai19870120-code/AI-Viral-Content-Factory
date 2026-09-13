@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "work-journal-case-card-v12.schema.json",
+  "title": "Work Journal Case Card V12",
+  "type": "object",
+  "required": ["schema_version", "case_id", "title", "case_copy", "claim_quote_map"],
+  "properties": {
+    "schema_version": {"const": "work-journal-case-card-v12"},
+    "case_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "case_copy": {"type": "string", "minLength": 1},
+    "claim_quote_map": {"type": "object", "minProperties": 1}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "visual-cover-manual-reaudit-v1",
+  "audit_contract": "ip-visual-output-v5",
+  "auditor": "xiaoshen",
+  "auditor_mode": "independent-manual-cover-review",
+  "status": "approved",
+  "dispatch_record": "01_Agent系统/01_小姜-CEO助理Agent/99_本地运行记录/调度记录/2026-08-31_171548_小姜正式分配_小审_要放松不要自律封面标题人工复审.md",
+  "subject": "02_资产中心/06_配图库/01_干货型配图/要放松，不要自律",
+  "scope": "只审 cover-3x4.png 与 cover-4x3.png；不审正文页，不修改任何产物。",
+  "mechanical_evidence": {
+    "receipt": "cover-mechanical-audit-20260831-170850.json",
+    "sha256": "C05920262FAC88DBF905B3073B258012B837F8497155B73CC467ABA9BEC63C36",
+    "result": "两张封面尺寸、single-role-only、主脸锚点、身份漂移、发型锁定和封面不继承正文禁绘区合同均通过；issues 为空。"
+  },
+  "manual_review_method": "独立实际查看当前两张 PNG 的全部可见内容；未采纳旧人工放行结论，未使用 --human-approved 参数代签。",
+  "cover_reviews": [
+    {
+      "asset": "cover-3x4.png",
+      "sha256": "172376946DE5601527B0F705FC6894F18CDB721468D6F49102AB889DCAE1A9CA",
+      "status": "passed",
+      "visible_title": "要放松，不要自律",
+      "visible_text_assessment": "唯一可见配字正好为“要放松，不要自律”；不存在“那到底是哪里出了问题”、英文或其他可见配字。",
+      "visual_assessment": "黄底；一个白西装、黑内搭、黑框眼镜、背头侧分的当前 IP 角色；封面完整构图，未继承正文左下禁绘区。"
+    },
+    {
+      "asset": "cover-4x3.png",
+      "sha256": "98C1EC703430034FD375C7B506CAC97BD69E158CB96AF1A34338036077356AB8",
+      "status": "passed",
+      "visible_title": "要放松，不要自律",
+      "visible_text_assessment": "唯一可见配字正好为“要放松，不要自律”；不存在“那到底是哪里出了问题”、英文或其他可见配字。",
+      "visual_assessment": "黄底；一个白西装、黑内搭、黑框眼镜、背头侧分的当前 IP 角色；封面完整构图，未继承正文左下禁绘区。"
+    }
+  ],
+  "issues": [],
+  "created_at": "2026-08-31T17:15:48+08:00"
+}

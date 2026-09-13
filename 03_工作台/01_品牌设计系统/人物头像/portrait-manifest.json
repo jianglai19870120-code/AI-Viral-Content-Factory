@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "styleSource": "本地参考图（不随公开包分发）",
+  "mainCharacter": "xiaojiang",
+  "portraits": {
+    "xiaojiang": "正式头像/xiaojiang-master.png",
+    "xiaoshen": "正式头像/xiaoshen-v4.png",
+    "xiaoxi": "正式头像/xiaoxi-v4.png",
+    "xiaochai": "正式头像/xiaochai-v4.png",
+    "xiaojing": "正式头像/xiaojing-v4.png",
+    "xiaoce": "正式头像/xiaoce-v4.png",
+    "xiaoxie": "正式头像/xiaoxie-v4.png",
+    "xiaotu": "正式头像/xiaotu-v4.png",
+    "xiaoshu": "正式头像/xiaoshu-v4.png",
+    "xiaojian": "正式头像/xiaojian-v4.png",
+    "xiaofa": "正式头像/xiaofa-v4.png"
+  },
+  "rules": {
+    "background": "transparent",
+    "status": "frontend overlay only",
+    "xiaojiang": "Use the supplied main image crop without generative changes."
+  }
+}

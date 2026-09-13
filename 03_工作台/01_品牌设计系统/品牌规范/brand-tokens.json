@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "name": "AI爆款内容工厂品牌设计系统",
+    "version": "1.0.0",
+    "desktopReference": "1920x1080",
+    "sourceOfTruth": "03_工作台/01_品牌设计系统/页面定稿"
+  },
+  "color": {
+    "ink": "#151515",
+    "paper": "#FFFEFD",
+    "canvas": "#FBFAF8",
+    "line": "#E3DFD9",
+    "lineStrong": "#CFC8BF",
+    "muted": "#827D76",
+    "orange": "#FF7900",
+    "orangeSoft": "#FFF1E5",
+    "blue": "#3775D1",
+    "green": "#35B95D",
+    "yellow": "#FFB400",
+    "statusGray": "#8E8E8E"
+  },
+  "typography": {
+    "light": {"fontFamily": "OPPOSans L, OPPOSans, Microsoft YaHei, sans-serif", "fontWeight": 300, "usage": "细说明、模块两行名称、辅助文字"},
+    "display": {"fontFamily": "OPPOSans, Microsoft YaHei, sans-serif", "fontWeight": 700, "usage": "核心数字、主任务标题"},
+    "heading": {"fontFamily": "OPPOSans, Microsoft YaHei, sans-serif", "fontWeight": 500, "usage": "页面标题、卡片标题、按钮、日期"},
+    "body": {"fontFamily": "OPPOSans, Microsoft YaHei, sans-serif", "fontWeight": 400, "usage": "状态、说明、表格、英文副标"},
+    "sidebar": {"fontFamily": "Adobe Fangsong Std, FangSong, serif", "fontWeight": 400, "usage": "侧栏导航"},
+    "reservedHeavy": {"fontFamily": "OPPOSans, Microsoft YaHei, sans-serif", "fontWeight": 900, "usage": "仅品牌特别强调，常规页面禁用"}
+  },
+  "shape": {"iconGrid": 24, "iconStroke": 1.7, "cardRadius": 15, "controlRadius": 10, "sidebarWidth": 320}
+}

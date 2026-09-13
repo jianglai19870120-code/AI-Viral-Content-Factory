@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "copy-structure-v2.schema.json",
+  "type": "object",
+  "required": ["schema", "topic", "benchmark_case_id", "benchmark_path", "benchmark_audit_receipt", "benchmark_framework_sha256", "structure_four_status", "structures"],
+  "properties": {
+    "schema": {"const": "copy-structure-v2"},
+    "topic": {"type": "string", "minLength": 1},
+    "benchmark_case_id": {"type": "string", "pattern": "^[A-Z]{3}-\\d{3}$"},
+    "benchmark_path": {"type": "string", "minLength": 1},
+    "benchmark_audit_receipt": {"type": "string", "minLength": 1},
+    "benchmark_framework_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "structure_four_status": {"enum": ["user-pending", "frozen"]},
+    "structures": {"type": "object"}
+  }
+}

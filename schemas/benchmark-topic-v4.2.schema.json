@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "benchmark-topic-v4.2.schema.json",
+  "type": "object",
+  "required": ["核心关键词", "选题", "原爆款元素", "博主名", "点赞数", "链接", "是否选中", "对标复刻拆解编号", "状态"],
+  "properties": {
+    "是否选中": {"enum": ["", "是", "否"]},
+    "对标复刻拆解编号": {"type": "string", "pattern": "^(|GHX-\\d{3})$"},
+    "状态": {"enum": ["", "待生成结构", "已生成结构", "已手动优化", "已生成正文"]}
+  },
+  "additionalProperties": false
+}

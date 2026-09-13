@@ -1,0 +1,29 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python run.py doctor
+      - run: python run.py validate
+      - run: python run.py test
+      - run: python run.py sync-platform --target codex
+      - run: python run.py audit-baseline
+      - run: python run.py package github
+        if: matrix.python-version == '3.12'
+      - run: python run.py package skillhub
+        if: matrix.python-version == '3.12'
+      - run: python run.py package workbuddy-expert
+        if: matrix.python-version == '3.12'

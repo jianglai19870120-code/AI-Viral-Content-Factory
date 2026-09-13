@@ -1,0 +1,4334 @@
+{
+  "contract_version": "2.1.0",
+  "reserved_zone_contract": {
+    "body_pages": {
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+      "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]"
+    },
+    "covers": {
+      "reserved_zone_enabled": false,
+      "reserved_zone_scope": "none",
+      "reserved_zone": null
+    }
+  },
+  "pages": [
+    {
+      "page_index": 1,
+      "page_title": "成功的第一步，就是去完成一件小事",
+      "step_title_layers": [
+        "第一步：去完成一件小事"
+      ],
+      "title_text": "成功的第一步，就是去完成一件小事",
+      "title_strategy": "explicit-heading-title",
+      "title_extraction_required": false,
+      "forbid_fragment_title": false,
+      "display_title_mode": "exact",
+      "display_title": "成功的第一步，就是去完成一件小事",
+      "explicit_heading_title_required": true,
+      "explicit_heading_source_level": 1,
+      "summary_title_exception_allowed": false,
+      "summary_title_exception_source_quote": "",
+      "source_title_full": "成功的第一步，就是去完成一件小事",
+      "subtitle_notes": [],
+      "page_body": "最近我每天花十几个小时在 Codex 上，\n我再做一个开源产品，就是用AI批量产出爆款文案。\nVibe Coding 真的会上瘾，\n经常一搞就到半夜3点。\n因为这个构想太大了，\n一旦全部开发完成，\n可以生成任何类型，任何行业的爆款文案。\n再这个过程中，我就发现为什么很多人说AI没什么用？\n因为他们根本做不成任何一件小事。",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": true,
+      "deck_title_visible_forbidden": true,
+      "page_hook": "最近我每天花十几个小时在 Codex 上，",
+      "cue_phrases": [
+        "因为他们根本做不成任何一件小事"
+      ],
+      "cue_phrase_source_quotes": {
+        "因为他们根本做不成任何一件小事": "因为他们根本做不成任何一件小事"
+      },
+      "talking_points": [
+        "因为他们根本做不成任何一件小事"
+      ],
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "support_labels": [
+        "为什么很多人说AI没什么用",
+        "因为这个构想太大了",
+        "就是用AI批量产出爆款文案",
+        "任何行业的爆款文案"
+      ],
+      "support_label_source_quotes": {
+        "为什么很多人说AI没什么用": "再这个过程中，我就发现为什么很多人说AI没什么用",
+        "因为这个构想太大了": "因为这个构想太大了，一旦全部开发完成，可以生成任何类型，任何行业的爆款文案",
+        "就是用AI批量产出爆款文案": "最近我每天花十几个小时在 Codex 上，我再做一个开源产品，就是用AI批量产出爆款文案",
+        "任何行业的爆款文案": "因为这个构想太大了，一旦全部开发完成，可以生成任何类型，任何行业的爆款文案"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_repeat_forbidden": true,
+      "visible_text_slot_dedup_required": true,
+      "repeated_source_fragment_forbidden": true,
+      "visible_text_overlap_forbidden": true,
+      "text_slot_assignment": {
+        "display_title": [
+          "成功的第一步，就是去完成一件小事"
+        ],
+        "subtitle_notes": [],
+        "cue_phrases": [
+          "因为他们根本做不成任何一件小事"
+        ],
+        "flow_labels": [],
+        "support_labels": [
+          "为什么很多人说AI没什么用",
+          "因为这个构想太大了",
+          "就是用AI批量产出爆款文案",
+          "任何行业的爆款文案"
+        ]
+      },
+      "repeated_source_fragments_filtered": [
+        "因为他们根本做不成任何一件小事"
+      ],
+      "source_fragment_overlap_groups": [],
+      "text_slot_conflict_resolutions": [],
+      "visible_text_items": [
+        "成功的第一步，就是去完成一件小事",
+        "因为他们根本做不成任何一件小事",
+        "为什么很多人说AI没什么用",
+        "因为这个构想太大了",
+        "就是用AI批量产出爆款文案",
+        "任何行业的爆款文案"
+      ],
+      "visible_text_source_quotes": {
+        "成功的第一步，就是去完成一件小事": "成功的第一步，就是去完成一件小事",
+        "因为他们根本做不成任何一件小事": "因为他们根本做不成任何一件小事",
+        "为什么很多人说AI没什么用": "再这个过程中，我就发现为什么很多人说AI没什么用",
+        "因为这个构想太大了": "因为这个构想太大了，一旦全部开发完成，可以生成任何类型，任何行业的爆款文案",
+        "就是用AI批量产出爆款文案": "最近我每天花十几个小时在 Codex 上，我再做一个开源产品，就是用AI批量产出爆款文案",
+        "任何行业的爆款文案": "因为这个构想太大了，一旦全部开发完成，可以生成任何类型，任何行业的爆款文案"
+      },
+      "page_visible_text_whitelist": [
+        "成功的第一步，就是去完成一件小事",
+        "因为他们根本做不成任何一件小事",
+        "为什么很多人说AI没什么用",
+        "因为这个构想太大了",
+        "就是用AI批量产出爆款文案",
+        "任何行业的爆款文案"
+      ],
+      "semantic_units": [
+        {
+          "order": 0,
+          "source_quote": "最近我每天花十几个小时在 Codex 上，我再做一个开源产品，就是用AI批量产出爆款文案",
+          "information_type": "supporting-object",
+          "priority": 68,
+          "visibility": "supporting",
+          "reason": "具体对象、变量或类比物",
+          "complete_phrases": [
+            "最近我每天花十几个小时在 Codex 上",
+            "我再做一个开源产品",
+            "就是用AI批量产出爆款文案"
+          ]
+        },
+        {
+          "order": 1,
+          "source_quote": "Vibe Coding 真的会上瘾，经常一搞就到半夜3点",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "Vibe Coding 真的会上瘾",
+            "经常一搞就到半夜3点"
+          ]
+        },
+        {
+          "order": 2,
+          "source_quote": "因为这个构想太大了，一旦全部开发完成，可以生成任何类型，任何行业的爆款文案",
+          "information_type": "causal",
+          "priority": 78,
+          "visibility": "must-show",
+          "reason": "因果关系",
+          "complete_phrases": [
+            "因为这个构想太大了",
+            "一旦全部开发完成",
+            "可以生成任何类型",
+            "任何行业的爆款文案"
+          ]
+        },
+        {
+          "order": 3,
+          "source_quote": "再这个过程中，我就发现为什么很多人说AI没什么用",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "再这个过程中",
+            "为什么很多人说AI没什么用"
+          ]
+        },
+        {
+          "order": 4,
+          "source_quote": "因为他们根本做不成任何一件小事",
+          "information_type": "causal",
+          "priority": 78,
+          "visibility": "must-show",
+          "reason": "因果关系",
+          "complete_phrases": [
+            "因为他们根本做不成任何一件小事"
+          ]
+        }
+      ],
+      "must_show_source_quotes": [
+        "因为这个构想太大了，一旦全部开发完成，可以生成任何类型，任何行业的爆款文案",
+        "因为他们根本做不成任何一件小事"
+      ],
+      "supporting_source_quotes": [
+        "最近我每天花十几个小时在 Codex 上，我再做一个开源产品，就是用AI批量产出爆款文案"
+      ],
+      "context_only_source_quotes": [
+        "Vibe Coding 真的会上瘾，经常一搞就到半夜3点",
+        "再这个过程中，我就发现为什么很多人说AI没什么用"
+      ],
+      "discarded_transition_quotes": [],
+      "key_information_types": [
+        "question-chain",
+        "causal",
+        "supporting-object"
+      ],
+      "formula_items": [],
+      "semantic_priority_order": [
+        "为什么很多人说AI没什么用",
+        "因为这个构想太大了",
+        "因为他们根本做不成任何一件小事",
+        "就是用AI批量产出爆款文案",
+        "任何行业的爆款文案"
+      ],
+      "visual_module_assignments": [
+        {
+          "visible_text": "为什么很多人说AI没什么用",
+          "source_quote": "再这个过程中，我就发现为什么很多人说AI没什么用",
+          "information_type": "question-chain",
+          "visual_module": "question-ladder",
+          "selection_reason": "连续追问节点"
+        },
+        {
+          "visible_text": "因为这个构想太大了",
+          "source_quote": "因为这个构想太大了，一旦全部开发完成，可以生成任何类型，任何行业的爆款文案",
+          "information_type": "causal",
+          "visual_module": "causal-chain",
+          "selection_reason": "因果关系"
+        },
+        {
+          "visible_text": "因为他们根本做不成任何一件小事",
+          "source_quote": "因为他们根本做不成任何一件小事",
+          "information_type": "causal",
+          "visual_module": "causal-chain",
+          "selection_reason": "因果关系"
+        },
+        {
+          "visible_text": "就是用AI批量产出爆款文案",
+          "source_quote": "最近我每天花十几个小时在 Codex 上，我再做一个开源产品，就是用AI批量产出爆款文案",
+          "information_type": "supporting-object",
+          "visual_module": "icon-tag-block",
+          "selection_reason": "具体对象、变量或类比物"
+        },
+        {
+          "visible_text": "任何行业的爆款文案",
+          "source_quote": "因为这个构想太大了，一旦全部开发完成，可以生成任何类型，任何行业的爆款文案",
+          "information_type": "supporting-object",
+          "visual_module": "icon-tag-block",
+          "selection_reason": "具体对象、变量或类比物"
+        }
+      ],
+      "text_semantic_completeness_required": true,
+      "transition_text_visible_forbidden": true,
+      "formula_preservation_required": false,
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "label_module_required": true,
+      "label_module_targets": [
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block",
+        "icon-tag-block"
+      ],
+      "label_visual_pairing_required": true,
+      "micro_visual_anchor_required": true,
+      "module_block_count_target": 5,
+      "primary_info_blocks": [
+        "成功的第一步，就是去完成一件小事",
+        "因为他们根本做不成任何一件小事"
+      ],
+      "secondary_info_blocks": [],
+      "primary_info_block_visual_required": true,
+      "secondary_info_block_visual_optional": true,
+      "visual_keywords": [
+        "成功的第一步",
+        "Codex",
+        "Vibe",
+        "Coding"
+      ],
+      "visual_action_cues": [
+        "推进",
+        "讲解"
+      ],
+      "visual_scene_cues": [
+        "过程"
+      ],
+      "role_action_tags": [
+        "写作",
+        "操作",
+        "拆解"
+      ],
+      "role_expression_tags": [
+        "专注",
+        "思考",
+        "执行"
+      ],
+      "speaker_guides": [
+        "最近我每天花十几个小时在 Codex 上，",
+        "我再做一个开源产品，就是用AI批量产出爆款文案。"
+      ],
+      "density_profile": {
+        "talking_points": 2,
+        "micro_visuals": 4,
+        "visual_keywords": 4,
+        "icons": 2,
+        "support_labels": 3,
+        "primary_blocks": 2,
+        "secondary_blocks": 0
+      },
+      "text_density_mode": "text-light",
+      "graph_first_mode": false,
+      "text_light_mode": true,
+      "page_type": "流程页",
+      "page_background_mode": "odd",
+      "background_color": "#fcb537",
+      "skin_tone_base": "#e8a668",
+      "line_color": "black",
+      "red_accent_required": true,
+      "red_accent_count_min": 1,
+      "red_accent_count_max": 3,
+      "red_accent_allowed_targets": [
+        "keyword",
+        "arrow",
+        "tag",
+        "result",
+        "warning"
+      ],
+      "red_accent_semantic_only": true,
+      "uniform_label_container_forbidden": true,
+      "scene_priority": "scene-first",
+      "scene_concept": "path-flow",
+      "scene_layout_type": "path-flow",
+      "title_layout_mode": "top-span",
+      "title_alignment": "center",
+      "title_anchor_zone": "top",
+      "title_flow_direction": "horizontal",
+      "title_layout_guidance": "标题横跨顶部或偏上区域，下面完整展开结构和路径",
+      "supporting_micro_visuals": [
+        "Vibe",
+        "箭头",
+        "分叉点",
+        "连接线"
+      ],
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_required": true,
+      "role_count_min": 1,
+      "role_count_max": 1,
+      "role_count_decision_mode": "hard-single",
+      "role_count_target": 1,
+      "multi_role_required": false,
+      "multi_role_trigger_type": "page-01-single-role-only",
+      "role_distribution_brief": "正文第1页固定单人物，只允许一个 IP 人物承担开场动作。",
+      "role_slot_assignments": [
+        "主结构单角色"
+      ],
+      "same_page_role_pose_distinct_required": false,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "medium-support",
+      "single_role_required": true,
+      "role_action_match_required": true,
+      "role_action_match_basis": "推进",
+      "role_action_family": "explaining",
+      "role_expression_family": "explaining",
+      "role_expression_match_basis": "讲解",
+      "role_action_intent": "低头手写、标注或敲字，把内容动作直接放进页面结构里",
+      "role_expression_intent": "高夸张的专注感和思考感，像正在现场产出内容",
+      "role_pose_brief": "角色结合标题内容演示，不要站桩，不要只是普通主持姿态",
+      "role_prop_intent": "tool",
+      "role_framing_intent": "three-quarter",
+      "role_position_intent": "mid-path",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "低头手写、标注或敲字，把内容动作直接放进页面结构里|高夸张的专注感和思考感，像正在现场产出内容|tool|three-quarter|mid-path",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "写作-e5a5782bd9ab",
+      "role_pose_family": "写作",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [
+        "ip-ref-06-pointing.png"
+      ],
+      "allowed_role_framings": [
+        "three-quarter",
+        "half-body",
+        "full-body"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "role_scene_relationship": "主题优先，第一张也必须先服从原文结构，角色只能作为辅助演示元素进入主结构",
+      "role_in_scene_mode": "supporting-embedded",
+      "role_in_scene_guidance": "人物必须走进结构内部，触碰、踩入、跨过、被包围或被结构限制，不能独立站在主结构外。",
+      "reserved_zone": {
+        "position": "bottom-left",
+        "size_cm": "3 x 3",
+        "size_cm_array": [
+          3,
+          3
+        ],
+        "side_ratio_of_height": 0.15748,
+        "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+        "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]",
+        "fill_mode": "pure-background-no-draw"
+      },
+      "reserved_zone_rules": [
+        "no_text",
+        "no_icons",
+        "no_character",
+        "no_lines",
+        "no_shapes",
+        "no_scene_overlap",
+        "background_only",
+        "no_frame",
+        "no_border",
+        "no_placeholder_box"
+      ],
+      "pagination_mode": "explicit",
+      "section_kind": "manual",
+      "step_label": "",
+      "step_index": null,
+      "step_page_index": 1,
+      "step_page_total": 1,
+      "is_continued": false,
+      "forbid_visible_page_number": true,
+      "role_action": "低头手写、标注或敲字，把内容动作直接放进页面结构里",
+      "role_expression": "高夸张的专注感和思考感，像正在现场产出内容",
+      "role_identity_lock": "strict",
+      "role_scale": "medium-support",
+      "role_position": "mid-path",
+      "role_framing": "three-quarter",
+      "role_composition_mode": "supporting-opening-scene",
+      "camera_energy": "medium",
+      "role_pose_hint": "让人物直接操作纸张、键盘或文案节点，不要脱离内容结构；动作必须由本页语义决定；若成图与已生成页演法相似，必须改动作、表情、道具、景别或站位后重做",
+      "role_variation_guard": "semantic-render-signature-unique",
+      "role_variation_reason": "本页最终演法签名为 低头手写、标注或敲字，把内容动作直接放进页面结构里|高夸张的专注感和思考感，像正在现场产出内容|tool|three-quarter|mid-path，需与全篇其他页面保持不同",
+      "icon_set": [
+        "Vibe"
+      ],
+      "layout_constraints": [
+        "标题区优先",
+        "说明文案小字号",
+        "配图和配字分离",
+        "文字原文锚定，只允许少量源自原文的结构词",
+        "正文页左下角 3cm × 3cm 纯底色禁绘区域",
+        "左下角不要出现任何文字",
+        "左下角不要出现人物、图标、线条、箭头、坑位边缘和装饰符号"
+      ],
+      "role_variation_action_family": "写作",
+      "role_variation_expression_family": "专注",
+      "role_action_reference_image": "E:\\AI爆款内容工厂\\10_Skills武器库\\IP视觉PPT生成Skill\\characters\\zhifuxingqiu-host\\refs\\ip-ref-06-pointing.png",
+      "role_action_reference_reason": "explicit:tool-operation-non-mic"
+    },
+    {
+      "page_index": 2,
+      "page_title": "误区：只做完，不做成",
+      "step_title_layers": [],
+      "title_text": "误区：只做完，不做成",
+      "title_strategy": "explicit-heading-title",
+      "title_extraction_required": false,
+      "forbid_fragment_title": false,
+      "display_title_mode": "exact",
+      "display_title": "误区：只做完，不做成",
+      "explicit_heading_title_required": true,
+      "explicit_heading_source_level": 2,
+      "summary_title_exception_allowed": false,
+      "summary_title_exception_source_quote": "",
+      "source_title_full": "误区：只做完，不做成",
+      "subtitle_notes": [],
+      "page_body": "很多人做事的问题就在这儿。\n觉得功能跑通了，\n任务完成了，\n这件事就算结束了。\n但其实不是。\n**做完，只是动作结束了。**\n**做成，才是结果真的留下来了。**\n就像我现在做这个文案 Agent。\n能生成文案，很容易。\n但如果生成出来的东西，\n不能直接口播，\n不能让人看下去，\n更不能真的有传播力，\n那它其实只是“能用”，\n还远远谈不上“做成”。\n所以问题从来不是，\n这件事你有没有做。\n而是：\n**你有没有把它做到真正能产生结果。**",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": true,
+      "deck_title_visible_forbidden": true,
+      "page_hook": "很多人做事的问题就在这儿",
+      "cue_phrases": [
+        "就像我现在做这个文案 Agent"
+      ],
+      "cue_phrase_source_quotes": {
+        "就像我现在做这个文案 Agent": "就像我现在做这个文案 Agent"
+      },
+      "talking_points": [
+        "就像我现在做这个文案 Agent"
+      ],
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "support_labels": [
+        "但其实不是",
+        "不能直接口播",
+        "不能让人看下去",
+        "更不能真的有传播力"
+      ],
+      "support_label_source_quotes": {
+        "但其实不是": "但其实不是",
+        "不能直接口播": "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成",
+        "不能让人看下去": "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成",
+        "更不能真的有传播力": "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_repeat_forbidden": true,
+      "visible_text_slot_dedup_required": true,
+      "repeated_source_fragment_forbidden": true,
+      "visible_text_overlap_forbidden": true,
+      "text_slot_assignment": {
+        "display_title": [
+          "误区：只做完，不做成"
+        ],
+        "subtitle_notes": [],
+        "cue_phrases": [
+          "就像我现在做这个文案Agent"
+        ],
+        "flow_labels": [],
+        "support_labels": [
+          "但其实不是",
+          "不能直接口播",
+          "不能让人看下去",
+          "更不能真的有传播力"
+        ]
+      },
+      "repeated_source_fragments_filtered": [],
+      "source_fragment_overlap_groups": [],
+      "text_slot_conflict_resolutions": [],
+      "visible_text_items": [
+        "误区：只做完，不做成",
+        "就像我现在做这个文案 Agent",
+        "但其实不是",
+        "不能直接口播",
+        "不能让人看下去",
+        "更不能真的有传播力"
+      ],
+      "visible_text_source_quotes": {
+        "误区：只做完，不做成": "误区：只做完，不做成",
+        "就像我现在做这个文案 Agent": "就像我现在做这个文案 Agent",
+        "但其实不是": "但其实不是",
+        "不能直接口播": "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成",
+        "不能让人看下去": "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成",
+        "更不能真的有传播力": "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成"
+      },
+      "page_visible_text_whitelist": [
+        "误区：只做完，不做成",
+        "就像我现在做这个文案 Agent",
+        "但其实不是",
+        "不能直接口播",
+        "不能让人看下去",
+        "更不能真的有传播力"
+      ],
+      "semantic_units": [
+        {
+          "order": 0,
+          "source_quote": "很多人做事的问题就在这儿",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "很多人做事的问题就在这儿"
+          ]
+        },
+        {
+          "order": 1,
+          "source_quote": "觉得功能跑通了，任务完成了，这件事就算结束了",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "觉得功能跑通了",
+            "任务完成了",
+            "这件事就算结束了"
+          ]
+        },
+        {
+          "order": 2,
+          "source_quote": "但其实不是",
+          "information_type": "contrast",
+          "priority": 86,
+          "visibility": "must-show",
+          "reason": "反例、对比或条件变化",
+          "complete_phrases": [
+            "但其实不是"
+          ]
+        },
+        {
+          "order": 3,
+          "source_quote": "做完，只是动作结束了",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "做完",
+            "只是动作结束了"
+          ]
+        },
+        {
+          "order": 4,
+          "source_quote": "做成，才是结果真的留下来了",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "做成",
+            "才是结果真的留下来了"
+          ]
+        },
+        {
+          "order": 5,
+          "source_quote": "就像我现在做这个文案 Agent",
+          "information_type": "supporting-object",
+          "priority": 68,
+          "visibility": "supporting",
+          "reason": "具体对象、变量或类比物",
+          "complete_phrases": [
+            "就像我现在做这个文案 Agent"
+          ]
+        },
+        {
+          "order": 6,
+          "source_quote": "能生成文案，很容易",
+          "information_type": "supporting-object",
+          "priority": 68,
+          "visibility": "supporting",
+          "reason": "具体对象、变量或类比物",
+          "complete_phrases": [
+            "能生成文案",
+            "很容易"
+          ]
+        },
+        {
+          "order": 7,
+          "source_quote": "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成",
+          "information_type": "conclusion",
+          "priority": 84,
+          "visibility": "must-show",
+          "reason": "核心判断、条件或结论",
+          "complete_phrases": [
+            "但如果生成出来的东西",
+            "不能直接口播",
+            "不能让人看下去",
+            "更不能真的有传播力",
+            "那它其实只是“能用",
+            "还远远谈不上“做成"
+          ]
+        },
+        {
+          "order": 8,
+          "source_quote": "所以问题从来不是，这件事你有没有做",
+          "information_type": "contrast",
+          "priority": 86,
+          "visibility": "must-show",
+          "reason": "反例、对比或条件变化",
+          "complete_phrases": [
+            "所以问题从来不是",
+            "这件事你有没有做"
+          ]
+        },
+        {
+          "order": 9,
+          "source_quote": "而是：你有没有把它做到真正能产生结果",
+          "information_type": "contrast",
+          "priority": 86,
+          "visibility": "must-show",
+          "reason": "反例、对比或条件变化",
+          "complete_phrases": [
+            "而是",
+            "你有没有把它做到真正能产生结果"
+          ]
+        }
+      ],
+      "must_show_source_quotes": [
+        "但其实不是",
+        "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成"
+      ],
+      "supporting_source_quotes": [
+        "就像我现在做这个文案 Agent",
+        "能生成文案，很容易"
+      ],
+      "context_only_source_quotes": [
+        "很多人做事的问题就在这儿",
+        "觉得功能跑通了，任务完成了，这件事就算结束了",
+        "做完，只是动作结束了",
+        "做成，才是结果真的留下来了"
+      ],
+      "discarded_transition_quotes": [],
+      "key_information_types": [
+        "contrast",
+        "conclusion",
+        "supporting-object"
+      ],
+      "formula_items": [],
+      "semantic_priority_order": [
+        "但其实不是",
+        "不能直接口播",
+        "不能让人看下去",
+        "更不能真的有传播力",
+        "就像我现在做这个文案 Agent"
+      ],
+      "visual_module_assignments": [
+        {
+          "visible_text": "但其实不是",
+          "source_quote": "但其实不是",
+          "information_type": "contrast",
+          "visual_module": "contrast-block",
+          "selection_reason": "反例、对比或条件变化"
+        },
+        {
+          "visible_text": "不能直接口播",
+          "source_quote": "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成",
+          "information_type": "conclusion",
+          "visual_module": "conclusion-anchor",
+          "selection_reason": "核心判断、条件或结论"
+        },
+        {
+          "visible_text": "不能让人看下去",
+          "source_quote": "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成",
+          "information_type": "conclusion",
+          "visual_module": "conclusion-anchor",
+          "selection_reason": "核心判断、条件或结论"
+        },
+        {
+          "visible_text": "更不能真的有传播力",
+          "source_quote": "但如果生成出来的东西，不能直接口播，不能让人看下去，更不能真的有传播力，那它其实只是“能用”，还远远谈不上“做成",
+          "information_type": "conclusion",
+          "visual_module": "conclusion-anchor",
+          "selection_reason": "核心判断、条件或结论"
+        },
+        {
+          "visible_text": "就像我现在做这个文案 Agent",
+          "source_quote": "就像我现在做这个文案 Agent",
+          "information_type": "supporting-object",
+          "visual_module": "icon-tag-block",
+          "selection_reason": "具体对象、变量或类比物"
+        }
+      ],
+      "text_semantic_completeness_required": true,
+      "transition_text_visible_forbidden": true,
+      "formula_preservation_required": false,
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "label_module_required": true,
+      "label_module_targets": [
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block",
+        "icon-tag-block"
+      ],
+      "label_visual_pairing_required": true,
+      "micro_visual_anchor_required": true,
+      "module_block_count_target": 5,
+      "primary_info_blocks": [
+        "误区：只做完，不做成",
+        "就像我现在做这个文案 Agent"
+      ],
+      "secondary_info_blocks": [],
+      "primary_info_block_visual_required": true,
+      "secondary_info_block_visual_optional": true,
+      "visual_keywords": [
+        "误区",
+        "只做完",
+        "觉得功能跑通了",
+        "任务完成了"
+      ],
+      "visual_action_cues": [
+        "对比",
+        "困惑",
+        "讲解"
+      ],
+      "visual_scene_cues": [
+        "问题"
+      ],
+      "role_action_tags": [
+        "跨越",
+        "误区",
+        "推进"
+      ],
+      "role_expression_tags": [
+        "警觉",
+        "惊讶",
+        "判断"
+      ],
+      "speaker_guides": [
+        "很多人做事的问题就在这儿。",
+        "觉得功能跑通了，"
+      ],
+      "density_profile": {
+        "talking_points": 2,
+        "micro_visuals": 4,
+        "visual_keywords": 4,
+        "icons": 2,
+        "support_labels": 3,
+        "primary_blocks": 2,
+        "secondary_blocks": 0
+      },
+      "text_density_mode": "graph-first",
+      "graph_first_mode": true,
+      "text_light_mode": false,
+      "page_type": "对比页",
+      "page_background_mode": "even",
+      "background_color": "#122142",
+      "skin_tone_base": "#e8a668",
+      "line_color": "white",
+      "red_accent_required": true,
+      "red_accent_count_min": 1,
+      "red_accent_count_max": 3,
+      "red_accent_allowed_targets": [
+        "keyword",
+        "arrow",
+        "tag",
+        "result",
+        "warning"
+      ],
+      "red_accent_semantic_only": true,
+      "uniform_label_container_forbidden": true,
+      "scene_priority": "scene-first",
+      "scene_concept": "contrast-split",
+      "scene_layout_type": "contrast-split",
+      "title_layout_mode": "left-anchor",
+      "title_alignment": "left",
+      "title_anchor_zone": "upper-left",
+      "title_flow_direction": "horizontal",
+      "title_layout_guidance": "标题偏左作为文字锚点，右侧或中部承接人物与主结构",
+      "supporting_micro_visuals": [
+        "误区",
+        "只做完",
+        "左右分栏",
+        "对照线"
+      ],
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_required": true,
+      "role_count_min": 2,
+      "role_count_max": 2,
+      "role_count_decision_mode": "structure-triggered",
+      "role_count_target": 2,
+      "multi_role_required": true,
+      "multi_role_trigger_type": "contrast-or-bridge",
+      "role_distribution_brief": "至少两个人物分别进入左右或前后两个结构槽位，承担对照、桥接或转化关系。",
+      "role_slot_assignments": [
+        "左侧结构槽位",
+        "右侧结构槽位"
+      ],
+      "same_page_role_pose_distinct_required": true,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "small-accent",
+      "single_role_required": false,
+      "role_action_match_required": true,
+      "role_action_match_basis": "误区",
+      "role_action_family": "blocking",
+      "role_expression_family": "confused",
+      "role_expression_match_basis": "困惑",
+      "role_action_intent": "全身跨过坑位、障碍或错误节点，边躲边指认问题来源",
+      "role_expression_intent": "高夸张的警觉感和惊讶感，像刚发现关键风险",
+      "role_pose_brief": "角色要走进结构里，但只能辅助指向、对照或操作，不允许用一排人物替代内容",
+      "role_prop_intent": "none",
+      "role_framing_intent": "full-body",
+      "role_position_intent": "inside-structure",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "全身跨过坑位、障碍或错误节点，边躲边指认问题来源|高夸张的警觉感和惊讶感，像刚发现关键风险|none|full-body|inside-structure",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "跨越-b6a953d97504",
+      "role_pose_family": "跨越",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [],
+      "allowed_role_framings": [
+        "full-body",
+        "three-quarter"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "role_scene_relationship": "主题和主场景优先，角色缩小进入结构内部，作为辅助行动者参与表达",
+      "role_in_scene_mode": "supporting-bridge",
+      "role_in_scene_guidance": "人物必须站进对比结构之间，同时连接左右两侧信息，像桥接、切换或权衡，但只能做辅助。",
+      "reserved_zone": {
+        "position": "bottom-left",
+        "size_cm": "3 x 3",
+        "size_cm_array": [
+          3,
+          3
+        ],
+        "side_ratio_of_height": 0.15748,
+        "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+        "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]",
+        "fill_mode": "pure-background-no-draw"
+      },
+      "reserved_zone_rules": [
+        "no_text",
+        "no_icons",
+        "no_character",
+        "no_lines",
+        "no_shapes",
+        "no_scene_overlap",
+        "background_only",
+        "no_frame",
+        "no_border",
+        "no_placeholder_box"
+      ],
+      "pagination_mode": "explicit",
+      "section_kind": "manual",
+      "step_label": "",
+      "step_index": null,
+      "step_page_index": 1,
+      "step_page_total": 1,
+      "is_continued": false,
+      "forbid_visible_page_number": true,
+      "role_action": "全身跨过坑位、障碍或错误节点，边躲边指认问题来源",
+      "role_expression": "高夸张的警觉感和惊讶感，像刚发现关键风险",
+      "role_identity_lock": "strict",
+      "role_scale": "small-accent",
+      "role_position": "inside-structure",
+      "role_framing": "full-body",
+      "role_composition_mode": "structure-first-supporting-role",
+      "camera_energy": "high",
+      "role_pose_hint": "让人物真正踩进或跨过误区结构，身体被坑位、箭头或警示标签包围；动作必须由本页语义决定；若成图与已生成页演法相似，必须改动作、表情、道具、景别或站位后重做",
+      "role_variation_guard": "semantic-render-signature-unique + adjust-staging-to-break-repeat",
+      "role_variation_reason": "本页最终演法签名为 全身跨过坑位、障碍或错误节点，边躲边指认问题来源|高夸张的警觉感和惊讶感，像刚发现关键风险|none|full-body|inside-structure，需与全篇其他页面保持不同；同时调整人物景别或站位，避免连续页出现近似构图",
+      "icon_set": [
+        "误区",
+        "只做完"
+      ],
+      "layout_constraints": [
+        "标题区优先",
+        "说明文案小字号",
+        "配图和配字分离",
+        "文字原文锚定，只允许少量源自原文的结构词",
+        "正文页左下角 3cm × 3cm 纯底色禁绘区域",
+        "左下角不要出现任何文字",
+        "左下角不要出现人物、图标、线条、箭头、坑位边缘和装饰符号"
+      ],
+      "role_variation_action_family": "跨越",
+      "role_variation_expression_family": "警觉"
+    },
+    {
+      "page_index": 3,
+      "page_title": "第1点 如何判断自己做成了一件小事？",
+      "step_title_layers": [
+        "第1点：如何判断自己做成了一件小事"
+      ],
+      "title_text": "第1点 如何判断自己做成了一件小事？",
+      "title_strategy": "explicit-heading-title",
+      "title_extraction_required": false,
+      "forbid_fragment_title": false,
+      "display_title_mode": "exact",
+      "display_title": "第1点 如何判断自己做成了一件小事？",
+      "explicit_heading_title_required": true,
+      "explicit_heading_source_level": 2,
+      "summary_title_exception_allowed": false,
+      "summary_title_exception_source_quote": "",
+      "source_title_full": "第1点 如何判断自己做成了一件小事？",
+      "subtitle_notes": [],
+      "page_body": "我有2个标准。",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": true,
+      "deck_title_visible_forbidden": true,
+      "page_hook": "我有2个标准",
+      "cue_phrases": [],
+      "cue_phrase_source_quotes": {},
+      "talking_points": [],
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "support_labels": [],
+      "support_label_source_quotes": {},
+      "support_labels_required": false,
+      "source_rooted_labels_required": false,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_repeat_forbidden": true,
+      "visible_text_slot_dedup_required": true,
+      "repeated_source_fragment_forbidden": true,
+      "visible_text_overlap_forbidden": true,
+      "text_slot_assignment": {
+        "display_title": [
+          "第1点如何判断自己做成了一件小事"
+        ],
+        "subtitle_notes": [],
+        "cue_phrases": [],
+        "flow_labels": [],
+        "support_labels": []
+      },
+      "repeated_source_fragments_filtered": [],
+      "source_fragment_overlap_groups": [],
+      "text_slot_conflict_resolutions": [],
+      "visible_text_items": [
+        "第1点 如何判断自己做成了一件小事？"
+      ],
+      "visible_text_source_quotes": {
+        "第1点 如何判断自己做成了一件小事？": "第1点 如何判断自己做成了一件小事"
+      },
+      "page_visible_text_whitelist": [
+        "第1点 如何判断自己做成了一件小事？"
+      ],
+      "semantic_units": [
+        {
+          "order": 0,
+          "source_quote": "我有2个标准",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "我有2个标准"
+          ]
+        }
+      ],
+      "must_show_source_quotes": [],
+      "supporting_source_quotes": [],
+      "context_only_source_quotes": [
+        "我有2个标准"
+      ],
+      "discarded_transition_quotes": [],
+      "key_information_types": [],
+      "formula_items": [],
+      "semantic_priority_order": [],
+      "visual_module_assignments": [],
+      "text_semantic_completeness_required": true,
+      "transition_text_visible_forbidden": true,
+      "formula_preservation_required": false,
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "label_module_required": false,
+      "label_module_targets": [
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block",
+        "icon-tag-block"
+      ],
+      "label_visual_pairing_required": true,
+      "micro_visual_anchor_required": true,
+      "module_block_count_target": 0,
+      "primary_info_blocks": [
+        "第1点 如何判断自己做成了一件小事？"
+      ],
+      "secondary_info_blocks": [],
+      "primary_info_block_visual_required": true,
+      "secondary_info_block_visual_optional": true,
+      "visual_keywords": [
+        "第1点",
+        "我有2个标准"
+      ],
+      "visual_action_cues": [
+        "讲解"
+      ],
+      "visual_scene_cues": [],
+      "role_action_tags": [
+        "演示",
+        "讲解",
+        "拆解"
+      ],
+      "role_expression_tags": [
+        "说明",
+        "解释",
+        "思考"
+      ],
+      "speaker_guides": [
+        "我有2个标准。"
+      ],
+      "density_profile": {
+        "talking_points": 2,
+        "micro_visuals": 4,
+        "visual_keywords": 4,
+        "icons": 2,
+        "support_labels": 3,
+        "primary_blocks": 2,
+        "secondary_blocks": 0
+      },
+      "text_density_mode": "graph-first",
+      "graph_first_mode": true,
+      "text_light_mode": false,
+      "page_type": "步骤页",
+      "page_background_mode": "odd",
+      "background_color": "#fcb537",
+      "skin_tone_base": "#e8a668",
+      "line_color": "black",
+      "red_accent_required": true,
+      "red_accent_count_min": 1,
+      "red_accent_count_max": 3,
+      "red_accent_allowed_targets": [
+        "keyword",
+        "arrow",
+        "tag",
+        "result",
+        "warning"
+      ],
+      "red_accent_semantic_only": true,
+      "uniform_label_container_forbidden": true,
+      "scene_priority": "scene-first",
+      "scene_concept": "concept-note-scene",
+      "scene_layout_type": "concept-board",
+      "title_layout_mode": "inline-scene",
+      "title_alignment": "left",
+      "title_anchor_zone": "inline",
+      "title_flow_direction": "horizontal",
+      "title_layout_guidance": "标题融入场景内部，不像固定条幅；对齐方式 left，锚点区域 inline，标题走向 horizontal。人物不要默认站成画面中心，优先服从场景结构。",
+      "supporting_micro_visuals": [
+        "第1点"
+      ],
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_required": true,
+      "role_count_min": 1,
+      "role_count_max": 1,
+      "role_count_decision_mode": "structure-triggered",
+      "role_count_target": 1,
+      "multi_role_required": false,
+      "multi_role_trigger_type": "single-conclusion-or-summary",
+      "role_distribution_brief": "本页主结构是单锤点或单结论表达，单人物即可完成讲解，不强行扩成多人。",
+      "role_slot_assignments": [
+        "主结构单角色"
+      ],
+      "same_page_role_pose_distinct_required": false,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "small-accent",
+      "single_role_required": false,
+      "role_action_match_required": true,
+      "role_action_match_basis": "判断",
+      "role_action_family": "thinking",
+      "role_expression_family": "thinking",
+      "role_expression_match_basis": "判断",
+      "role_action_intent": "围绕页面核心概念做演示和拆解",
+      "role_expression_intent": "高夸张但稳定可辨认的说明型表情",
+      "role_pose_brief": "角色结合标题内容演示，不要站桩，不要只是普通主持姿态",
+      "role_prop_intent": "mic",
+      "role_framing_intent": "three-quarter",
+      "role_position_intent": "inside-left",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "围绕页面核心概念做演示和拆解|高夸张但稳定可辨认的说明型表情|mic|three-quarter|inside-left",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "演示-6c54b9ca4cc6",
+      "role_pose_family": "演示",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [
+        "ip-ref-02-speaking-mic.png",
+        "ip-ref-04-questioning.png",
+        "ip-ref-06-pointing.png"
+      ],
+      "allowed_role_framings": [
+        "full-body",
+        "three-quarter"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "role_scene_relationship": "主题和主场景优先，角色缩小进入结构内部，作为辅助行动者参与表达",
+      "role_in_scene_mode": "supporting-structure-interactor",
+      "role_in_scene_guidance": "人物必须走进结构内部，触碰、踩入、跨过、被包围或被结构限制，不能独立站在主结构外。",
+      "reserved_zone": {
+        "position": "bottom-left",
+        "size_cm": "3 x 3",
+        "size_cm_array": [
+          3,
+          3
+        ],
+        "side_ratio_of_height": 0.15748,
+        "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+        "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]",
+        "fill_mode": "pure-background-no-draw"
+      },
+      "reserved_zone_rules": [
+        "no_text",
+        "no_icons",
+        "no_character",
+        "no_lines",
+        "no_shapes",
+        "no_scene_overlap",
+        "background_only",
+        "no_frame",
+        "no_border",
+        "no_placeholder_box"
+      ],
+      "pagination_mode": "explicit",
+      "section_kind": "manual",
+      "step_label": "",
+      "step_index": null,
+      "step_page_index": 1,
+      "step_page_total": 1,
+      "is_continued": false,
+      "forbid_visible_page_number": true,
+      "role_action": "围绕页面核心概念做演示和拆解",
+      "role_expression": "高夸张但稳定可辨认的说明型表情",
+      "role_identity_lock": "strict",
+      "role_scale": "small-accent",
+      "role_position": "inside-left",
+      "role_framing": "three-quarter",
+      "role_composition_mode": "structure-first-small-support",
+      "camera_energy": "medium",
+      "role_pose_hint": "角色结合标题内容演示，不要站桩，不要只是普通主持姿态；动作必须由本页语义决定；若成图与已生成页演法相似，必须改动作、表情、道具、景别或站位后重做",
+      "role_variation_guard": "semantic-render-signature-unique + adjust-staging-to-break-repeat",
+      "role_variation_reason": "本页最终演法签名为 围绕页面核心概念做演示和拆解|高夸张但稳定可辨认的说明型表情|mic|three-quarter|inside-left，需与全篇其他页面保持不同；同时调整人物景别或站位，避免连续页出现近似构图",
+      "icon_set": [
+        "第1点"
+      ],
+      "layout_constraints": [
+        "标题区优先",
+        "说明文案小字号",
+        "配图和配字分离",
+        "文字原文锚定，只允许少量源自原文的结构词",
+        "正文页左下角 3cm × 3cm 纯底色禁绘区域",
+        "左下角不要出现任何文字",
+        "左下角不要出现人物、图标、线条、箭头、坑位边缘和装饰符号"
+      ],
+      "role_variation_action_family": "演示",
+      "role_variation_expression_family": "说明"
+    },
+    {
+      "page_index": 4,
+      "page_title": "第1步：冲最后那20分",
+      "step_title_layers": [
+        "第1步：冲最后那20分"
+      ],
+      "title_text": "第1步：冲最后那20分",
+      "title_strategy": "explicit-heading-title",
+      "title_extraction_required": false,
+      "forbid_fragment_title": false,
+      "display_title_mode": "exact",
+      "display_title": "第1步：冲最后那20分",
+      "explicit_heading_title_required": true,
+      "explicit_heading_source_level": 3,
+      "summary_title_exception_allowed": false,
+      "summary_title_exception_source_quote": "",
+      "source_title_full": "第1步：冲最后那20分",
+      "subtitle_notes": [],
+      "page_body": "很多事情做到80分，\n其实并不难。\n难的是，\n做到80分以后，\n你还愿不愿意继续往下磨。\n因为人与人真正拉开差距的，\n往往不是前面的80分，\n而是最后那20分。\n比如一条文案。\n用AI把初稿生成出来，\n这只能叫完成，非常容易，豆包就可以了。\n但你能让AI帮你打磨出爆款开头，\n搭建出爆款结构，\n洞察你的核心人群需求\n把逻辑重新接起来，\n让你张嘴就能拍，这就非常难，\n这才是“做成”。\n**很多事情的价值，恰恰藏在最后那20分里。**",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": true,
+      "deck_title_visible_forbidden": true,
+      "page_hook": "很多事情做到80分，",
+      "cue_phrases": [],
+      "cue_phrase_source_quotes": {},
+      "talking_points": [],
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "support_labels": [
+        "往往不是前面的80分",
+        "而是最后那20分",
+        "因为人与人真正拉开差距的",
+        "一条文案"
+      ],
+      "support_label_source_quotes": {
+        "往往不是前面的80分": "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分",
+        "而是最后那20分": "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分",
+        "因为人与人真正拉开差距的": "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分",
+        "一条文案": "比如一条文案"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_repeat_forbidden": true,
+      "visible_text_slot_dedup_required": true,
+      "repeated_source_fragment_forbidden": true,
+      "visible_text_overlap_forbidden": true,
+      "text_slot_assignment": {
+        "display_title": [
+          "第1步：冲最后那20分"
+        ],
+        "subtitle_notes": [],
+        "cue_phrases": [],
+        "flow_labels": [],
+        "support_labels": [
+          "往往不是前面的80分",
+          "而是最后那20分",
+          "因为人与人真正拉开差距的",
+          "一条文案"
+        ]
+      },
+      "repeated_source_fragments_filtered": [],
+      "source_fragment_overlap_groups": [],
+      "text_slot_conflict_resolutions": [],
+      "visible_text_items": [
+        "第1步：冲最后那20分",
+        "往往不是前面的80分",
+        "而是最后那20分",
+        "因为人与人真正拉开差距的",
+        "一条文案"
+      ],
+      "visible_text_source_quotes": {
+        "第1步：冲最后那20分": "第1步：冲最后那20分",
+        "往往不是前面的80分": "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分",
+        "而是最后那20分": "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分",
+        "因为人与人真正拉开差距的": "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分",
+        "一条文案": "比如一条文案"
+      },
+      "page_visible_text_whitelist": [
+        "第1步：冲最后那20分",
+        "往往不是前面的80分",
+        "而是最后那20分",
+        "因为人与人真正拉开差距的",
+        "一条文案"
+      ],
+      "semantic_units": [
+        {
+          "order": 0,
+          "source_quote": "很多事情做到80分，其实并不难",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "很多事情做到80分",
+            "其实并不难"
+          ]
+        },
+        {
+          "order": 1,
+          "source_quote": "难的是，做到80分以后，你还愿不愿意继续往下磨",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "难的是",
+            "做到80分以后",
+            "你还愿不愿意继续往下磨"
+          ]
+        },
+        {
+          "order": 2,
+          "source_quote": "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分",
+          "information_type": "contrast",
+          "priority": 86,
+          "visibility": "must-show",
+          "reason": "反例、对比或条件变化",
+          "complete_phrases": [
+            "因为人与人真正拉开差距的",
+            "往往不是前面的80分",
+            "而是最后那20分"
+          ]
+        },
+        {
+          "order": 3,
+          "source_quote": "比如一条文案",
+          "information_type": "supporting-object",
+          "priority": 68,
+          "visibility": "supporting",
+          "reason": "具体对象、变量或类比物",
+          "complete_phrases": [
+            "一条文案"
+          ]
+        },
+        {
+          "order": 4,
+          "source_quote": "用AI把初稿生成出来，这只能叫完成，非常容易，豆包就可以了",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "用AI把初稿生成出来",
+            "这只能叫完成",
+            "非常容易",
+            "豆包就可以了"
+          ]
+        },
+        {
+          "order": 5,
+          "source_quote": "但你能让AI帮你打磨出爆款开头，搭建出爆款结构，洞察你的核心人群需求",
+          "information_type": "supporting-object",
+          "priority": 68,
+          "visibility": "supporting",
+          "reason": "具体对象、变量或类比物",
+          "complete_phrases": [
+            "但你能让AI帮你打磨出爆款开头",
+            "洞察你的核心人群需求",
+            "爆款结构"
+          ]
+        },
+        {
+          "order": 6,
+          "source_quote": "把逻辑重新接起来，让你张嘴就能拍，这就非常难，这才是“做成",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "把逻辑重新接起来",
+            "让你张嘴就能拍",
+            "这就非常难",
+            "这才是“做成"
+          ]
+        },
+        {
+          "order": 7,
+          "source_quote": "很多事情的价值，恰恰藏在最后那20分里",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "很多事情的价值",
+            "恰恰藏在最后那20分里"
+          ]
+        }
+      ],
+      "must_show_source_quotes": [
+        "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分"
+      ],
+      "supporting_source_quotes": [
+        "比如一条文案",
+        "但你能让AI帮你打磨出爆款开头，搭建出爆款结构，洞察你的核心人群需求"
+      ],
+      "context_only_source_quotes": [
+        "很多事情做到80分，其实并不难",
+        "难的是，做到80分以后，你还愿不愿意继续往下磨",
+        "用AI把初稿生成出来，这只能叫完成，非常容易，豆包就可以了",
+        "把逻辑重新接起来，让你张嘴就能拍，这就非常难，这才是“做成",
+        "很多事情的价值，恰恰藏在最后那20分里"
+      ],
+      "discarded_transition_quotes": [],
+      "key_information_types": [
+        "contrast",
+        "causal",
+        "supporting-object"
+      ],
+      "formula_items": [],
+      "semantic_priority_order": [
+        "往往不是前面的80分",
+        "而是最后那20分",
+        "因为人与人真正拉开差距的",
+        "一条文案"
+      ],
+      "visual_module_assignments": [
+        {
+          "visible_text": "往往不是前面的80分",
+          "source_quote": "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分",
+          "information_type": "contrast",
+          "visual_module": "contrast-block",
+          "selection_reason": "反例、对比或条件变化"
+        },
+        {
+          "visible_text": "而是最后那20分",
+          "source_quote": "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分",
+          "information_type": "contrast",
+          "visual_module": "contrast-block",
+          "selection_reason": "反例、对比或条件变化"
+        },
+        {
+          "visible_text": "因为人与人真正拉开差距的",
+          "source_quote": "因为人与人真正拉开差距的，往往不是前面的80分，而是最后那20分",
+          "information_type": "causal",
+          "visual_module": "causal-chain",
+          "selection_reason": "因果关系"
+        },
+        {
+          "visible_text": "一条文案",
+          "source_quote": "比如一条文案",
+          "information_type": "supporting-object",
+          "visual_module": "icon-tag-block",
+          "selection_reason": "具体对象、变量或类比物"
+        }
+      ],
+      "text_semantic_completeness_required": true,
+      "transition_text_visible_forbidden": true,
+      "formula_preservation_required": false,
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "label_module_required": true,
+      "label_module_targets": [
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block",
+        "icon-tag-block"
+      ],
+      "label_visual_pairing_required": true,
+      "micro_visual_anchor_required": true,
+      "module_block_count_target": 4,
+      "primary_info_blocks": [
+        "第1步：冲最后那20分"
+      ],
+      "secondary_info_blocks": [],
+      "primary_info_block_visual_required": true,
+      "secondary_info_block_visual_optional": true,
+      "visual_keywords": [
+        "第1步",
+        "冲最后那20分",
+        "其实并不难",
+        "难的是"
+      ],
+      "visual_action_cues": [
+        "对比",
+        "讲解"
+      ],
+      "visual_scene_cues": [],
+      "role_action_tags": [
+        "对比",
+        "判断",
+        "讲解"
+      ],
+      "role_expression_tags": [
+        "判断",
+        "解释",
+        "强调"
+      ],
+      "speaker_guides": [
+        "很多事情做到80分，",
+        "其实并不难。"
+      ],
+      "density_profile": {
+        "talking_points": 2,
+        "micro_visuals": 4,
+        "visual_keywords": 4,
+        "icons": 2,
+        "support_labels": 3,
+        "primary_blocks": 2,
+        "secondary_blocks": 0
+      },
+      "text_density_mode": "graph-first",
+      "graph_first_mode": true,
+      "text_light_mode": false,
+      "page_type": "对比页",
+      "page_background_mode": "even",
+      "background_color": "#122142",
+      "skin_tone_base": "#e8a668",
+      "line_color": "white",
+      "red_accent_required": true,
+      "red_accent_count_min": 1,
+      "red_accent_count_max": 3,
+      "red_accent_allowed_targets": [
+        "keyword",
+        "arrow",
+        "tag",
+        "result",
+        "warning"
+      ],
+      "red_accent_semantic_only": true,
+      "uniform_label_container_forbidden": true,
+      "scene_priority": "scene-first",
+      "scene_concept": "contrast-split",
+      "scene_layout_type": "contrast-split",
+      "title_layout_mode": "left-anchor",
+      "title_alignment": "left",
+      "title_anchor_zone": "upper-left",
+      "title_flow_direction": "horizontal",
+      "title_layout_guidance": "标题偏左作为文字锚点，右侧或中部承接人物与主结构",
+      "supporting_micro_visuals": [
+        "第1步",
+        "难的是",
+        "左右分栏",
+        "对照线"
+      ],
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_required": true,
+      "role_count_min": 2,
+      "role_count_max": 2,
+      "role_count_decision_mode": "structure-triggered",
+      "role_count_target": 2,
+      "multi_role_required": true,
+      "multi_role_trigger_type": "contrast-or-bridge",
+      "role_distribution_brief": "至少两个人物分别进入左右或前后两个结构槽位，承担对照、桥接或转化关系。",
+      "role_slot_assignments": [
+        "左侧结构槽位",
+        "右侧结构槽位"
+      ],
+      "same_page_role_pose_distinct_required": true,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "small-accent",
+      "single_role_required": false,
+      "role_action_match_required": true,
+      "role_action_match_basis": "判断",
+      "role_action_family": "thinking",
+      "role_expression_family": "thinking",
+      "role_expression_match_basis": "判断",
+      "role_action_intent": "双手分别指向两侧内容，做取舍、对照和判断",
+      "role_expression_intent": "高夸张的判断感和解释感，眉眼和手势都更明显",
+      "role_pose_brief": "身体和手势同时连到左右两侧结构，站在中间做桥接和判断，不允许独立站在空白侧边",
+      "role_prop_intent": "none",
+      "role_framing_intent": "half-body",
+      "role_position_intent": "inside-right",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "双手分别指向两侧内容，做取舍、对照和判断|高夸张的判断感和解释感，眉眼和手势都更明显|none|half-body|inside-right",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "对比-cf279ab3ffd2",
+      "role_pose_family": "对比",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [],
+      "allowed_role_framings": [
+        "full-body",
+        "three-quarter"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "role_scene_relationship": "主题和主场景优先，角色缩小进入结构内部，作为辅助行动者参与表达",
+      "role_in_scene_mode": "supporting-bridge",
+      "role_in_scene_guidance": "人物必须站进对比结构之间，同时连接左右两侧信息，像桥接、切换或权衡，但只能做辅助。",
+      "reserved_zone": {
+        "position": "bottom-left",
+        "size_cm": "3 x 3",
+        "size_cm_array": [
+          3,
+          3
+        ],
+        "side_ratio_of_height": 0.15748,
+        "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+        "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]",
+        "fill_mode": "pure-background-no-draw"
+      },
+      "reserved_zone_rules": [
+        "no_text",
+        "no_icons",
+        "no_character",
+        "no_lines",
+        "no_shapes",
+        "no_scene_overlap",
+        "background_only",
+        "no_frame",
+        "no_border",
+        "no_placeholder_box"
+      ],
+      "pagination_mode": "explicit",
+      "section_kind": "manual",
+      "step_label": "",
+      "step_index": null,
+      "step_page_index": 1,
+      "step_page_total": 1,
+      "is_continued": false,
+      "forbid_visible_page_number": true,
+      "role_action": "双手分别指向两侧内容，做取舍、对照和判断",
+      "role_expression": "高夸张的判断感和解释感，眉眼和手势都更明显",
+      "role_identity_lock": "strict",
+      "role_scale": "small-accent",
+      "role_position": "inside-right",
+      "role_framing": "half-body",
+      "role_composition_mode": "supporting-contrast-bridge",
+      "camera_energy": "medium",
+      "role_pose_hint": "站进对比结构中间，让双手和视线同时连到两侧内容；动作必须由本页语义决定；若成图与已生成页演法相似，必须改动作、表情、道具、景别或站位后重做",
+      "role_variation_guard": "switch-action-expression-family + semantic-render-signature-unique + adjust-staging-to-break-repeat",
+      "role_variation_reason": "为避开同题重复，本页改用“对比 + 判断”组合；本页最终演法签名为 双手分别指向两侧内容，做取舍、对照和判断|高夸张的判断感和解释感，眉眼和手势都更明显|none|half-body|inside-right，需与全篇其他页面保持不同；同时调整人物景别或站位，避免连续页出现近似构图",
+      "icon_set": [
+        "第1步",
+        "难的是"
+      ],
+      "layout_constraints": [
+        "标题区优先",
+        "说明文案小字号",
+        "配图和配字分离",
+        "文字原文锚定，只允许少量源自原文的结构词",
+        "正文页左下角 3cm × 3cm 纯底色禁绘区域",
+        "左下角不要出现任何文字",
+        "左下角不要出现人物、图标、线条、箭头、坑位边缘和装饰符号"
+      ],
+      "role_variation_action_family": "对比",
+      "role_variation_expression_family": "判断"
+    },
+    {
+      "page_index": 5,
+      "page_title": "第2步：只做拉伸区",
+      "step_title_layers": [
+        "第2步：只做拉伸区"
+      ],
+      "title_text": "第2步：只做拉伸区",
+      "title_strategy": "explicit-heading-title",
+      "title_extraction_required": false,
+      "forbid_fragment_title": false,
+      "display_title_mode": "exact",
+      "display_title": "第2步：只做拉伸区",
+      "explicit_heading_title_required": true,
+      "explicit_heading_source_level": 3,
+      "summary_title_exception_allowed": false,
+      "summary_title_exception_source_quote": "",
+      "source_title_full": "第2步：只做拉伸区",
+      "subtitle_notes": [],
+      "page_body": "如果每天做的，\n都是自己已经很熟的事，\n你就会永远在那80分里面。\n要想提升到最后的20分，\n你就必须让自己跳出舒适区。\n1）给自己一个更高的要求目标\n2）把重复的事情交给AI\n3）找到那些只做一次，就能持续复用的事\n这3点就是跳出舒适区做事的秘密",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": true,
+      "deck_title_visible_forbidden": true,
+      "page_hook": "如果每天做的，",
+      "cue_phrases": [],
+      "cue_phrase_source_quotes": {},
+      "talking_points": [],
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "support_labels": [
+        "你就必须让自己跳出舒适区",
+        "1）给自己一个更高的要求目标",
+        "你就会永远在那80分里面"
+      ],
+      "support_label_source_quotes": {
+        "你就必须让自己跳出舒适区": "要想提升到最后的20分，你就必须让自己跳出舒适区",
+        "1）给自己一个更高的要求目标": "1）给自己一个更高的要求目标",
+        "你就会永远在那80分里面": "如果每天做的，都是自己已经很熟的事，你就会永远在那80分里面"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_repeat_forbidden": true,
+      "visible_text_slot_dedup_required": true,
+      "repeated_source_fragment_forbidden": true,
+      "visible_text_overlap_forbidden": true,
+      "text_slot_assignment": {
+        "display_title": [
+          "第2步：只做拉伸区"
+        ],
+        "subtitle_notes": [],
+        "cue_phrases": [],
+        "flow_labels": [],
+        "support_labels": [
+          "你就必须让自己跳出舒适区",
+          "1）给自己一个更高的要求目标",
+          "你就会永远在那80分里面"
+        ]
+      },
+      "repeated_source_fragments_filtered": [],
+      "source_fragment_overlap_groups": [],
+      "text_slot_conflict_resolutions": [],
+      "visible_text_items": [
+        "第2步：只做拉伸区",
+        "你就必须让自己跳出舒适区",
+        "1）给自己一个更高的要求目标",
+        "你就会永远在那80分里面"
+      ],
+      "visible_text_source_quotes": {
+        "第2步：只做拉伸区": "第2步：只做拉伸区",
+        "你就必须让自己跳出舒适区": "要想提升到最后的20分，你就必须让自己跳出舒适区",
+        "1）给自己一个更高的要求目标": "1）给自己一个更高的要求目标",
+        "你就会永远在那80分里面": "如果每天做的，都是自己已经很熟的事，你就会永远在那80分里面"
+      },
+      "page_visible_text_whitelist": [
+        "第2步：只做拉伸区",
+        "你就必须让自己跳出舒适区",
+        "1）给自己一个更高的要求目标",
+        "你就会永远在那80分里面"
+      ],
+      "semantic_units": [
+        {
+          "order": 0,
+          "source_quote": "如果每天做的，都是自己已经很熟的事，你就会永远在那80分里面",
+          "information_type": "conclusion",
+          "priority": 84,
+          "visibility": "must-show",
+          "reason": "核心判断、条件或结论",
+          "complete_phrases": [
+            "如果每天做的",
+            "都是自己已经很熟的事",
+            "你就会永远在那80分里面"
+          ]
+        },
+        {
+          "order": 1,
+          "source_quote": "要想提升到最后的20分，你就必须让自己跳出舒适区",
+          "information_type": "conclusion",
+          "priority": 84,
+          "visibility": "must-show",
+          "reason": "核心判断、条件或结论",
+          "complete_phrases": [
+            "要想提升到最后的20分",
+            "你就必须让自己跳出舒适区"
+          ]
+        },
+        {
+          "order": 2,
+          "source_quote": "1）给自己一个更高的要求目标",
+          "information_type": "conclusion",
+          "priority": 84,
+          "visibility": "must-show",
+          "reason": "核心判断、条件或结论",
+          "complete_phrases": [
+            "1）给自己一个更高的要求目标"
+          ]
+        },
+        {
+          "order": 3,
+          "source_quote": "2）把重复的事情交给AI",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "2）把重复的事情交给AI"
+          ]
+        },
+        {
+          "order": 4,
+          "source_quote": "3）找到那些只做一次，就能持续复用的事",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "3）找到那些只做一次",
+            "就能持续复用的事"
+          ]
+        },
+        {
+          "order": 5,
+          "source_quote": "这3点就是跳出舒适区做事的秘密",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "这3点就是跳出舒适区做事的秘密"
+          ]
+        }
+      ],
+      "must_show_source_quotes": [
+        "如果每天做的，都是自己已经很熟的事，你就会永远在那80分里面",
+        "要想提升到最后的20分，你就必须让自己跳出舒适区",
+        "1）给自己一个更高的要求目标"
+      ],
+      "supporting_source_quotes": [],
+      "context_only_source_quotes": [
+        "2）把重复的事情交给AI",
+        "3）找到那些只做一次，就能持续复用的事",
+        "这3点就是跳出舒适区做事的秘密"
+      ],
+      "discarded_transition_quotes": [],
+      "key_information_types": [
+        "conclusion"
+      ],
+      "formula_items": [],
+      "semantic_priority_order": [
+        "你就必须让自己跳出舒适区",
+        "1）给自己一个更高的要求目标",
+        "你就会永远在那80分里面"
+      ],
+      "visual_module_assignments": [
+        {
+          "visible_text": "你就必须让自己跳出舒适区",
+          "source_quote": "要想提升到最后的20分，你就必须让自己跳出舒适区",
+          "information_type": "conclusion",
+          "visual_module": "conclusion-anchor",
+          "selection_reason": "核心判断、条件或结论"
+        },
+        {
+          "visible_text": "1）给自己一个更高的要求目标",
+          "source_quote": "1）给自己一个更高的要求目标",
+          "information_type": "conclusion",
+          "visual_module": "conclusion-anchor",
+          "selection_reason": "核心判断、条件或结论"
+        },
+        {
+          "visible_text": "你就会永远在那80分里面",
+          "source_quote": "如果每天做的，都是自己已经很熟的事，你就会永远在那80分里面",
+          "information_type": "conclusion",
+          "visual_module": "conclusion-anchor",
+          "selection_reason": "核心判断、条件或结论"
+        }
+      ],
+      "text_semantic_completeness_required": true,
+      "transition_text_visible_forbidden": true,
+      "formula_preservation_required": false,
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "label_module_required": true,
+      "label_module_targets": [
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block",
+        "icon-tag-block"
+      ],
+      "label_visual_pairing_required": true,
+      "micro_visual_anchor_required": true,
+      "module_block_count_target": 3,
+      "primary_info_blocks": [
+        "第2步：只做拉伸区"
+      ],
+      "secondary_info_blocks": [],
+      "primary_info_block_visual_required": true,
+      "secondary_info_block_visual_optional": true,
+      "visual_keywords": [
+        "第2步",
+        "只做拉伸区",
+        "如果每天做的"
+      ],
+      "visual_action_cues": [
+        "深度工作",
+        "讲解"
+      ],
+      "visual_scene_cues": [],
+      "role_action_tags": [
+        "拆解",
+        "讲解",
+        "判断"
+      ],
+      "role_expression_tags": [
+        "思考",
+        "判断",
+        "解释"
+      ],
+      "speaker_guides": [
+        "如果每天做的，",
+        "都是自己已经很熟的事，"
+      ],
+      "density_profile": {
+        "talking_points": 2,
+        "micro_visuals": 4,
+        "visual_keywords": 4,
+        "icons": 2,
+        "support_labels": 3,
+        "primary_blocks": 2,
+        "secondary_blocks": 0
+      },
+      "text_density_mode": "graph-first",
+      "graph_first_mode": true,
+      "text_light_mode": false,
+      "page_type": "步骤页",
+      "page_background_mode": "odd",
+      "background_color": "#fcb537",
+      "skin_tone_base": "#e8a668",
+      "line_color": "black",
+      "red_accent_required": true,
+      "red_accent_count_min": 1,
+      "red_accent_count_max": 3,
+      "red_accent_allowed_targets": [
+        "keyword",
+        "arrow",
+        "tag",
+        "result",
+        "warning"
+      ],
+      "red_accent_semantic_only": true,
+      "uniform_label_container_forbidden": true,
+      "scene_priority": "scene-first",
+      "scene_concept": "concept-note-scene",
+      "scene_layout_type": "concept-board",
+      "title_layout_mode": "inline-scene",
+      "title_alignment": "left",
+      "title_anchor_zone": "inline",
+      "title_flow_direction": "horizontal",
+      "title_layout_guidance": "标题融入场景内部，不像固定条幅；对齐方式 left，锚点区域 inline，标题走向 horizontal。人物不要默认站成画面中心，优先服从场景结构。",
+      "supporting_micro_visuals": [
+        "第2步"
+      ],
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_required": true,
+      "role_count_min": 1,
+      "role_count_max": 1,
+      "role_count_decision_mode": "structure-triggered",
+      "role_count_target": 1,
+      "multi_role_required": false,
+      "multi_role_trigger_type": "single-conclusion-or-summary",
+      "role_distribution_brief": "本页主结构是单锤点或单结论表达，单人物即可完成讲解，不强行扩成多人。",
+      "role_slot_assignments": [
+        "主结构单角色"
+      ],
+      "same_page_role_pose_distinct_required": false,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "small-accent",
+      "single_role_required": false,
+      "role_action_match_required": true,
+      "role_action_match_basis": "讲解",
+      "role_action_family": "explaining",
+      "role_expression_family": "explaining",
+      "role_expression_match_basis": "讲解",
+      "role_action_intent": "一边拆开结构，一边盯住某个关键点做解释",
+      "role_expression_intent": "高夸张的思考感和判断感，像在现场拆题",
+      "role_pose_brief": "角色结合标题内容演示，不要站桩，不要只是普通主持姿态",
+      "role_prop_intent": "none",
+      "role_framing_intent": "three-quarter",
+      "role_position_intent": "inside-left",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "一边拆开结构，一边盯住某个关键点做解释|高夸张的思考感和判断感，像在现场拆题|none|three-quarter|inside-left",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "拆解-6828e63108b1",
+      "role_pose_family": "拆解",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [
+        "ip-ref-03-thinking.png"
+      ],
+      "allowed_role_framings": [
+        "full-body",
+        "three-quarter"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "role_scene_relationship": "主题和主场景优先，角色缩小进入结构内部，作为辅助行动者参与表达",
+      "role_in_scene_mode": "supporting-structure-interactor",
+      "role_in_scene_guidance": "人物必须走进结构内部，触碰、踩入、跨过、被包围或被结构限制，不能独立站在主结构外。",
+      "reserved_zone": {
+        "position": "bottom-left",
+        "size_cm": "3 x 3",
+        "size_cm_array": [
+          3,
+          3
+        ],
+        "side_ratio_of_height": 0.15748,
+        "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+        "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]",
+        "fill_mode": "pure-background-no-draw"
+      },
+      "reserved_zone_rules": [
+        "no_text",
+        "no_icons",
+        "no_character",
+        "no_lines",
+        "no_shapes",
+        "no_scene_overlap",
+        "background_only",
+        "no_frame",
+        "no_border",
+        "no_placeholder_box"
+      ],
+      "pagination_mode": "explicit",
+      "section_kind": "manual",
+      "step_label": "",
+      "step_index": null,
+      "step_page_index": 1,
+      "step_page_total": 1,
+      "is_continued": false,
+      "forbid_visible_page_number": true,
+      "role_action": "一边拆开结构，一边盯住某个关键点做解释",
+      "role_expression": "高夸张的思考感和判断感，像在现场拆题",
+      "role_identity_lock": "strict",
+      "role_scale": "small-accent",
+      "role_position": "inside-left",
+      "role_framing": "three-quarter",
+      "role_composition_mode": "structure-first-small-support",
+      "camera_energy": "medium",
+      "role_pose_hint": "动作要落在结构内部，不要只对着观众解释；动作必须由本页语义决定；若成图与已生成页演法相似，必须改动作、表情、道具、景别或站位后重做",
+      "role_variation_guard": "switch-action-expression-family + semantic-render-signature-unique + adjust-staging-to-break-repeat",
+      "role_variation_reason": "为避开同题重复，本页改用“拆解 + 思考”组合；本页最终演法签名为 一边拆开结构，一边盯住某个关键点做解释|高夸张的思考感和判断感，像在现场拆题|none|three-quarter|inside-left，需与全篇其他页面保持不同；同时调整人物景别或站位，避免连续页出现近似构图",
+      "icon_set": [
+        "第2步"
+      ],
+      "layout_constraints": [
+        "标题区优先",
+        "说明文案小字号",
+        "配图和配字分离",
+        "文字原文锚定，只允许少量源自原文的结构词",
+        "正文页左下角 3cm × 3cm 纯底色禁绘区域",
+        "左下角不要出现任何文字",
+        "左下角不要出现人物、图标、线条、箭头、坑位边缘和装饰符号"
+      ],
+      "role_variation_action_family": "拆解",
+      "role_variation_expression_family": "思考",
+      "role_action_reference_image": "E:\\AI爆款内容工厂\\10_Skills武器库\\IP视觉PPT生成Skill\\characters\\zhifuxingqiu-host\\refs\\ip-ref-03-thinking.png",
+      "role_action_reference_reason": "explicit:concept-thinking-non-mic"
+    },
+    {
+      "page_index": 6,
+      "page_title": "第2点 会做小事，为什么就能成功？",
+      "step_title_layers": [
+        "第2点：会做小事，为什么就能成功"
+      ],
+      "title_text": "第2点 会做小事，为什么就能成功？",
+      "title_strategy": "explicit-heading-title",
+      "title_extraction_required": false,
+      "forbid_fragment_title": false,
+      "display_title_mode": "exact",
+      "display_title": "第2点 会做小事，为什么就能成功？",
+      "explicit_heading_title_required": true,
+      "explicit_heading_source_level": 2,
+      "summary_title_exception_allowed": false,
+      "summary_title_exception_source_quote": "",
+      "source_title_full": "第2点 会做小事，为什么就能成功？",
+      "subtitle_notes": [],
+      "page_body": "想得越大，\n目标就越散。\n真正能做成事的人，\n反而会把一件大事，\n拆成一个又一个能完成的小结果，也就是一件件小事。\n一共3步",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": true,
+      "deck_title_visible_forbidden": true,
+      "page_hook": "想得越大，",
+      "cue_phrases": [],
+      "cue_phrase_source_quotes": {},
+      "talking_points": [],
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "support_labels": [
+        "一共3步",
+        "目标就越散"
+      ],
+      "support_label_source_quotes": {
+        "一共3步": "一共3步",
+        "目标就越散": "想得越大，目标就越散"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_repeat_forbidden": true,
+      "visible_text_slot_dedup_required": true,
+      "repeated_source_fragment_forbidden": true,
+      "visible_text_overlap_forbidden": true,
+      "text_slot_assignment": {
+        "display_title": [
+          "第2点会做小事，为什么就能成功"
+        ],
+        "subtitle_notes": [],
+        "cue_phrases": [],
+        "flow_labels": [],
+        "support_labels": [
+          "一共3步",
+          "目标就越散"
+        ]
+      },
+      "repeated_source_fragments_filtered": [
+        "3步"
+      ],
+      "source_fragment_overlap_groups": [],
+      "text_slot_conflict_resolutions": [],
+      "visible_text_items": [
+        "第2点 会做小事，为什么就能成功？",
+        "一共3步",
+        "目标就越散"
+      ],
+      "visible_text_source_quotes": {
+        "第2点 会做小事，为什么就能成功？": "第2点 会做小事，为什么就能成功",
+        "一共3步": "一共3步",
+        "目标就越散": "想得越大，目标就越散"
+      },
+      "page_visible_text_whitelist": [
+        "第2点 会做小事，为什么就能成功？",
+        "一共3步",
+        "目标就越散"
+      ],
+      "semantic_units": [
+        {
+          "order": 0,
+          "source_quote": "想得越大，目标就越散",
+          "information_type": "conclusion",
+          "priority": 84,
+          "visibility": "must-show",
+          "reason": "核心判断、条件或结论",
+          "complete_phrases": [
+            "想得越大",
+            "目标就越散"
+          ]
+        },
+        {
+          "order": 1,
+          "source_quote": "真正能做成事的人，反而会把一件大事，拆成一个又一个能完成的小结果，也就是一件件小事",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "真正能做成事的人",
+            "反而会把一件大事",
+            "拆成一个又一个能完成的小结果",
+            "也就是一件件小事"
+          ]
+        },
+        {
+          "order": 2,
+          "source_quote": "一共3步",
+          "information_type": "action",
+          "priority": 90,
+          "visibility": "must-show",
+          "reason": "步骤数量或结构入口",
+          "complete_phrases": [
+            "一共3步",
+            "3步"
+          ]
+        }
+      ],
+      "must_show_source_quotes": [
+        "想得越大，目标就越散",
+        "一共3步"
+      ],
+      "supporting_source_quotes": [],
+      "context_only_source_quotes": [
+        "真正能做成事的人，反而会把一件大事，拆成一个又一个能完成的小结果，也就是一件件小事"
+      ],
+      "discarded_transition_quotes": [],
+      "key_information_types": [
+        "action",
+        "conclusion"
+      ],
+      "formula_items": [],
+      "semantic_priority_order": [
+        "一共3步",
+        "目标就越散"
+      ],
+      "visual_module_assignments": [
+        {
+          "visible_text": "一共3步",
+          "source_quote": "一共3步",
+          "information_type": "action",
+          "visual_module": "action-node",
+          "selection_reason": "步骤数量或结构入口"
+        },
+        {
+          "visible_text": "目标就越散",
+          "source_quote": "想得越大，目标就越散",
+          "information_type": "conclusion",
+          "visual_module": "conclusion-anchor",
+          "selection_reason": "核心判断、条件或结论"
+        }
+      ],
+      "text_semantic_completeness_required": true,
+      "transition_text_visible_forbidden": true,
+      "formula_preservation_required": false,
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "label_module_required": true,
+      "label_module_targets": [
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block",
+        "icon-tag-block"
+      ],
+      "label_visual_pairing_required": true,
+      "micro_visual_anchor_required": true,
+      "module_block_count_target": 2,
+      "primary_info_blocks": [
+        "第2点 会做小事，为什么就能成功？"
+      ],
+      "secondary_info_blocks": [],
+      "primary_info_block_visual_required": true,
+      "secondary_info_block_visual_optional": true,
+      "visual_keywords": [
+        "第2点",
+        "会做小事",
+        "想得越大",
+        "目标就越散"
+      ],
+      "visual_action_cues": [
+        "深度工作",
+        "讲解",
+        "强调"
+      ],
+      "visual_scene_cues": [],
+      "role_action_tags": [
+        "质疑",
+        "强调",
+        "判断"
+      ],
+      "role_expression_tags": [
+        "质疑",
+        "困惑",
+        "思考"
+      ],
+      "speaker_guides": [
+        "想得越大，",
+        "目标就越散。"
+      ],
+      "density_profile": {
+        "talking_points": 2,
+        "micro_visuals": 4,
+        "visual_keywords": 4,
+        "icons": 2,
+        "support_labels": 3,
+        "primary_blocks": 2,
+        "secondary_blocks": 0
+      },
+      "text_density_mode": "graph-first",
+      "graph_first_mode": true,
+      "text_light_mode": false,
+      "page_type": "观点页",
+      "page_background_mode": "even",
+      "background_color": "#122142",
+      "skin_tone_base": "#e8a668",
+      "line_color": "white",
+      "red_accent_required": true,
+      "red_accent_count_min": 1,
+      "red_accent_count_max": 3,
+      "red_accent_allowed_targets": [
+        "keyword",
+        "arrow",
+        "tag",
+        "result",
+        "warning"
+      ],
+      "red_accent_semantic_only": true,
+      "uniform_label_container_forbidden": true,
+      "scene_priority": "scene-first",
+      "scene_concept": "concept-note-scene",
+      "scene_layout_type": "concept-board",
+      "title_layout_mode": "inline-scene",
+      "title_alignment": "left",
+      "title_anchor_zone": "inline",
+      "title_flow_direction": "horizontal",
+      "title_layout_guidance": "标题融入场景内部，不像固定条幅；对齐方式 left，锚点区域 inline，标题走向 horizontal。人物不要默认站成画面中心，优先服从场景结构。",
+      "supporting_micro_visuals": [
+        "第2点",
+        "会做小事"
+      ],
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_required": true,
+      "role_count_min": 1,
+      "role_count_max": 1,
+      "role_count_decision_mode": "structure-triggered",
+      "role_count_target": 1,
+      "multi_role_required": false,
+      "multi_role_trigger_type": "single-conclusion-or-summary",
+      "role_distribution_brief": "本页主结构是单锤点或单结论表达，单人物即可完成讲解，不强行扩成多人。",
+      "role_slot_assignments": [
+        "主结构单角色"
+      ],
+      "same_page_role_pose_distinct_required": false,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "small-accent",
+      "single_role_required": false,
+      "role_action_match_required": true,
+      "role_action_match_basis": "为什么",
+      "role_action_family": "questioning",
+      "role_expression_family": "questioning",
+      "role_expression_match_basis": "为什么",
+      "role_action_intent": "挑眉、半摊手，像在反问一个默认认知",
+      "role_expression_intent": "高夸张的质疑感和困惑感，形成明显的认知冲突",
+      "role_pose_brief": "角色结合标题内容演示，不要站桩，不要只是普通主持姿态",
+      "role_prop_intent": "none",
+      "role_framing_intent": "half-body",
+      "role_position_intent": "inside-right",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "挑眉、半摊手，像在反问一个默认认知|高夸张的质疑感和困惑感，形成明显的认知冲突|none|half-body|inside-right",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "质疑-656d42bc48c7",
+      "role_pose_family": "质疑",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [],
+      "allowed_role_framings": [
+        "full-body",
+        "three-quarter"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "role_scene_relationship": "主题和主场景优先，角色缩小进入结构内部，作为辅助行动者参与表达",
+      "role_in_scene_mode": "supporting-structure-interactor",
+      "role_in_scene_guidance": "人物必须走进结构内部，触碰、踩入、跨过、被包围或被结构限制，不能独立站在主结构外。",
+      "reserved_zone": {
+        "position": "bottom-left",
+        "size_cm": "3 x 3",
+        "size_cm_array": [
+          3,
+          3
+        ],
+        "side_ratio_of_height": 0.15748,
+        "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+        "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]",
+        "fill_mode": "pure-background-no-draw"
+      },
+      "reserved_zone_rules": [
+        "no_text",
+        "no_icons",
+        "no_character",
+        "no_lines",
+        "no_shapes",
+        "no_scene_overlap",
+        "background_only",
+        "no_frame",
+        "no_border",
+        "no_placeholder_box"
+      ],
+      "pagination_mode": "explicit",
+      "section_kind": "manual",
+      "step_label": "",
+      "step_index": null,
+      "step_page_index": 1,
+      "step_page_total": 1,
+      "is_continued": false,
+      "forbid_visible_page_number": true,
+      "role_action": "挑眉、半摊手，像在反问一个默认认知",
+      "role_expression": "高夸张的质疑感和困惑感，形成明显的认知冲突",
+      "role_identity_lock": "strict",
+      "role_scale": "small-accent",
+      "role_position": "inside-right",
+      "role_framing": "half-body",
+      "role_composition_mode": "structure-first-small-support",
+      "camera_energy": "medium",
+      "role_pose_hint": "人物要像在质问结构里的某个假设，不要变成普通说明员；动作必须由本页语义决定；若成图与已生成页演法相似，必须改动作、表情、道具、景别或站位后重做",
+      "role_variation_guard": "switch-action-expression-family + semantic-render-signature-unique + adjust-staging-to-break-repeat",
+      "role_variation_reason": "为避开同题重复，本页改用“质疑 + 质疑”组合；本页最终演法签名为 挑眉、半摊手，像在反问一个默认认知|高夸张的质疑感和困惑感，形成明显的认知冲突|none|half-body|inside-right，需与全篇其他页面保持不同；同时调整人物景别或站位，避免连续页出现近似构图",
+      "icon_set": [
+        "第2点",
+        "会做小事"
+      ],
+      "layout_constraints": [
+        "标题区优先",
+        "说明文案小字号",
+        "配图和配字分离",
+        "文字原文锚定，只允许少量源自原文的结构词",
+        "正文页左下角 3cm × 3cm 纯底色禁绘区域",
+        "左下角不要出现任何文字",
+        "左下角不要出现人物、图标、线条、箭头、坑位边缘和装饰符号"
+      ],
+      "role_variation_action_family": "质疑",
+      "role_variation_expression_family": "质疑"
+    },
+    {
+      "page_index": 7,
+      "page_title": "第1步：先拿到一个确定的结果",
+      "step_title_layers": [
+        "第1步：先拿到一个确定的结果"
+      ],
+      "title_text": "第1步：先拿到一个确定的结果",
+      "title_strategy": "explicit-heading-title",
+      "title_extraction_required": false,
+      "forbid_fragment_title": false,
+      "display_title_mode": "exact",
+      "display_title": "第1步：先拿到一个确定的结果",
+      "explicit_heading_title_required": true,
+      "explicit_heading_source_level": 3,
+      "summary_title_exception_allowed": false,
+      "summary_title_exception_source_quote": "",
+      "source_title_full": "第1步：先拿到一个确定的结果",
+      "subtitle_notes": [],
+      "page_body": "比如你想做一个AI爆款内容生成系统，\n不要一上来就想着：\n我要让它生成所有行业的爆款文案。\n先让它把一条视频开头写好。\n再让他能把一个爆款结构写好\n再让他能够说人话，去除文案的AI感\n……\n只先做一个行业，先生成一条爆款视频，一个一个的问题去推进",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": true,
+      "deck_title_visible_forbidden": true,
+      "page_hook": "比如你想做一个AI爆款内容生成系统，",
+      "cue_phrases": [
+        "我要让它生成所有行业的爆款文案"
+      ],
+      "cue_phrase_source_quotes": {
+        "我要让它生成所有行业的爆款文案": "比如你想做一个AI爆款内容生成系统，不要一上来就想着：我要让它生成所有行业的爆款文案"
+      },
+      "talking_points": [
+        "我要让它生成所有行业的爆款文案"
+      ],
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "support_labels": [
+        "爆款结构",
+        "去除文案的AI感"
+      ],
+      "support_label_source_quotes": {
+        "爆款结构": "再让他能把一个爆款结构写好",
+        "去除文案的AI感": "再让他能够说人话，去除文案的AI感"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_repeat_forbidden": true,
+      "visible_text_slot_dedup_required": true,
+      "repeated_source_fragment_forbidden": true,
+      "visible_text_overlap_forbidden": true,
+      "text_slot_assignment": {
+        "display_title": [
+          "第1步：先拿到一个确定的结果"
+        ],
+        "subtitle_notes": [],
+        "cue_phrases": [
+          "我要让它生成所有行业的爆款文案"
+        ],
+        "flow_labels": [],
+        "support_labels": [
+          "爆款结构",
+          "去除文案的AI感"
+        ]
+      },
+      "repeated_source_fragments_filtered": [],
+      "source_fragment_overlap_groups": [],
+      "text_slot_conflict_resolutions": [],
+      "visible_text_items": [
+        "第1步：先拿到一个确定的结果",
+        "我要让它生成所有行业的爆款文案",
+        "爆款结构",
+        "去除文案的AI感"
+      ],
+      "visible_text_source_quotes": {
+        "第1步：先拿到一个确定的结果": "第1步：先拿到一个确定的结果",
+        "我要让它生成所有行业的爆款文案": "比如你想做一个AI爆款内容生成系统，不要一上来就想着：我要让它生成所有行业的爆款文案",
+        "爆款结构": "再让他能把一个爆款结构写好",
+        "去除文案的AI感": "再让他能够说人话，去除文案的AI感"
+      },
+      "page_visible_text_whitelist": [
+        "第1步：先拿到一个确定的结果",
+        "我要让它生成所有行业的爆款文案",
+        "爆款结构",
+        "去除文案的AI感"
+      ],
+      "semantic_units": [
+        {
+          "order": 0,
+          "source_quote": "比如你想做一个AI爆款内容生成系统，不要一上来就想着：我要让它生成所有行业的爆款文案",
+          "information_type": "supporting-object",
+          "priority": 68,
+          "visibility": "supporting",
+          "reason": "具体对象、变量或类比物",
+          "complete_phrases": [
+            "你想做一个AI爆款内容生成系统",
+            "不要一上来就想着",
+            "我要让它生成所有行业的爆款文案"
+          ]
+        },
+        {
+          "order": 1,
+          "source_quote": "先让它把一条视频开头写好",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "先让它把一条视频开头写好"
+          ]
+        },
+        {
+          "order": 2,
+          "source_quote": "再让他能把一个爆款结构写好",
+          "information_type": "supporting-object",
+          "priority": 68,
+          "visibility": "supporting",
+          "reason": "具体对象、变量或类比物",
+          "complete_phrases": [
+            "爆款结构"
+          ]
+        },
+        {
+          "order": 3,
+          "source_quote": "再让他能够说人话，去除文案的AI感",
+          "information_type": "supporting-object",
+          "priority": 68,
+          "visibility": "supporting",
+          "reason": "具体对象、变量或类比物",
+          "complete_phrases": [
+            "再让他能够说人话",
+            "去除文案的AI感"
+          ]
+        },
+        {
+          "order": 4,
+          "source_quote": "……",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "……"
+          ]
+        },
+        {
+          "order": 5,
+          "source_quote": "只先做一个行业，先生成一条爆款视频，一个一个的问题去推进",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "只先做一个行业",
+            "先生成一条爆款视频",
+            "一个一个的问题去推进"
+          ]
+        }
+      ],
+      "must_show_source_quotes": [],
+      "supporting_source_quotes": [
+        "比如你想做一个AI爆款内容生成系统，不要一上来就想着：我要让它生成所有行业的爆款文案",
+        "再让他能把一个爆款结构写好",
+        "再让他能够说人话，去除文案的AI感"
+      ],
+      "context_only_source_quotes": [
+        "先让它把一条视频开头写好",
+        "……",
+        "只先做一个行业，先生成一条爆款视频，一个一个的问题去推进"
+      ],
+      "discarded_transition_quotes": [],
+      "key_information_types": [
+        "supporting-object"
+      ],
+      "formula_items": [],
+      "semantic_priority_order": [
+        "我要让它生成所有行业的爆款文案",
+        "爆款结构",
+        "去除文案的AI感"
+      ],
+      "visual_module_assignments": [
+        {
+          "visible_text": "我要让它生成所有行业的爆款文案",
+          "source_quote": "比如你想做一个AI爆款内容生成系统，不要一上来就想着：我要让它生成所有行业的爆款文案",
+          "information_type": "supporting-object",
+          "visual_module": "icon-tag-block",
+          "selection_reason": "具体对象、变量或类比物"
+        },
+        {
+          "visible_text": "爆款结构",
+          "source_quote": "再让他能把一个爆款结构写好",
+          "information_type": "supporting-object",
+          "visual_module": "icon-tag-block",
+          "selection_reason": "具体对象、变量或类比物"
+        },
+        {
+          "visible_text": "去除文案的AI感",
+          "source_quote": "再让他能够说人话，去除文案的AI感",
+          "information_type": "supporting-object",
+          "visual_module": "icon-tag-block",
+          "selection_reason": "具体对象、变量或类比物"
+        }
+      ],
+      "text_semantic_completeness_required": true,
+      "transition_text_visible_forbidden": true,
+      "formula_preservation_required": false,
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "label_module_required": true,
+      "label_module_targets": [
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block",
+        "icon-tag-block"
+      ],
+      "label_visual_pairing_required": true,
+      "micro_visual_anchor_required": true,
+      "module_block_count_target": 3,
+      "primary_info_blocks": [
+        "第1步：先拿到一个确定的结果",
+        "我要让它生成所有行业的爆款文案"
+      ],
+      "secondary_info_blocks": [],
+      "primary_info_block_visual_required": true,
+      "secondary_info_block_visual_optional": true,
+      "visual_keywords": [
+        "第1步",
+        "不要一上来就想着"
+      ],
+      "visual_action_cues": [
+        "推进",
+        "讲解"
+      ],
+      "visual_scene_cues": [
+        "系统",
+        "问题"
+      ],
+      "role_action_tags": [
+        "操作",
+        "用电脑",
+        "推进"
+      ],
+      "role_expression_tags": [
+        "专注",
+        "判断",
+        "执行"
+      ],
+      "speaker_guides": [
+        "比如你想做一个AI爆款内容生成系统，",
+        "不要一上来就想着："
+      ],
+      "density_profile": {
+        "talking_points": 1,
+        "micro_visuals": 4,
+        "visual_keywords": 4,
+        "icons": 2,
+        "support_labels": 5,
+        "primary_blocks": 2,
+        "secondary_blocks": 0
+      },
+      "text_density_mode": "graph-first",
+      "graph_first_mode": true,
+      "text_light_mode": false,
+      "page_type": "流程页",
+      "page_background_mode": "odd",
+      "background_color": "#fcb537",
+      "skin_tone_base": "#e8a668",
+      "line_color": "black",
+      "red_accent_required": true,
+      "red_accent_count_min": 1,
+      "red_accent_count_max": 3,
+      "red_accent_allowed_targets": [
+        "keyword",
+        "arrow",
+        "tag",
+        "result",
+        "warning"
+      ],
+      "red_accent_semantic_only": true,
+      "uniform_label_container_forbidden": true,
+      "scene_priority": "scene-first",
+      "scene_concept": "path-flow",
+      "scene_layout_type": "path-flow",
+      "title_layout_mode": "top-span",
+      "title_alignment": "center",
+      "title_anchor_zone": "top",
+      "title_flow_direction": "horizontal",
+      "title_layout_guidance": "标题横跨顶部或偏上区域，下面完整展开结构和路径",
+      "supporting_micro_visuals": [
+        "齿轮",
+        "箭头",
+        "分叉点",
+        "连接线"
+      ],
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_required": true,
+      "role_count_min": 3,
+      "role_count_max": 3,
+      "role_count_decision_mode": "structure-triggered",
+      "role_count_target": 3,
+      "multi_role_required": true,
+      "multi_role_trigger_type": "multi-node-flow",
+      "role_distribution_brief": "人物要分布到不同流程节点里做分工演示，本页固定 3 人物，不允许回落单人物。",
+      "role_slot_assignments": [
+        "节点1",
+        "节点2",
+        "节点3"
+      ],
+      "same_page_role_pose_distinct_required": true,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "small-accent",
+      "single_role_required": false,
+      "role_action_match_required": true,
+      "role_action_match_basis": "结果",
+      "role_action_family": "pointing",
+      "role_expression_family": "pointing",
+      "role_expression_match_basis": "结果",
+      "role_action_intent": "直接操作电脑、面板或系统节点，像在现场验证工具链路",
+      "role_expression_intent": "高夸张的专注感和判断感，眼神盯住屏幕或面板反馈",
+      "role_pose_brief": "角色结合标题内容演示，不要站桩，不要只是普通主持姿态",
+      "role_prop_intent": "tool",
+      "role_framing_intent": "three-quarter",
+      "role_position_intent": "mid-structure",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "直接操作电脑、面板或系统节点，像在现场验证工具链路|高夸张的专注感和判断感，眼神盯住屏幕或面板反馈|tool|three-quarter|mid-structure",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "操作-75f753bf2ec3",
+      "role_pose_family": "操作",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "tool-panel",
+      "role_reference_filenames": [
+        "ip-ref-06-pointing.png"
+      ],
+      "allowed_role_framings": [
+        "full-body",
+        "three-quarter"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "role_scene_relationship": "主题和主场景优先，角色缩小进入结构内部，作为辅助行动者参与表达",
+      "role_in_scene_mode": "supporting-operator",
+      "role_in_scene_guidance": "人物必须进入流程、路径或操作结构内部，沿节点推进、推动、跨越或操作主机制，但不能取代主体内容。",
+      "reserved_zone": {
+        "position": "bottom-left",
+        "size_cm": "3 x 3",
+        "size_cm_array": [
+          3,
+          3
+        ],
+        "side_ratio_of_height": 0.15748,
+        "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+        "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]",
+        "fill_mode": "pure-background-no-draw"
+      },
+      "reserved_zone_rules": [
+        "no_text",
+        "no_icons",
+        "no_character",
+        "no_lines",
+        "no_shapes",
+        "no_scene_overlap",
+        "background_only",
+        "no_frame",
+        "no_border",
+        "no_placeholder_box"
+      ],
+      "pagination_mode": "explicit",
+      "section_kind": "manual",
+      "step_label": "",
+      "step_index": null,
+      "step_page_index": 1,
+      "step_page_total": 1,
+      "is_continued": false,
+      "forbid_visible_page_number": true,
+      "role_action": "直接操作电脑、面板或系统节点，像在现场验证工具链路",
+      "role_expression": "高夸张的专注感和判断感，眼神盯住屏幕或面板反馈",
+      "role_identity_lock": "strict",
+      "role_scale": "small-accent",
+      "role_position": "mid-structure",
+      "role_framing": "three-quarter",
+      "role_composition_mode": "structure-first-small-support",
+      "camera_energy": "medium",
+      "role_pose_hint": "让人物和工具结构发生操作关系，不要退回普通主持手势或拿麦讲话；动作必须由本页语义决定；若成图与已生成页演法相似，必须改动作、表情、道具、景别或站位后重做",
+      "role_variation_guard": "switch-action-expression-family + semantic-render-signature-unique + adjust-staging-to-break-repeat",
+      "role_variation_reason": "为避开同题重复，本页改用“操作 + 专注”组合；本页最终演法签名为 直接操作电脑、面板或系统节点，像在现场验证工具链路|高夸张的专注感和判断感，眼神盯住屏幕或面板反馈|tool|three-quarter|mid-structure，需与全篇其他页面保持不同；同时调整人物景别或站位，避免连续页出现近似构图",
+      "icon_set": [
+        "齿轮"
+      ],
+      "layout_constraints": [
+        "标题区优先",
+        "说明文案小字号",
+        "配图和配字分离",
+        "文字原文锚定，只允许少量源自原文的结构词",
+        "正文页左下角 3cm × 3cm 纯底色禁绘区域",
+        "左下角不要出现任何文字",
+        "左下角不要出现人物、图标、线条、箭头、坑位边缘和装饰符号"
+      ],
+      "role_variation_action_family": "操作",
+      "role_variation_expression_family": "专注",
+      "role_action_reference_image": "E:\\AI爆款内容工厂\\10_Skills武器库\\IP视觉PPT生成Skill\\characters\\zhifuxingqiu-host\\refs\\ip-ref-06-pointing.png",
+      "role_action_reference_reason": "explicit:pointing-non-mic"
+    },
+    {
+      "page_index": 8,
+      "page_title": "第2步：把结果变成方法",
+      "step_title_layers": [
+        "第2步：把结果变成方法"
+      ],
+      "title_text": "第2步：把结果变成方法",
+      "title_strategy": "explicit-heading-title",
+      "title_extraction_required": false,
+      "forbid_fragment_title": false,
+      "display_title_mode": "exact",
+      "display_title": "第2步：把结果变成方法",
+      "explicit_heading_title_required": true,
+      "explicit_heading_source_level": 3,
+      "summary_title_exception_allowed": false,
+      "summary_title_exception_source_quote": "",
+      "source_title_full": "第2步：把结果变成方法",
+      "subtitle_notes": [],
+      "page_body": "但只做成一次还不够。\n真正有价值的是：\n**你能不能搞明白，这一次为什么做成了。**\n我能不能把他提炼成可复用的方法论。\n比如，开头要放钩子？\n比如，误区+步骤123+步骤123，这个就是文案结构\n等等啊，\n把更多细节总结成一条一条的方法论\n投喂给AI",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": true,
+      "deck_title_visible_forbidden": true,
+      "page_hook": "但只做成一次还不够",
+      "cue_phrases": [
+        "我能不能把他提炼成可复用的方法论"
+      ],
+      "cue_phrase_source_quotes": {
+        "我能不能把他提炼成可复用的方法论": "我能不能把他提炼成可复用的方法论"
+      },
+      "talking_points": [
+        "我能不能把他提炼成可复用的方法论"
+      ],
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "support_labels": [
+        "误区+步骤123+步骤123",
+        "你能不能搞明白",
+        "这个就是文案结构"
+      ],
+      "support_label_source_quotes": {
+        "误区+步骤123+步骤123": "比如，误区+步骤123+步骤123，这个就是文案结构",
+        "你能不能搞明白": "真正有价值的是：你能不能搞明白，这一次为什么做成了",
+        "这个就是文案结构": "比如，误区+步骤123+步骤123，这个就是文案结构"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_repeat_forbidden": true,
+      "visible_text_slot_dedup_required": true,
+      "repeated_source_fragment_forbidden": true,
+      "visible_text_overlap_forbidden": true,
+      "text_slot_assignment": {
+        "display_title": [
+          "第2步：把结果变成方法"
+        ],
+        "subtitle_notes": [],
+        "cue_phrases": [
+          "我能不能把他提炼成可复用的方法论"
+        ],
+        "flow_labels": [],
+        "support_labels": [
+          "误区+步骤123+步骤123",
+          "你能不能搞明白",
+          "这个就是文案结构"
+        ]
+      },
+      "repeated_source_fragments_filtered": [],
+      "source_fragment_overlap_groups": [],
+      "text_slot_conflict_resolutions": [],
+      "visible_text_items": [
+        "第2步：把结果变成方法",
+        "我能不能把他提炼成可复用的方法论",
+        "误区+步骤123+步骤123",
+        "你能不能搞明白",
+        "这个就是文案结构"
+      ],
+      "visible_text_source_quotes": {
+        "第2步：把结果变成方法": "第2步：把结果变成方法",
+        "我能不能把他提炼成可复用的方法论": "我能不能把他提炼成可复用的方法论",
+        "误区+步骤123+步骤123": "比如，误区+步骤123+步骤123，这个就是文案结构",
+        "你能不能搞明白": "真正有价值的是：你能不能搞明白，这一次为什么做成了",
+        "这个就是文案结构": "比如，误区+步骤123+步骤123，这个就是文案结构"
+      },
+      "page_visible_text_whitelist": [
+        "第2步：把结果变成方法",
+        "我能不能把他提炼成可复用的方法论",
+        "误区+步骤123+步骤123",
+        "你能不能搞明白",
+        "这个就是文案结构"
+      ],
+      "semantic_units": [
+        {
+          "order": 0,
+          "source_quote": "但只做成一次还不够",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "但只做成一次还不够"
+          ]
+        },
+        {
+          "order": 1,
+          "source_quote": "真正有价值的是：你能不能搞明白，这一次为什么做成了",
+          "information_type": "conclusion",
+          "priority": 84,
+          "visibility": "must-show",
+          "reason": "核心判断、条件或结论",
+          "complete_phrases": [
+            "真正有价值的是",
+            "你能不能搞明白",
+            "这一次为什么做成了"
+          ]
+        },
+        {
+          "order": 2,
+          "source_quote": "我能不能把他提炼成可复用的方法论",
+          "information_type": "conclusion",
+          "priority": 84,
+          "visibility": "must-show",
+          "reason": "核心判断、条件或结论",
+          "complete_phrases": [
+            "我能不能把他提炼成可复用的方法论"
+          ]
+        },
+        {
+          "order": 3,
+          "source_quote": "比如，开头要放钩子",
+          "information_type": "transition",
+          "priority": 10,
+          "visibility": "discard-visible",
+          "reason": "过渡、铺垫或不完整表达",
+          "complete_phrases": [
+            "开头要放钩子"
+          ]
+        },
+        {
+          "order": 4,
+          "source_quote": "比如，误区+步骤123+步骤123，这个就是文案结构",
+          "information_type": "conclusion",
+          "priority": 84,
+          "visibility": "must-show",
+          "reason": "核心判断、条件或结论",
+          "complete_phrases": [
+            "误区+步骤123+步骤123",
+            "这个就是文案结构"
+          ]
+        },
+        {
+          "order": 5,
+          "source_quote": "等等啊，把更多细节总结成一条一条的方法论",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "等等啊",
+            "把更多细节总结成一条一条的方法论"
+          ]
+        },
+        {
+          "order": 6,
+          "source_quote": "投喂给AI",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "投喂给AI"
+          ]
+        }
+      ],
+      "must_show_source_quotes": [
+        "真正有价值的是：你能不能搞明白，这一次为什么做成了",
+        "我能不能把他提炼成可复用的方法论",
+        "比如，误区+步骤123+步骤123，这个就是文案结构"
+      ],
+      "supporting_source_quotes": [],
+      "context_only_source_quotes": [
+        "但只做成一次还不够",
+        "等等啊，把更多细节总结成一条一条的方法论",
+        "投喂给AI"
+      ],
+      "discarded_transition_quotes": [
+        "比如，开头要放钩子"
+      ],
+      "key_information_types": [
+        "conclusion",
+        "supporting-object"
+      ],
+      "formula_items": [],
+      "semantic_priority_order": [
+        "误区+步骤123+步骤123",
+        "你能不能搞明白",
+        "我能不能把他提炼成可复用的方法论",
+        "这个就是文案结构"
+      ],
+      "visual_module_assignments": [
+        {
+          "visible_text": "误区+步骤123+步骤123",
+          "source_quote": "比如，误区+步骤123+步骤123，这个就是文案结构",
+          "information_type": "conclusion",
+          "visual_module": "conclusion-anchor",
+          "selection_reason": "核心判断、条件或结论"
+        },
+        {
+          "visible_text": "你能不能搞明白",
+          "source_quote": "真正有价值的是：你能不能搞明白，这一次为什么做成了",
+          "information_type": "conclusion",
+          "visual_module": "conclusion-anchor",
+          "selection_reason": "核心判断、条件或结论"
+        },
+        {
+          "visible_text": "我能不能把他提炼成可复用的方法论",
+          "source_quote": "我能不能把他提炼成可复用的方法论",
+          "information_type": "conclusion",
+          "visual_module": "conclusion-anchor",
+          "selection_reason": "核心判断、条件或结论"
+        },
+        {
+          "visible_text": "这个就是文案结构",
+          "source_quote": "比如，误区+步骤123+步骤123，这个就是文案结构",
+          "information_type": "supporting-object",
+          "visual_module": "icon-tag-block",
+          "selection_reason": "具体对象、变量或类比物"
+        }
+      ],
+      "text_semantic_completeness_required": true,
+      "transition_text_visible_forbidden": true,
+      "formula_preservation_required": false,
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "label_module_required": true,
+      "label_module_targets": [
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block",
+        "icon-tag-block"
+      ],
+      "label_visual_pairing_required": true,
+      "micro_visual_anchor_required": true,
+      "module_block_count_target": 4,
+      "primary_info_blocks": [
+        "第2步：把结果变成方法",
+        "我能不能把他提炼成可复用的方法论"
+      ],
+      "secondary_info_blocks": [],
+      "primary_info_block_visual_required": true,
+      "secondary_info_block_visual_optional": true,
+      "visual_keywords": [
+        "第2步",
+        "把结果变成方法",
+        "真正有价值的是",
+        "你能不能搞明白"
+      ],
+      "visual_action_cues": [
+        "推进",
+        "困惑",
+        "确认",
+        "讲解"
+      ],
+      "visual_scene_cues": [
+        "步骤",
+        "方法"
+      ],
+      "role_action_tags": [
+        "连接",
+        "跨越",
+        "流程"
+      ],
+      "role_expression_tags": [
+        "带动",
+        "推进",
+        "执行"
+      ],
+      "speaker_guides": [
+        "但只做成一次还不够。",
+        "真正有价值的是："
+      ],
+      "density_profile": {
+        "talking_points": 1,
+        "micro_visuals": 4,
+        "visual_keywords": 4,
+        "icons": 2,
+        "support_labels": 5,
+        "primary_blocks": 2,
+        "secondary_blocks": 0
+      },
+      "text_density_mode": "graph-first",
+      "graph_first_mode": true,
+      "text_light_mode": false,
+      "page_type": "流程页",
+      "page_background_mode": "even",
+      "background_color": "#122142",
+      "skin_tone_base": "#e8a668",
+      "line_color": "white",
+      "red_accent_required": true,
+      "red_accent_count_min": 1,
+      "red_accent_count_max": 3,
+      "red_accent_allowed_targets": [
+        "keyword",
+        "arrow",
+        "tag",
+        "result",
+        "warning"
+      ],
+      "red_accent_semantic_only": true,
+      "uniform_label_container_forbidden": true,
+      "scene_priority": "scene-first",
+      "scene_concept": "path-flow",
+      "scene_layout_type": "path-flow",
+      "title_layout_mode": "top-span",
+      "title_alignment": "center",
+      "title_anchor_zone": "top",
+      "title_flow_direction": "horizontal",
+      "title_layout_guidance": "标题横跨顶部或偏上区域，下面完整展开结构和路径",
+      "supporting_micro_visuals": [
+        "箭头",
+        "分叉点",
+        "连接线"
+      ],
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_required": true,
+      "role_count_min": 3,
+      "role_count_max": 3,
+      "role_count_decision_mode": "structure-triggered",
+      "role_count_target": 3,
+      "multi_role_required": true,
+      "multi_role_trigger_type": "multi-node-flow",
+      "role_distribution_brief": "人物要分布到不同流程节点里做分工演示，本页固定 3 人物，不允许回落单人物。",
+      "role_slot_assignments": [
+        "节点1",
+        "节点2",
+        "节点3"
+      ],
+      "same_page_role_pose_distinct_required": true,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "small-accent",
+      "single_role_required": false,
+      "role_action_match_required": true,
+      "role_action_match_basis": "困惑",
+      "role_action_family": "confused",
+      "role_expression_family": "confused",
+      "role_expression_match_basis": "困惑",
+      "role_action_intent": "跨步越过前后节点，伸手把两个阶段直接连起来",
+      "role_expression_intent": "高夸张的带动感和节奏感，像在把流程硬推起来",
+      "role_pose_brief": "角色结合标题内容演示，不要站桩，不要只是普通主持姿态",
+      "role_prop_intent": "none",
+      "role_framing_intent": "half-body",
+      "role_position_intent": "inside-left",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "跨步越过前后节点，伸手把两个阶段直接连起来|高夸张的带动感和节奏感，像在把流程硬推起来|none|half-body|inside-left",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "连接-8defd88581d9",
+      "role_pose_family": "连接",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [],
+      "allowed_role_framings": [
+        "full-body",
+        "three-quarter"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "role_scene_relationship": "主题和主场景优先，角色缩小进入结构内部，作为辅助行动者参与表达",
+      "role_in_scene_mode": "supporting-operator",
+      "role_in_scene_guidance": "人物必须进入流程、路径或操作结构内部，沿节点推进、推动、跨越或操作主机制，但不能取代主体内容。",
+      "reserved_zone": {
+        "position": "bottom-left",
+        "size_cm": "3 x 3",
+        "size_cm_array": [
+          3,
+          3
+        ],
+        "side_ratio_of_height": 0.15748,
+        "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+        "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]",
+        "fill_mode": "pure-background-no-draw"
+      },
+      "reserved_zone_rules": [
+        "no_text",
+        "no_icons",
+        "no_character",
+        "no_lines",
+        "no_shapes",
+        "no_scene_overlap",
+        "background_only",
+        "no_frame",
+        "no_border",
+        "no_placeholder_box"
+      ],
+      "pagination_mode": "explicit",
+      "section_kind": "manual",
+      "step_label": "",
+      "step_index": null,
+      "step_page_index": 1,
+      "step_page_total": 1,
+      "is_continued": false,
+      "forbid_visible_page_number": true,
+      "role_action": "跨步越过前后节点，伸手把两个阶段直接连起来",
+      "role_expression": "高夸张的带动感和节奏感，像在把流程硬推起来",
+      "role_identity_lock": "strict",
+      "role_scale": "small-accent",
+      "role_position": "inside-left",
+      "role_framing": "half-body",
+      "role_composition_mode": "structure-first-small-support",
+      "camera_energy": "medium",
+      "role_pose_hint": "用跨步、拉动、连接前后节点的方式表现顺序，不要只指着流程说；动作必须由本页语义决定；若成图与已生成页演法相似，必须改动作、表情、道具、景别或站位后重做",
+      "role_variation_guard": "switch-action-expression-family + semantic-render-signature-unique + adjust-staging-to-break-repeat",
+      "role_variation_reason": "为避开同题重复，本页改用“连接 + 带动”组合；本页最终演法签名为 跨步越过前后节点，伸手把两个阶段直接连起来|高夸张的带动感和节奏感，像在把流程硬推起来|none|half-body|inside-left，需与全篇其他页面保持不同；同时调整人物景别或站位，避免连续页出现近似构图",
+      "icon_set": [
+        "箭头"
+      ],
+      "layout_constraints": [
+        "标题区优先",
+        "说明文案小字号",
+        "配图和配字分离",
+        "文字原文锚定，只允许少量源自原文的结构词",
+        "正文页左下角 3cm × 3cm 纯底色禁绘区域",
+        "左下角不要出现任何文字",
+        "左下角不要出现人物、图标、线条、箭头、坑位边缘和装饰符号"
+      ],
+      "role_variation_action_family": "连接",
+      "role_variation_expression_family": "带动"
+    },
+    {
+      "page_index": 9,
+      "page_title": "第3步：把方法变成系统",
+      "step_title_layers": [
+        "第3步：把方法变成系统"
+      ],
+      "title_text": "第3步：把方法变成系统",
+      "title_strategy": "explicit-heading-title",
+      "title_extraction_required": false,
+      "forbid_fragment_title": false,
+      "display_title_mode": "exact",
+      "display_title": "第3步：把方法变成系统",
+      "explicit_heading_title_required": true,
+      "explicit_heading_source_level": 3,
+      "summary_title_exception_allowed": false,
+      "summary_title_exception_source_quote": "",
+      "source_title_full": "第3步：把方法变成系统",
+      "subtitle_notes": [],
+      "page_body": "而一旦方法可以复制，\n事情就开始变了。\n以前一条文案，\n可能我要自己磨三个小时。\n后来我总结出方法，\nAI可以帮我做掉其中80%。\n再往后，\n我把这套方法做成Agent，\n一次可以帮我跑几十条、几百条。",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": true,
+      "deck_title_visible_forbidden": true,
+      "page_hook": "而一旦方法可以复制，",
+      "cue_phrases": [],
+      "cue_phrase_source_quotes": {},
+      "talking_points": [],
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "support_labels": [
+        "以前一条文案"
+      ],
+      "support_label_source_quotes": {
+        "以前一条文案": "以前一条文案，可能我要自己磨三个小时"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_repeat_forbidden": true,
+      "visible_text_slot_dedup_required": true,
+      "repeated_source_fragment_forbidden": true,
+      "visible_text_overlap_forbidden": true,
+      "text_slot_assignment": {
+        "display_title": [
+          "第3步：把方法变成系统"
+        ],
+        "subtitle_notes": [],
+        "cue_phrases": [],
+        "flow_labels": [],
+        "support_labels": [
+          "以前一条文案"
+        ]
+      },
+      "repeated_source_fragments_filtered": [],
+      "source_fragment_overlap_groups": [],
+      "text_slot_conflict_resolutions": [],
+      "visible_text_items": [
+        "第3步：把方法变成系统",
+        "以前一条文案"
+      ],
+      "visible_text_source_quotes": {
+        "第3步：把方法变成系统": "第3步：把方法变成系统",
+        "以前一条文案": "以前一条文案，可能我要自己磨三个小时"
+      },
+      "page_visible_text_whitelist": [
+        "第3步：把方法变成系统",
+        "以前一条文案"
+      ],
+      "semantic_units": [
+        {
+          "order": 0,
+          "source_quote": "而一旦方法可以复制，事情就开始变了",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "而一旦方法可以复制",
+            "事情就开始变了"
+          ]
+        },
+        {
+          "order": 1,
+          "source_quote": "以前一条文案，可能我要自己磨三个小时",
+          "information_type": "supporting-object",
+          "priority": 68,
+          "visibility": "supporting",
+          "reason": "具体对象、变量或类比物",
+          "complete_phrases": [
+            "以前一条文案",
+            "可能我要自己磨三个小时"
+          ]
+        },
+        {
+          "order": 2,
+          "source_quote": "后来我总结出方法，AI可以帮我做掉其中80%",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "后来我总结出方法",
+            "AI可以帮我做掉其中80%"
+          ]
+        },
+        {
+          "order": 3,
+          "source_quote": "再往后，我把这套方法做成Agent，一次可以帮我跑几十条、几百条",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "再往后",
+            "我把这套方法做成Agent",
+            "一次可以帮我跑几十条、几百条"
+          ]
+        }
+      ],
+      "must_show_source_quotes": [],
+      "supporting_source_quotes": [
+        "以前一条文案，可能我要自己磨三个小时"
+      ],
+      "context_only_source_quotes": [
+        "而一旦方法可以复制，事情就开始变了",
+        "后来我总结出方法，AI可以帮我做掉其中80%",
+        "再往后，我把这套方法做成Agent，一次可以帮我跑几十条、几百条"
+      ],
+      "discarded_transition_quotes": [],
+      "key_information_types": [
+        "supporting-object"
+      ],
+      "formula_items": [],
+      "semantic_priority_order": [
+        "以前一条文案"
+      ],
+      "visual_module_assignments": [
+        {
+          "visible_text": "以前一条文案",
+          "source_quote": "以前一条文案，可能我要自己磨三个小时",
+          "information_type": "supporting-object",
+          "visual_module": "icon-tag-block",
+          "selection_reason": "具体对象、变量或类比物"
+        }
+      ],
+      "text_semantic_completeness_required": true,
+      "transition_text_visible_forbidden": true,
+      "formula_preservation_required": false,
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "label_module_required": true,
+      "label_module_targets": [
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block",
+        "icon-tag-block"
+      ],
+      "label_visual_pairing_required": true,
+      "micro_visual_anchor_required": true,
+      "module_block_count_target": 1,
+      "primary_info_blocks": [
+        "第3步：把方法变成系统"
+      ],
+      "secondary_info_blocks": [],
+      "primary_info_block_visual_required": true,
+      "secondary_info_block_visual_optional": true,
+      "visual_keywords": [
+        "第3步",
+        "把方法变成系统",
+        "事情就开始变了",
+        "以前一条文案"
+      ],
+      "visual_action_cues": [
+        "确认",
+        "推进",
+        "讲解"
+      ],
+      "visual_scene_cues": [
+        "系统",
+        "方法"
+      ],
+      "role_action_tags": [
+        "推进",
+        "流程",
+        "执行"
+      ],
+      "role_expression_tags": [
+        "执行",
+        "推进",
+        "专注"
+      ],
+      "speaker_guides": [
+        "而一旦方法可以复制，",
+        "事情就开始变了。"
+      ],
+      "density_profile": {
+        "talking_points": 1,
+        "micro_visuals": 4,
+        "visual_keywords": 4,
+        "icons": 2,
+        "support_labels": 5,
+        "primary_blocks": 2,
+        "secondary_blocks": 0
+      },
+      "text_density_mode": "graph-first",
+      "graph_first_mode": true,
+      "text_light_mode": false,
+      "page_type": "流程页",
+      "page_background_mode": "odd",
+      "background_color": "#fcb537",
+      "skin_tone_base": "#e8a668",
+      "line_color": "black",
+      "red_accent_required": true,
+      "red_accent_count_min": 1,
+      "red_accent_count_max": 3,
+      "red_accent_allowed_targets": [
+        "keyword",
+        "arrow",
+        "tag",
+        "result",
+        "warning"
+      ],
+      "red_accent_semantic_only": true,
+      "uniform_label_container_forbidden": true,
+      "scene_priority": "scene-first",
+      "scene_concept": "path-flow",
+      "scene_layout_type": "path-flow",
+      "title_layout_mode": "top-span",
+      "title_alignment": "center",
+      "title_anchor_zone": "top",
+      "title_flow_direction": "horizontal",
+      "title_layout_guidance": "标题横跨顶部或偏上区域，下面完整展开结构和路径",
+      "supporting_micro_visuals": [
+        "齿轮",
+        "箭头",
+        "分叉点",
+        "连接线"
+      ],
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_required": true,
+      "role_count_min": 3,
+      "role_count_max": 3,
+      "role_count_decision_mode": "structure-triggered",
+      "role_count_target": 3,
+      "multi_role_required": true,
+      "multi_role_trigger_type": "multi-node-flow",
+      "role_distribution_brief": "人物要分布到不同流程节点里做分工演示，本页固定 3 人物，不允许回落单人物。",
+      "role_slot_assignments": [
+        "节点1",
+        "节点2",
+        "节点3"
+      ],
+      "same_page_role_pose_distinct_required": true,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "small-accent",
+      "single_role_required": false,
+      "role_action_match_required": true,
+      "role_action_match_basis": "推进",
+      "role_action_family": "explaining",
+      "role_expression_family": "explaining",
+      "role_expression_match_basis": "讲解",
+      "role_action_intent": "沿着流程节点逐步推进，手势落在关键连接点上",
+      "role_expression_intent": "高夸张的推进感和执行感，动作更有带动性",
+      "role_pose_brief": "角色结合标题内容演示，不要站桩，不要只是普通主持姿态",
+      "role_prop_intent": "none",
+      "role_framing_intent": "three-quarter",
+      "role_position_intent": "mid-structure",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "沿着流程节点逐步推进，手势落在关键连接点上|高夸张的推进感和执行感，动作更有带动性|none|three-quarter|mid-structure",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "推进-984044ff82c6",
+      "role_pose_family": "推进",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [
+        "ip-ref-06-pointing.png"
+      ],
+      "allowed_role_framings": [
+        "full-body",
+        "three-quarter"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "role_scene_relationship": "主题和主场景优先，角色缩小进入结构内部，作为辅助行动者参与表达",
+      "role_in_scene_mode": "supporting-operator",
+      "role_in_scene_guidance": "人物必须进入流程、路径或操作结构内部，沿节点推进、推动、跨越或操作主机制，但不能取代主体内容。",
+      "reserved_zone": {
+        "position": "bottom-left",
+        "size_cm": "3 x 3",
+        "size_cm_array": [
+          3,
+          3
+        ],
+        "side_ratio_of_height": 0.15748,
+        "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+        "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]",
+        "fill_mode": "pure-background-no-draw"
+      },
+      "reserved_zone_rules": [
+        "no_text",
+        "no_icons",
+        "no_character",
+        "no_lines",
+        "no_shapes",
+        "no_scene_overlap",
+        "background_only",
+        "no_frame",
+        "no_border",
+        "no_placeholder_box"
+      ],
+      "pagination_mode": "explicit",
+      "section_kind": "manual",
+      "step_label": "",
+      "step_index": null,
+      "step_page_index": 1,
+      "step_page_total": 1,
+      "is_continued": false,
+      "forbid_visible_page_number": true,
+      "role_action": "沿着流程节点逐步推进，手势落在关键连接点上",
+      "role_expression": "高夸张的推进感和执行感，动作更有带动性",
+      "role_identity_lock": "strict",
+      "role_scale": "small-accent",
+      "role_position": "mid-structure",
+      "role_framing": "three-quarter",
+      "role_composition_mode": "structure-first-small-support",
+      "camera_energy": "medium",
+      "role_pose_hint": "不要站在流程旁边讲，必须沿着节点真正推进；动作必须由本页语义决定；若成图与已生成页演法相似，必须改动作、表情、道具、景别或站位后重做",
+      "role_variation_guard": "switch-action-expression-family + semantic-render-signature-unique + adjust-staging-to-break-repeat",
+      "role_variation_reason": "为避开同题重复，本页改用“推进 + 执行”组合；本页最终演法签名为 沿着流程节点逐步推进，手势落在关键连接点上|高夸张的推进感和执行感，动作更有带动性|none|three-quarter|mid-structure，需与全篇其他页面保持不同；同时调整人物景别或站位，避免连续页出现近似构图",
+      "icon_set": [
+        "齿轮"
+      ],
+      "layout_constraints": [
+        "标题区优先",
+        "说明文案小字号",
+        "配图和配字分离",
+        "文字原文锚定，只允许少量源自原文的结构词",
+        "正文页左下角 3cm × 3cm 纯底色禁绘区域",
+        "左下角不要出现任何文字",
+        "左下角不要出现人物、图标、线条、箭头、坑位边缘和装饰符号"
+      ],
+      "role_variation_action_family": "推进",
+      "role_variation_expression_family": "执行",
+      "role_action_reference_image": "E:\\AI爆款内容工厂\\10_Skills武器库\\IP视觉PPT生成Skill\\characters\\zhifuxingqiu-host\\refs\\ip-ref-06-pointing.png",
+      "role_action_reference_reason": "explicit:process-pointing-non-mic"
+    },
+    {
+      "page_index": 10,
+      "page_title": "最后",
+      "step_title_layers": [],
+      "title_text": "所以真正的成功路径，",
+      "title_strategy": "summary-body-source-title",
+      "title_extraction_required": false,
+      "forbid_fragment_title": false,
+      "display_title_mode": "exact",
+      "display_title": "所以真正的成功路径，",
+      "explicit_heading_title_required": true,
+      "explicit_heading_source_level": 2,
+      "summary_title_exception_allowed": true,
+      "summary_title_exception_source_quote": "所以真正的成功路径",
+      "source_title_full": "最后",
+      "subtitle_notes": [],
+      "page_body": "所以真正的成功路径，\n从来不是：\n**先干一件大事。**\n而是：\n**先做成一件小事，\n再把小事变成方法，\n再把方法变成系统。**\n当系统越来越多，\n你能做成的事，\n自然就会越来越大。",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": true,
+      "deck_title_visible_forbidden": true,
+      "page_hook": "真正的成功路径，",
+      "cue_phrases": [],
+      "cue_phrase_source_quotes": {},
+      "talking_points": [],
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "support_labels": [
+        "从来不是",
+        "而是"
+      ],
+      "support_label_source_quotes": {
+        "从来不是": "所以真正的成功路径，从来不是：先干一件大事",
+        "而是": "而是：先做成一件小事，再把小事变成方法，再把方法变成系统"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_repeat_forbidden": true,
+      "visible_text_slot_dedup_required": true,
+      "repeated_source_fragment_forbidden": true,
+      "visible_text_overlap_forbidden": true,
+      "text_slot_assignment": {
+        "display_title": [
+          "所以真正的成功路径"
+        ],
+        "subtitle_notes": [],
+        "cue_phrases": [],
+        "flow_labels": [],
+        "support_labels": [
+          "从来不是",
+          "而是"
+        ]
+      },
+      "repeated_source_fragments_filtered": [
+        "所以真正的成功路径"
+      ],
+      "source_fragment_overlap_groups": [],
+      "text_slot_conflict_resolutions": [],
+      "visible_text_items": [
+        "所以真正的成功路径，",
+        "从来不是",
+        "而是"
+      ],
+      "visible_text_source_quotes": {
+        "所以真正的成功路径，": "所以真正的成功路径",
+        "从来不是": "所以真正的成功路径，从来不是：先干一件大事",
+        "而是": "而是：先做成一件小事，再把小事变成方法，再把方法变成系统"
+      },
+      "page_visible_text_whitelist": [
+        "所以真正的成功路径，",
+        "从来不是",
+        "而是"
+      ],
+      "semantic_units": [
+        {
+          "order": 0,
+          "source_quote": "所以真正的成功路径，从来不是：先干一件大事",
+          "information_type": "contrast",
+          "priority": 86,
+          "visibility": "must-show",
+          "reason": "反例、对比或条件变化",
+          "complete_phrases": [
+            "所以真正的成功路径",
+            "从来不是",
+            "先干一件大事"
+          ]
+        },
+        {
+          "order": 1,
+          "source_quote": "而是：先做成一件小事，再把小事变成方法，再把方法变成系统",
+          "information_type": "contrast",
+          "priority": 86,
+          "visibility": "must-show",
+          "reason": "反例、对比或条件变化",
+          "complete_phrases": [
+            "而是",
+            "先做成一件小事",
+            "再把小事变成方法",
+            "再把方法变成系统"
+          ]
+        },
+        {
+          "order": 2,
+          "source_quote": "当系统越来越多，你能做成的事，自然就会越来越大",
+          "information_type": "context",
+          "priority": 35,
+          "visibility": "context-only",
+          "reason": "只用于理解画面上下文",
+          "complete_phrases": [
+            "当系统越来越多",
+            "你能做成的事",
+            "自然就会越来越大"
+          ]
+        }
+      ],
+      "must_show_source_quotes": [
+        "所以真正的成功路径，从来不是：先干一件大事",
+        "而是：先做成一件小事，再把小事变成方法，再把方法变成系统"
+      ],
+      "supporting_source_quotes": [],
+      "context_only_source_quotes": [
+        "当系统越来越多，你能做成的事，自然就会越来越大"
+      ],
+      "discarded_transition_quotes": [],
+      "key_information_types": [
+        "contrast",
+        "causal"
+      ],
+      "formula_items": [],
+      "semantic_priority_order": [
+        "从来不是",
+        "而是"
+      ],
+      "visual_module_assignments": [
+        {
+          "visible_text": "从来不是",
+          "source_quote": "所以真正的成功路径，从来不是：先干一件大事",
+          "information_type": "contrast",
+          "visual_module": "contrast-block",
+          "selection_reason": "反例、对比或条件变化"
+        },
+        {
+          "visible_text": "而是",
+          "source_quote": "而是：先做成一件小事，再把小事变成方法，再把方法变成系统",
+          "information_type": "contrast",
+          "visual_module": "contrast-block",
+          "selection_reason": "反例、对比或条件变化"
+        }
+      ],
+      "text_semantic_completeness_required": true,
+      "transition_text_visible_forbidden": true,
+      "formula_preservation_required": false,
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "label_module_required": true,
+      "label_module_targets": [
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block",
+        "icon-tag-block"
+      ],
+      "label_visual_pairing_required": true,
+      "micro_visual_anchor_required": true,
+      "module_block_count_target": 2,
+      "primary_info_blocks": [
+        "所以真正的成功路径，"
+      ],
+      "secondary_info_blocks": [
+        "从来不是"
+      ],
+      "primary_info_block_visual_required": true,
+      "secondary_info_block_visual_optional": true,
+      "visual_keywords": [
+        "最后",
+        "从来不是",
+        "先干一件大事"
+      ],
+      "visual_action_cues": [
+        "对比",
+        "确认",
+        "讲解"
+      ],
+      "visual_scene_cues": [
+        "系统",
+        "方法"
+      ],
+      "role_action_tags": [
+        "收束",
+        "确认",
+        "总结"
+      ],
+      "role_expression_tags": [
+        "确认",
+        "号召",
+        "笃定"
+      ],
+      "speaker_guides": [
+        "所以真正的成功路径，",
+        "从来不是："
+      ],
+      "density_profile": {
+        "talking_points": 2,
+        "micro_visuals": 4,
+        "visual_keywords": 4,
+        "icons": 2,
+        "support_labels": 4,
+        "primary_blocks": 2,
+        "secondary_blocks": 1
+      },
+      "text_density_mode": "text-light",
+      "graph_first_mode": false,
+      "text_light_mode": true,
+      "page_type": "总结页",
+      "page_background_mode": "even",
+      "background_color": "#122142",
+      "skin_tone_base": "#e8a668",
+      "line_color": "white",
+      "red_accent_required": true,
+      "red_accent_count_min": 1,
+      "red_accent_count_max": 3,
+      "red_accent_allowed_targets": [
+        "keyword",
+        "arrow",
+        "tag",
+        "result",
+        "warning"
+      ],
+      "red_accent_semantic_only": true,
+      "uniform_label_container_forbidden": true,
+      "scene_priority": "scene-first",
+      "scene_concept": "summary-stage",
+      "scene_layout_type": "summary-stage",
+      "title_layout_mode": "center-hero",
+      "title_alignment": "center",
+      "title_anchor_zone": "top",
+      "title_flow_direction": "horizontal",
+      "title_layout_guidance": "标题作为中心锤点或上中锤点，与人物和主场景一起形成海报式主视觉",
+      "supporting_micro_visuals": [
+        "齿轮",
+        "收束箭头",
+        "重点框",
+        "确认线"
+      ],
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_required": true,
+      "role_count_min": 2,
+      "role_count_max": 2,
+      "role_count_decision_mode": "structure-triggered",
+      "role_count_target": 2,
+      "multi_role_required": true,
+      "multi_role_trigger_type": "contrast-or-bridge",
+      "role_distribution_brief": "至少两个人物分别进入左右或前后两个结构槽位，承担对照、桥接或转化关系。",
+      "role_slot_assignments": [
+        "左侧结构槽位",
+        "右侧结构槽位"
+      ],
+      "same_page_role_pose_distinct_required": true,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "medium-support",
+      "single_role_required": false,
+      "role_action_match_required": true,
+      "role_action_match_basis": "总结",
+      "role_action_family": "idea",
+      "role_expression_family": "idea",
+      "role_expression_match_basis": "总结",
+      "role_action_intent": "面向观众做收束确认，像在把重点压成一个结论",
+      "role_expression_intent": "高夸张的确认感和号召感，像在收束全场",
+      "role_pose_brief": "站稳画面，手势展开，像在做最后确认和收束",
+      "role_prop_intent": "none",
+      "role_framing_intent": "half-body",
+      "role_position_intent": "inside-left",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "面向观众做收束确认，像在把重点压成一个结论|高夸张的确认感和号召感，像在收束全场|none|half-body|inside-left",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "收束-759f65dfbeb4",
+      "role_pose_family": "收束",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [],
+      "allowed_role_framings": [
+        "three-quarter",
+        "half-body",
+        "full-body"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": true,
+      "reserved_zone_scope": "body-page-only",
+      "reserved_zone_size_cm": [
+        3,
+        3
+      ],
+      "reserved_zone_side_ratio_of_height": 0.15748,
+      "role_scene_relationship": "主题优先，角色必须与主场景产生直接动作关系，主场景优先于角色单体",
+      "role_in_scene_mode": "supporting-summary-actor",
+      "role_in_scene_guidance": "人物必须在主场景内部承担动作或结论收束，不做画外主持人，不悬浮在空白边缘。",
+      "reserved_zone": {
+        "position": "bottom-left",
+        "size_cm": "3 x 3",
+        "size_cm_array": [
+          3,
+          3
+        ],
+        "side_ratio_of_height": 0.15748,
+        "pixel_formula": "side_px = round(image_height * 3 / 19.05)",
+        "pixel_zone_formula": "zone = [0, image_height - side_px, side_px, image_height]",
+        "fill_mode": "pure-background-no-draw"
+      },
+      "reserved_zone_rules": [
+        "no_text",
+        "no_icons",
+        "no_character",
+        "no_lines",
+        "no_shapes",
+        "no_scene_overlap",
+        "background_only",
+        "no_frame",
+        "no_border",
+        "no_placeholder_box"
+      ],
+      "pagination_mode": "explicit",
+      "section_kind": "manual",
+      "step_label": "",
+      "step_index": null,
+      "step_page_index": 1,
+      "step_page_total": 1,
+      "is_continued": false,
+      "forbid_visible_page_number": true,
+      "role_action": "面向观众做收束确认，像在把重点压成一个结论",
+      "role_expression": "高夸张的确认感和号召感，像在收束全场",
+      "role_identity_lock": "strict",
+      "role_scale": "medium-support",
+      "role_position": "inside-left",
+      "role_framing": "half-body",
+      "role_composition_mode": "supporting-role-in-scene",
+      "camera_energy": "medium",
+      "role_pose_hint": "动作要稳住画面，把散开的信息收回到结论上；动作必须由本页语义决定；若成图与已生成页演法相似，必须改动作、表情、道具、景别或站位后重做",
+      "role_variation_guard": "switch-action-expression-family + semantic-render-signature-unique + adjust-staging-to-break-repeat",
+      "role_variation_reason": "为避开同题重复，本页改用“收束 + 确认”组合；本页最终演法签名为 面向观众做收束确认，像在把重点压成一个结论|高夸张的确认感和号召感，像在收束全场|none|half-body|inside-left，需与全篇其他页面保持不同；同时调整人物景别或站位，避免连续页出现近似构图",
+      "icon_set": [
+        "齿轮"
+      ],
+      "layout_constraints": [
+        "标题区优先",
+        "说明文案小字号",
+        "配图和配字分离",
+        "文字原文锚定，只允许少量源自原文的结构词",
+        "正文页左下角 3cm × 3cm 纯底色禁绘区域",
+        "左下角不要出现任何文字",
+        "左下角不要出现人物、图标、线条、箭头、坑位边缘和装饰符号"
+      ],
+      "role_variation_action_family": "收束",
+      "role_variation_expression_family": "确认"
+    }
+  ],
+  "cover_outputs": [
+    {
+      "cover_type": "cover-3x4",
+      "aspect_ratio": "3:4",
+      "title_text": "成功的第一步，就是去完成一件小事",
+      "display_title": "成功的第一步，就是去完成一件小事",
+      "source_title_full": "成功的第一步，就是去完成一件小事",
+      "page_body": "",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": false,
+      "deck_title_visible_forbidden": false,
+      "background_color": "#fcb537",
+      "skin_tone_base": "#e8a668",
+      "line_color": "black",
+      "role_required": true,
+      "style_mode": "hand-drawn-visual-note",
+      "support_labels_allowed": true,
+      "support_labels": [
+        "因为这个构想太大了",
+        "任何行业的爆款文案"
+      ],
+      "support_label_source_quotes": {
+        "因为这个构想太大了": "因为这个构想太大了",
+        "任何行业的爆款文案": "任何行业的爆款文案"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_items": [
+        "成功的第一步，就是去完成一件小事",
+        "因为他们根本做不成任何一件小事",
+        "因为这个构想太大了",
+        "任何行业的爆款文案"
+      ],
+      "visible_text_source_quotes": {
+        "成功的第一步，就是去完成一件小事": "成功的第一步，就是去完成一件小事",
+        "因为他们根本做不成任何一件小事": "因为他们根本做不成任何一件小事",
+        "因为这个构想太大了": "因为这个构想太大了",
+        "任何行业的爆款文案": "任何行业的爆款文案"
+      },
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "cue_phrases": [
+        "因为他们根本做不成任何一件小事"
+      ],
+      "cue_phrase_source_quotes": {
+        "因为他们根本做不成任何一件小事": "因为他们根本做不成任何一件小事"
+      },
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_count_min": 1,
+      "role_count_max": 1,
+      "role_count_decision_mode": "cover-single-role-only",
+      "role_count_target": 1,
+      "multi_role_required": false,
+      "multi_role_trigger_type": "cover-single-role-only",
+      "role_distribution_brief": "封面固定单人物，只允许一个当前角色承担封面主动作。",
+      "role_slot_assignments": [
+        "封面主角色"
+      ],
+      "same_page_role_pose_distinct_required": false,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "large-focus",
+      "cover_accent_blocks_min": 1,
+      "cover_accent_blocks_max": 3,
+      "cover_accent_blocks_total": 3,
+      "role_action_tags": [
+        "写作",
+        "操作",
+        "拆解"
+      ],
+      "role_expression_tags": [
+        "专注",
+        "思考",
+        "执行"
+      ],
+      "role_action_match_required": true,
+      "role_action_match_basis": "思考",
+      "role_action_family": "thinking",
+      "role_expression_family": "thinking",
+      "role_expression_match_basis": "思考",
+      "role_action_intent": "角色动作要服务标题核心矛盾，带有明显判断、推动、拆解或受阻后的反击感，纵向封面更强调竖向张力和主体冲突",
+      "role_expression_intent": "表情要明显、夸张、可信，优先体现判断感、推进感和主题里的情绪张力",
+      "role_pose_brief": "封面动作由标题语义决定，优先用更强演法承载主题，但不复用正文第一页模板",
+      "role_prop_intent": "none",
+      "role_framing_intent": "full-body",
+      "role_position_intent": "inside-center",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "角色动作要服务标题核心矛盾，带有明显判断、推动、拆解或受阻后的反击感，纵向封面更强调竖向张力和主体冲突|表情要明显、夸张、可信，优先体现判断感、推进感和主题里的情绪张力|none|full-body|inside-center",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "cover-3x4-548f8e30af76",
+      "role_pose_family": "thinking",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [
+        "ip-ref-03-thinking.png",
+        "ip-ref-08-confused.png"
+      ],
+      "single_role_required": true,
+      "allowed_role_framings": [
+        "three-quarter",
+        "half-body",
+        "full-body"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": false,
+      "reserved_zone_scope": "none",
+      "reserved_zone_size_cm": null,
+      "reserved_zone_side_ratio_of_height": null,
+      "reserved_zone": null,
+      "reserved_zone_rules": [],
+      "action_guidance": "角色动作要服务标题核心矛盾，带有明显判断、推动、拆解或受阻后的反击感，纵向封面更强调竖向张力和主体冲突",
+      "expression_guidance": "表情要明显、夸张、可信，优先体现判断感、推进感和主题里的情绪张力",
+      "composition_guidance": "人物居中或偏下居中，标题在上方主标题区，标签围绕人物点缀",
+      "title_zone": "top-centered",
+      "output_image": "E:\\AI爆款内容工厂\\02_资产中心\\06_配图库\\01_干货型配图\\成功的第一步，就是去完成一件小事\\cover-3x4.png",
+      "role_face_anchor_image": "E:\\AI爆款内容工厂\\10_Skills武器库\\IP视觉PPT生成Skill\\characters\\zhifuxingqiu-host\\refs\\ip-face-anchor-top-left.png",
+      "role_action_reference_image": "E:\\AI爆款内容工厂\\10_Skills武器库\\IP视觉PPT生成Skill\\characters\\zhifuxingqiu-host\\refs\\ip-ref-03-thinking.png",
+      "role_action_reference_reason": "explicit:thinking"
+    },
+    {
+      "cover_type": "cover-4x3",
+      "aspect_ratio": "4:3",
+      "title_text": "成功的第一步，就是去完成一件小事",
+      "display_title": "成功的第一步，就是去完成一件小事",
+      "source_title_full": "成功的第一步，就是去完成一件小事",
+      "page_body": "",
+      "deck_title": "成功的第一步，就是去完成一件小事",
+      "deck_title_context_only": false,
+      "deck_title_visible_forbidden": false,
+      "background_color": "#fcb537",
+      "skin_tone_base": "#e8a668",
+      "line_color": "black",
+      "role_required": true,
+      "style_mode": "hand-drawn-visual-note",
+      "support_labels_allowed": true,
+      "support_labels": [
+        "因为这个构想太大了",
+        "任何行业的爆款文案"
+      ],
+      "support_label_source_quotes": {
+        "因为这个构想太大了": "因为这个构想太大了",
+        "任何行业的爆款文案": "任何行业的爆款文案"
+      },
+      "support_labels_required": true,
+      "source_rooted_labels_required": true,
+      "visible_text_source_mode": "exact-source-only",
+      "visible_text_items": [
+        "成功的第一步，就是去完成一件小事",
+        "因为他们根本做不成任何一件小事",
+        "因为这个构想太大了",
+        "任何行业的爆款文案"
+      ],
+      "visible_text_source_quotes": {
+        "成功的第一步，就是去完成一件小事": "成功的第一步，就是去完成一件小事",
+        "因为他们根本做不成任何一件小事": "因为他们根本做不成任何一件小事",
+        "因为这个构想太大了": "因为这个构想太大了",
+        "任何行业的爆款文案": "任何行业的爆款文案"
+      },
+      "label_anchor_targets": [
+        "primary-visual",
+        "mini-visual",
+        "node",
+        "misconception-block",
+        "flow-block"
+      ],
+      "cue_phrases": [
+        "因为他们根本做不成任何一件小事"
+      ],
+      "cue_phrase_source_quotes": {
+        "因为他们根本做不成任何一件小事": "因为他们根本做不成任何一件小事"
+      },
+      "flow_labels": [],
+      "flow_label_source_quotes": {},
+      "source_text_only_visual_mode": true,
+      "inferred_visuals_forbidden": true,
+      "role_count_min": 1,
+      "role_count_max": 1,
+      "role_count_decision_mode": "cover-single-role-only",
+      "role_count_target": 1,
+      "multi_role_required": false,
+      "multi_role_trigger_type": "cover-single-role-only",
+      "role_distribution_brief": "封面固定单人物，只允许一个当前角色承担封面主动作。",
+      "role_slot_assignments": [
+        "封面主角色"
+      ],
+      "same_page_role_pose_distinct_required": false,
+      "role_usage_mode": "supporting-only",
+      "role_density_preference": "large-focus",
+      "cover_accent_blocks_min": 1,
+      "cover_accent_blocks_max": 3,
+      "cover_accent_blocks_total": 3,
+      "role_action_tags": [
+        "写作",
+        "操作",
+        "拆解"
+      ],
+      "role_expression_tags": [
+        "专注",
+        "思考",
+        "执行"
+      ],
+      "role_action_match_required": true,
+      "role_action_match_basis": "思考",
+      "role_action_family": "thinking",
+      "role_expression_family": "thinking",
+      "role_expression_match_basis": "思考",
+      "role_action_intent": "角色动作要服务标题核心矛盾，带有明显判断、推动、拆解或受阻后的反击感，横向封面更强调横向推进和结构展开",
+      "role_expression_intent": "表情要明显、夸张、可信，优先体现判断感、推进感和主题里的情绪张力",
+      "role_pose_brief": "封面动作由标题语义决定，优先用更强演法承载主题，但不复用正文第一页模板",
+      "role_prop_intent": "none",
+      "role_framing_intent": "three-quarter",
+      "role_position_intent": "inside-left",
+      "hair_expression_mode": "slicked-back-side-part",
+      "render_signature": "角色动作要服务标题核心矛盾，带有明显判断、推动、拆解或受阻后的反击感，横向封面更强调横向推进和结构展开|表情要明显、夸张、可信，优先体现判断感、推进感和主题里的情绪张力|none|three-quarter|inside-left",
+      "identity_anchor_required": true,
+      "face_anchor_attached_required": true,
+      "identity_drift_forbidden": true,
+      "hair_variant_forbidden": true,
+      "role_pose_key": "cover-4x3-e77c3e13ae29",
+      "role_pose_family": "thinking",
+      "role_pose_repeat_forbidden": true,
+      "global_render_signature_unique_required": true,
+      "mic_pose_limited_once": true,
+      "prop_signature": "none",
+      "role_reference_filenames": [
+        "ip-ref-03-thinking.png",
+        "ip-ref-08-confused.png"
+      ],
+      "single_role_required": true,
+      "allowed_role_framings": [
+        "three-quarter",
+        "half-body",
+        "full-body"
+      ],
+      "action_reference_optional": true,
+      "action_fallback_forbidden": false,
+      "reserved_zone_enabled": false,
+      "reserved_zone_scope": "none",
+      "reserved_zone_size_cm": null,
+      "reserved_zone_side_ratio_of_height": null,
+      "reserved_zone": null,
+      "reserved_zone_rules": [],
+      "action_guidance": "角色动作要服务标题核心矛盾，带有明显判断、推动、拆解或受阻后的反击感，横向封面更强调横向推进和结构展开",
+      "expression_guidance": "表情要明显、夸张、可信，优先体现判断感、推进感和主题里的情绪张力",
+      "composition_guidance": "人物偏一侧，标题与标签形成横向信息区，整体更像横版主视觉卡面",
+      "title_zone": "left-or-top-horizontal",
+      "output_image": "E:\\AI爆款内容工厂\\02_资产中心\\06_配图库\\01_干货型配图\\成功的第一步，就是去完成一件小事\\cover-4x3.png",
+      "role_face_anchor_image": "E:\\AI爆款内容工厂\\10_Skills武器库\\IP视觉PPT生成Skill\\characters\\zhifuxingqiu-host\\refs\\ip-face-anchor-top-left.png",
+      "role_action_reference_image": "E:\\AI爆款内容工厂\\10_Skills武器库\\IP视觉PPT生成Skill\\characters\\zhifuxingqiu-host\\refs\\ip-ref-03-thinking.png",
+      "role_action_reference_reason": "explicit:thinking"
+    }
+  ]
+}

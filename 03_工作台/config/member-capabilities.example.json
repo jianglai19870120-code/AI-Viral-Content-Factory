@@ -1,0 +1,8 @@
+{
+  "schema": "ai-content-workbench-member-capabilities-v1",
+  "capabilities": [
+    "daily-review",
+    "podcast",
+    "hot-events"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "visual-output-strict-final-audit-v1",
+  "audit_contract": "ip-visual-output-v5",
+  "auditor": "xiaoshen",
+  "auditor_mode": "independent-strict-manual-final-audit",
+  "status": "approved",
+  "dispatch_record": "2026-08-31_165826",
+  "subject": "02_资产中心/06_配图库/01_干货型配图/要放松，不要自律",
+  "source_copy": {
+    "path": "02_资产中心/03_输出库/02_正文成稿/01_干货型/√要放松，不要自律_20260830_153423（正文优化）.md",
+    "sha256": "700DC6FD252AD6F0FE49962EF5D579AD7E4706D4B6B308E3C5B0EEA74044DD4C"
+  },
+  "work_package": {
+    "pages_spec_path": "pages-spec.json",
+    "pages_spec_sha256": "99E0D2999647C7BEA437D814083802319C6F07ADD3253611754A62BBCC08870A",
+    "codex_handoff_sha256": "0C1A04F2015DADAA13B65F5A0F9BF9213095AE9ACB8CD25BB1617619B128EAC2"
+  },
+  "mechanical_evidence": {
+    "receipt": "visual-output-audit-final-repair-20260831-v2.json",
+    "receipt_issues": [],
+    "reserved_zone_pixel_check": "page-01 至 page-10 均为 mismatched_pixels=0；正文左下 148px × 148px 为规定纯背景色。"
+  },
+  "manual_review_method": "独立逐页查看当前 10 张正文 PNG 与 2 张封面 PNG；未读取或采纳旧语义结论，未使用 --human-approved 参数代签。",
+  "global_review": {
+    "visible_chinese": "全部可见中文均为对应页原文的完整句子或标题；未见英文、截断句或新增文字。",
+    "identity": "IP 主角色均为白西装、黑内搭、眼镜、背头侧分；双人物页为同一角色的结构分工演示。",
+    "layout": "正文奇偶页黄底/深蓝底交替；封面为单角色且不继承正文禁绘区。",
+    "visual_semantics": "卡片、箭头、对照、循环、流程和图标均承载对应页原文关系；page-07 按已批准的共享总标签规则审查。"
+  },
+  "page_reviews": [
+    {"asset":"page-01.png","sha256":"98AF2776A245AC91A6FCCE38A72764AD1C8271D848237399C97E9FB071645455","status":"passed","evidence":"标题、开场提问和在家工作时间流失句均完整回指原文；单角色和黄底卡片结构合格。"},
+    {"asset":"page-02.png","sha256":"89738AC79BABD32A48E592AB74AA304407F9F896FE297E81DE8E533EB3975615","status":"passed","evidence":"排满日程的标题与两段配字完整回指原文；深蓝对照场景表达拖延关系。"},
+    {"asset":"page-03.png","sha256":"DF276C08FB1937293229227DAED8555D326CE94B1AB45D8218F43BC245143692","status":"passed","evidence":"意志力硬抗、破窗效应和问题追问均为本页原文；双角色流程关系清晰。"},
+    {"asset":"page-04.png","sha256":"824F1A3C73EE458AD480EA6281612E2979B95F28C4A9FB78EEA3C6B57EA75046","status":"passed","evidence":"标题与三大原因总标签完整；三张卡片以脑力、电量、战略关系承接后续原因页。"},
+    {"asset":"page-05.png","sha256":"89CE5DB2203923EFEDDD394B2103539389398C05B54D99773745C0B446FE50C6","status":"passed","evidence":"心力有限、10小时/10分钟及2小时完成10小时工作量均完整回指原文。"},
+    {"asset":"page-06.png","sha256":"68E727A2EA7E5FECDC7E382431B7A547477F005ED6B03287F0644E0A74D451E7","status":"passed","evidence":"深度思考、战略与战术、正向循环和破坏循环的配字与循环图均对应原文。"},
+    {"asset":"page-07.png","sha256":"EBD2DE9E743758B98D3B5745EB09A82CED238F6B0676CF22D64F10373C99981F","status":"passed","evidence":"标题及共享总标签“我的自己的3步法”完整回指原文；三节点为已批准的共享总标签概览。"},
+    {"asset":"page-08.png","sha256":"A6192A33A75FB875E82DA4EDDEDA021F48BAD87081F9FCED68CC62F1BD1F86FE","status":"passed","evidence":"最重要的一件事、选择标准、AI 写文案流程和挑出重点的配字均完整回指原文；深蓝双角色流程图合格。"},
+    {"asset":"page-09.png","sha256":"E53C031127639797E3AFDFFE9F5DE9193AE68CC1C62745211665D4EB86D184FC","status":"passed","evidence":"时间分块、28定位、单任务、微信/手机干扰和心力消耗均完整回指原文。"},
+    {"asset":"page-10.png","sha256":"60D9919A01BFF78497CD6C85D47E0A54CFDDDDD9909A7D0B1B9B9CB854AF441C","status":"passed","evidence":"用成果说话、衡量标准、省时间与赚多少钱、否定忙碌自律均完整回指原文。"},
+    {"asset":"cover-3x4.png","sha256":"0DC14481BD3FC5623500FE39243C357827E1E32523003E5BDAB852DADC6D89BB","status":"passed","evidence":"单角色；两行可见中文均回指原文，无英文或新增文字。"},
+    {"asset":"cover-4x3.png","sha256":"E91BDBE396622EEF123AB21C007A605A9746224FD191FDDBCE20975FACDEB712","status":"passed","evidence":"单角色；两行可见中文均回指原文，无英文或新增文字。"}
+  ],
+  "issues": [],
+  "created_at": "2026-08-31T17:00:00+08:00"
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI爆款内容工厂</title>
+  <link rel="stylesheet" href="design-system.css?v=fixed-canvas-27">
+  <link rel="stylesheet" href="design-assets.css?v=fixed-canvas-27">
+  <link rel="stylesheet" href="today-v9.css?v=fixed-canvas-27">
+  <link rel="stylesheet" href="app-pages-v10.css?v=workbench-perf-48">
+  <link rel="stylesheet" href="motion-system.css?v=workbench-perf-48">
+  <link rel="stylesheet" href="fixed-canvas.css?v=fixed-canvas-35">
+</head>
+<body>
+  <div id="workbenchSplash" class="workbench-splash" role="status" aria-label="正在加载 AI 爆款内容工厂">
+    <img src="/brand-assets/logo.png" alt="AI爆款内容工厂">
+  </div>
+  <aside class="sidebar">
+    <div class="brand"><img src="/brand-assets/logo.png" alt="AI爆款内容工厂"></div>
+    <nav id="nav" class="nav"></nav>
+    <button class="help-nav" data-action="help"><span>?</span>帮助中心</button>
+    <div class="sidebar-type"><span class="dot"></span><span id="sideType">干货型</span><button id="sideTypeButton" aria-label="切换内容类型"><img src="/brand-assets/icons/chevron-down.svg" alt=""></button></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div class="crumb"><span class="home-icon"><img src="/brand-assets/icons/home.svg" alt=""></span><span id="crumb"></span></div><p class="topbar-signature">@姜来已来（用AI做IP，让获客更简单）</p></header>
+    <section id="app" class="page" aria-live="polite"></section>
+  </main>
+  <button id="assistant" class="assistant" aria-label="打开小姜"><span class="assistant-avatar" aria-hidden="true"></span></button>
+  <div id="modal" class="modal" hidden></div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js?v=workbench-perf-48"></script>
+</body>
+</html>

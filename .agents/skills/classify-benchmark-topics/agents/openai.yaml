@@ -1,0 +1,4 @@
+interface:
+  display_name: "爆款选题分类Skill"
+  short_description: "从对标账号库读取账号级 Excel 表，把 `视频信息` 列提取为原选题，判断原爆款元素，生成核心关键词和优化后爆款选题，并写入今日复盘匹配用的爆款选题索引库。"
+  default_prompt: "使用 $classify-benchmark-topics 按AI爆款内容工厂正式调度和审核链执行任务。"

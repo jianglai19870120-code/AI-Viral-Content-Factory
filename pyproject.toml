@@ -1,0 +1,17 @@
+[project]
+name = "ai-traffic-team"
+version = "2.1.0"
+description = "AI爆款内容工厂 source-available content workflow system"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "openpyxl>=3.1,<4",
+  "requests>=2.32,<3",
+  "Pillow>=10,<12",
+  "jsonschema>=4.23,<5",
+]
+
+[tool.coverage.run]
+source = ["workflow", "tools"]
+
+[tool.coverage.report]
+show_missing = true

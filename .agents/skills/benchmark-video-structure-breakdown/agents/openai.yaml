@@ -1,0 +1,4 @@
+interface:
+  display_name: "对标视频-结构拆解Skill（会员专享）"
+  short_description: "对标视频-结构拆解Skill（会员专享）为会员专享能力；公开包只提供安装识别入口，不包含执行内容。"
+  default_prompt: "使用 $benchmark-video-structure-breakdown 按AI爆款内容工厂正式调度和审核链执行任务。"

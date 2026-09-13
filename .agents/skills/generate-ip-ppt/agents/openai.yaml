@@ -1,0 +1,4 @@
+interface:
+  display_name: "IP视觉PPT生成Skill"
+  short_description: "用固定 IP 角色把已定稿中文文案制作成关键词对应的手绘视觉笔记整页图与封面；不审核或改写正文。"
+  default_prompt: "使用 $generate-ip-ppt 按AI爆款内容工厂正式调度和审核链执行任务。"

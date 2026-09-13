@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" role="img" aria-label="AIP AI爆款内容工厂">
+  <g fill="#fff">
+    <path d="M15 48 45 10h26l28 38-18 14-22-30-19 30z"/>
+    <path d="M29 68h60v16H29z"/>
+    <path d="M104 11h15v73h-15z"/>
+    <path d="M132 11h36c20 0 32 12 32 30s-12 30-32 30h-20v13h-16zm16 15v30h19c11 0 17-5 17-15s-6-15-17-15z"/>
+  </g>
+  <path d="M50 68h16l-8-18z" fill="#ff7200"/>
+  <text x="15" y="112" fill="#fff" font-family="OPPOSans, Microsoft YaHei, sans-serif" font-size="24" font-weight="500">AI爆款内容工厂</text>
+  <text x="15" y="135" fill="#d9d9d9" font-family="OPPOSans, Arial, sans-serif" font-size="13">AI Viral Content Factory</text>
+</svg>

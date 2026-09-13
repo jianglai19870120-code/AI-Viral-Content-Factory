@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "copy-structure-v16.schema.json",
+  "title": "Active Copy Structure V16",
+  "type": "object",
+  "required": ["schema", "topic", "title_contract", "structures"],
+  "properties": {
+    "schema": {"const": "copy-structure-v16"},
+    "topic": {"type": "string", "minLength": 1},
+    "title_contract": {
+      "type": "object",
+      "required": ["audience", "title_promise", "core_conflict", "terminal_conclusion", "completion_criteria"]
+    },
+    "structures": {
+      "type": "object",
+      "required": ["structure_one", "structure_two", "structure_three", "structure_four"]
+    }
+  },
+  "additionalProperties": true
+}
