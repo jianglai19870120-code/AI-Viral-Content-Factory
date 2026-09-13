@@ -767,11 +767,12 @@ body[data-page] .assistant {
   right:28px;
   bottom:25px;
   transform-origin:50% 50%;
-  transition:transform .2s cubic-bezier(.2,.75,.25,1), box-shadow .2s ease;
+  transition:box-shadow .2s ease;
+  will-change:transform, opacity;
+  animation:assistant-avatar-cycle 8.3s ease-in-out infinite;
 }
 body[data-page] .assistant:hover,
 body[data-page] .assistant:focus-visible {
-  transform:scale(1.06);
   box-shadow:0 12px 28px #0004, 0 0 0 6px #fff4ea;
 }
 /* VIP badge is a transparent brand asset with CSS motion instead of a lossy GIF. */
@@ -790,6 +791,8 @@ body[data-page] .assistant::before {
   opacity:.9;
   transform:rotate(0deg) scale(.92);
   transition:filter .2s ease, opacity .2s ease;
+  will-change:transform;
+  animation:assistant-vip-orbit 8.3s linear infinite;
 }
 body[data-page] .assistant::after {
   position:absolute;
@@ -806,23 +809,24 @@ body[data-page] .assistant::after {
   opacity:.06;
   transform:scale(.76);
 }
-body[data-page] .assistant:hover::before,
-body[data-page] .assistant:focus-visible::before { animation:assistant-vip-orbit 2.4s linear both; }
-body[data-page] .assistant:hover::after,
-body[data-page] .assistant:focus-visible::after { animation:assistant-vip-glow 2.4s ease-in-out both; }
-@keyframes assistant-vip-orbit {
-  0% { opacity:.9; transform:rotate(0deg) scale(.92); }
-  20% { opacity:.78; transform:rotate(72deg) scale(.96); }
-  56% { opacity:.42; transform:rotate(202deg) scale(1); }
-  70% { opacity:1; transform:rotate(252deg) scale(1.04); }
-  86% { opacity:1; transform:rotate(310deg) scale(1.16); }
-  100% { opacity:.9; transform:rotate(360deg) scale(.92); }
+/* One cycle: VIP clockwise turn (2s) → shared hide/show (1.8s) → shared pop (1.5s) → rest (3s). */
+@keyframes assistant-avatar-cycle {
+  0%,24.10% { opacity:1; transform:scale(1); }
+  34.94% { opacity:0; transform:scale(1); }
+  45.78% { opacity:1; transform:scale(1); }
+  54.82% { opacity:1; transform:scale(1.08); }
+  63.86%,100% { opacity:1; transform:scale(1); }
 }
-@keyframes assistant-vip-glow {
-  0%,100% { opacity:.06; transform:scale(.76); }
-  56% { opacity:.42; transform:scale(1.02); }
-  70% { opacity:.92; transform:scale(1.18); }
-  86% { opacity:1; transform:scale(1.28); }
+@keyframes assistant-vip-orbit {
+  0% { transform:rotate(0deg) scale(.92); }
+  24.10%,100% { transform:rotate(360deg) scale(.92); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-page] .assistant,
+  body[data-page] .assistant::before {
+    animation:none !important;
+    will-change:auto;
+  }
 }
 
 /* Pipeline: enlarged labels, lighter titles, and one uninterrupted flow line. */
