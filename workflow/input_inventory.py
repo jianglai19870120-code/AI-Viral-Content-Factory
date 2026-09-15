@@ -21,7 +21,8 @@ TYPES = {
     "work-journals": ("复盘", "99_今日复盘-源文件（会员专享）"),
     "events": ("事件", "03_热点事件-源文件（会员专享）"),
 }
-EXTENSIONS = {".md", ".txt", ".pdf", ".epub", ".docx", ".doc", ".mp3", ".m4a", ".wav"}
+EXTENSIONS = {".md", ".txt", ".pdf", ".epub", ".docx", ".doc", ".xlsx", ".xls", ".csv", ".mp3", ".m4a", ".wav"}
+VIDEO_DISCOVERY_EXTENSIONS = EXTENSIONS | {".mp4", ".mov"}
 SKIP = {".gitkeep", "README.md"}
 
 
@@ -101,6 +102,29 @@ def _video_manifest(root: Path) -> list[dict[str, Any]]:
         if isinstance(row, dict) and row.get("source_id"):
             rows.append(row)
     return rows
+
+
+def _raw_video_sources(root: Path) -> list[tuple[Path, str, dict[str, Any]]]:
+    """Expose user-confirmed video files in the same refresh queue as inputs."""
+    manifest_rows = _video_manifest(root)
+    standardized_hashes = {
+        str(item.get("source_file_sha256") or "")
+        for item in manifest_rows
+        if str(item.get("source_file_sha256") or "")
+    }
+    result: list[tuple[Path, str, dict[str, Any]]] = []
+    for path in _files(root, VIDEO_DISCOVERY_EXTENSIONS):
+        try:
+            path.relative_to(root / "00_标准化源文档")
+            continue
+        except ValueError:
+            pass
+        # Once a source workbook has a matching manifest hash it is already
+        # represented by its generated source documents, not a second raw row.
+        if _sha(path) in standardized_hashes:
+            continue
+        result.append((path, path.stem, {"manual_input": True}))
+    return result
 
 
 _VIDEO_EVIDENCE_CACHE: dict[str, dict[str, Any]] = {}
@@ -364,6 +388,7 @@ def build_inventory(project_root: Path) -> list[dict[str, Any]]:
                 path = root / "00_标准化源文档" / rel
                 if path.is_file():
                     sources.append((path, str(item.get("title") or ""), item))
+            sources.extend(_raw_video_sources(root))
         else:
             sources = [(p, p.stem, {}) for p in _files(root, EXTENSIONS)]
             # 展示样板只说明录入格式，不是可拆解的复盘源。它必须与今日复盘
@@ -385,7 +410,10 @@ def build_inventory(project_root: Path) -> list[dict[str, Any]]:
             elif kind == "podcasts":
                 status, output_count, reason = _podcast_evidence(project_root / "02_资产中心" / "02_处理库" / "06_推荐理由_内容模块" / "02_热门播客（会员专享）", title)
             elif kind == "video-sources":
-                status, output_count, reason = _video_evidence(project_root, meta, path)
+                if meta.get("manual_input"):
+                    status, output_count, reason = "未拆解", 0, "用户已确认的输入文件，等待点击视频文案刷新"
+                else:
+                    status, output_count, reason = _video_evidence(project_root, meta, path)
             elif kind == "work-journals":
                 status, output_count, reason, case_cards = _journal_evidence(project_root, title, path)
             else:
@@ -393,8 +421,10 @@ def build_inventory(project_root: Path) -> list[dict[str, Any]]:
             # Video manifests already provide the stable source_id consumed by
             # the sequential pain-card ledger.  Re-hashing it here made the
             # workbench unable to prove a source belonged to an approved batch.
-            canonical_id = str(meta.get("source_id") or "").strip() if kind == "video-sources" else ""
+            canonical_id = str(meta.get("source_id") or "").strip() if kind == "video-sources" and not meta.get("manual_input") else ""
             row = {"source_id": canonical_id or _source_id(kind, rel, digest), "source_type": kind, "source_label": label, "title": title, "source_path": rel, "source_sha256": digest, "processing_output_count": output_count, "status": status, "status_reason": reason, "checked_at": datetime.now().astimezone().isoformat(timespec="seconds")}
+            if kind == "video-sources":
+                row["source_origin"] = "manual-file" if meta.get("manual_input") else "standardized"
             if kind == "work-journals":
                 row["case_cards"] = case_cards
             rows.append(row)

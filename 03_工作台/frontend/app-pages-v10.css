@@ -1391,6 +1391,10 @@ body[data-page="today"] .today-input-item button {
   font:500 16px/1 var(--sans);
   padding:11px 15px;
 }
+body[data-page="today"] .today-pending-count.is-sync-highlight {
+  color:var(--orange) !important;
+  font-weight:500 !important;
+}
 body[data-page="today"] .today-library-counts {
   flex-wrap:nowrap;
   font:200 20px/1.2 var(--sans-light);

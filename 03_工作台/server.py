@@ -56,6 +56,7 @@ STORE_INITIALIZATION_LOCK = threading.RLock()
 STORE_INITIALIZED_PATH: Path | None = None
 INPUT_INVENTORY_LOCK = threading.RLock()
 INPUT_INVENTORY_CACHE: tuple[float, dict[str, Any]] | None = None
+FOLDER_SYNC_LOCK = threading.RLock()
 PROMPT_ROOT = WORKBENCH_ROOT / "config" / "prompts"
 TODAY_TASK_PROMPT_ROOT = PROMPT_ROOT / "today-tasks"
 TODAY_MODULES_CONFIG = WORKBENCH_ROOT / "config" / "today-work-modules.json"
@@ -1227,6 +1228,93 @@ def _input_inventory_payload() -> dict[str, Any]:
         return payload
 
 
+def _invalidate_input_inventory_cache() -> None:
+    global INPUT_INVENTORY_CACHE
+    with INPUT_INVENTORY_LOCK:
+        INPUT_INVENTORY_CACHE = None
+
+
+def _folder_sync_state_path() -> Path:
+    return RUNTIME_ROOT / "folder-sync-state.json"
+
+
+def _folder_sync_files() -> dict[str, dict[str, str]]:
+    """Return the visible source files that an explicit sync is allowed to track.
+
+    This is discovery only. The inventory rows do not start any Skill and the
+    topic/case source scans deliberately stop before their refresh tasks run.
+    """
+    inventory = _input_inventory_payload()
+    files: dict[str, dict[str, str]] = {
+        "books": {}, "podcasts": {}, "events": {}, "video-sources": {}, "work-journals": {},
+        "topics": {}, "cases": {},
+    }
+    for row in inventory.get("rows", []):
+        source_type = str(row.get("source_type") or "")
+        source_path = str(row.get("source_path") or "")
+        fingerprint = str(row.get("source_sha256") or "")
+        if source_type in files and source_path and fingerprint:
+            files[source_type][source_path] = fingerprint
+    modules = _today_module_index()
+    for section, module_id in (("topics", "topics"), ("cases", "cases")):
+        module = modules.get(module_id)
+        if module is None:
+            continue
+        root = _module_root(module, "sourceRoot")
+        for path in _module_files(root):
+            relative = _project_relative_path(path)
+            try:
+                files[section][relative] = _sha256_file(path)
+            except OSError:
+                # A file being copied while the scan runs is retried by the
+                # next explicit click instead of making the full sync fail.
+                continue
+    return files
+
+
+def _load_folder_sync_state() -> dict[str, Any]:
+    try:
+        payload = json.loads(_folder_sync_state_path().read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {"schema": "workbench-folder-sync-v1", "files": {}}
+    return payload if isinstance(payload, dict) else {"schema": "workbench-folder-sync-v1", "files": {}}
+
+
+def sync_workbench_folders(page: str) -> dict[str, Any]:
+    """Discover manually copied source files and refresh derived workbench data."""
+    with FOLDER_SYNC_LOCK:
+        _invalidate_input_inventory_cache()
+        current = _folder_sync_files()
+        previous = _load_folder_sync_state().get("files", {})
+        changes: dict[str, dict[str, int]] = {}
+        for section, entries in current.items():
+            before = previous.get(section, {}) if isinstance(previous, dict) else {}
+            before = before if isinstance(before, dict) else {}
+            changes[section] = {
+                "added": len(set(entries) - set(before)),
+                "changed": sum(entries[key] != before[key] for key in set(entries) & set(before)),
+                "removed": len(set(before) - set(entries)),
+                "current": len(entries),
+            }
+        snapshot = refresh_data_center(reason="folder-sync", producer="workbench")
+        dashboard = dashboard_page(page)
+        # Do not acknowledge the scan until every user-visible refresh result
+        # is ready. If either operation fails, keeping the former baseline
+        # makes the same new/changed files visible again on the next click.
+        state_path = _folder_sync_state_path()
+        state_path.parent.mkdir(parents=True, exist_ok=True)
+        _atomic_text(state_path, json.dumps({
+            "schema": "workbench-folder-sync-v1",
+            "syncedAt": now(),
+            "files": current,
+        }, ensure_ascii=False, indent=2) + "\n")
+        return {
+            "dataCenter": snapshot,
+            "dashboard": dashboard,
+            "sync": {"changes": changes, "syncedAt": now()},
+        }
+
+
 def _module_last_task(module_id: str) -> dict[str, str]:
     return _module_last_tasks({module_id})[module_id]
 
@@ -1308,7 +1396,7 @@ def _generation_selection_prompt(selected: list[Any]) -> str:
     return "\n".join(lines) if lines else "- 本次扫描未发现待处理对象。"
 
 
-def _today_module_prompt(module: dict[str, Any], selected: list[Any], *, approved_source_manifest: str = "", video_correction: dict[str, Any] | None = None, video_continuation: dict[str, Any] | None = None) -> str:
+def _today_module_prompt(module: dict[str, Any], selected: list[Any], *, approved_source_manifest: str = "", video_correction: dict[str, Any] | None = None, video_continuation: dict[str, Any] | None = None, video_source_import: list[dict[str, str]] | None = None) -> str:
     root = _module_root(module)
     selected_text = _generation_selection_prompt(selected)
     manifest_note = f"\n已审核校对源批次清单（只可使用此清单）：{approved_source_manifest}\n" if approved_source_manifest else ""
@@ -1346,6 +1434,15 @@ def _today_module_prompt(module: dict[str, Any], selected: list[Any], *, approve
 2. 运行目录：{video_continuation['run_dir']}；当前阶段：{video_continuation['phase']}。
 3. 必须先读取该目录已有的校对清单、机器证据、审核回执和台账，再只完成缺失的下一步；不得重新校对、重建上一批或启动下一批。
 4. 若机器证据尚未完成，由小拆调用 `${module['skill']}` 续跑；若已完成，则交小审审核、暂存发布复核与原子提交。任一环节未 `approved` 不得写正式库。
+"""
+    if video_source_import:
+        workflow_chain = f"小姜分配 → 小息技术标准化 → {module['agent']}痛点拆解 → 小审审核 → 受控发布"
+        correction_note = """
+本次发现的是用户已手动放入视频文案输入目录的文件：
+1. 这些文件已由用户确认，可直接进入本次刷新范围；不得创建额外确认界面或独立前置任务。
+2. 小息调用 `$standardize-and-inventory-sources`，只为后续 Skill 做必要技术标准化：视频 Excel 生成稳定 source_id 与 manifest；不得改写、移动或删除原始文件。
+3. 标准化完成后，按现有连续批次规则继续处理；若已有连续批次或校对批次，必须优先续接，不能跳批。
+4. 小审只审核后续校对、拆解和正式发布产物，不把用户已确认的输入文件退回为未确认状态。
 """
     generation_note = ""
     if str(module.get("id") or "") in {"structures", "copies"} and any(isinstance(item, dict) for item in selected):
@@ -1716,6 +1813,7 @@ def create_today_module_task(module_id: str, selected: Any = None) -> dict[str, 
     approved_video_batch: list[dict[str, str]] = []
     correction_batch: dict[str, Any] = {}
     continuation_batch: dict[str, Any] = {}
+    video_source_import: list[dict[str, str]] = []
     if module_id == "cases":
         # The selected source-path manifest is already validated above.  Never
         # replace it with a whole-directory scan after the user has chosen a
@@ -1745,6 +1843,18 @@ def create_today_module_task(module_id: str, selected: Any = None) -> dict[str, 
                 f"{item['source_id']}｜标准化源：{item['source_path']}"
                 for item in correction_batch.get("sources", [])
             ]
+            if not selected_items:
+                video_source_import = [
+                    {"source_id": str(row.get("source_id") or ""), "source_path": str(row.get("source_path") or "")}
+                    for row in _input_inventory_payload().get("rows", [])
+                    if row.get("source_type") == "video-sources"
+                    and row.get("source_origin") == "manual-file"
+                    and row.get("status") == "未拆解"
+                ]
+                selected_items = [
+                    f"{item['source_id']}｜用户确认输入：{item['source_path']}"
+                    for item in video_source_import
+                ]
     elif module_id not in {"structures", "copies"}:
         selected_items = _module_pending_items(module)
     if module_id == "video-sources" and not selected_items:
@@ -1779,8 +1889,8 @@ def create_today_module_task(module_id: str, selected: Any = None) -> dict[str, 
     session = create_session({
         "action": "today-refresh",
         "title": f"今日工作｜刷新{module['label']}",
-        "message": _today_module_prompt(module, selected_items, approved_source_manifest=approved_source_manifest, video_correction=correction_batch, video_continuation=continuation_batch),
-        "workflow": {"todayModuleId": module_id, "skill": module["skill"], "preflightSkill": "standardize-and-inventory-sources" if correction_batch else "", "selected": selected_items, "generationSelections": generation_selections, "videoContinuation": continuation_batch, "inputScopeLabel": f"{len(selected_items)} 项待处理"},
+        "message": _today_module_prompt(module, selected_items, approved_source_manifest=approved_source_manifest, video_correction=correction_batch, video_continuation=continuation_batch, video_source_import=video_source_import),
+        "workflow": {"todayModuleId": module_id, "skill": module["skill"], "preflightSkill": "standardize-and-inventory-sources" if correction_batch or video_source_import else "", "selected": selected_items, "generationSelections": generation_selections, "videoContinuation": continuation_batch, "videoSourceImport": video_source_import, "inputScopeLabel": f"{len(selected_items)} 项待处理"},
         "batch": task_batch,
         "skipApproval": True,
     }, session_id=session_id)
@@ -4786,7 +4896,10 @@ class WorkbenchHandler(SimpleHTTPRequestHandler):
         path = urlparse(self.path).path
         try:
             payload = self._payload()
-            if path == "/api/data-center/refresh":
+            if path == "/api/workbench/folder-sync":
+                page = str(payload.get("page") or "data")
+                result = sync_workbench_folders(page)
+            elif path == "/api/data-center/refresh":
                 snapshot = refresh_data_center(reason="manual-refresh", producer="workbench")
                 page = str(payload.get("page") or "data")
                 result = {"dataCenter": snapshot, "dashboard": dashboard_page(page)}

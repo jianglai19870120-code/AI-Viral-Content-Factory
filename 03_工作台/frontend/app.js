@@ -14,7 +14,7 @@ const assetUpdateRange = () => {
   try { return [7,30,90].includes(Number(localStorage.getItem(assetUpdateRangePreferenceKey))) ? Number(localStorage.getItem(assetUpdateRangePreferenceKey)) : 7; }
   catch (_) { return 7; }
 };
-const state = { data: null, page: ['today','pipeline','assets','team','data'].includes(requestedPage) ? requestedPage : 'today', type: 'dry-goods', typeMenuOpen:false, calendarDate: new Date(), planCalendar: null, selectedPlanDate: '', assetUpdateDays:assetUpdateRange(), dataAnimationRequested: true, motionReason: 'initial', pageLoading:false, todaySyncing:false, todayEditor: requestedPage==='today' && todayEditorSurfaces.has(requestedEditor) ? {surface:requestedEditor, files:[], activeFileId:'', file:null, filter:requestedEditor==='copy'?'written':'pending', saveState:'loading', saveTimer:0, requestId:0, catalogLoaded:false, catalogLoading:false,topicColumnsFrozen:topicColumnsFrozen(),focusMode:false,fileSidebarCollapsed:false} : null };
+const state = { data: null, page: ['today','pipeline','assets','team','data'].includes(requestedPage) ? requestedPage : 'today', type: 'dry-goods', typeMenuOpen:false, calendarDate: new Date(), planCalendar: null, selectedPlanDate: '', assetUpdateDays:assetUpdateRange(), dataAnimationRequested: true, motionReason: 'initial', pageLoading:false, todaySyncing:false, syncHighlights:{}, todayEditor: requestedPage==='today' && todayEditorSurfaces.has(requestedEditor) ? {surface:requestedEditor, files:[], activeFileId:'', file:null, filter:requestedEditor==='copy'?'written':'pending', saveState:'loading', saveTimer:0, requestId:0, catalogLoaded:false, catalogLoading:false,topicColumnsFrozen:topicColumnsFrozen(),focusMode:false,fileSidebarCollapsed:false} : null };
 const todayCanvas = { width: 1920, height: 1080 };
 let lastCanvasFitKey = '';
 const portraitFiles = {xiaojiang:'xiaojiang-master.png',xiaoshen:'xiaoshen-v4.png',xiaoxi:'xiaoxi-v4.png',xiaochai:'xiaochai-v4.png',xiaojing:'xiaojing-v4.png',xiaoce:'xiaoce-v4.png',xiaoxie:'xiaoxie-v4.png',xiaotu:'xiaotu-v4.png',xiaoshu:'xiaoshu-v4.png',xiaojian:'xiaojian-v4.png',xiaofa:'xiaofa-v4.png'};
@@ -383,12 +383,13 @@ async function syncWorkbenchData() {
   if (button) {
     button.disabled = true;
     button.setAttribute('aria-busy', 'true');
-    button.title = '正在同步本机数据';
+    button.title = '正在同步文件夹';
     button.classList.add('is-syncing');
   }
   try {
     if(state.page==='today')clearTodaySnapshot();
-    const result = await api('/api/data-center/refresh', {method:'POST', body:JSON.stringify({page:state.page})});
+    const result = await api('/api/workbench/folder-sync', {method:'POST', body:JSON.stringify({page:state.page})});
+    state.syncHighlights=Object.fromEntries(Object.entries(result.sync?.changes||{}).filter(([, change])=>Number(change.added||0)+Number(change.changed||0)>0).map(([moduleId])=>[moduleId,true]));
     state.data = result.dashboard;
     if(state.page==='today'){
       await loadPlanCalendar();
@@ -397,8 +398,8 @@ async function syncWorkbenchData() {
     state.dataAnimationRequested = true;
     state.motionReason = 'manual-refresh';
     render();
-    const syncedAt = new Date(result.dataCenter?.generatedAt || state.data.generatedAt || Date.now()).toLocaleTimeString('zh-CN', {hour:'2-digit', minute:'2-digit', second:'2-digit'});
-    toast(`已同步本机数据 · ${syncedAt}`);
+    const sync=result.sync?.changes||{}, totals=Object.values(sync).reduce((all,item)=>({added:all.added+Number(item.added||0),changed:all.changed+Number(item.changed||0),removed:all.removed+Number(item.removed||0)}),{added:0,changed:0,removed:0});
+    toast(`已同步文件夹：新增 ${totals.added} · 变更 ${totals.changed} · 移除 ${totals.removed}`);
   } catch (error) {
     toast(error.message || '同步失败，已保留当前数据');
   } finally {
@@ -407,7 +408,7 @@ async function syncWorkbenchData() {
     if (activeButton) {
       activeButton.disabled = false;
       activeButton.removeAttribute('aria-busy');
-      activeButton.title = '同步本机数据';
+      activeButton.title = '同步文件夹';
       activeButton.classList.remove('is-syncing');
     }
   }
@@ -774,8 +775,9 @@ function renderToday(){
   const title=(label,icon)=>`<span class="today-library-title">${brandIcon(icon)}<span>${esc(label||'')}</span></span>`;
   const refreshControl=module=>module.refreshMode==='waiting-integration'?'<button disabled title="该模块尚未接入 Skill">等待接入</button>':module.skillAvailable===false?`<button data-skill-locked type="button" title="${esc(module.unlockReason||'会员专享 Skill 尚未解锁')}">${brandIcon('lock')} 未解锁</button>`:`<button data-module-refresh="${esc(module.id||'')}">刷新</button>`;
   const action=module=>`<div class="today-library-actions">${refreshControl(module)}${module.editable?`<button class="secondary" data-today-editor="${esc(module.surface||'')}">编辑</button>`:''}</div>`;
-  const compact=module=>`<article class="today-input-item${module.refreshMode==='waiting-integration'?' is-waiting-integration':''}"><div><b>${esc(module.label||'')}</b><small class="today-pending-count">待刷新 ${number(module.refreshCount)}</small></div><strong>${number(module.currentCount)}</strong>${refreshControl(module)}</article>`;
-  const library=(module,icon)=>`<article class="today-library-card" data-today-library="${esc(module.id||'')}" data-motion-entry="today-${esc(module.id||'library')}"><header>${title(module.label,icon)}<div class="today-library-counts"><span class="today-pending-count">待刷新 ${number(module.refreshCount)}</span><span class="today-pending-count">待编辑 ${number(module.editCount)}</span></div></header><strong>${number(module.currentCount)}</strong>${action(module)}</article>`;
+  const pendingClass=module=>state.syncHighlights[module.id]?'today-pending-count is-sync-highlight':'today-pending-count';
+  const compact=module=>`<article class="today-input-item${module.refreshMode==='waiting-integration'?' is-waiting-integration':''}"><div><b>${esc(module.label||'')}</b><small class="${pendingClass(module)}">待刷新 ${number(module.refreshCount)}</small></div><strong>${number(module.currentCount)}</strong>${refreshControl(module)}</article>`;
+  const library=(module,icon)=>`<article class="today-library-card" data-today-library="${esc(module.id||'')}" data-motion-entry="today-${esc(module.id||'library')}"><header>${title(module.label,icon)}<div class="today-library-counts"><span class="${pendingClass(module)}">待刷新 ${number(module.refreshCount)}</span><span class="today-pending-count">待编辑 ${number(module.editCount)}</span></div></header><strong>${number(module.currentCount)}</strong>${action(module)}</article>`;
   const gallery=get('gallery');
   const syncing=state.todaySyncing?'<span class="today-sync-state" role="status">正在同步</span>':'';
   return `<div class="today-library-grid">${syncing}<section class="today-calendar-card" data-motion-entry="today-calendar">${calendarHTML()}</section><section class="today-input-library" data-motion-entry="today-input"><header><h1>${title('输入库','inbox')}</h1><strong>${number((input.modules||[]).reduce((sum,module)=>sum+Number(module.currentCount||0),0))}</strong></header><div class="today-input-list">${(input.modules||[]).map(compact).join('')}</div></section><section class="today-library-stack today-core-stack">${library(get('topics'),'target')}${library(get('cases'),'layers')}</section><section class="today-output-library" data-motion-entry="today-output"><header><h1>${title('输出库','output')}</h1></header>${library(get('structures'),'structure')}${library(get('copies'),'document')}</section><article class="today-gallery-card" data-motion-entry="today-gallery"><header>${title('配图库','gallery')}<div class="today-library-counts"><span class="today-pending-count">待配图 ${number(gallery.pictureCount)}</span></div></header><strong>${number(gallery.currentCount)}</strong><div class="today-library-actions"><button data-gallery-select>生成配图</button></div></article></div>`;
