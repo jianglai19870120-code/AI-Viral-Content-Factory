@@ -13,7 +13,9 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "00_系统说明" / "benchmark-case-registry.json"
 AUDIT_ROOT = ROOT / "01_Agent系统" / "02_小审-质量审核Agent" / "00_正式审核回执" / "benchmark-video-structure"
-CASE_ID = re.compile(r"^[A-Z]{3}-\d{3}$")
+CASE_ID = re.compile(r"^[A-Z]+-\d{3}$")
+TYPE_CODE = re.compile(r"^[A-Z]+$")
+SOURCE_CATEGORY_DIRECTORY = re.compile(r"^(?P<ordinal>\d{2})_(?P<type>.+)原文(?P<member>（会员专享）)?$")
 BREAKDOWN_ROOT = ROOT / "02_资产中心" / "05_案例库" / "02_对标复刻拆解"
 SOURCE_ROOT = ROOT / "02_资产中心" / "05_案例库" / "01_对标视频原文"
 SYNC_ROOT = ROOT / ".runtime" / "benchmark-case-sync"
@@ -31,12 +33,20 @@ def load_registry() -> dict[str, Any]:
         if not CASE_ID.fullmatch(case_id) or case_id in seen:
             raise ValueError(f"案例编号登记表存在非法或重复编号：{case_id}")
         seen.add(case_id)
+    type_codes = data.get("typeCodes") or {}
+    if not isinstance(type_codes, dict):
+        raise ValueError("案例编号登记表 typeCodes 必须为对象")
+    used_codes: set[str] = set()
+    for content_type, code in type_codes.items():
+        if not str(content_type).strip() or not TYPE_CODE.fullmatch(str(code or "")) or str(code) in used_codes:
+            raise ValueError(f"案例类型代码无效或重复：{content_type}={code}")
+        used_codes.add(str(code))
     return data
 
 
 def get_case(case_id: str) -> dict[str, Any]:
     if not CASE_ID.fullmatch(case_id):
-        raise ValueError("对标复刻拆解编号必须为 <三位大写代码>-<三位流水号>")
+        raise ValueError("对标复刻拆解编号必须为 <大写类型代码>-<三位流水号>")
     for case in load_registry()["cases"]:
         if case["id"] == case_id:
             result = dict(case)
@@ -56,6 +66,154 @@ def get_case(case_id: str) -> dict[str, Any]:
                                    if policy == "owner-approved" else AUDIT_ROOT / f"{case_id}_审核回执.json")
             return result
     raise ValueError(f"案例编号不存在：{case_id}")
+
+
+def _relative(path: Path) -> str:
+    return Path(os.path.relpath(path.resolve(), ROOT)).as_posix()
+
+
+def source_industry(source_title: str) -> str:
+    """Return the industry segment of a source filename without its topic.
+
+    Source filenames remain ``类型_行业：原文选题``.  The colon suffix is
+    source-only context and must never be carried into a breakdown title.
+    """
+    title = str(source_title or "").strip()
+    if "_" not in title:
+        raise ValueError("源稿标题必须为“内容类型_行业：选题”")
+    _, remainder = title.split("_", 1)
+    industry = re.split(r"[：:]", remainder, maxsplit=1)[0].strip()
+    if not industry:
+        raise ValueError("源稿标题缺少行业字段")
+    return industry
+
+
+def _source_category(source: Path) -> tuple[str, str, str, str]:
+    source = source.resolve()
+    if not source.is_file() or source.suffix.lower() != ".md" or not source.is_relative_to(SOURCE_ROOT.resolve()):
+        raise ValueError("新案例源稿必须是案例库对标视频原文目录内的 Markdown 文件")
+    if "_" not in source.stem:
+        raise ValueError("新案例源稿文件名必须为“内容类型_主题.md”")
+    content_type, subject = (part.strip() for part in source.stem.split("_", 1))
+    directory = SOURCE_CATEGORY_DIRECTORY.fullmatch(source.parent.name)
+    if not content_type or not subject or not directory or directory.group("type") != content_type:
+        raise ValueError("新案例源稿必须位于“NN_内容类型原文（会员专享）”目录，且文件名前缀须等于内容类型")
+    output_directory = f"{directory.group('ordinal')}_{content_type}拆解{directory.group('member') or ''}"
+    return content_type, subject, source.stem, output_directory
+
+
+def _case_code(case_id: str) -> str:
+    return case_id.rsplit("-", 1)[0]
+
+
+def plan_case_registration(*, source: Path, type_code: str | None = None) -> dict[str, Any]:
+    """Build a runtime-only plan for a registered or first-time benchmark case.
+
+    This deliberately does not alter the registry or create a formal directory.
+    New types require an explicit code on their first plan; published output is
+    the only point at which the mapping and case are committed.
+    """
+    source = source.resolve()
+    content_type, subject, source_title, output_directory = _source_category(source)
+    registry = load_registry()
+    matches = [item for item in registry["cases"] if str(item.get("sourceTitle") or "") == source_title]
+    if len(matches) > 1:
+        raise ValueError(f"源稿存在多个案例登记，无法选择：{source_title}")
+    configured_code = str((registry.get("typeCodes") or {}).get(content_type) or "")
+    requested_code = str(type_code or "").strip()
+    if requested_code and not TYPE_CODE.fullmatch(requested_code):
+        raise ValueError("首次内容类型代码必须只含大写英文字母")
+    if matches:
+        case = matches[0]
+        case_id = str(case.get("id") or "")
+        if str(case.get("type") or "") != content_type:
+            raise ValueError("已登记案例的内容类型与当前源稿不一致")
+        if requested_code and requested_code != _case_code(case_id):
+            raise ValueError("已登记案例不得更换类型代码")
+        registered_output = (ROOT / str(case.get("breakdownPath") or "")).resolve()
+        return {
+            "schema": "benchmark-case-registration-plan-v1", "status": "registered", "case_id": case_id,
+            "type": content_type, "type_code": _case_code(case_id), "source_path": str(source),
+            "source_sha256": _digest(source), "source_title": source_title,
+            "formal_directory": str(registered_output.parent),
+            "registered_breakdown_path": str(registered_output),
+        }
+    if configured_code and requested_code and configured_code != requested_code:
+        raise ValueError(f"内容类型 {content_type} 已登记代码 {configured_code}，不得改为 {requested_code}")
+    code = configured_code or requested_code
+    if not code:
+        raise ValueError(f"新内容类型 {content_type} 首次处理必须明确提供大写类型代码")
+    owner = next((name for name, value in (registry.get("typeCodes") or {}).items() if str(value) == code and name != content_type), "")
+    if owner:
+        raise ValueError(f"类型代码 {code} 已被内容类型 {owner} 使用")
+    sequence = max((int(str(item["id"]).rsplit("-", 1)[1]) for item in registry["cases"] if _case_code(str(item["id"])) == code), default=0) + 1
+    if sequence > 999:
+        raise ValueError(f"类型代码 {code} 的三位流水号已用尽")
+    return {
+        "schema": "benchmark-case-registration-plan-v1", "status": "new", "case_id": f"{code}-{sequence:03d}",
+        "type": content_type, "type_code": code, "source_path": str(source), "source_sha256": _digest(source),
+        "source_title": source_title, "subject": subject,
+        "formal_directory": str((BREAKDOWN_ROOT / output_directory).resolve()),
+    }
+
+
+def write_case_registration_plan(plan: dict[str, Any], *, runtime_root: Path = SYNC_ROOT / "plans") -> Path:
+    """Persist a candidate-scoped plan outside formal assets and the registry."""
+    if plan.get("schema") != "benchmark-case-registration-plan-v1":
+        raise ValueError("案例登记计划 schema 不正确")
+    target = runtime_root.resolve() / f"{plan['case_id']}_{str(plan['source_sha256'])[:16]}.json"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(plan, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    return target
+
+
+def load_case_registration_plan(path: Path, *, source: Path, case_id: str) -> dict[str, Any]:
+    try:
+        plan = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"案例登记计划不可读取：{exc}") from exc
+    expected = plan_case_registration(source=source, type_code=str(plan.get("type_code") or ""))
+    for key in ("schema", "case_id", "type", "type_code", "source_path", "source_sha256", "formal_directory"):
+        if plan.get(key) != expected.get(key):
+            raise ValueError("案例登记计划与当前源稿或注册表已漂移")
+    if plan.get("case_id") != case_id:
+        raise ValueError("案例登记计划编号与发布编号不一致")
+    return plan
+
+
+def commit_published_case_registration(*, plan_path: Path, source: Path, case_id: str, formal_output: Path) -> dict[str, Any]:
+    """Atomically add the first approved output of a new type to the registry."""
+    plan = load_case_registration_plan(plan_path, source=source, case_id=case_id)
+    formal = formal_output.resolve()
+    target_directory = Path(str(plan["formal_directory"])).resolve()
+    if formal.parent != target_directory or not formal.is_file() or not formal.is_relative_to(BREAKDOWN_ROOT.resolve()):
+        raise ValueError("正式输出必须位于登记计划派生的镜像案例拆解目录")
+    normalized = formal.stem.lstrip("√✓").strip()
+    if not normalized.startswith(f"{plan['type']}_") or not normalized.endswith(case_id):
+        raise ValueError("正式输出文件名必须保留内容类型和案例编号")
+    registry = load_registry()
+    existing = next((item for item in registry["cases"] if str(item.get("id") or "") == case_id), None)
+    if existing:
+        if str(existing.get("sourceTitle") or "") != str(plan["source_title"]):
+            raise ValueError("案例编号已被其他源稿登记")
+        return {"status": "already-registered", "case_id": case_id, "breakdown_path": str(formal)}
+    type_codes = dict(registry.get("typeCodes") or {})
+    mapped = str(type_codes.get(str(plan["type"])) or "")
+    if mapped and mapped != plan["type_code"]:
+        raise ValueError("发布时内容类型代码已变化")
+    owner = next((name for name, value in type_codes.items() if str(value) == plan["type_code"] and name != plan["type"]), "")
+    if owner:
+        raise ValueError(f"发布时类型代码已被 {owner} 占用")
+    type_codes[str(plan["type"])] = str(plan["type_code"])
+    registry["typeCodes"] = type_codes
+    registry["cases"].append({
+        "id": case_id, "type": str(plan["type"]), "sourceTitle": str(plan["source_title"]),
+        "breakdownTitle": formal.stem, "breakdownPath": _relative(formal),
+    })
+    temporary = REGISTRY.with_suffix(".json.tmp")
+    temporary.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    os.replace(temporary, REGISTRY)
+    return {"status": "registered", "case_id": case_id, "breakdown_path": str(formal)}
 
 
 def _digest(path: Path) -> str:
@@ -137,6 +295,8 @@ def validate_owner_approved_case_edit(*, previous_breakdown: Path, breakdown_mar
         raise ValueError("标题加 √ 后，H1 必须保留同一案例标题")
     if "| 编号 | 大框架 | 小框架 | 小框架原文内容 |" not in content:
         raise ValueError("手动确认的对标拆解必须保留大/小框架四列表")
+    from workflow.benchmark_structure_v3 import validate_portable_case_markdown
+    validate_portable_case_markdown(content)
     return case_id
 
 
@@ -158,6 +318,35 @@ def record_owner_approved_case_edit(*, previous_breakdown: Path, breakdown_markd
     os.replace(temporary, REGISTRY)
     receipt = _write_owner_approval(get_case(case_id))
     return {"case_id": case_id, "receipt_path": str((OWNER_APPROVAL_ROOT / f"{case_id}_人工确认回执.json").resolve()), "receipt": receipt}
+
+
+def sync_registered_case_title(*, previous_breakdown: Path, breakdown_markdown: Path) -> dict[str, Any]:
+    """Move a formally audited case's registry binding to its renamed output.
+
+    This is deliberately narrower than normal publication: callers must prove
+    the new file has already passed the appropriate current approval gate.
+    It only changes the registry's title/path, never the case identity or
+    approval policy.
+    """
+    target = breakdown_markdown.resolve()
+    if not target.is_file() or not target.is_relative_to(BREAKDOWN_ROOT.resolve()):
+        raise ValueError("标题同步目标必须是案例库内存在的正式 Markdown")
+    registry, entry = _registered_case_for_breakdown(previous_breakdown)
+    case_id = str(entry["id"])
+    normalized_stem = target.stem.lstrip("√✓").strip()
+    if (not normalized_stem.startswith(f"{entry['type']}_")
+            or not normalized_stem.endswith(case_id)):
+        raise ValueError("标题同步目标必须保留内容类型和案例编号")
+    text = target.read_text(encoding="utf-8")
+    first_line = text.splitlines()[0].strip() if text.splitlines() else ""
+    if first_line not in {f"# {target.stem}", f"# {normalized_stem}"}:
+        raise ValueError("标题同步目标的 H1 必须与文件名一致")
+    entry["breakdownTitle"] = target.stem
+    entry["breakdownPath"] = _relative(target)
+    temporary = REGISTRY.with_suffix(".json.tmp")
+    temporary.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    os.replace(temporary, REGISTRY)
+    return {"case_id": case_id, "breakdown_path": str(target)}
 
 
 def discover_breakdown(case_id: str) -> Path:

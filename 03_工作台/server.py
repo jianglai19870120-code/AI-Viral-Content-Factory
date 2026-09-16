@@ -127,6 +127,7 @@ from workflow.benchmark_cases import (  # noqa: E402
     record_owner_approved_case_edit,
     validate_owner_approved_case_edit,
 )
+from workflow.benchmark_structure_v3 import normalize_portable_case_markdown, repair_table_divider  # noqa: E402
 from workflow.input_inventory import rebuild_inventory, inventory_summary, video_active_batch, video_correction_batch, video_refresh_batch  # noqa: E402
 
 IGNORED_FILE_NAMES = {".gitkeep", ".DS_Store", "Thumbs.db"}
@@ -341,6 +342,35 @@ def _today_editor_paths(surface: str) -> list[Path]:
     return paths
 
 
+def _case_editor_type_from_title(path: Path) -> str:
+    """Keep manually added legacy cases discoverable when not yet registered."""
+    title = path.stem.lstrip("√✓").strip()
+    candidate = title.split("_", 1)[0].strip() if "_" in title else ""
+    return candidate or "未归类"
+
+
+def _case_editor_registry_type_index() -> tuple[dict[Path, str], list[str]]:
+    """Map present formal paths to their registered type without hard-coded UI types."""
+    paths: dict[Path, str] = {}
+    ordered_types: list[str] = []
+    for entry in _case_registry_entries():
+        case_type = str(entry.get("type") or "").strip()
+        if case_type and case_type not in ordered_types:
+            ordered_types.append(case_type)
+        breakdown = _case_breakdown_path(str(entry.get("breakdownPath") or ""))
+        if breakdown and case_type:
+            paths[breakdown.resolve()] = case_type
+    return paths, ordered_types
+
+
+def _case_editor_type_catalog(files: list[dict[str, Any]], ordered_types: list[str]) -> list[str]:
+    present = {str(item.get("caseType") or "").strip() for item in files}
+    present.discard("")
+    ranked = [case_type for case_type in ordered_types if case_type in present]
+    remaining = sorted(present.difference(ranked).difference({"未归类"}))
+    return ranked + remaining + (["未归类"] if "未归类" in present else [])
+
+
 def _structure_four_has_content(path: Path) -> bool:
     """Return whether every visible Structure 4 row has user content.
 
@@ -405,6 +435,7 @@ def _structure_four_editor_state(path: Path) -> dict[str, Any]:
 
 def _today_editor_files(surface: str) -> list[dict[str, Any]]:
     files: list[dict[str, Any]] = []
+    case_type_index, case_type_order = _case_editor_registry_type_index() if surface == "cases" else ({}, [])
     for source_path in _today_editor_paths(surface):
         path = _promote_owner_marked_structure_candidate(source_path) if surface == "structure" else source_path
         item = {
@@ -422,6 +453,8 @@ def _today_editor_files(surface: str) -> list[dict[str, Any]]:
         if surface == "structure":
             item.update(_structure_four_editor_state(path))
             item["pending"] = not item["structureFourFilled"]
+        if surface == "cases":
+            item["caseType"] = case_type_index.get(path.resolve()) or _case_editor_type_from_title(path)
         files.append(item)
     return files
 
@@ -471,7 +504,7 @@ def today_topic_benchmark_cases() -> dict[str, Any]:
         case_id = str(item.get("id") or "").strip()
         relative_path = str(item.get("breakdownPath") or "").strip()
         candidate = (PROJECT_ROOT / relative_path).resolve()
-        if not re.fullmatch(r"[A-Z]{3}-\d{3}", case_id) or not candidate.is_relative_to(breakdown_root) or not candidate.is_file() or candidate.suffix.lower() != ".md":
+        if not re.fullmatch(r"[A-Z]+-\d{3}", case_id) or not candidate.is_relative_to(breakdown_root) or not candidate.is_file() or candidate.suffix.lower() != ".md":
             continue
         cases.append({
             "id": case_id,
@@ -543,7 +576,12 @@ def _render_markdown_table(parsed: dict[str, Any], rows: list[Any]) -> str:
 
 def today_editor_catalog(surface: str) -> dict[str, Any]:
     config = _today_editor_surface(surface)
-    return {"surface": surface, "label": config["label"], "kind": config["kind"], "files": _today_editor_files(surface)}
+    files = _today_editor_files(surface)
+    result = {"surface": surface, "label": config["label"], "kind": config["kind"], "files": files}
+    if surface == "cases":
+        _, ordered_types = _case_editor_registry_type_index()
+        result["caseTypes"] = _case_editor_type_catalog(files, ordered_types)
+    return result
 
 
 def today_editor_file(surface: str, file_id: str) -> dict[str, Any]:
@@ -681,6 +719,8 @@ def save_today_editor_file(surface: str, file_id: str, expected_sha256: str, pay
             raise ValueError("正文或结构内容格式不正确")
         if len(content.encode("utf-8")) > MAX_EDITOR_FILE_BYTES:
             raise ValueError("编辑内容超过大小限制")
+        if surface == "cases":
+            content = normalize_portable_case_markdown(repair_table_divider(content))
     else:
         parsed = _parse_markdown_table(path)
         if surface == "topics":
@@ -689,11 +729,14 @@ def save_today_editor_file(surface: str, file_id: str, expected_sha256: str, pay
 
     requested_filename = str(payload.get("filename") or "").strip()
     target = _today_editor_filename(path, requested_filename) if requested_filename else path
-    # A case remains on the normal candidate + 小审 path unless the workspace
-    # owner explicitly marks its title with √.  The mark is both the action
-    # and the authority boundary; checked cases can subsequently be updated
-    # directly without silently dropping that owner confirmation.
-    owner_confirms_case = surface == "cases" and _is_checked_filename(target)
+    # The workbench confirmation is the workspace owner's explicit approval.
+    # Every registered case edited through this surface therefore bypasses the
+    # candidate/小审 route.  Keep the visible √ convention by adding it at the
+    # same atomic save, rather than requiring an easy-to-miss filename edit
+    # before the user can exercise that authority.
+    owner_confirms_case = surface == "cases"
+    if owner_confirms_case and not _is_checked_filename(target):
+        target = _today_editor_filename(path, f"√{target.name}")
     if surface in OWNER_DIRECT_EDIT_SURFACES or owner_confirms_case:
         if owner_confirms_case:
             validate_owner_approved_case_edit(

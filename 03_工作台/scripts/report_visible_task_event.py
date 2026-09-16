@@ -6,7 +6,7 @@ import argparse
 import json
 import os
 from pathlib import Path
-from urllib.error import URLError
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 
@@ -81,6 +81,10 @@ def main() -> int:
     try:
         with urlopen(request, timeout=5) as response:
             result = json.loads(response.read().decode("utf-8"))
+    except HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace").strip()
+        print(f"工作台事件回写失败：HTTP {exc.code}: {detail or exc.reason}")
+        return 1
     except (URLError, OSError, json.JSONDecodeError) as exc:
         print(f"工作台事件回写失败：{exc}")
         return 1

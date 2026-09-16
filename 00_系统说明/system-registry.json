@@ -1,15 +1,15 @@
 {
-  "system": {"id":"ai-viral-content-factory","displayName":"AI爆款内容工厂","version":"3.1.1","canonicalAgentContract":"01_Agent系统/{agentDir}/AGENT.md","canonicalSkillRoot":"10_Skills武器库","codexSkillRoot":".agents/skills","runtimeRoot":".runtime"},
+  "system": {"id":"ai-viral-content-factory","displayName":"AI爆款内容工厂","version":"3.2.0","canonicalAgentContract":"01_Agent系统/{agentDir}/AGENT.md","canonicalSkillRoot":"10_Skills武器库","codexSkillRoot":".agents/skills","runtimeRoot":".runtime"},
   "release": {
     "positioning": "source-available",
     "status": "stable",
-    "releaseVersion": "3.1.1",
+    "releaseVersion": "3.2.0",
     "publicName": "AI爆款内容工厂",
     "commercialUse": "prohibited",
     "supportedPlatforms": ["windows", "codex-desktop"],
     "minimumPython": ">=3.11,<3.14",
     "publicAssetPolicy": {
-      "id": "formal-non-member-public-v3.1.1",
+      "id": "formal-non-member-public-v3.2.0",
       "default": "public-formal-non-member-assets",
       "memberContent": "placeholder-only",
       "memberBoundary": "directory-suffix-only: （会员专享）; content-type memberOnly is workbench-only",
@@ -57,6 +57,6 @@
     {"id":"standardize-and-inventory-sources","displayName":"原始资料入库统计Skill","sourceDir":"原始资料入库统计Skill","owner":"xiaoxi","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"asset-manifest-v1.schema.json","auditor":"xiaoshen-audit"},
     {"id":"breakdown-video-pain-cards","displayName":"视频文案-痛点卡拆解Skill（会员专享）","sourceDir":"视频文案-痛点卡拆解Skill（会员专享）","owner":"xiaochai","status":"active","inputSchema":"asset-request-v1.schema.json","outputSchema":"asset-manifest-v1.schema.json","auditor":"xiaoshen-audit"}
   ],
-  "benchmarkCases": {"registry":"00_系统说明/benchmark-case-registry.json","idFormat":"<类型代码>-<三位流水号>","contentTypeRouting":false},
+  "benchmarkCases": {"registry":"00_系统说明/benchmark-case-registry.json","idFormat":"<大写类型代码>-<三位流水号>","contentTypeRouting":false},
   "pipeline": {"id":"universal-copy-v1","steps":["选题表选中并填写对标复刻拆解编号","按唯一选题行锁定已审核对标复刻拆解","文案结构生成","小审发布包审核","受控发布索引与状态回写","用户冻结结构四","正文成稿生成","小审","输出库"],"contentTypeRouting":false}
 }

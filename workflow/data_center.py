@@ -88,7 +88,7 @@ def _atomic_json(path: Path, payload: Any) -> None:
     raise RuntimeError(f"数据中心文件被外部程序锁定，已重试 8 次：{path}") from last_error
 
 def normalize_title(value: str) -> str:
-    return " ".join(re.sub(r"【[A-Z]{3}-\d{3}】", "", value).replace("（复刻拆解）", "").replace("（视频原文）", "").split()).strip()
+    return " ".join(re.sub(r"【[A-Z]+-\d{3}】", "", value).replace("（复刻拆解）", "").replace("（视频原文）", "").split()).strip()
 
 def _topic_rows() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
@@ -180,7 +180,13 @@ def _entities() -> list[dict[str, Any]]:
                 "auditStatus":status,
                 "auditReceiptPath":_relative(receipt) if receipt else "",
                 "caseListPath":"02_资产中心/05_案例库/清单/对标案例清单.jsonl",
-                "statusReason":"当前四列表与源稿哈希均已获小审 approved" if status == "approved" else "当前正式文件未取得匹配哈希的 approved 小审回执",
+                "statusReason":(
+                    "当前四列表与源稿哈希均已获工作区所有者人工确认"
+                    if status == "approved" and receipt_data.get("approval_basis") == "workspace-owner-manual-edit"
+                    else "当前四列表与源稿哈希均已获小审 approved"
+                    if status == "approved"
+                    else "当前正式文件未取得匹配哈希的 approved 小审回执"
+                ),
                 "frameworkBlocks":receipt_data.get("framework_blocks", []),
                 "bigFrameworkUsable":usable,
             })

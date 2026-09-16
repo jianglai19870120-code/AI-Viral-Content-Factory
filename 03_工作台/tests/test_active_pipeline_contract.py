@@ -275,6 +275,54 @@ class ActivePipelineContractTest(unittest.TestCase):
         validate.assert_called_once()
         record.assert_called_once()
 
+    def test_unchecked_case_edit_is_direct_owner_confirmation_and_marks_it_checked(self):
+        server = load_server()
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "推荐型_测试【观点】TJX-001.md"
+            content = "# 推荐型_测试【观点】TJX-001\n\n| 编号 | 大框架 | 小框架 | 小框架原文内容 |\n| --- | --- | --- | --- |\n| F01 | 观点 | 核心观点 | 内容 |\n"
+            source.write_text(content, encoding="utf-8")
+            previous_root = server.TODAY_CANDIDATE_ROOT
+            previous_resolver = server._today_editor_resolve_file
+            server.TODAY_CANDIDATE_ROOT = Path(temporary)
+            server._today_editor_resolve_file = lambda surface, file_id: source
+            try:
+                with patch.object(server, "validate_owner_approved_case_edit") as validate, patch.object(server, "record_owner_approved_case_edit", return_value={"receipt_path": "receipt.json"}) as record:
+                    result = server.save_today_editor_file(
+                        "cases", "temporary-case", server._sha256_file(source), {"content": content}
+                    )
+            finally:
+                server.TODAY_CANDIDATE_ROOT = previous_root
+                server._today_editor_resolve_file = previous_resolver
+        self.assertTrue(result["formalUpdated"])
+        self.assertFalse(result["pending"])
+        self.assertEqual(result["caseOwnerApprovalStatus"], "owner-approved")
+        self.assertTrue(result["label"].startswith("√"))
+        self.assertTrue(Path(result["relativePath"]).name.startswith("√"))
+        validate.assert_called_once()
+        record.assert_called_once()
+
+    def test_checked_case_save_repairs_a_legacy_missing_divider(self):
+        server = load_server()
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "推荐型_测试【观点】TJX-001.md"
+            malformed = "# 推荐型_测试【观点】TJX-001\n\n| 编号 | 大框架 | 小框架 | 小框架原文内容 |\n| F01 | 观点 | 判断 | 内容 |\n"
+            source.write_text(malformed, encoding="utf-8")
+            previous_root = server.TODAY_CANDIDATE_ROOT
+            previous_resolver = server._today_editor_resolve_file
+            server.TODAY_CANDIDATE_ROOT = Path(temporary)
+            server._today_editor_resolve_file = lambda surface, file_id: source
+            try:
+                with patch.object(server, "validate_owner_approved_case_edit"), patch.object(server, "record_owner_approved_case_edit", return_value={"receipt_path": "receipt.json"}):
+                    server.save_today_editor_file(
+                        "cases", "temporary-case", server._sha256_file(source),
+                        {"content": malformed, "filename": "√推荐型_测试【观点】TJX-001.md"},
+                    )
+            finally:
+                server.TODAY_CANDIDATE_ROOT = previous_root
+                server._today_editor_resolve_file = previous_resolver
+            saved = next(Path(temporary).glob("√*.md")).read_text(encoding="utf-8")
+        self.assertIn("| --- | --- | --- | --- |", saved)
+
     def test_refresh_prompt_carries_the_actual_scope_not_a_generic_placeholder(self):
         server = load_server()
         module = server._today_module_index()["cases"]

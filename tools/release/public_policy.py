@@ -8,6 +8,7 @@ from pathlib import Path
 
 
 MEMBER_EXCLUSIVE_SUFFIX = "（会员专享）"
+MEMBER_CASE_REGISTRY = Path("00_系统说明/benchmark-case-registry.json")
 LOCAL_ONLY_PARTS = {".git", ".runtime", ".workbuddy", ".obsidian", ".codex", "dist", "_TEMP", "__pycache__", "__MACOSX", "node_modules"}
 LOCAL_ONLY_WORKBENCH_PARTS = {"runtime", "__pycache__"}
 LOCAL_ONLY_FILENAMES = {".env", ".sync-state.json", "ima_sync_state.json", ".processed_registry.jsonl", "skip_list.jsonl"}
@@ -58,6 +59,8 @@ def classify(relative: Path) -> tuple[str, str]:
         return "private", "data-center-runtime-event"
     if is_member_exclusive(relative):
         return ("public", "member-placeholder") if relative.name == ".gitkeep" else ("private", "member-exclusive-content")
+    if relative == MEMBER_CASE_REGISTRY:
+        return "private", "member-case-metadata"
     if text.startswith("tools/tmp_"):
         return "private", "temporary-tooling"
     if text.startswith("02_资产中心/06_配图库/") and ("evidence" in parts or "prompts" in parts or "prompt" in relative.name.casefold() or relative.name == "codex-workflow.txt"):

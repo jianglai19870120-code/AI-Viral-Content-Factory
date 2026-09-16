@@ -157,7 +157,7 @@ async function loadTodayEditorFile(fileId){
 }
 async function openTodayEditor(surface){
   if(state.type!=='dry-goods'){ toast('当前内容类型暂未开放网页内编辑'); return; }
-  const editor={surface,files:[],activeFileId:'',file:null,filter:surface==='copy'?'written':'pending',saveState:'loading',saveTimer:0,requestId:0,catalogLoaded:false,catalogLoading:false,topicColumnsFrozen:topicColumnsFrozen(),editMode:false,draftDirty:false,focusMode:false,fileSidebarCollapsed:false};
+  const editor={surface,files:[],caseTypes:[],caseType:'all',activeFileId:'',file:null,filter:surface==='copy'?'written':'pending',saveState:'loading',saveTimer:0,requestId:0,catalogLoaded:false,catalogLoading:false,topicColumnsFrozen:topicColumnsFrozen(),editMode:false,draftDirty:false,focusMode:false,fileSidebarCollapsed:false};
   state.todayEditor=editor;
   updateTodayEditorUrl();
   render();
@@ -169,6 +169,7 @@ async function hydrateTodayEditor(editor=state.todayEditor){
     const catalog=await api(`/api/today/editor?surface=${encodeURIComponent(editor.surface)}`);
     if(state.todayEditor!==editor)return;
     editor.files=catalog.files||[];
+    editor.caseTypes=editor.surface==='cases'?(catalog.caseTypes||[]):[];
     editor.catalogLoaded=true;
     editor.catalogLoading=false;
     const preferred=editor.files.find(item=>item.pending)||editor.files[0];
@@ -209,6 +210,49 @@ function scheduleTodayEditorSave(){
   renderTodayEditorSaveState();
   editor.saveTimer=window.setTimeout(()=>saveTodayEditorFile().catch(()=>{}),800);
 }
+// Contenteditable input can occasionally miss an `input` event (notably after
+// an IME composition or a paste immediately followed by clicking 完成修改).
+// The confirmation boundary must always serialize what is visibly on screen,
+// not merely the last value the event handler happened to copy into state.
+function captureTodayDocumentDraft(){
+  const editor=state.todayEditor, file=editor?.file;
+  if(!editor||!file||!editor.editMode||!isTodayDocumentSurface(editor.surface))return false;
+  let domChanged=false;
+  if(editor.surface==='copy'){
+    const input=$('#todayCopyMarkdownEditor');
+    if(input&&input.value!==file.content){ file.content=input.value; domChanged=true; }
+  }else{
+    const documentModel=file.structureDocument||parseStructureDocument(file.content||'');
+    file.structureDocument=documentModel;
+    document.querySelectorAll('[data-structure-cell]').forEach(input=>{
+      const block=documentModel.blocks[Number(input.dataset.block)], row=Number(input.dataset.row), column=Number(input.dataset.column);
+      if(!block||block.kind!=='table'||!Array.isArray(block.rows[row]))return;
+      const value=structureEditableMarkdown(input);
+      if(block.rows[row][column]!==value){ block.rows[row][column]=value; domChanged=true; }
+    });
+    document.querySelectorAll('[data-structure-header]').forEach(input=>{
+      const block=documentModel.blocks[Number(input.dataset.block)], column=Number(input.dataset.column);
+      if(!block||block.kind!=='table')return;
+      const value=structureEditableMarkdown(input);
+      if(block.columns[column]!==value){ block.columns[column]=value; domChanged=true; }
+    });
+    document.querySelectorAll('[data-structure-text-line]').forEach(input=>{
+      const section=input.closest('[data-structure-text-block]'), block=documentModel.blocks[Number(section?.dataset.structureTextBlock)], line=Number(input.dataset.line);
+      if(!block||block.kind!=='text')return;
+      const lines=String(block.content||'').split('\n'), value=`${input.dataset.prefix||''}${structureEditableMarkdown(input)}`;
+      if(lines[line]!==value){ lines[line]=value; block.content=lines.join('\n'); domChanged=true; }
+    });
+    const filename=$('[data-structure-filename]');
+    if(filename){
+      const value=String(filename.textContent||'').replace(/\r?\n/g,' ').trim();
+      if(value!==file.label){ file.label=value; file.renameRequested=true; domChanged=true; }
+    }
+    if(domChanged)file.content=serializeStructureDocument(documentModel);
+  }
+  const modified=domChanged||file.content!==file.originalContent||file.label!==file.originalLabel;
+  if(modified)editor.draftDirty=true;
+  return modified;
+}
 function renderTodayEditorSaveState(){
   const node=$('[data-editor-save-state]');
   if(!node||!state.todayEditor)return;
@@ -219,6 +263,7 @@ function renderTodayEditorSaveState(){
 async function saveTodayEditorFile(options={}){
   const editor=state.todayEditor, file=editor?.file;
   if(!editor||!file)return;
+  captureTodayDocumentDraft();
   const documentSurface=isTodayDocumentSurface(editor.surface);
   const requestedRename=documentSurface&&Boolean(file.renameRequested||file.candidateFilename);
   editor.saveTimer=0;
@@ -290,9 +335,10 @@ async function saveTodayEditorFile(options={}){
 async function finishTodayEditorEdit({confirm=true}={}){
   const editor=state.todayEditor;
   if(!editor||!isTodayDocumentSurface(editor.surface)||!editor.editMode)return true;
+  captureTodayDocumentDraft();
   if(!editor.draftDirty){ editor.editMode=false; render(); return true; }
-  const ownerConfirmedCase=editor.surface==='cases'&&/^[√✓]/.test(String(editor.file?.label||'').trim());
-  const prompt=ownerConfirmedCase?'标题已加 √：确认直接保存为正式案例拆解，并写入人工确认回执吗？':'确认保存编辑候选吗？正式文件不会被直接覆盖，需小审通过后才可发布。';
+  const ownerConfirmedCase=editor.surface==='cases';
+  const prompt=ownerConfirmedCase?'确认直接保存为正式案例拆解吗？这会自动标记 √ 已确认并写入人工确认回执，无需小审。':'确认保存编辑候选吗？正式文件不会被直接覆盖，需小审通过后才可发布。';
   if(confirm&&!window.confirm(prompt))return false;
   await saveTodayEditorFile({exitEdit:true});
   return state.todayEditor===editor&&editor.saveState==='saved';
@@ -735,12 +781,13 @@ function structureDocumentHTML(file,{editable=true}={}){
   }).join('')}</article>`;
 }
 function todayEditorFileMatchesFilter(editor,item){
-  if(editor.surface==='topics'||editor.filter==='all')return true;
+  if(editor.surface==='topics')return true;
   if(editor.surface==='cases'){
-    if(editor.filter==='filled')return !item.pending;
-    if(editor.filter.startsWith('type:'))return String(item.label||'').replace(/^[√✓]\s*/,'').startsWith(editor.filter.slice(5));
-    return Boolean(item.pending);
+    const matchesStatus=editor.filter==='filled'?!item.pending:Boolean(item.pending);
+    const selectedType=String(editor.caseType||'all');
+    return matchesStatus&&(selectedType==='all'||String(item.caseType||'未归类')===selectedType);
   }
+  if(editor.filter==='all')return true;
   if(editor.filter==='filled')return Boolean(item.structureFourFilled);
   if(editor.filter==='written')return !item.pending;
   return Boolean(item.pending);
@@ -772,9 +819,10 @@ function renderTodayEditor(){
   const activeStatus=isStructure&&active?`<span class="today-editor-document-status ${active.structureFourFilled?'is-filled':'is-unfilled'}" title="${esc(active.structureFourReason||'')}">${esc(active.structureFourStatus||'未填写结构四')}</span>`:isCopy&&active?`<span class="today-editor-document-status ${active.pending?'is-unfilled':'is-written'}">${copyEditorStatusLabel(active)}</span>`:isCases&&active?`<span class="today-editor-document-status ${active.pending?'is-unfilled':'is-filled'}">${active.pending?'待编辑':'已确认'}</span>`:'';
   const candidateAction=!['copy','topics','structure'].includes(editor.surface)&&active?.candidateId?`<button class="today-editor-candidate-submit" data-candidate-submit="${esc(active.candidateId)}" type="button">提交小审</button>`:'';
   const candidateHint=!['copy','topics','structure'].includes(editor.surface)&&active?.candidateId?`<small class="today-editor-candidate-state">候选已保存${active.candidateFilename?'（含文件名修改）':''}；正式文件需小审通过后才会更新。</small>`:'';
-  const surfaceHint=isTopics?'你的手动修改会自动写回爆款选题表。':isStructure?'标题加 √ 即视为已填写，并自动写回正式爆款结构。':isCopy?'你的手动修改会直接写回正式正文文件。':'案例标题加 √ 即为已确认并直接保存；未加 √ 的修改仍先保存为候选。';
-  const secondaryFilter=isStructure?`<button data-editor-filter="filled" class="${editor.filter==='filled'?'active':''}">已填写</button>`:isCopy?`<button data-editor-filter="written" class="${editor.filter==='written'?'active':''}">已撰写</button>`:isCases?['干货型','获客型','推荐型'].map(type=>`<button data-editor-filter="type:${type}" class="${editor.filter===`type:${type}`?'active':''}">${type}</button>`).join(''):'';
-  const filters=isCases?`<button data-editor-filter="pending" class="${editor.filter==='pending'?'active':''}">待编辑</button><button data-editor-filter="filled" class="${editor.filter==='filled'?'active':''}">已确认</button>${secondaryFilter}<button data-editor-filter="all" class="${editor.filter==='all'?'active':''}">全部</button>`:`<button data-editor-filter="pending" class="${editor.filter==='pending'?'active':''}">${filterLabel}</button>${secondaryFilter}<button data-editor-filter="all" class="${editor.filter==='all'?'active':''}">全部</button>`;
+  const surfaceHint=isTopics?'你的手动修改会自动写回爆款选题表。':isStructure?'标题加 √ 即视为已填写，并自动写回正式爆款结构。':isCopy?'你的手动修改会直接写回正式正文文件。':'你点击确认后，案例手动修改会直接写回正式文件，自动标记 √ 已确认并写入人工确认回执；不送小审。';
+  const secondaryFilter=isStructure?`<button data-editor-filter="filled" class="${editor.filter==='filled'?'active':''}">已填写</button>`:isCopy?`<button data-editor-filter="written" class="${editor.filter==='written'?'active':''}">已撰写</button>`:'';
+  const caseTypeOptions=[['all','全部类型'],...(editor.caseTypes||[]).map(type=>[type,type])].map(([value,label])=>`<option value="${esc(value)}" ${editor.caseType===value?'selected':''}>${esc(label)}</option>`).join('');
+  const filters=isCases?`<button data-editor-filter="pending" class="${editor.filter==='pending'?'active':''}">待编辑</button><button data-editor-filter="filled" class="${editor.filter==='filled'?'active':''}">已确认</button><select class="today-case-editor-type-filter" data-editor-case-type aria-label="筛选案例类型">${caseTypeOptions}</select>`:`<button data-editor-filter="pending" class="${editor.filter==='pending'?'active':''}">${filterLabel}</button>${secondaryFilter}<button data-editor-filter="all" class="${editor.filter==='all'?'active':''}">全部</button>`;
   const documentTitle=`<span>${active?esc(active.label):'选择文件开始编辑'}</span>`;
   const modeControl=isDocument&&active?`<button class="today-editor-mode" data-editor-edit-mode type="button">${editor.editMode?'完成修改':'修改模式'}</button>`:'';
   // Case breakdown view keeps this toolbar intentionally minimal: only the
@@ -1329,6 +1377,15 @@ function bindPageEvents(){
     if(!editor)return;
     if(editor.editMode&&editor.draftDirty&&!(await finishTodayEditorEdit({confirm:false})))return;
     editor.filter=button.dataset.editorFilter;
+    const visible=editor.files.filter(item=>todayEditorFileMatchesFilter(editor,item));
+    if(visible.length&&!visible.some(item=>item.id===editor.activeFileId)) await loadTodayEditorFile(visible[0].id);
+    else render();
+  });
+  document.querySelectorAll('[data-editor-case-type]').forEach(select=>select.onchange=async()=>{
+    const editor=state.todayEditor;
+    if(!editor)return;
+    if(editor.editMode&&editor.draftDirty&&!(await finishTodayEditorEdit({confirm:false})))return;
+    editor.caseType=select.value;
     const visible=editor.files.filter(item=>todayEditorFileMatchesFilter(editor,item));
     if(visible.length&&!visible.some(item=>item.id===editor.activeFileId)) await loadTodayEditorFile(visible[0].id);
     else render();

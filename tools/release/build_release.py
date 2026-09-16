@@ -15,6 +15,7 @@ from pathlib import Path
 
 TEXT_SUFFIXES = {".md", ".txt", ".py", ".json", ".jsonl", ".yaml", ".yml", ".ps1"}
 MEMBER_EXCLUSIVE_SUFFIX = "（会员专享）"
+MEMBER_CASE_REGISTRY = Path("00_系统说明/benchmark-case-registry.json")
 ROOT_FILES = {
     "AGENTS.md", "README.md", "LICENSE", "CONTRIBUTING.md", "requirements.txt", "run.py",
     "requirements-dev.txt", "pyproject.toml", "CHANGELOG.md", ".gitignore", ".gitattributes",
@@ -211,6 +212,24 @@ def github_package(root: Path, destination: Path) -> None:
             continue
         if item["status"] == "public" and (allowed_core or allowed_asset or member_placeholder) and not obsolete_release_file and (root / relative).is_file():
             copy_file(root, destination, relative)
+    source_case_registry = root / MEMBER_CASE_REGISTRY
+    if not source_case_registry.is_file():
+        raise RuntimeError("会员案例注册表不存在，不能构建公开占位")
+    try:
+        source_case_data = json.loads(source_case_registry.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise RuntimeError("会员案例注册表不是合法 JSON，不能构建公开占位") from exc
+    if source_case_data.get("schema") != "benchmark-case-registry-v1":
+        raise RuntimeError("会员案例注册表 schema 不正确，不能构建公开占位")
+    public_case_registry = {
+        "schema": "benchmark-case-registry-v1",
+        "manualEditPolicy": "audit-required",
+        "typeCodes": {},
+        "cases": [],
+    }
+    target_case_registry = destination / MEMBER_CASE_REGISTRY
+    target_case_registry.parent.mkdir(parents=True, exist_ok=True)
+    target_case_registry.write_text(json.dumps(public_case_registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     create_member_asset_placeholders(root, destination)
     for raw_skill in registry["skills"]:
         skill = normalized_skill(root, registry, raw_skill)

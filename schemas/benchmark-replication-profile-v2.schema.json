@@ -6,7 +6,7 @@
   "required": ["schema", "benchmark_case_id", "benchmark_sha256", "units"],
   "properties": {
     "schema": {"const": "benchmark-replication-profile-v2"},
-    "benchmark_case_id": {"type": "string", "pattern": "^[A-Z]{3}-\\d{3}$"},
+    "benchmark_case_id": {"type": "string", "pattern": "^[A-Z]+-\\d{3}$"},
     "benchmark_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "units": {
       "type": "array",

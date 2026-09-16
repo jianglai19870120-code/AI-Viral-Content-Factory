@@ -9,7 +9,7 @@ if str(ROOT) not in sys.path:sys.path.insert(0,str(ROOT))
 FUTURE_RELEASE_NAME=re.compile(r"^.+_(?:GHX|HKX)-\d{3}_\d{8}-\d{6}(?:_\d{2})?\.md$")
 
 def future_release_name_valid(name:str)->bool:
-    return bool(FUTURE_RELEASE_NAME.fullmatch(name)) and not re.match(r"^[A-Z]{3}-\d{3}_",name)
+    return bool(FUTURE_RELEASE_NAME.fullmatch(name)) and not re.match(r"^[A-Z]+-\d{3}_",name)
 
 def load(path:Path)->dict:return json.loads(path.read_text(encoding="utf-8"))
 def digest(path:Path)->str:return hashlib.sha256(path.read_bytes()).hexdigest()

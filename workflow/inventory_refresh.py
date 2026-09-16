@@ -96,7 +96,10 @@ def benchmark_case_rows(project_root: Path) -> list[dict[str, Any]]:
         try:
             approved = approved_case(case_id)
             audit = Path(approved["auditPath"])
-            status, reason = "已拆解", "当前四列表与源稿哈希均已获小审 approved"
+            if approved.get("audit", {}).get("approval_basis") == "workspace-owner-manual-edit":
+                status, reason = "已拆解", "当前四列表与源稿哈希均已获工作区所有者人工确认"
+            else:
+                status, reason = "已拆解", "当前四列表与源稿哈希均已获小审 approved"
         except ValueError:
             pass
         rows.append({

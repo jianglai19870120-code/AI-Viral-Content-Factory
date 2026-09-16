@@ -6,7 +6,7 @@
   "required": ["schema", "benchmark_case_id", "frameworks"],
   "properties": {
     "schema": {"const": "benchmark-video-structure-v2"},
-    "benchmark_case_id": {"type": "string", "pattern": "^[A-Z]{3}-\\d{3}$"},
+    "benchmark_case_id": {"type": "string", "pattern": "^[A-Z]+-\\d{3}$"},
     "frameworks": {
       "type": "array",
       "minItems": 1,

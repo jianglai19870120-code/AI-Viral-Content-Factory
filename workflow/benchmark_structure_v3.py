@@ -41,12 +41,90 @@ def _unescape_cell(value: str) -> str:
     return value.replace("<br>", "\n").replace("\\|", "|").strip()
 
 
-def parse_markdown(path: Path) -> list[dict[str, str]]:
-    """Parse one V3 table and reject non-contiguous or ambiguous framework groups."""
-    lines = path.read_text(encoding="utf-8").splitlines()
+def _is_divider(line: str) -> bool:
+    cells = split_row(line)
+    return len(cells) == len(TABLE_HEADER) and all(re.fullmatch(r":?-{3,}:?", cell.replace(" ", "")) for cell in cells)
+
+
+def repair_table_divider(content: str) -> str:
+    """Repair the historical client bug that serialized a data row as the divider.
+
+    When the malformed first row appears again later in the same table, it was
+    the duplicated final row used as a divider and must be replaced.  Otherwise
+    a missing divider is inserted without losing the first real row.
+    """
+    newline = "\r\n" if "\r\n" in content else "\n"
+    had_trailing_newline = content.endswith(("\n", "\r"))
+    lines = content.replace("\r\n", "\n").split("\n")
+    starts = [index for index, line in enumerate(lines) if split_row(line) == TABLE_HEADER]
+    if len(starts) != 1:
+        return content
+    divider_index = starts[0] + 1
+    if divider_index >= len(lines) or _is_divider(lines[divider_index]):
+        return content
+    malformed = lines[divider_index]
+    first_cells = split_row(malformed)
+    if len(first_cells) != len(TABLE_HEADER):
+        return content
+    later_rows = lines[divider_index + 1:]
+    divider = "| " + " | ".join("---" for _ in TABLE_HEADER) + " |"
+    if malformed in later_rows:
+        lines[divider_index] = divider
+    else:
+        lines.insert(divider_index, divider)
+    repaired = newline.join(lines)
+    return repaired if had_trailing_newline else repaired.rstrip("\r\n")
+
+
+def normalize_portable_case_markdown(content: str) -> str:
+    """Keep a case document valid in both Obsidian and the workbench.
+
+    A standalone ``<br>`` starts an HTML block in Obsidian's Markdown parser.
+    When it appears before a heading or table, the following standard Markdown
+    is rendered as literal text.  It was historically used only as vertical
+    spacing in case documents, so replace that standalone spacer with a normal
+    Markdown blank line.  ``<br>`` inside a table cell remains untouched.
+    """
+    newline = "\r\n" if "\r\n" in content else "\n"
+    had_trailing_newline = content.endswith(("\n", "\r"))
+    lines = content.replace("\r\n", "\n").split("\n")
+    normalized = ["" if re.fullmatch(r"[ \t]*<br\s*/?>[ \t]*", line, re.IGNORECASE) else line for line in lines]
+    result = newline.join(normalized)
+    return result if had_trailing_newline else result.rstrip("\r\n")
+
+
+def validate_portable_case_markdown(content: str) -> None:
+    """Reject non-portable Markdown before it can render as raw pipes in Obsidian."""
+    if content != normalize_portable_case_markdown(content):
+        raise ValueError("对标拆解不得使用独立 <br>；请使用 Markdown 空行以兼容 Obsidian 与工作台")
+    validate_table_layout(content)
+
+
+def validate_table_layout(content: str) -> None:
+    """Validate the Markdown table shape without changing owner-authored content."""
+    lines = content.replace("\r\n", "\n").splitlines()
     starts = [index for index, line in enumerate(lines) if split_row(line) == TABLE_HEADER]
     if len(starts) != 1:
         raise ValueError("对标拆解必须且只能有一张四列结构总表")
+    divider_index = starts[0] + 1
+    if divider_index >= len(lines) or not _is_divider(lines[divider_index]):
+        raise ValueError("四列结构总表表头后必须保留 Markdown 分隔行")
+    rows = 0
+    for line in lines[divider_index + 1:]:
+        if not line.lstrip().startswith("|"):
+            break
+        if len(split_row(line)) != len(TABLE_HEADER):
+            raise ValueError("结构总表只能有编号、大框架、小框架、小框架原文内容四列")
+        rows += 1
+    if not rows:
+        raise ValueError("结构总表不能为空")
+
+
+def parse_markdown_text(content: str) -> list[dict[str, str]]:
+    """Parse one V3 table and reject non-contiguous or ambiguous framework groups."""
+    lines = content.replace("\r\n", "\n").splitlines()
+    validate_table_layout(content)
+    starts = [index for index, line in enumerate(lines) if split_row(line) == TABLE_HEADER]
     rows: list[dict[str, str]] = []
     index = starts[0] + 2
     while index < len(lines) and lines[index].lstrip().startswith("|"):
@@ -83,7 +161,13 @@ def parse_markdown(path: Path) -> list[dict[str, str]]:
             previous_number, current_id, current_major = number, block_id, major
         elif major != current_major:
             raise ValueError("同一 FNN 的大框架名称必须一致")
+    from workflow.benchmark_small_framework_naming import validate_small_framework_names
+    validate_small_framework_names(rows)
     return rows
+
+
+def parse_markdown(path: Path) -> list[dict[str, str]]:
+    return parse_markdown_text(path.read_text(encoding="utf-8"))
 
 
 def source_without_footer(path: Path) -> str:

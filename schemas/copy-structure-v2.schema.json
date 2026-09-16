@@ -6,7 +6,7 @@
   "properties": {
     "schema": {"const": "copy-structure-v2"},
     "topic": {"type": "string", "minLength": 1},
-    "benchmark_case_id": {"type": "string", "pattern": "^[A-Z]{3}-\\d{3}$"},
+    "benchmark_case_id": {"type": "string", "pattern": "^[A-Z]+-\\d{3}$"},
     "benchmark_path": {"type": "string", "minLength": 1},
     "benchmark_audit_receipt": {"type": "string", "minLength": 1},
     "benchmark_framework_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},

@@ -422,6 +422,10 @@ body[data-page="today"] .assistant-avatar {
 .today-editor-filters { display: flex; gap: 8px; padding: 21px 20px 14px; border-bottom: 1px solid #ece7e0; }
 .today-editor-filters button { min-width: 76px; padding: 9px 12px; border: 1px solid transparent; border-radius: 9px; background: transparent; color: #6d665f; font: 500 15px/1 var(--sans); }
 .today-editor-filters button.active { border-color: #ffcfaa; background: #fff3e8; color: #c45c08; }
+.today-case-editor-filters { align-items: center; flex-wrap: nowrap; }
+.today-case-editor-filters button { flex: 0 0 58px; min-width: 58px; padding-right: 7px; padding-left: 7px; }
+.today-case-editor-type-filter { flex: 1 1 auto; width: 0; min-width: 0; padding: 9px 29px 9px 11px; border: 1px solid #e1d8cf; border-radius: 8px; outline: 0; background: #fffdfa; color: #453c35; font: 400 14px/1.2 var(--sans); }
+.today-case-editor-type-filter:hover, .today-case-editor-type-filter:focus { border-color: #ffae6a; box-shadow: 0 0 0 3px #ff9b481c; }
 .today-editor-file-list { display: grid; max-height: 710px; gap: 6px; overflow: auto; padding: 13px; }
 .today-editor-file-list > button { display: grid; gap: 7px; width: 100%; padding: 14px; border: 1px solid transparent; border-radius: 10px; background: transparent; color: var(--ink); text-align: left; }
 .today-editor-file-list > button:hover { border-color: #ffd5b4; background: #fff8f1; }

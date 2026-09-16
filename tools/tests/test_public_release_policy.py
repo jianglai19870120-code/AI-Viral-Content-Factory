@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import unittest
+import json
+import tempfile
 from pathlib import Path
 
 from tools.release.public_policy import HOST_PATH_PATTERN, classify
+from tools.release.build_release import github_package
 
 
 class PublicReleasePolicyTests(unittest.TestCase):
@@ -40,6 +43,21 @@ class PublicReleasePolicyTests(unittest.TestCase):
     def test_member_file_name_does_not_hide_non_member_directory(self) -> None:
         named_file = Path("02_资产中心/01_输入库/公开资料/示例（会员专享）.md")
         self.assertEqual(classify(named_file)[0], "public")
+
+    def test_member_case_registry_is_redacted_from_public_projection(self) -> None:
+        registry = Path("00_系统说明/benchmark-case-registry.json")
+        self.assertEqual(classify(registry), ("private", "member-case-metadata"))
+
+    def test_public_package_writes_empty_member_case_registry(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "source"; output = Path(directory) / "output"
+            (root / "00_系统说明").mkdir(parents=True)
+            (root / "00_系统说明/system-registry.json").write_text(json.dumps({"system": {"version": "3.2.0"}, "release": {"publicAssetPolicy": {}}, "skills": []}), encoding="utf-8")
+            (root / "00_系统说明/benchmark-case-registry.json").write_text(json.dumps({"schema": "benchmark-case-registry-v1", "manualEditPolicy": "owner-approved", "typeCodes": {"SCHX": "晒成果型"}, "cases": [{"id": "SCHX-001"}]}), encoding="utf-8")
+            output.mkdir()
+            github_package(root, output)
+            public = json.loads((output / "00_系统说明/benchmark-case-registry.json").read_text(encoding="utf-8"))
+            self.assertEqual(public, {"schema": "benchmark-case-registry-v1", "manualEditPolicy": "audit-required", "typeCodes": {}, "cases": []})
 
     def test_local_posix_paths_are_detected_without_matching_web_urls(self) -> None:
         local_path = "/" + "home/" + "alice/private/file.md"

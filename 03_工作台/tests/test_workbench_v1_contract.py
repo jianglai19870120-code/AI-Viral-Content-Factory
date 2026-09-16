@@ -18,6 +18,7 @@ CASE_REGISTRY = ROOT / "00_系统说明" / "benchmark-case-registry.json"
 WEAPON_ROOT = ROOT / "10_Skills武器库"
 CODEX_SKILL_ROOT = ROOT / ".agents" / "skills"
 FORMAL_AUDIT_ROOT = ROOT / "01_Agent系统" / "02_小审-质量审核Agent" / "00_正式审核回执" / "benchmark-video-structure"
+OWNER_APPROVAL_ROOT = ROOT / "01_Agent系统" / "01_小姜-CEO助理Agent" / "人工确认回执" / "benchmark-video-structure"
 SERVER = ROOT / "03_工作台" / "server.py"
 FRONTEND = ROOT / "03_工作台" / "frontend" / "app.js"
 FIXED_CANVAS = ROOT / "03_工作台" / "frontend" / "fixed-canvas.css"
@@ -365,7 +366,9 @@ class WorkbenchV1ContractTest(unittest.TestCase):
         registry = json.loads(CASE_REGISTRY.read_text(encoding="utf-8"))
         for item in registry["cases"]:
             breakdown = ROOT / item["breakdownPath"]
-            receipt = FORMAL_AUDIT_ROOT / f"{item['id']}_审核回执.json"
+            owner_approved = str(item.get("manualEditPolicy") or registry.get("manualEditPolicy") or "") == "owner-approved"
+            receipt = (OWNER_APPROVAL_ROOT / f"{item['id']}_人工确认回执.json"
+                       if owner_approved else FORMAL_AUDIT_ROOT / f"{item['id']}_审核回执.json")
             self.assertTrue(breakdown.is_file(), f"对标复刻拆解路径失效：{item['id']}")
             self.assertTrue(receipt.is_file(), f"对标复刻拆解缺少正式审核回执：{item['id']}")
 
