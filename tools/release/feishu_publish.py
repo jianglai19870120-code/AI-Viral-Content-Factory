@@ -5,6 +5,7 @@ may replace its one ZIP attachment, but never creates pages or rewrites text.
 """
 from __future__ import annotations
 
+import io
 import os
 import re
 from dataclasses import dataclass
@@ -16,6 +17,7 @@ import requests
 
 API_ROOT = "https://open.feishu.cn/open-apis"
 WIKI_TOKEN = re.compile(r"/(?:wiki|space)/([^/?#]+)")
+SINGLE_UPLOAD_MAX_BYTES = 20 * 1024 * 1024
 
 
 class FeishuError(RuntimeError):
@@ -133,6 +135,8 @@ class FeishuPublisher:
     def upload_delivery(self, archive: Path, file_block_id: str) -> dict[str, str]:
         if not archive.is_file():
             raise FeishuError(f"会员交付包不存在：{archive}")
+        if archive.stat().st_size > SINGLE_UPLOAD_MAX_BYTES:
+            return self._upload_delivery_multipart(archive, file_block_id)
         with archive.open("rb") as stream:
             data = self._request(
                 "POST", "/drive/v1/medias/upload_all",
@@ -142,6 +146,36 @@ class FeishuPublisher:
         file_token = str(data.get("file_token") or data.get("file", {}).get("token") or "")
         if not file_token:
             raise FeishuError("飞书上传成功响应缺少 file_token")
+        return {"file_token": file_token}
+
+    def _upload_delivery_multipart(self, archive: Path, file_block_id: str) -> dict[str, str]:
+        """Upload large VIP archives in server-selected chunks before binding them."""
+        size = archive.stat().st_size
+        prepared = self._request(
+            "POST", "/drive/v1/medias/upload_prepare",
+            json={"file_name": archive.name, "parent_type": "docx_file", "parent_node": file_block_id, "size": size},
+        )
+        upload_id = str(prepared.get("upload_id") or "")
+        block_size = int(prepared.get("block_size") or 0)
+        block_num = int(prepared.get("block_num") or 0)
+        if not upload_id or block_size <= 0 or block_num <= 0:
+            raise FeishuError("飞书分片上传初始化响应不完整")
+        with archive.open("rb") as stream:
+            for seq in range(block_num):
+                chunk = stream.read(block_size)
+                if not chunk:
+                    raise FeishuError(f"飞书分片上传缺少第 {seq + 1} 块数据")
+                self._request(
+                    "POST", "/drive/v1/medias/upload_part",
+                    data={"upload_id": upload_id, "seq": str(seq), "size": str(len(chunk))},
+                    files={"file": (archive.name, io.BytesIO(chunk), "application/zip")},
+                )
+            if stream.read(1):
+                raise FeishuError("飞书分片上传响应的块大小不足以覆盖会员包")
+        completed = self._request("POST", "/drive/v1/medias/upload_finish", json={"upload_id": upload_id, "block_num": block_num})
+        file_token = str(completed.get("file_token") or "")
+        if not file_token:
+            raise FeishuError("飞书分片上传完成响应缺少 file_token")
         return {"file_token": file_token}
 
     def _replace_file_block(self, document_id: str, block_id: str, file_token: str) -> None:

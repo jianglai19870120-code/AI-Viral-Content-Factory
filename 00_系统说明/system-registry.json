@@ -1,19 +1,29 @@
 {
-  "system": {"id":"ai-viral-content-factory","displayName":"AI爆款内容工厂","version":"3.1.0","canonicalAgentContract":"01_Agent系统/{agentDir}/AGENT.md","canonicalSkillRoot":"10_Skills武器库","codexSkillRoot":".agents/skills","runtimeRoot":".runtime"},
+  "system": {"id":"ai-viral-content-factory","displayName":"AI爆款内容工厂","version":"3.1.1","canonicalAgentContract":"01_Agent系统/{agentDir}/AGENT.md","canonicalSkillRoot":"10_Skills武器库","codexSkillRoot":".agents/skills","runtimeRoot":".runtime"},
   "release": {
     "positioning": "source-available",
     "status": "stable",
-    "releaseVersion": "3.1.0",
+    "releaseVersion": "3.1.1",
     "publicName": "AI爆款内容工厂",
     "commercialUse": "prohibited",
     "supportedPlatforms": ["windows", "codex-desktop"],
     "minimumPython": ">=3.11,<3.14",
     "publicAssetPolicy": {
-      "id": "formal-non-member-public-v3.1.0",
+      "id": "formal-non-member-public-v3.1.1",
       "default": "public-formal-non-member-assets",
       "memberContent": "placeholder-only",
       "memberBoundary": "directory-suffix-only: （会员专享）; content-type memberOnly is workbench-only",
       "localOnly": [".env", ".runtime", ".workbuddy", "dist", "logs", "audit-records", "temporary-files", "historical-recovery-materials", "vendored-node-dependencies", "gallery-generation-evidence"]
+    },
+    "dualChannelContract": {
+      "id": "dual-channel-release-v1",
+      "documentation": "00_系统说明/双轨版本发布标准.md",
+      "versionPolicy": "caller-explicit-semver-tag-never-overwrite",
+      "defaultScope": "all-current-workspace-changes-that-pass-gates-and-channel-policy",
+      "github": {"audience": "non-member", "branch": "main", "mode": "isolated-public-projection"},
+      "feishu": {"audience": "member", "mode": "replace-single-zip-in-fixed-wiki-page", "preservePageText": true, "largeArchiveUpload": "automatic-multipart"},
+      "recovery": {"stateRoot": "%LOCALAPPDATA%/AI-Viral-Content-Factory/publish", "sameVersionOnly": true, "freezeContentWhileRetrying": true},
+      "credentials": "environment-variables-only"
     }
   },
   "schemas": {"benchmarkTopic":"benchmark-topic-v4.2","benchmarkVideoStructure":"benchmark-video-structure-v3","copyStructure":"copy-structure-v16","finalCopy":"final-copy-v3","auditReceipt":"audit-receipt-v3"},

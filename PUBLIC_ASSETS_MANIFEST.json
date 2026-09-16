@@ -21,7 +21,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "470b1ac900ad14e3a23b716044849e36b9a870902ba3462d2842bd9be5833ba0",
+      "sha256": "746f72d31f710056f0b2dc333fc5957d877a1a48317e29a7eeb144a0272ddadc",
       "size": 347
     },
     {
@@ -65,7 +65,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "f071687d470d3a9bf625c89be172db5fa8c08700f47ad74c0daaffedde055505",
+      "sha256": "3c5e20957cdc3aac615f5da5b2dbc18c7950a9fa3a96983c759c9509db301e48",
       "size": 809
     },
     {
@@ -87,7 +87,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "b6ab34ece4dbf86c3443b138006b3da15861539fc704419c0a2d461fde292684",
+      "sha256": "e5c27911b7028117e7616874593e3fdb21144adbc0260485b4c8901f97a5b6b6",
       "size": 310
     },
     {
@@ -131,7 +131,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "3aa2f731c2b969266a0e308a5bb787b1998ba28852f14f5a66f43b215ec5684e",
+      "sha256": "fd00a856f483343ae2ec9bab74b2c20d6a5170471ea8d890719ea777db80456b",
       "size": 892
     },
     {
@@ -153,7 +153,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "4c52d2380e4e9d02a02f1c1bebe747ba85f5de8997bbf8772ba85e10b32c7bcf",
+      "sha256": "97b4f487a058847ece9fa50d74692d53a884b9c7bb7732a271972688d32d83f8",
       "size": 349
     },
     {
@@ -197,7 +197,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "74af3d8d844edb839b48c322b2e6a09333577c67636bab40ef6bfca7385c94d8",
+      "sha256": "d118b65ce10c976c4d5bfa3903f7ce9cb187903a0adaa51481a1f66633aeedb2",
       "size": 1033
     },
     {
@@ -219,7 +219,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "c69d17acb048d200ab130310088b2493ebee33bdfa0c49adc6ba5940788f8e28",
+      "sha256": "ed38a2106b7cbb043c32d474ea246f293df8f3f951182b060a6d04b3de784af6",
       "size": 344
     },
     {
@@ -263,7 +263,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "3830b5359c5704cc277e5b8c5d88b100ed2b37756b9bb0ff6fe4d202cd9caf9d",
+      "sha256": "30759571f31a7b453677c7686a830878f02732d4e7220f10f3e848e68c388f51",
       "size": 863
     },
     {
@@ -351,7 +351,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "56c20942b9273e10b6602ef5d8c29f107d1e6a5286713a80753ecc3fbfdf5d62",
+      "sha256": "760f3425ac121bfd8404682bbb3a7aad552011770b8729b76a8a573c0ddfa5d2",
       "size": 287
     },
     {
@@ -395,7 +395,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "ff62dc9385942e95660f79e39c1446e40b749f4657cafbf513e7bb17596eda44",
+      "sha256": "0e805ac82ad4a5670afd3959cfb9835de6322ee382add830cce2df350d8336c1",
       "size": 835
     },
     {
@@ -417,7 +417,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "c19eed1f860fc49409d9cc8aa238d488edfdc1ccdab5c672522be2c2c3a1c5d3",
+      "sha256": "1adfb7cb0d3fd3f56db2161d24ea5bc17760b57637f0e2af3901ab95c2d7656e",
       "size": 289
     },
     {
@@ -461,7 +461,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "e0c0a8ebe338efc8719ad7cf694b0daa9f8bea06843e6635f864aeec8be05dcb",
+      "sha256": "b066c53eddfade363ea7cc01ae2200cacf0295639737fee3a58f14c49a537fab",
       "size": 750
     },
     {
@@ -483,7 +483,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "62043ad4e4fcf2fa0f3b57281ab7dd99f53451e4ad3d0ed7b62c5c03ba597f8f",
+      "sha256": "336a4e1158cc85815075c42d64c68a5e9b087a4b28dba2563033fef9f28eaf86",
       "size": 285
     },
     {
@@ -527,7 +527,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "453a35803a68621873cb7f43c919763f6fc33b9da82ccd72d0a36272e9530ebc",
+      "sha256": "7c3c1db02f26a45c51ba78c86758eb732ae044692410490f386c01091efc9f60",
       "size": 758
     },
     {
@@ -615,7 +615,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "69cd84e45fc6f92b76b4054f4f639e6226458633aa8a1ef7004876cd66f9cf30",
+      "sha256": "f8724864cf6932e91bf7531a4afa137bbba3841542a1ca70211298c75ed856d5",
       "size": 307
     },
     {
@@ -659,7 +659,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "7d5a2ce2dc1b4b8ac865061a362f264d0c20b60164c0880ea907bf92ec67df5f",
+      "sha256": "a5f5a8fea49de979959affceda9f899eba935f0e4db858f3e857cb06ff6b9eb5",
       "size": 776
     },
     {
@@ -681,7 +681,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "67d59a7249900bb9f994cd71410219c09393b598ba15fe45515de8d60646d152",
+      "sha256": "d267118ea4fa340c2c1a9a197a82bbb20224d25f84614995c64d84f81dc7fdda",
       "size": 289
     },
     {
@@ -725,7 +725,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "22c799ceb656c9d5eae0546990662e67d2debe2159968c5f805b3120b1ecdc7e",
+      "sha256": "405230e524da1504ca2c96b3c42caa53baedf2ca178d7bbf77b06b987a4d9eb8",
       "size": 801
     },
     {
@@ -747,7 +747,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "79b4dc680b6afdbae6d0cd9969f5f2914d1e0de205df23bdde8f95d33971c377",
+      "sha256": "534d780c5b954107e05321759266761f4b773e7d602f3c12f382393d556a0821",
       "size": 286
     },
     {
@@ -791,7 +791,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "daaad3e958ddf6806914eea32bcf1d6995b8fb336e0c4553d1225990f31b3cf0",
+      "sha256": "e26afeaa675a22ee06b410c4b86bc3f53cf8de7bd493c4d83c1147c6f2fd047c",
       "size": 676
     },
     {
@@ -813,7 +813,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "6bd6e5266997631cfe743c3385d6a9d6217a837111d5061b85b8b09b0efb884b",
+      "sha256": "a8bad08b1dd5d252229ca9bad4ce03c96cc6a1f876bcaad7de6da264f11f598e",
       "size": 274
     },
     {
@@ -857,7 +857,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "35975225e4b5d17d43d23c4f4df5e428b336f8a8f230894f79098be86b28216d",
+      "sha256": "b68f35e223c2f79dca6ea2a84e78f0f5e8d25dc083dc05833fbd3bd279d89fa1",
       "size": 648
     },
     {
@@ -879,7 +879,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "c13e32da0fa10a23dcbbbdcbb6980edfdac76d9a50c1595e89912a80edb68a34",
+      "sha256": "8b3502213f43dd1d0c04c231e806bbb130335d1e6c2d58a2f16bfcfb31771454",
       "size": 270
     },
     {
@@ -923,7 +923,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "e859259afcefd976c0420963a5aac3dd1b45601a070a34058a81f5eb7ad2e1f1",
+      "sha256": "5814ad9b4d2bc665dd749d78ba2d3596c5eb7fbc14d176e1c695bfc45190bed8",
       "size": 647
     },
     {
@@ -945,7 +945,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "6cc77f47f3599860eff29facc2844f791fd7f14f2e1e5d6bb97bb312319320cf",
+      "sha256": "92e0d84450f3f191518c9545e038668b9a4a271a4fa451439c0aa95a5dacd63e",
       "size": 281
     },
     {
@@ -989,7 +989,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "c4cff5bb5f9ce13792d3928dda59e7f5cda111689f9057883c89d4c940b3190f",
+      "sha256": "8d2983a6ed8d308922d9b63b4bde3246e377447f43c64fae32a74712c352774c",
       "size": 835
     },
     {
@@ -1143,8 +1143,8 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "8a32f26902e74e2f5079496c52acb9a507c06b0b904424955a305af085cf7035",
-      "size": 491
+      "sha256": "6faf8cb73c7ecb14c8a79d794bd5097a7477030f81b1c7301887b96a8665f292",
+      "size": 635
     },
     {
       "path": "00_系统说明/schemas.md",
@@ -1187,7 +1187,7 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "fa18c6a50f597e6f383f6c87c508bcaaf4ab6abae9246ad1909ced0ccb274b72",
+      "sha256": "123039769b79c7b306240ce923509f58f3a5d797f0485e4d1ef426617cb77f0c",
       "size": 2074
     },
     {
@@ -1231,8 +1231,8 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "e5f70e16c1ddd889928cbe516ff05a0e9953d98a53d649686aec81a505563fe2",
-      "size": 7600
+      "sha256": "7a585e899eafd358cb505cefc0c86f07870d6ec8983404b4eeebe284db23f48a",
+      "size": 8359
     },
     {
       "path": "00_系统说明/system-state.json",
@@ -1257,6 +1257,28 @@
       "size": 253
     },
     {
+      "path": "00_系统说明/双轨版本发布标准.md",
+      "status": "public",
+      "source": "project-owned",
+      "author_or_rightsholder": "姜来已来",
+      "material_type": "system-source",
+      "content_scope": "source-code-or-contract",
+      "contains_personal_information": false,
+      "license_or_permission_basis": "AI流量工厂 Source-Available License v1.0",
+      "allowed_platforms": [
+        "github",
+        "codex",
+        "workbuddy",
+        "skillhub"
+      ],
+      "reviewer": "system-rule",
+      "reviewed_at": "",
+      "final_public_decision": "public",
+      "reason": "系统源码与正式合同",
+      "sha256": "548de807a83a6ad972ea432f9537c758c39eeda4ed0064fdd5b3510885e9d2fb",
+      "size": 2702
+    },
+    {
       "path": "00_系统说明/跨电脑安装与发布.md",
       "status": "public",
       "source": "project-owned",
@@ -1275,8 +1297,8 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "ff174cfde31415ca0394faf45c34e15a94186ef4101afdc9a91c55812ab45b92",
-      "size": 3896
+      "sha256": "bf03cb1dcd3577ecaac9fe2d1cf4ee86c0235f74e7714c66e163b5c75298eb26",
+      "size": 4007
     },
     {
       "path": "00_系统说明/通用文案总流水线说明.md",
@@ -86175,8 +86197,8 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "625b2cbdbe2c6ecc4cfe9c00d86e586e81d8c48d4c774ea893c3f8930e8d4cb0",
-      "size": 1481
+      "sha256": "a28144c6e5a98c539976739b51308a442652a54929c067d37ff18ac940fb63d1",
+      "size": 2022
     },
     {
       "path": "COMMERCIAL-LICENSE.md",
@@ -86307,8 +86329,8 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "8f951987dc2116bd5ea0c9ce91c05b9ef8d0ee72cafbf76cffb867c732cd21c8",
-      "size": 2619
+      "sha256": "3b11c9027666df3e22fd7f36092f3296273ed127ce1799046fae8aaa7fa3611b",
+      "size": 2643
     },
     {
       "path": "requirements-dev.txt",
@@ -86373,8 +86395,8 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "a6c031dfd8f2c585a8454df9e1033fd800ee618443321c85d295db8196172783",
-      "size": 12423
+      "sha256": "82f4294748fe8d09acdf89e857e5a52ee6750386001e268f66b4be5280fb7cdc",
+      "size": 12605
     },
     {
       "path": "schemas/asset-manifest-v1.schema.json",
@@ -87319,8 +87341,8 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "5b33ebf3684b79735857c37f56e74d360774dd58d8cebf87ef2a21bb74310f8a",
-      "size": 8645
+      "sha256": "c4b5818ba193180ccb2eccba8795cafcfaaafafe07631d0b8fc9cac9e15445e6",
+      "size": 10596
     },
     {
       "path": "tools/release/public_policy.py",
@@ -87345,7 +87367,7 @@
       "size": 5958
     },
     {
-      "path": "tools/release/publish_v31.py",
+      "path": "tools/release/publish_release.py",
       "status": "public",
       "source": "project-owned",
       "author_or_rightsholder": "姜来已来",
@@ -87363,8 +87385,8 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "47d4f62ba3f9b77ef832c8bc83b95899756c879401eea7219c99677627f1472f",
-      "size": 9063
+      "sha256": "71455c488f77a3f84e2b619be8ccca454a2fa79d1110158e6dde95d99c87c910",
+      "size": 10602
     },
     {
       "path": "tools/tests/fixtures/dry-goods/structure-four.md",
@@ -87543,6 +87565,28 @@
       "size": 1356
     },
     {
+      "path": "tools/tests/test_dual_channel_release_contract.py",
+      "status": "public",
+      "source": "project-owned",
+      "author_or_rightsholder": "姜来已来",
+      "material_type": "system-source",
+      "content_scope": "source-code-or-contract",
+      "contains_personal_information": false,
+      "license_or_permission_basis": "AI流量工厂 Source-Available License v1.0",
+      "allowed_platforms": [
+        "github",
+        "codex",
+        "workbuddy",
+        "skillhub"
+      ],
+      "reviewer": "system-rule",
+      "reviewed_at": "",
+      "final_public_decision": "public",
+      "reason": "系统源码与正式合同",
+      "sha256": "0d574c47c64634bb754dae536011dd775e63070244c16c23b4f27060007a5eed",
+      "size": 1523
+    },
+    {
       "path": "tools/tests/test_feishu_publish.py",
       "status": "public",
       "source": "project-owned",
@@ -87561,8 +87605,8 @@
       "reviewed_at": "",
       "final_public_decision": "public",
       "reason": "系统源码与正式合同",
-      "sha256": "71534c9f75314edce2f9c71118e67c48ce15a05759e01ad0451da36c6741d1f2",
-      "size": 6475
+      "sha256": "0641e3561d66be19b0167d061b5f85c9a4bc76738a182068e22bdf5aab826ba7",
+      "size": 8967
     },
     {
       "path": "tools/tests/test_ip_visual_v4_contract.py",

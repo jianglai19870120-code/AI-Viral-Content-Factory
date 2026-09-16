@@ -21,6 +21,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from tools.release.build_feishu_delivery import build_from_public_stage
 from tools.release.build_release import github_package
 from tools.release.feishu_publish import FeishuConfig, FeishuPublisher
+from tools.quality.audit_github_baseline import audit_staged_package
 
 
 VERSION = re.compile(r"^v(\d+)\.(\d+)\.(\d+)$")
@@ -78,6 +79,29 @@ def preflight(root: Path, version: str) -> None:
         raise ValueError("版本必须采用 v主版本.次版本.修订号，例如 v3.1.0")
     if configured_version(root) != version:
         raise ValueError(f"system-registry.json 当前为 {configured_version(root)}，与请求发布版本 {version} 不一致")
+
+
+def inspect_preflight(root: Path, version: str, state_path: Path) -> dict[str, Any]:
+    """Perform every release-readiness check without changing a remote or state file."""
+    preflight(root, version)
+    state = load_state(state_path, version)
+    remote = git(root, "remote", "get-url", "origin")
+    failures = audit_staged_package(root)
+    if failures:
+        raise RuntimeError("公开投影预检失败：" + "；".join(failures))
+    publisher = FeishuPublisher(FeishuConfig.from_environment())
+    wiki_root = publisher.resolve_root()
+    zip_block = publisher._vip_file_block(wiki_root["document_id"])
+    return {
+        "status": "preflight-passed",
+        "version": version,
+        "branch": str(state.get("branch") or "main"),
+        "state_path": str(state_path),
+        "completed_stages": sorted(name for name, complete in state.get("stages", {}).items() if complete),
+        "github_remote": remote,
+        "public_projection": "passed",
+        "feishu_page": {"document_id_present": bool(wiki_root["document_id"]), "zip_name": zip_block["name"]},
+    }
 
 
 def run_gates(root: Path) -> None:
@@ -174,13 +198,19 @@ def main() -> int:
     parser.add_argument("--version", required=True)
     parser.add_argument("--branch", default="main")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--preflight", action="store_true", help="只读检查发布条件、公开投影和飞书固定 ZIP")
     parser.add_argument("--skip-gates", action="store_true", help="仅用于本地调试，正式发布禁止使用")
     parser.add_argument("--state")
     args = parser.parse_args()
     root = PROJECT_ROOT
     state = Path(args.state).resolve() if args.state else state_root() / f"{args.version}.json"
     try:
-        result = execute(root, args.version, dry_run=args.dry_run, skip_gates=args.skip_gates, branch=args.branch, state_path=state)
+        if args.preflight:
+            if args.dry_run or args.skip_gates:
+                raise ValueError("--preflight 不可与 --dry-run 或 --skip-gates 同时使用")
+            result = inspect_preflight(root, args.version, state)
+        else:
+            result = execute(root, args.version, dry_run=args.dry_run, skip_gates=args.skip_gates, branch=args.branch, state_path=state)
     except (OSError, ValueError, RuntimeError) as exc:
         print(json.dumps({"status": "failed", "version": args.version, "error": str(exc), "state_path": str(state)}, ensure_ascii=False))
         return 1

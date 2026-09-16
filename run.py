@@ -172,6 +172,7 @@ def main() -> int:
     publish.add_argument("--version", required=True)
     publish.add_argument("--branch", default="main")
     publish.add_argument("--dry-run", action="store_true")
+    publish.add_argument("--preflight", action="store_true", help="只读检查 GitHub 免费投影与飞书会员 ZIP")
     publish.add_argument("--skip-gates", action="store_true")
     publish.add_argument("--state")
     args = parser.parse_args()
@@ -197,8 +198,9 @@ def main() -> int:
         if args.output: command.extend(["--output", args.output])
         return run_command([sys.executable, *command])
     if args.command == "publish":
-        command = ["tools/release/publish_v31.py", "--version", args.version, "--branch", args.branch]
+        command = ["tools/release/publish_release.py", "--version", args.version, "--branch", args.branch]
         if args.dry_run: command.append("--dry-run")
+        if args.preflight: command.append("--preflight")
         if args.skip_gates: command.append("--skip-gates")
         if args.state: command.extend(["--state", args.state])
         return run_command([sys.executable, *command])

@@ -10,7 +10,8 @@ import requests
 
 from tools.release.feishu_publish import FeishuConfig, FeishuError, FeishuPublisher, root_token
 from tools.release.build_feishu_delivery import build_from_public_stage
-from tools.release.publish_v31 import execute, preflight
+from tools.release import publish_release
+from tools.release.publish_release import execute, inspect_preflight, preflight
 
 
 class Response:
@@ -26,6 +27,7 @@ class Client:
         self.calls: list[tuple[str, str]] = []
         self.file_token = "old-file"
         self.file_name = "AI爆款内容工厂-VIP-v3.0.1.zip"
+        self.part_requests: list[dict[str, object]] = []
 
     def request(self, method: str, url: str, **kwargs: object) -> Response:
         self.calls.append((method, url))
@@ -37,6 +39,13 @@ class Client:
             return Response({"code": 0, "data": {"items": [{"block_type": 23, "block_id": "file-block", "file": {"token": self.file_token, "name": self.file_name}}]}})
         if url.endswith("/drive/v1/medias/upload_all"):
             self.file_name = str(kwargs["data"]["file_name"])  # type: ignore[index]
+            return Response({"code": 0, "data": {"file_token": "file-1"}})
+        if url.endswith("/drive/v1/medias/upload_prepare"):
+            return Response({"code": 0, "data": {"upload_id": "upload-1", "block_size": 3, "block_num": 2}})
+        if url.endswith("/drive/v1/medias/upload_part"):
+            self.part_requests.append(dict(kwargs))
+            return Response({"code": 0, "data": {}})
+        if url.endswith("/drive/v1/medias/upload_finish"):
             return Response({"code": 0, "data": {"file_token": "file-1"}})
         if url.endswith("/docx/v1/documents/doc-1/blocks/file-block"):
             self.file_token = str(kwargs["json"]["replace_file"]["token"])  # type: ignore[index]
@@ -89,13 +98,45 @@ class FeishuPublishTests(unittest.TestCase):
         with self.assertRaisesRegex(FeishuError, "permission denied"):
             FeishuPublisher(self.config(), DeniedClient()).resolve_root()
 
+    def test_large_archives_use_prepare_part_finish_upload(self) -> None:
+        client = Client()
+        with tempfile.TemporaryDirectory() as directory:
+            archive = Path(directory) / "vip.zip"
+            archive.write_bytes(b"abcde")
+            result = FeishuPublisher(self.config(), client)._upload_delivery_multipart(archive, "file-block")
+        self.assertEqual(result["file_token"], "file-1")
+        self.assertEqual(len(client.part_requests), 2)
+        self.assertEqual(client.part_requests[0]["data"]["seq"], "0")  # type: ignore[index]
+        self.assertEqual(client.part_requests[1]["data"]["seq"], "1")  # type: ignore[index]
+
     def test_release_preflight_and_dry_run_are_non_mutating(self) -> None:
         root = Path(__file__).resolve().parents[2]
-        preflight(root, "v3.1.0")
+        preflight(root, "v3.1.1")
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory) / "state.json"
-            result = execute(root, "v3.1.0", dry_run=True, skip_gates=True, branch="main", state_path=state)
+            result = execute(root, "v3.1.1", dry_run=True, skip_gates=True, branch="main", state_path=state)
         self.assertEqual(result["status"], "dry-run")
+        self.assertFalse(state.exists())
+
+    def test_read_only_preflight_checks_page_without_saving_state(self) -> None:
+        class ReadyPublisher:
+            def resolve_root(self) -> dict[str, str]:
+                return {"document_id": "doc-1"}
+
+            def _vip_file_block(self, document_id: str) -> dict[str, str]:
+                self_document_id = document_id
+                return {"name": "VIP.zip", "block_id": self_document_id, "file_token": "file-1"}
+
+        root = Path(__file__).resolve().parents[2]
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory) / "state.json"
+            with patch.object(publish_release, "audit_staged_package", return_value=[]), \
+                 patch.object(publish_release, "git", return_value="https://github.com/example/factory.git"), \
+                 patch.object(publish_release.FeishuConfig, "from_environment", return_value=self.config()), \
+                 patch.object(publish_release, "FeishuPublisher", return_value=ReadyPublisher()):
+                result = inspect_preflight(root, "v3.1.1", state)
+        self.assertEqual(result["status"], "preflight-passed")
+        self.assertEqual(result["feishu_page"]["zip_name"], "VIP.zip")
         self.assertFalse(state.exists())
 
     def test_vip_package_overlays_only_member_assets_on_public_projection(self) -> None:
