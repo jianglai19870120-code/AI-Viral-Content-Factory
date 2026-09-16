@@ -1,7 +1,7 @@
 # 现役 Schema
 
 - `benchmark-topic-v4.2.schema.json`：选题表记录，固定九列：核心关键词、选题、原爆款元素、博主名、点赞数、链接、是否选中、对标复刻拆解编号、状态。第八列可用换行或 `<br>` 维护多个独立对标编号；发布绑定锁定其中一个编号，状态对多编号行回写 `已生成一`、`已生成二` 等。结构发布链接与哈希只存于数据中心发布索引。
-- `benchmark-video-structure-v2.schema.json`：已审核对标大框架三列表；只保存 FNN、名称与对应原文哈希。
+- `benchmark-video-structure-v3.schema.json`：已审核对标大/小框架四列表；对下游仍只提供聚合后的 FNN、名称与对应原文哈希。
 - `copy-structure-v16.schema.json`：活动文案结构候选；先锁选题扣题合同、三条不同母逻辑与逐节点五项 FNN 推进链，再填内容；结构三每条论据必须有可定位的出处原文证据。
 - `work-journal-case-card-v12.schema.json`：今日复盘案例卡；保留案例编号、口语化标题、第一人称案例正文与可回溯的原文证据映射。
 - `copy-structure-v15.schema.json`：历史文案结构候选，只可查阅。

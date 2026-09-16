@@ -196,10 +196,7 @@ class IpVisualV4ContractTest(unittest.TestCase):
             deck_title, _ = builder.extract_deck_title(fixture)
             parsed_pages = builder.apply_deck_title(parsed_pages, deck_title)
             spec = builder.build_page_spec(parsed_pages[0], len(parsed_pages), parsed_pages)
-            try:
-                role = builder.load_character("zhifuxingqiu-host")
-            except FileNotFoundError:
-                self.skipTest("公开包未分发私有角色素材")
+            role = builder.load_character("zhifuxingqiu-host")
             builder.attach_page_role_chain([spec], role)
             spec["render_plan"] = builder.build_render_plan(spec)
             spec["visual_blueprint"] = spec["render_plan"]["visual_blueprint"]

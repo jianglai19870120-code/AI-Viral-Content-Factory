@@ -274,7 +274,7 @@ body[data-page="assets"] .asset-preview-path { display:block; margin-top:6px; co
 body[data-page="assets"] #modal .modal-card:has(.asset-case-dialog) { width:1080px; height:720px; max-height:none; margin:120px auto; padding:30px 36px; border-color:#ded6ce; border-radius:18px; }
 body[data-page="assets"] .asset-case-dialog { display:flex; height:100%; min-height:0; flex-direction:column; }
 body[data-page="assets"] .asset-case-dialog h2 { margin:8px 0 18px; color:#352d27; font:500 30px/1.25 var(--sans); letter-spacing:.01em; }
-body[data-page="assets"] .asset-case-list { display:grid; min-height:0; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 26px; overflow:auto; border-top:1px solid #e9e2db; }
+body[data-page="assets"] .asset-case-list { display:grid; flex:1; min-height:0; grid-template-columns:minmax(0,1fr); gap:0; overflow-x:hidden; overflow-y:auto; border-top:1px solid #e9e2db; scrollbar-gutter:stable; }
 body[data-page="assets"] .asset-case-list .source-row { min-width:0; padding:15px 0; gap:14px; }
 body[data-page="assets"] .asset-case-list .source-row>div:first-child { display:grid; min-width:0; gap:8px; }
 body[data-page="assets"] .asset-case-list .source-row b { overflow:hidden; color:#463b32; font:500 16px/1.45 var(--sans); text-overflow:ellipsis; white-space:nowrap; }
@@ -1286,6 +1286,10 @@ body[data-page="today"] .today-gallery-card header .today-library-title {
   font-weight:700 !important;
   line-height:1.1 !important;
 }
+/* Only the two output-library cards use the compact, medium-weight title lockup. */
+body[data-page="today"] .today-output-library .today-library-card header .today-library-title {
+  font:500 32px/1.1 var(--sans) !important;
+}
 body[data-page="today"] .today-library-title > span {
   font:inherit !important;
   letter-spacing:inherit;
@@ -1395,6 +1399,7 @@ body[data-page="today"] .today-pending-count.is-sync-highlight {
   color:var(--orange) !important;
   font-weight:500 !important;
 }
+
 body[data-page="today"] .today-library-counts {
   flex-wrap:nowrap;
   font:200 20px/1.2 var(--sans-light);

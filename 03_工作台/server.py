@@ -255,6 +255,7 @@ TODAY_EDITOR_SURFACES = {
     "topics": {"label": "爆款选题表", "root": TOPIC_ROOT, "kind": "topic-table"},
     "cases": {"label": "对标复刻拆解", "root": ASSET_ROOT / "05_案例库" / "02_对标复刻拆解", "kind": "markdown"},
 }
+BRAND_STYLESHEET_FILES = {"tokens.css"}
 # 网页内由工作区所有者手动编辑的正文、爆款选题表与爆款结构，修改本身就是最终确认。
 # 这三类编辑直接更新正式资产，不创建候选，也不进入小审队列。
 OWNER_DIRECT_EDIT_SURFACES = {"copy", "topics", "structure"}
@@ -1141,7 +1142,8 @@ def _module_work_counts(module: dict[str, Any]) -> dict[str, int]:
     root = _module_root(module)
     module_id = str(module.get("id"))
     if module_id in {"books", "podcasts", "video-sources", "work-journals", "events"}:
-        summary = _input_inventory_payload()["summary"].get(module_id, {})
+        inventory = _input_inventory_payload()
+        summary = inventory["summary"].get(module_id, {})
         completed = int(summary.get("completed", 0))
         # "待刷新" is deliberately every source not formally completed.  This
         # includes staged review/correction rows rather than hiding them behind
@@ -1229,6 +1231,7 @@ def _input_inventory_payload() -> dict[str, Any]:
 
 
 def _invalidate_input_inventory_cache() -> None:
+    """Make an explicit folder sync observe filesystem changes immediately."""
     global INPUT_INVENTORY_CACHE
     with INPUT_INVENTORY_LOCK:
         INPUT_INVENTORY_CACHE = None
@@ -1241,8 +1244,9 @@ def _folder_sync_state_path() -> Path:
 def _folder_sync_files() -> dict[str, dict[str, str]]:
     """Return the visible source files that an explicit sync is allowed to track.
 
-    This is discovery only. The inventory rows do not start any Skill and the
-    topic/case source scans deliberately stop before their refresh tasks run.
+    This is discovery only.  The inventory rows do not start any Skill and the
+    topic/case source scans deliberately stop before their respective refresh
+    tasks are created.
     """
     inventory = _input_inventory_payload()
     files: dict[str, dict[str, str]] = {
@@ -1299,7 +1303,7 @@ def sync_workbench_folders(page: str) -> dict[str, Any]:
         snapshot = refresh_data_center(reason="folder-sync", producer="workbench")
         dashboard = dashboard_page(page)
         # Do not acknowledge the scan until every user-visible refresh result
-        # is ready. If either operation fails, keeping the former baseline
+        # is ready.  If either operation fails, keeping the former baseline
         # makes the same new/changed files visible again on the next click.
         state_path = _folder_sync_state_path()
         state_path.parent.mkdir(parents=True, exist_ok=True)
@@ -2046,6 +2050,8 @@ def _safe_brand_asset_path(relative: str) -> Path:
         target = BRAND_SYSTEM_ROOT / "社群介绍" / parts[1]
     elif len(parts) == 2 and parts[0] == "fonts" and parts[1] in BRAND_FONT_FILES:
         target = BRAND_SYSTEM_ROOT / "字体" / "OPPOSans" / parts[1]
+    elif len(parts) == 1 and parts[0] in BRAND_STYLESHEET_FILES:
+        target = BRAND_SYSTEM_ROOT / "品牌规范" / parts[0]
     else:
         raise ValueError("品牌资源不在公开白名单中")
     resolved = target.resolve()

@@ -1,35 +1,36 @@
-/* Generated brand-token source. Pages import these variables; do not redefine them locally. */
+/* AIP brand runtime source. Workbench pages import this file through
+   /brand-assets/tokens.css; do not redefine --aip-* tokens locally. */
 @font-face {
-  font-family: "OPPOSans L";
-  src: local("OPPOSans L"), local("OPPOSans Light");
+  font-family: "OPPOSans";
+  src: url("/brand-assets/fonts/OPPOSans-Variable.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: "OPPOSans";
-  src: url("../字体/OPPOSans/OPPOSans-Regular.ttf") format("truetype");
+  src: url("/brand-assets/fonts/OPPOSans-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "OPPOSans";
-  src: url("../字体/OPPOSans/OPPOSans-Medium.ttf") format("truetype");
+  src: url("/brand-assets/fonts/OPPOSans-Medium.ttf") format("truetype");
   font-style: normal;
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: "OPPOSans";
-  src: url("../字体/OPPOSans/OPPOSans-Bold.ttf") format("truetype");
+  src: url("/brand-assets/fonts/OPPOSans-Bold.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: "OPPOSans";
-  src: url("../字体/OPPOSans/OPPOSans-Heavy.ttf") format("truetype");
+  src: url("/brand-assets/fonts/OPPOSans-Heavy.ttf") format("truetype");
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -48,7 +49,7 @@
   --aip-yellow: #ffb400;
   --aip-status-gray: #8e8e8e;
   --aip-font-display: "OPPOSans", "Microsoft YaHei", sans-serif;
-  --aip-font-light: "OPPOSans L", "OPPOSans", "Microsoft YaHei", sans-serif;
+  --aip-font-light: "OPPOSans", "Microsoft YaHei", sans-serif;
   --aip-font-sidebar: "Adobe Fangsong Std", FangSong, serif;
   --aip-weight-light: 300;
   --aip-weight-display: 700;

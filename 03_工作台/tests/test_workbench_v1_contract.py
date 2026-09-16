@@ -77,11 +77,7 @@ class WorkbenchV1ContractTest(unittest.TestCase):
         self.assertEqual(modules["events"]["skill"], "")
         for skill_id in expected.values():
             self.assertIn(skill_id, registered_skills, f"工作台路由未进入中央 Skill 注册表：{skill_id}")
-            source_root = WEAPON_ROOT / str(registered_skills[skill_id]["sourceDir"])
-            source = source_root / "SKILL.md"
-            if not source.is_file():
-                self.assertIn("（会员专享）", source_root.name, f"工作台路由缺少公开源 Skill：{skill_id}")
-                self.assertTrue((source_root / ".gitkeep").is_file(), f"工作台路由缺少会员 Skill 占位：{skill_id}")
+            self.assertTrue((WEAPON_ROOT / str(registered_skills[skill_id]["sourceDir"]) / "SKILL.md").is_file(), f"工作台路由未绑定武器库源 Skill：{skill_id}")
             skill_file = CODEX_SKILL_ROOT / skill_id / "SKILL.md"
             self.assertTrue(skill_file.is_file(), f"工作台路由缺少已安装 Skill：{skill_id}")
             self.assertTrue(skill_body(skill_file), f"工作台路由 Skill 为空：{skill_id}")
@@ -92,13 +88,9 @@ class WorkbenchV1ContractTest(unittest.TestCase):
             skill_id = item["id"]
             source = WEAPON_ROOT / item["sourceDir"] / "SKILL.md"
             mirror = CODEX_SKILL_ROOT / skill_id / "SKILL.md"
-            if not source.is_file():
-                source_root = source.parent
-                self.assertIn("（会员专享）", source_root.name, f"武器库源 Skill 不存在：{skill_id}")
-                self.assertTrue((source_root / ".gitkeep").is_file(), f"会员 Skill 占位不存在：{skill_id}")
+            self.assertTrue(source.is_file(), f"武器库源 Skill 不存在：{skill_id}")
             self.assertTrue(mirror.is_file(), f"Codex 镜像 Skill 不存在：{skill_id}")
-            if source.is_file():
-                self.assertTrue(skill_body(source), f"武器库源 Skill 为空：{skill_id}")
+            self.assertTrue(skill_body(source), f"武器库源 Skill 为空：{skill_id}")
             self.assertTrue(skill_body(mirror), f"Codex 镜像 Skill 为空：{skill_id}")
 
     def test_reserved_team_members_are_registered_with_existing_portraits(self):
@@ -374,12 +366,8 @@ class WorkbenchV1ContractTest(unittest.TestCase):
         for item in registry["cases"]:
             breakdown = ROOT / item["breakdownPath"]
             receipt = FORMAL_AUDIT_ROOT / f"{item['id']}_审核回执.json"
-            if not breakdown.is_file():
-                member_root = next((parent for parent in breakdown.parents if "（会员专享）" in parent.name), None)
-                self.assertIsNotNone(member_root, f"对标复刻拆解路径失效：{item['id']}")
-                self.assertTrue((member_root / ".gitkeep").is_file(), f"会员对标复刻拆解占位缺失：{item['id']}")
-            if receipt.exists():
-                self.assertTrue(receipt.is_file(), f"对标复刻拆解审核回执路径无效：{item['id']}")
+            self.assertTrue(breakdown.is_file(), f"对标复刻拆解路径失效：{item['id']}")
+            self.assertTrue(receipt.is_file(), f"对标复刻拆解缺少正式审核回执：{item['id']}")
 
     def test_desktop_bridge_never_treats_queueing_as_a_confirmed_open(self):
         frontend = FRONTEND.read_text(encoding="utf-8")

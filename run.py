@@ -58,10 +58,8 @@ def doctor() -> int:
     try:
         registry = json.loads((ROOT / "00_系统说明" / "system-registry.json").read_text(encoding="utf-8"))
         for skill in registry.get("skills", []):
-            source_root = ROOT / "10_Skills武器库" / str(skill.get("sourceDir", ""))
-            source = source_root / "SKILL.md"
-            member_placeholder = "（会员专享）" in source_root.name and (source_root / ".gitkeep").is_file()
-            if not source.is_file() and not member_placeholder:
+            source = ROOT / "10_Skills武器库" / str(skill.get("sourceDir", "")) / "SKILL.md"
+            if not source.is_file():
                 failures.append(f"Skill 真源缺失：{skill.get('id')}")
     except (OSError, json.JSONDecodeError) as exc:
         failures.append(f"无法读取系统注册表：{exc}")
@@ -167,6 +165,15 @@ def main() -> int:
     install_parser = sub.add_parser("install"); install_parser.add_argument("--dev", action="store_true"); install_parser.add_argument("--workbench-service", action="store_true")
     workbench_parser = sub.add_parser("workbench"); workbench_parser.add_argument("mode", choices=["start", "status", "stop", "install", "uninstall"], default="start", nargs="?")
     release = sub.add_parser("release-check"); release.add_argument("--output")
+    package = sub.add_parser("package", help="构建单一发布包")
+    package.add_argument("target", choices=["github", "skillhub", "workbuddy-expert"])
+    package.add_argument("--output")
+    publish = sub.add_parser("publish", help="发布 GitHub 免费版和飞书会员版")
+    publish.add_argument("--version", required=True)
+    publish.add_argument("--branch", default="main")
+    publish.add_argument("--dry-run", action="store_true")
+    publish.add_argument("--skip-gates", action="store_true")
+    publish.add_argument("--state")
     args = parser.parse_args()
     if args.command == "copy-structure": return run_python(ROOT / "10_Skills武器库" / "文案结构生成 Skill" / "scripts" / "prepare_structure_task.py", "--topic", args.topic, "--benchmark-id", args.benchmark_id, "--output", args.output)
     if args.command == "final-copy-plan": return run_python(ROOT / "10_Skills武器库" / "正文成稿生成 Skill" / "scripts" / "prepare_copy_task.py", "--structure-four", args.structure_four, "--output", args.output)
@@ -185,6 +192,16 @@ def main() -> int:
     if args.command == "workbench": return workbench(args.mode)
     if args.command == "audit-baseline": return run_python(ROOT / "tools" / "quality" / "audit_github_baseline.py")
     if args.command == "release-check": return run_command([sys.executable, "tools/quality/release_check.py", *( ["--output", args.output] if args.output else [])])
+    if args.command == "package":
+        command = ["tools/release/build_release.py", args.target]
+        if args.output: command.extend(["--output", args.output])
+        return run_command([sys.executable, *command])
+    if args.command == "publish":
+        command = ["tools/release/publish_v31.py", "--version", args.version, "--branch", args.branch]
+        if args.dry_run: command.append("--dry-run")
+        if args.skip_gates: command.append("--skip-gates")
+        if args.state: command.extend(["--state", args.state])
+        return run_command([sys.executable, *command])
     return 1
 
 

@@ -161,7 +161,7 @@ def _entities() -> list[dict[str, Any]]:
         status = "approved" if receipt_matches_current else "unverified"
         if path.is_file():
             try:
-                from workflow.benchmark_structure_v2 import framework_payload, parse_markdown
+                from workflow.benchmark_structure_v3 import framework_payload, parse_markdown
                 blocks = framework_payload(parse_markdown(path))
                 blueprint_hash = hashlib.sha256(json.dumps(blocks, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
                 usable = status == "approved" and bool(blocks)
@@ -180,7 +180,7 @@ def _entities() -> list[dict[str, Any]]:
                 "auditStatus":status,
                 "auditReceiptPath":_relative(receipt) if receipt else "",
                 "caseListPath":"02_资产中心/05_案例库/清单/对标案例清单.jsonl",
-                "statusReason":"当前三列表与源稿哈希均已获小审 approved" if status == "approved" else "当前正式文件未取得匹配哈希的 approved 小审回执",
+                "statusReason":"当前四列表与源稿哈希均已获小审 approved" if status == "approved" else "当前正式文件未取得匹配哈希的 approved 小审回执",
                 "frameworkBlocks":receipt_data.get("framework_blocks", []),
                 "bigFrameworkUsable":usable,
             })

@@ -8,15 +8,12 @@ from pathlib import Path
 
 
 SCRIPT = Path(__file__).resolve().parents[1] / "query" / "search_video_modules.py"
-MODULE = None
-if SCRIPT.is_file():
-    SPEC = importlib.util.spec_from_file_location("search_video_modules", SCRIPT)
-    assert SPEC and SPEC.loader
-    MODULE = importlib.util.module_from_spec(SPEC)
-    SPEC.loader.exec_module(MODULE)
+SPEC = importlib.util.spec_from_file_location("search_video_modules", SCRIPT)
+assert SPEC and SPEC.loader
+MODULE = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(MODULE)
 
 
-@unittest.skipIf(MODULE is None, "公开包未分发仅本机查询脚本")
 class SearchVideoModulesTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory()

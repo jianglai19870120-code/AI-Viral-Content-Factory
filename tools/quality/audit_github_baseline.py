@@ -141,11 +141,7 @@ def audit_staged_package(root: Path) -> list[str]:
             text = path.read_text(encoding="utf-8", errors="ignore")
             if any(marker in text for marker in FORBIDDEN_MARKERS):
                 failures.append(f"公开暂存包包含旧项目路径：{relative.as_posix()}")
-            check_host_path = (
-                path.suffix.lower() in {".py", ".ps1", ".json", ".jsonl", ".toml"}
-                or relative.parts[0] in {"workflow", "tools", "03_工作台"}
-            )
-            if check_host_path and HOST_PATH_PATTERN.search(text):
+            if HOST_PATH_PATTERN.search(text):
                 failures.append(f"公开暂存包包含本机绝对路径：{relative.as_posix()}")
     return failures
 
@@ -173,12 +169,9 @@ def audit_skills(root: Path, registry: dict) -> tuple[list[dict], list[str]]:
         adapter_root = root / ".agents" / "skills" / skill["id"]
         adapter_skill = adapter_root / "SKILL.md"
         portable_codex = skill.get("codexDistribution") == "global-portable"
-        member_placeholder_only = skill["releaseStatus"] == "member-exclusive" and not source_skill.is_file()
-        if not source_skill.is_file() and not member_placeholder_only:
+        if not source_skill.is_file():
             issues.append("真源 SKILL.md 缺失")
-        if member_placeholder_only and not (source_root / ".gitkeep").is_file():
-            issues.append("会员 Skill 公开占位缺失")
-        if "codex" in skill["platforms"] and not member_placeholder_only:
+        if "codex" in skill["platforms"]:
             if portable_codex:
                 required_portable_files = (
                     source_root / "agents" / "openai.yaml",
@@ -198,7 +191,7 @@ def audit_skills(root: Path, registry: dict) -> tuple[list[dict], list[str]]:
         for schema_name in (skill["inputSchema"], skill["outputSchema"]):
             if str(schema_name).endswith(".schema.json") and not (root / "schemas" / schema_name).is_file():
                 issues.append(f"Schema 缺失: {schema_name}")
-        if adapter_root.is_dir() and not portable_codex and not member_placeholder_only:
+        if adapter_root.is_dir() and not portable_codex:
             expected = codex_files(root, registry, skill)
             current = directory_files(adapter_root)
             if digest(expected) != digest(current):

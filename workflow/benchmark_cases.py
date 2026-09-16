@@ -135,8 +135,8 @@ def validate_owner_approved_case_edit(*, previous_breakdown: Path, breakdown_mar
     first_line = content.splitlines()[0].strip() if content.splitlines() else ""
     if first_line not in {f"# {target.stem}", f"# {normalized_stem}"}:
         raise ValueError("标题加 √ 后，H1 必须保留同一案例标题")
-    if "| 编号 | 大框架 | 大框架原文内容 |" not in content:
-        raise ValueError("手动确认的对标拆解必须保留大框架三列表")
+    if "| 编号 | 大框架 | 小框架 | 小框架原文内容 |" not in content:
+        raise ValueError("手动确认的对标拆解必须保留大/小框架四列表")
     return case_id
 
 

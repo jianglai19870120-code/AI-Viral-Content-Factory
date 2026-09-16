@@ -3,7 +3,7 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
-from tools.release.public_policy import classify
+from tools.release.public_policy import HOST_PATH_PATTERN, classify
 
 
 class PublicReleasePolicyTests(unittest.TestCase):
@@ -40,3 +40,8 @@ class PublicReleasePolicyTests(unittest.TestCase):
     def test_member_file_name_does_not_hide_non_member_directory(self) -> None:
         named_file = Path("02_资产中心/01_输入库/公开资料/示例（会员专享）.md")
         self.assertEqual(classify(named_file)[0], "public")
+
+    def test_local_posix_paths_are_detected_without_matching_web_urls(self) -> None:
+        local_path = "/" + "home/" + "alice/private/file.md"
+        self.assertIsNotNone(HOST_PATH_PATTERN.search(local_path))
+        self.assertIsNone(HOST_PATH_PATTERN.search("https://example.com/home/alice/file.md"))

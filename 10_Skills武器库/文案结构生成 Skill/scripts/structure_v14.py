@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[3]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from workflow.benchmark_cases import approved_case
-from workflow.benchmark_structure_v2 import digest,parse_markdown
+from workflow.benchmark_structure_v3 import digest,parse_markdown
 
 FORMAL={"观点","痛点","误区","解决方案","案例","推荐理由"}
 # These labels are always support-only even though some include a formal type
@@ -46,8 +46,11 @@ def framework_function(label:str,kind:str|None)->str:
         return FRAMEWORK_FUNCTIONS[kind]
     return f"完成“{normalized}”在全文中的承接、推进或收束功能，并与相邻 FNN 框架连贯衔接。"
 def framework_rows(path:Path)->list[dict]:
-    rows=[]
+    rows=[]; seen=set()
     for row in parse_markdown(path):
+        if row['编号'] in seen:
+            continue
+        seen.add(row['编号'])
         name=row['大框架'];kind=formal_type(name)
         rows.append({'core_framework_id':f"CF-{row['编号']}",'framework_block_id':row['编号'],'framework_label':name,'framework_function':framework_function(name,kind),'formal_framework_type':kind,'asset_framework_type':kind})
     return rows

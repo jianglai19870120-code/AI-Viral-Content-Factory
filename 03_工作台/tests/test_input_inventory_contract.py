@@ -148,6 +148,21 @@ class InputInventoryContractTest(unittest.TestCase):
         self.assertEqual(correction_batch["batch_number"], 2)
         self.assertEqual([item["source_id"] for item in correction_batch["sources"]], ["VS-test-000002"])
 
+    def test_raw_video_file_is_visible_as_pending_refresh_without_a_manifest(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            raw = root / "02_资产中心" / "01_输入库" / "04_视频文案-源文件（会员专享）" / "新复制的视频原始表.xlsx"
+            raw.parent.mkdir(parents=True)
+            raw.write_bytes(b"copied-video-workbook")
+
+            rows = [row for row in build_inventory(root) if row["source_type"] == "video-sources"]
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["title"], "新复制的视频原始表")
+        self.assertEqual(rows[0]["status"], "未拆解")
+        self.assertEqual(rows[0]["source_origin"], "manual-file")
+        self.assertIn("用户已确认", rows[0]["status_reason"])
+
     def test_video_workbench_prefers_v2_rebuild_ledger_over_legacy_state(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

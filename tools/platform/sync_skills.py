@@ -69,14 +69,7 @@ def skill_platforms(skill: dict) -> list[str]:
 
 def codex_files(root: Path, registry: dict, skill: dict) -> dict[str, bytes]:
     source = root / "10_Skills武器库" / skill["sourceDir"] / "SKILL.md"
-    member_placeholder = "（会员专享）" in str(skill["sourceDir"]) and not source.is_file()
-    if not source.is_file() and not member_placeholder:
-        raise FileNotFoundError(f"注册 Skill 缺少 SKILL.md：{source}")
-    description = (
-        f"{skill['displayName']}为会员专享能力；公开包只提供安装识别入口，不包含执行内容。"
-        if member_placeholder
-        else parse_description(source)
-    )
+    description = parse_description(source)
     canonical = f"10_Skills武器库/{skill['sourceDir']}/SKILL.md"
     display_name = product_name(registry)
     activation = activation_metadata(root, registry, skill)
@@ -86,22 +79,7 @@ def codex_files(root: Path, registry: dict, skill: dict) -> dict[str, bytes]:
             f"0. 正式执行前必须运行 `python run.py activate-skill {skill['id']} --repair --target codex`；"
             "只有合同激活结果为 approved 才能创建调度、生成 runtime 或发布正式文件。\n"
         )
-    if member_placeholder:
-        body = f"""---
-name: {skill['id']}
-description: {description}
----
-
-# {skill['displayName']}
-
-这是{display_name}的会员专享 Skill 公开安装入口。
-
-当前合同版本：`{skill_version(registry, skill)}`。
-
-该公开仓不含该 Skill 的执行内容；配置会员内容后再进行实际同步与调用。
-"""
-    else:
-        body = f"""---
+    body = f"""---
 name: {skill['id']}
 description: {description}
 ---

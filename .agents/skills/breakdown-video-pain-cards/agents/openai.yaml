@@ -1,4 +1,4 @@
 interface:
   display_name: "视频文案-痛点卡拆解Skill（会员专享）"
-  short_description: "视频文案-痛点卡拆解Skill（会员专享）为会员专享能力；公开包只提供安装识别入口，不包含执行内容。"
+  short_description: "将已标准化的视频文案一次拆为可追溯的痛点场景证据，并路由痛点卡、观点和误区候选；用于视频文案模块化，不用于正文成稿或替代小审。"
   default_prompt: "使用 $breakdown-video-pain-cards 按AI爆款内容工厂正式调度和审核链执行任务。"

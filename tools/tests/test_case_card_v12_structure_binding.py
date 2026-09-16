@@ -16,10 +16,7 @@ from structure_v16 import validate_case_card_binding  # noqa: E402
 
 class CaseCardV12StructureBindingTest(unittest.TestCase):
     def test_case_copy_must_be_used_verbatim(self):
-        cards = list((ROOT / "02_资产中心" / "02_处理库" / "05_案例_内容模块（会员专享）" / "01_案例卡").rglob("CASE-*.md"))
-        if not cards:
-            self.skipTest("公开包不分发会员案例卡正文")
-        card = cards[0]
+        card = next((ROOT / "02_资产中心" / "02_处理库" / "05_案例_内容模块（会员专享）" / "01_案例卡").rglob("CASE-*.md"))
         text = card.read_text(encoding="utf-8")
         case_copy = re.search(r"^##\s*可直接调用案例\s*\n+(.+?)(?=^##\s|\Z)", text, re.MULTILINE | re.DOTALL)
         self.assertIsNotNone(case_copy)

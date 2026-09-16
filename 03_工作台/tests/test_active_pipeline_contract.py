@@ -109,6 +109,17 @@ class ActivePipelineContractTest(unittest.TestCase):
         self.assertIn("$breakdown-video-pain-cards", prompt)
         self.assertIn("小息校对", prompt)
 
+    def test_video_refresh_accepts_user_confirmed_raw_files_without_an_extra_intake_step(self):
+        server = load_server()
+        module = server._today_module_index()["video-sources"]
+        prompt = server._today_module_prompt(module, ["video-sources-x｜用户确认输入：02_资产中心/输入.xlsx"], video_source_import=[{
+            "source_id": "video-sources-x", "source_path": "02_资产中心/输入.xlsx",
+        }])
+        self.assertIn("用户已手动放入视频文案输入目录", prompt)
+        self.assertIn("$standardize-and-inventory-sources", prompt)
+        self.assertIn("$breakdown-video-pain-cards", prompt)
+        self.assertNotIn("待入库", prompt)
+
     def test_video_refresh_can_resume_an_active_batch_instead_of_reporting_no_batch(self):
         server = load_server()
         module = server._today_module_index()["video-sources"]
@@ -243,7 +254,7 @@ class ActivePipelineContractTest(unittest.TestCase):
         server = load_server()
         with tempfile.TemporaryDirectory() as temporary:
             source = Path(temporary) / "干货型_测试【观点】GHX-001.md"
-            content = "# 干货型_测试【观点】GHX-001\n\n| 编号 | 大框架 | 大框架原文内容 |\n| --- | --- | --- |\n| 1 | 观点 | 内容 |\n"
+            content = "# 干货型_测试【观点】GHX-001\n\n| 编号 | 大框架 | 小框架 | 小框架原文内容 |\n| --- | --- | --- | --- |\n| F01 | 观点 | 核心观点 | 内容 |\n"
             source.write_text(content, encoding="utf-8")
             previous_root = server.TODAY_CANDIDATE_ROOT
             previous_resolver = server._today_editor_resolve_file

@@ -96,7 +96,7 @@ def benchmark_case_rows(project_root: Path) -> list[dict[str, Any]]:
         try:
             approved = approved_case(case_id)
             audit = Path(approved["auditPath"])
-            status, reason = "已拆解", "当前三列表与源稿哈希均已获小审 approved"
+            status, reason = "已拆解", "当前四列表与源稿哈希均已获小审 approved"
         except ValueError:
             pass
         rows.append({
@@ -123,7 +123,7 @@ def refresh_benchmark_case_list(project_root: Path) -> int:
         for row in rows
     )
     markdown = output / "对标案例清单.md"
-    _atomic_write(markdown, _table("对标案例清单", ["案例编号", "类型", "案例标题", "源稿路径", "正式三列表路径", "审核状态", "源稿哈希", "拆解哈希", "审核回执路径", "状态原因"], markdown_rows))
+    _atomic_write(markdown, _table("对标案例清单", ["案例编号", "类型", "案例标题", "源稿路径", "正式四列表路径", "审核状态", "源稿哈希", "拆解哈希", "审核回执路径", "状态原因"], markdown_rows))
     append_brand_footer(markdown)
     return len(rows)
 

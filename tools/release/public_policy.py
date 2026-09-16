@@ -20,6 +20,10 @@ HOST_PATH_PATTERN = re.compile(
     r"(?:[A-Za-z]:[\\/](?:Users[\\/](?:Administrator|ADMINI~1)|"
     + re.escape(PROJECT_DIRECTORY_NAME)
     + r"|AI流量团队2\.0)|"
+    # Do not mistake normal web URLs such as ``https://example.com/home/x``
+    # for a POSIX home directory.  A local /home path starts at the beginning
+    # of text or after a non URL-name character.
+    + r"(?<![A-Za-z0-9._:-])"
     + re.escape(POSIX_HOME_PREFIX)
     + r"[^/]+/)",
     re.IGNORECASE,

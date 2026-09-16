@@ -88,7 +88,7 @@ class BenchmarkCaseSyncTests(unittest.TestCase):
             registry.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
             checked = current.with_name(f"√{current.name}")
             checked.write_text(
-                f"# {current.stem}\n\n| 编号 | 大框架 | 大框架原文内容 |\n| --- | --- | --- |\n| 1 | 观点 | 内容 |\n",
+                f"# {current.stem}\n\n| 编号 | 大框架 | 小框架 | 小框架原文内容 |\n| --- | --- | --- | --- |\n| F01 | 观点 | 核心观点 | 内容 |\n",
                 encoding="utf-8",
             )
             result = cases.record_owner_approved_case_edit(previous_breakdown=current, breakdown_markdown=checked)

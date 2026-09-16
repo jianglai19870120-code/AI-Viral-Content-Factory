@@ -3,7 +3,8 @@
     "name": "AI爆款内容工厂品牌设计系统",
     "version": "1.0.0",
     "desktopReference": "1920x1080",
-    "sourceOfTruth": "03_工作台/01_品牌设计系统/页面定稿"
+    "sourceOfTruth": "03_工作台/01_品牌设计系统/页面定稿",
+    "runtimeStylesheet": "/brand-assets/tokens.css"
   },
   "color": {
     "ink": "#151515",
@@ -20,7 +21,7 @@
     "statusGray": "#8E8E8E"
   },
   "typography": {
-    "light": {"fontFamily": "OPPOSans L, OPPOSans, Microsoft YaHei, sans-serif", "fontWeight": 300, "usage": "细说明、模块两行名称、辅助文字"},
+    "light": {"fontFamily": "OPPOSans, Microsoft YaHei, sans-serif", "fontWeight": 300, "usage": "细说明、模块两行名称、辅助文字；由 OPPOSans Variable 文件提供"},
     "display": {"fontFamily": "OPPOSans, Microsoft YaHei, sans-serif", "fontWeight": 700, "usage": "核心数字、主任务标题"},
     "heading": {"fontFamily": "OPPOSans, Microsoft YaHei, sans-serif", "fontWeight": 500, "usage": "页面标题、卡片标题、按钮、日期"},
     "body": {"fontFamily": "OPPOSans, Microsoft YaHei, sans-serif", "fontWeight": 400, "usage": "状态、说明、表格、英文副标"},

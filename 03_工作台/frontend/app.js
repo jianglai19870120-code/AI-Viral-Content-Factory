@@ -93,7 +93,6 @@ const icons = {
 };
 const nav = [{id:'today',label:'今日工作',crumb:'AI爆款内容工厂 / 今日工作',icon:'today'}, {id:'pipeline',label:'爆款流水线',crumb:'内容生产 / 爆款流水线',icon:'pipeline'}, {id:'assets',label:'资产中心',crumb:'内容资产 / 资产中心',icon:'assets'}, {id:'team',label:'我的AI团队',crumb:'系统协作 / 我的AI团队',icon:'team'}, {id:'data',label:'数据中心',crumb:'系统数据 / 数据中心',icon:'data'}];
 const fallbackTypes = [{id:'dry-goods',name:'干货型',available:true},{id:'recommend',name:'推荐型',available:false,memberOnly:true},{id:'acquisition',name:'获客型',available:false,memberOnly:true},{id:'hot-events',name:'热点事件型',available:false,memberOnly:true},{id:'podcast',name:'播客解读型',available:false,memberOnly:true}];
-
 const API_TIMEOUT_MS = 20000;
 async function api(path, options = {}) {
   const { timeoutMs = API_TIMEOUT_MS, headers: customHeaders = {}, signal: externalSignal, ...fetchOptions } = options;
@@ -399,7 +398,8 @@ async function syncWorkbenchData() {
     state.motionReason = 'manual-refresh';
     render();
     const sync=result.sync?.changes||{}, totals=Object.values(sync).reduce((all,item)=>({added:all.added+Number(item.added||0),changed:all.changed+Number(item.changed||0),removed:all.removed+Number(item.removed||0)}),{added:0,changed:0,removed:0});
-    toast(`已同步文件夹：新增 ${totals.added} · 变更 ${totals.changed} · 移除 ${totals.removed}`);
+    const changeText=`新增 ${totals.added} · 变更 ${totals.changed} · 移除 ${totals.removed}`;
+    toast(`已同步文件夹：${changeText}`);
   } catch (error) {
     toast(error.message || '同步失败，已保留当前数据');
   } finally {
@@ -551,7 +551,7 @@ function renderPageLoading(){
   const label=nav.find(item=>item.id===state.page)?.label||'工作台';
   return `<section class="workbench-page-loading" role="status" aria-live="polite"><div class="workbench-loading-mark"></div><p>正在打开${esc(label)}…</p></section>`;
 }
-function render(){ const motionReason=state.motionReason||'none'; document.body.dataset.page=state.page; document.body.classList.toggle('today-editor-open',state.page==='today'&&Boolean(state.todayEditor)); renderNav(); const type=currentType(); const typeName=$('#typeName'), mobileTypeName=$('#mobileTypeName'), sideType=$('#sideType'); if(typeName)typeName.textContent=type.name; if(mobileTypeName)mobileTypeName.textContent=type.name; if(sideType)sideType.textContent=type.name; renderTypeMenu(); const renderers={today:state.todayEditor?renderTodayEditor:renderToday,pipeline:renderPipeline,assets:renderAssets,team:renderTeam,data:renderData}; const app=$('#app'); app.dataset.motion=motionReason; app.innerHTML=state.pageLoading?renderPageLoading():renderers[state.page](); if(state.page==='data'&&state.dataAnimationRequested&&!state.pageLoading){ animateDataMetrics(); state.dataAnimationRequested=false; } state.motionReason='none'; bindPageEvents(); fitWorkbenchCanvas(); scheduleTaskRefresh(); scheduleTeamCycle(motionReason); if(state.page==='today'&&state.todayEditor&&!state.todayEditor.catalogLoaded)hydrateTodayEditor(state.todayEditor); }
+function render(){ const motionReason=state.motionReason||'none'; document.body.dataset.page=state.page; document.body.classList.toggle('today-editor-open',state.page==='today'&&Boolean(state.todayEditor)); renderNav(); const type=currentType(); const typeName=$('#typeName'), mobileTypeName=$('#mobileTypeName'), sideType=$('#sideType'); if(typeName)typeName.textContent=type.name; if(mobileTypeName)mobileTypeName.textContent=type.name; if(sideType)sideType.textContent=type.name; renderTypeMenu(); const renderers={today:state.todayEditor?renderTodayEditor:renderToday,pipeline:renderPipeline,assets:renderAssets,team:renderTeam,data:renderData}; const app=$('#app'); app.dataset.motion=motionReason; if(state.pageLoading){app.innerHTML=renderPageLoading();}else{app.innerHTML=renderers[state.page]();} if(state.page==='data'&&state.dataAnimationRequested&&!state.pageLoading){ animateDataMetrics(); state.dataAnimationRequested=false; } state.motionReason='none'; bindPageEvents(); fitWorkbenchCanvas(); scheduleTaskRefresh(); scheduleTeamCycle(motionReason); if(state.page==='today'&&state.todayEditor&&!state.todayEditor.catalogLoaded)hydrateTodayEditor(state.todayEditor); }
 function todayControl(item){
   if(item.target?.kind==='refresh') return `<button class="today-card-action refresh" type="button" data-today-refresh="${esc(item.target.action)}" aria-label="${esc(item.title)}"><img src="${brandAsset('icons/refresh.svg')}" alt=""></button>`;
   if(item.target?.kind==='folder'||item.target?.kind==='editor') return `<i class="today-card-action">${brandIcon('chevron-right')}</i>`;
@@ -638,7 +638,10 @@ function parseStructureDocument(content){
         rows.push(row);
         index+=1;
       }
-      blocks.push({kind:'table',columns,divider:markdownTableCells(lines[index-1]),rows});
+      // Preserve the actual divider line. `index - 1` is the final data row
+      // after the loop above; saving that value as the divider drops `---`
+      // and makes the next preview fall back to raw Markdown pipes.
+      blocks.push({kind:'table',columns,divider:markdownTableCells(lines[dividerIndex]),rows});
       continue;
     }
     text.push(lines[index]);
@@ -705,11 +708,28 @@ function structureTableColumnWidths(count){
   const remaining=(100-first)/(count-1);
   return Array.from({length:count},(_,index)=>index===0?first:remaining);
 }
+function isCaseStructureTable(block){
+  return Array.isArray(block?.columns)&&block.columns.join('|')==='编号|大框架|小框架|小框架原文内容';
+}
+function caseStructureTableHTML(block,blockIndex,editable){
+  const cell=(value,columnIndex,rowIndex,extra='')=>`<td ${extra}><div class="today-structure-cell" ${editable?`contenteditable="true" spellcheck="false" role="textbox" aria-multiline="true" data-structure-cell data-block="${blockIndex}" data-row="${rowIndex}" data-column="${columnIndex}" aria-label="${esc(block.columns[columnIndex])}"`:''}>${structureInlineMarkdownHTML(value)}</div></td>`;
+  const header=block.columns.map((column,columnIndex)=>`<th><div class="today-structure-cell" ${editable?`contenteditable="true" spellcheck="false" data-structure-header data-block="${blockIndex}" data-column="${columnIndex}"`:''}>${structureInlineMarkdownHTML(column)}</div></th>`).join('');
+  const body=block.rows.map((row,rowIndex)=>{
+    const prior=block.rows[rowIndex-1];
+    const isGroupStart=!prior||prior[0]!==row[0]||prior[1]!==row[1];
+    let span=1;
+    while(block.rows[rowIndex+span]&&block.rows[rowIndex+span][0]===row[0]&&block.rows[rowIndex+span][1]===row[1])span+=1;
+    const grouped=isGroupStart?`${cell(row[0],0,rowIndex,`rowspan="${span}" class="today-case-merged-cell"`)}${cell(row[1],1,rowIndex,`rowspan="${span}" class="today-case-merged-cell"`)}`:'';
+    return `<tr>${grouped}${cell(row[2],2,rowIndex)}${cell(row[3],3,rowIndex)}</tr>`;
+  }).join('');
+  return `<div class="today-structure-table-wrap today-case-structure-table-wrap"><table class="today-structure-table today-case-structure-table"><colgroup><col style="width:8%"><col style="width:12%"><col style="width:18%"><col style="width:62%"></colgroup><thead><tr>${header}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
 function structureDocumentHTML(file,{editable=true}={}){
   const structureDocument=file.structureDocument||parseStructureDocument(file.content||'');
   file.structureDocument=structureDocument;
   return `<article class="today-structure-editor">${structureDocument.blocks.map((block,blockIndex)=>{
     if(block.kind==='text')return `<section ${editable?`data-structure-text-block="${blockIndex}"`:''}>${structureTextHTML(block.content,editable)}</section>`;
+    if(isCaseStructureTable(block))return caseStructureTableHTML(block,blockIndex,editable);
     const widths=structureTableColumnWidths(block.columns.length);
     return `<div class="today-structure-table-wrap"><table class="today-structure-table"><colgroup>${widths.map(width=>`<col style="width:${width.toFixed(4)}%">`).join('')}</colgroup><thead><tr>${block.columns.map((column,columnIndex)=>`<th><div class="today-structure-cell" ${editable?`contenteditable="true" spellcheck="false" data-structure-header data-block="${blockIndex}" data-column="${columnIndex}"`:''}>${structureInlineMarkdownHTML(column)}</div></th>`).join('')}</tr></thead><tbody>${block.rows.map((row,rowIndex)=>`<tr>${row.map((value,columnIndex)=>`<td><div class="today-structure-cell" ${editable?`contenteditable="true" spellcheck="false" role="textbox" aria-multiline="true" data-structure-cell data-block="${blockIndex}" data-row="${rowIndex}" data-column="${columnIndex}" aria-label="${esc(block.columns[columnIndex])}"`:''}>${structureInlineMarkdownHTML(value)}</div></td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }).join('')}</article>`;
