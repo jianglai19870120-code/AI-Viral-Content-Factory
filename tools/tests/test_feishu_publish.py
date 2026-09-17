@@ -3,13 +3,14 @@ from __future__ import annotations
 import tempfile
 import unittest
 import zipfile
+import json
 from pathlib import Path
 from unittest.mock import patch
 
 import requests
 
 from tools.release.feishu_publish import FeishuConfig, FeishuError, FeishuPublisher, root_token
-from tools.release.build_feishu_delivery import build_from_public_stage
+from tools.release.build_feishu_delivery import MEMBER_CASE_REGISTRY, build_from_public_stage
 from tools.release import publish_release
 from tools.release.publish_release import execute, inspect_preflight, preflight
 
@@ -111,10 +112,10 @@ class FeishuPublishTests(unittest.TestCase):
 
     def test_release_preflight_and_dry_run_are_non_mutating(self) -> None:
         root = Path(__file__).resolve().parents[2]
-        preflight(root, "v3.2.0")
+        preflight(root, "v3.2.1")
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory) / "state.json"
-            result = execute(root, "v3.2.0", dry_run=True, skip_gates=True, branch="main", state_path=state)
+            result = execute(root, "v3.2.1", dry_run=True, skip_gates=True, branch="main", state_path=state)
         self.assertEqual(result["status"], "dry-run")
         self.assertFalse(state.exists())
 
@@ -134,7 +135,7 @@ class FeishuPublishTests(unittest.TestCase):
                  patch.object(publish_release, "git", return_value="https://github.com/example/factory.git"), \
                  patch.object(publish_release.FeishuConfig, "from_environment", return_value=self.config()), \
                  patch.object(publish_release, "FeishuPublisher", return_value=ReadyPublisher()):
-                result = inspect_preflight(root, "v3.2.0", state)
+                result = inspect_preflight(root, "v3.2.1", state)
         self.assertEqual(result["status"], "preflight-passed")
         self.assertEqual(result["feishu_page"]["zip_name"], "VIP.zip")
         self.assertFalse(state.exists())
@@ -149,6 +150,14 @@ class FeishuPublishTests(unittest.TestCase):
             registry = '{"system":{"displayName":"测试工厂","version":"3.1.0"}}\n'
             (root / "00_系统说明/system-registry.json").write_text(registry, encoding="utf-8")
             (stage / "00_系统说明/system-registry.json").write_text(registry, encoding="utf-8")
+            (root / MEMBER_CASE_REGISTRY).write_text(
+                json.dumps({"schema": "benchmark-case-registry-v1", "typeCodes": {"晒成果型": "SCHX"}, "cases": [{"caseId": "SCHX-001"}]}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            (stage / MEMBER_CASE_REGISTRY).write_text(
+                json.dumps({"schema": "benchmark-case-registry-v1", "typeCodes": {}, "cases": []}, ensure_ascii=False),
+                encoding="utf-8",
+            )
             (stage / "README.md").write_text("public", encoding="utf-8")
             member = root / "02_资产中心/资料（会员专享）"
             member.mkdir(parents=True)
@@ -156,9 +165,12 @@ class FeishuPublishTests(unittest.TestCase):
             result = build_from_public_stage(root, stage, output, baseline="test")
             with zipfile.ZipFile(output) as archive:
                 names = archive.namelist()
+                registry_name = next(name for name in names if name.endswith(MEMBER_CASE_REGISTRY.as_posix()))
+                delivered_case_registry = json.loads(archive.read(registry_name).decode("utf-8"))
         self.assertTrue(any(name.endswith("README.md") for name in names))
         self.assertTrue(any(name.endswith("资料（会员专享）/vip.md") for name in names))
-        self.assertEqual(result["localMemberFilesOverlaid"], 1)
+        self.assertEqual(result["localMemberFilesOverlaid"], 2)
+        self.assertEqual(delivered_case_registry["cases"][0]["caseId"], "SCHX-001")
 
 
 if __name__ == "__main__":

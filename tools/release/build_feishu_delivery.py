@@ -44,6 +44,7 @@ LOCAL_FILENAMES = {".env", ".sync-state.json", "ima_sync_state.json", ".processe
 SENSITIVE_NAME_RE = re.compile(r"(?:credential|secret|token|password|private.?key|apikey|api.?key)", re.IGNORECASE)
 SENSITIVE_VALUE_RE = re.compile(r"(?:ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16})")
 TOOL_JUNK_RE = re.compile(r"^tools/(?:_backup_chunk|_migrate_|_verify_|_batch|patch_|rewrites_|tmp_|recover\.py$|migrate\.py$|migrate_11to10\.py$|transform_11to10\.py$|acc\.py$|check_audit\.py$|validate\.py$)", re.IGNORECASE)
+MEMBER_CASE_REGISTRY = Path("00_系统说明/benchmark-case-registry.json")
 
 
 def sha256(path: Path) -> str:
@@ -205,6 +206,11 @@ def is_member_asset(relative: Path) -> bool:
     return any("（会员专享）" in part for part in relative.parts)
 
 
+def is_member_delivery_asset(relative: Path) -> bool:
+    """Member delivery also needs the private case index outside member folders."""
+    return is_member_asset(relative) or relative == MEMBER_CASE_REGISTRY
+
+
 def git_ref(root: Path, ref: str) -> str:
     result = subprocess.run(["git", "rev-parse", "--verify", f"{ref}^{{commit}}"], cwd=root, text=True, encoding="utf-8", capture_output=True)
     if result.returncode:
@@ -238,7 +244,7 @@ def build_github_synced(root: Path, ref: str, output: Path) -> dict:
             if not source.is_file():
                 continue
             relative = source.relative_to(root)
-            if not is_member_asset(relative):
+            if not is_member_delivery_asset(relative):
                 continue
             skip, reason = excluded(relative)
             if skip:
@@ -276,7 +282,7 @@ def build_from_public_stage(root: Path, public_stage: Path, output: Path, *, bas
         if not source.is_file():
             continue
         relative = source.relative_to(root)
-        if not is_member_asset(relative):
+        if not is_member_delivery_asset(relative):
             continue
         skip, reason = excluded(relative)
         if skip:

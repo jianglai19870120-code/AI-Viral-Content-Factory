@@ -1,15 +1,15 @@
 {
-  "system": {"id":"ai-viral-content-factory","displayName":"AI爆款内容工厂","version":"3.2.0","canonicalAgentContract":"01_Agent系统/{agentDir}/AGENT.md","canonicalSkillRoot":"10_Skills武器库","codexSkillRoot":".agents/skills","runtimeRoot":".runtime"},
+  "system": {"id":"ai-viral-content-factory","displayName":"AI爆款内容工厂","version":"3.2.1","canonicalAgentContract":"01_Agent系统/{agentDir}/AGENT.md","canonicalSkillRoot":"10_Skills武器库","codexSkillRoot":".agents/skills","runtimeRoot":".runtime"},
   "release": {
     "positioning": "source-available",
     "status": "stable",
-    "releaseVersion": "3.2.0",
+    "releaseVersion": "3.2.1",
     "publicName": "AI爆款内容工厂",
     "commercialUse": "prohibited",
     "supportedPlatforms": ["windows", "codex-desktop"],
     "minimumPython": ">=3.11,<3.14",
     "publicAssetPolicy": {
-      "id": "formal-non-member-public-v3.2.0",
+      "id": "formal-non-member-public-v3.2.1",
       "default": "public-formal-non-member-assets",
       "memberContent": "placeholder-only",
       "memberBoundary": "directory-suffix-only: （会员专享）; content-type memberOnly is workbench-only",
