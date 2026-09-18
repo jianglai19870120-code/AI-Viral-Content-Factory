@@ -7,7 +7,9 @@ def main() -> int:
     if reg.get('pipeline',{}).get('id')!='universal-copy-v1': errors.append('通用流水线未启用')
     for skill in reg.get('skills',[]):
         if skill.get('status')!='active' or not (r/'10_Skills武器库'/skill['sourceDir']/'SKILL.md').is_file(): errors.append('Skill 无效：'+skill['id'])
-    for relative in ('10_Skills武器库/文案结构生成 Skill/schemas/copy-structure-v7.schema.json','10_Skills武器库/正文成稿生成 Skill/schemas/final-copy-v3.schema.json','schemas/final-copy-v3.schema.json'):
+    # Only the live contracts are a release requirement.  Requiring retired
+    # schemas made an otherwise V19/V5-only workflow fail validation.
+    for relative in ('10_Skills武器库/文案结构生成 Skill/schemas/copy-structure-v19.schema.json','10_Skills武器库/正文成稿生成 Skill/schemas/final-copy-v5.schema.json'):
         if not (r/relative).is_file(): errors.append('通用文案 schema 缺失：'+relative)
     for path in ('02_资产中心/03_输出库/01_文案结构','02_资产中心/03_输出库/02_正文成稿','02_资产中心/05_案例库/02_对标复刻拆解','01_Agent系统/02_小审-质量审核Agent/00_正式审核回执/benchmark-video-structure'):
         if not (r/path).is_dir(): errors.append('目录缺失：'+path)

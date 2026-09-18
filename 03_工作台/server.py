@@ -119,8 +119,11 @@ from workflow.data_center import (  # noqa: E402
     verified_final_copy_bindings,
 )
 from workflow.topic_structure_releases import (  # noqa: E402
+    append_final_copy_binding,
+    load_release_index,
     parse_benchmark_case_ids,
     record_owner_frozen_structure,
+    verified_final_copy,
     verified_release_bindings,
 )
 from workflow.benchmark_cases import (  # noqa: E402
@@ -410,26 +413,32 @@ def _structure_four_has_content(path: Path) -> bool:
 
 
 def _structure_four_editor_state(path: Path) -> dict[str, Any]:
-    """Use freeze binding when present, otherwise inspect Structure 4 content."""
+    """Expose filling and workbench-freeze as independent Structure 4 states."""
     content_filled = _structure_four_has_content(path)
     owner_checked = _is_checked_filename(path)
+    frozen = False
     try:
         current_hash = _sha256_file(path)
         for binding in verified_release_bindings().values():
             output_path = Path(str(binding.get("output_path") or ""))
             if output_path.resolve() == path.resolve():
                 frozen = bool(binding.get("structure_four_frozen")) and str(binding.get("output_sha256") or "") == current_hash
-                return {
-                    "structureFourFilled": owner_checked or frozen or content_filled,
-                    "structureFourStatus": "已填写结构四" if owner_checked else ("已冻结结构四" if frozen else ("已填写结构四" if content_filled else "待冻结结构四")),
-                    "structureFourReason": "" if (owner_checked or frozen or content_filled) else "结构四尚未填写完整。",
-                }
+                break
     except (OSError, ValueError, json.JSONDecodeError):
-        pass
+        frozen = False
+    if frozen:
+        status, reason = "已冻结结构四", ""
+    elif content_filled:
+        status, reason = "已填写，待冻结", "请在文件名前添加 √ 并保存，完成工作台冻结后才能生成正文。"
+    else:
+        status, reason = "待填写结构四", "结构四尚未填写完整。"
     return {
-        "structureFourFilled": owner_checked or content_filled,
-        "structureFourStatus": "已填写结构四" if (owner_checked or content_filled) else "待冻结结构四",
-        "structureFourReason": "" if (owner_checked or content_filled) else "未找到已冻结绑定，且结构四表格尚未填写完整。",
+        "structureFourFilled": content_filled,
+        "structureFourFrozen": frozen,
+        "workbenchEligible": frozen,
+        "ownerChecked": owner_checked,
+        "structureFourStatus": status,
+        "structureFourReason": reason,
     }
 
 
@@ -442,6 +451,7 @@ def _today_editor_files(surface: str) -> list[dict[str, Any]]:
             "id": _today_editor_file_id(surface, path),
             "label": path.stem,
             "relativePath": _project_relative_path(path),
+            "sha256": _sha256_file(path),
             "pending": not _is_checked_filename(path),
             "modifiedAt": datetime.fromtimestamp(path.stat().st_mtime).astimezone().isoformat(timespec="seconds"),
         }
@@ -452,7 +462,7 @@ def _today_editor_files(surface: str) -> list[dict[str, Any]]:
             item.update(_copy_editor_check_state(path, item))
         if surface == "structure":
             item.update(_structure_four_editor_state(path))
-            item["pending"] = not item["structureFourFilled"]
+            item["pending"] = not item["workbenchEligible"]
         if surface == "cases":
             item["caseType"] = case_type_index.get(path.resolve()) or _case_editor_type_from_title(path)
         files.append(item)
@@ -609,7 +619,7 @@ def today_editor_file(surface: str, file_id: str) -> dict[str, Any]:
         payload["content"] = text
         if surface == "structure":
             payload.update(_structure_four_editor_state(path))
-            payload["pending"] = not payload["structureFourFilled"]
+            payload["pending"] = not payload["workbenchEligible"]
     else:
         parsed = _parse_markdown_table(path)
         payload["table"] = {"columns": parsed["columns"], "rows": parsed["rows"]}
@@ -753,6 +763,11 @@ def save_today_editor_file(surface: str, file_id: str, expected_sha256: str, pay
         # Candidate keys use the original formal path.  Retain that key here
         # so an owner rename (including a leading √) cannot leave stale state.
         candidate_path.unlink(missing_ok=True)
+        if target != path:
+            # A prior rename may have left a candidate keyed to the destination
+            # name.  Direct owner saves must not allow either residual candidate
+            # to change the structure page's state later.
+            _candidate_path(surface, target).unlink(missing_ok=True)
         final_sha256 = _sha256_file(target)
         result = {
             "saved": True,
@@ -773,13 +788,12 @@ def save_today_editor_file(surface: str, file_id: str, expected_sha256: str, pay
             result["pending"] = not _is_checked_filename(target)
         if surface == "structure":
             if _is_checked_filename(target) and _structure_four_has_content(target):
-                # A checked, complete Structure 4 is the owner's highest-authority
-                # input for final-copy generation.  It inherits only the audited
-                # FNN/framework skeleton; it is not sent back through 小审.
+                # A leading √ is the owner's explicit workbench-freeze action.
+                # A plain complete edit remains available only to direct Codex use.
                 record_owner_frozen_structure(structure_markdown=target)
                 result["structureFourFreezeStatus"] = "owner-frozen"
             result.update(_structure_four_editor_state(target))
-            result["pending"] = not result["structureFourFilled"]
+            result["pending"] = not result["workbenchEligible"]
         if owner_confirms_case:
             approval = record_owner_approved_case_edit(previous_breakdown=path, breakdown_markdown=target)
             result["caseOwnerApprovalStatus"] = "owner-approved"
@@ -816,8 +830,142 @@ def save_today_editor_file(surface: str, file_id: str, expected_sha256: str, pay
         result.update(_copy_editor_check_state(path, result))
     if surface == "structure":
         result.update(_structure_four_editor_state(path))
-        result["pending"] = not result["structureFourFilled"]
+        result["pending"] = not result["workbenchEligible"]
     return result
+
+
+def _copy_current_binding_for_path(path: Path) -> tuple[tuple[str, str] | None, dict[str, Any] | None]:
+    """Return the current release binding only when ``path`` is its verified copy."""
+    for key, binding in verified_release_bindings().items():
+        try:
+            final = binding.get("final_copy")
+            if (
+                isinstance(final, dict)
+                and Path(str(final.get("output_path") or "")).resolve() == path
+                and verified_final_copy(binding)
+            ):
+                return key, binding
+        except (OSError, ValueError):
+            continue
+    return None, None
+
+
+def _copy_history_fallback(current_key: tuple[str, str], current_binding: dict[str, Any], deleted_path: Path,
+                           copy_root: Path) -> tuple[Path, dict[str, Any]] | None:
+    """Find the newest still-verifiable copy from the same frozen structure."""
+    structure_candidate = Path(str(current_binding.get("candidate_path") or "")).resolve()
+    structure_candidate_sha = str(current_binding.get("candidate_sha256") or "")
+    if not structure_candidate_sha:
+        return None
+    for entry in reversed(load_release_index().get("entries", [])):
+        if not isinstance(entry, dict):
+            continue
+        if (str(entry.get("topic") or ""), str(entry.get("benchmark_case_id") or "")) != current_key:
+            continue
+        try:
+            same_structure = (
+                str(entry.get("candidate_sha256") or "") == structure_candidate_sha
+                and Path(str(entry.get("candidate_path") or "")).resolve() == structure_candidate
+            )
+            final = entry.get("final_copy")
+            output_path = Path(str(final.get("output_path") or "")).resolve() if isinstance(final, dict) else None
+            if (
+                same_structure
+                and output_path is not None
+                and output_path != deleted_path
+                and output_path.is_relative_to(copy_root)
+                and verified_final_copy(entry)
+            ):
+                return output_path, final
+        except (OSError, ValueError):
+            continue
+    return None
+
+
+def delete_today_editor_file(surface: str, file_id: str, expected_sha256: str) -> dict[str, Any]:
+    """Permanently remove one selected formal structure or copy with hash protection.
+
+    Audit receipts and release history are append-only.  Removing a current copy
+    may append a new binding to a previous verified copy from the same frozen
+    structure, but never alters those historical records.
+    """
+    if surface not in {"structure", "copy"}:
+        raise ValueError("只允许删除文案结构或正文成稿文件")
+    config = _today_editor_surface(surface)
+    path = _today_editor_resolve_file(surface, file_id)
+    if not path.is_relative_to(config["root"]) or path.suffix.lower() != ".md":
+        raise PermissionError("只能删除允许目录中的 Markdown 文件")
+    before_sha256 = _sha256_file(path)
+    if not expected_sha256 or not secrets.compare_digest(before_sha256, expected_sha256):
+        raise EditorConflictError("文件已被其他操作更新，请重新加载后再删除")
+
+    current_key: tuple[str, str] | None = None
+    current_copy_binding: dict[str, Any] | None = None
+    if surface == "copy":
+        current_key, current_copy_binding = _copy_current_binding_for_path(path)
+    else:
+        for key, binding in verified_release_bindings().items():
+            try:
+                if Path(str(binding.get("output_path") or "")).resolve() == path:
+                    current_key = key
+                    break
+            except (OSError, ValueError):
+                continue
+
+    candidate_path = _candidate_path(surface, path)
+    deleted_relative_path = _project_relative_path(path)
+    path.unlink()
+    # Direct structure saves already clear this candidate, but removing it here
+    # also cleans up a candidate left by an older workbench build.
+    candidate_path.unlink(missing_ok=True)
+
+    fallback_path: Path | None = None
+    if surface == "copy" and current_key is not None and current_copy_binding is not None:
+        fallback = _copy_history_fallback(current_key, current_copy_binding, path, config["root"])
+        if fallback is not None:
+            fallback_path, final = fallback
+            append_final_copy_binding(
+                topic=current_key[0],
+                benchmark_case_id=current_key[1],
+                output_path=fallback_path,
+                candidate_path=Path(str(final["candidate_path"])),
+                audit_receipt_path=Path(str(final["audit_receipt_path"])),
+            )
+    elif current_key is not None:
+        fallback = verified_release_bindings().get(current_key)
+        if fallback is not None:
+            try:
+                candidate = Path(str(fallback.get("output_path") or "")).resolve()
+                if candidate.is_file() and candidate.is_relative_to(config["root"]):
+                    fallback_path = candidate
+            except (OSError, ValueError):
+                pass
+
+    append_data_event(f"workbench-owner-{surface}-deleted", {
+        "surface": surface,
+        "relativePath": deleted_relative_path,
+        "deletedSha256": before_sha256,
+        "currentBindingDeleted": current_key is not None,
+        "fallbackRelativePath": _project_relative_path(fallback_path) if fallback_path else "",
+    }, producer="workbench")
+    result = {
+        "deleted": True,
+        "deletedRelativePath": deleted_relative_path,
+        "currentBindingDeleted": current_key is not None,
+        "fallbackId": _today_editor_file_id(surface, fallback_path) if fallback_path else "",
+        "fallbackRelativePath": _project_relative_path(fallback_path) if fallback_path else "",
+        "currentStructureState": "fallback" if fallback_path else ("pending-generation" if current_key is not None else "unchanged"),
+    }
+    if surface == "copy":
+        result["currentCopyState"] = "fallback" if fallback_path else ("pending-generation" if current_key is not None else "unchanged")
+    return result
+
+
+def delete_today_structure_file(surface: str, file_id: str, expected_sha256: str) -> dict[str, Any]:
+    """Backward-compatible entry point retained for structure-delete callers."""
+    if surface != "structure":
+        raise ValueError("只允许删除文案结构文件")
+    return delete_today_editor_file(surface, file_id, expected_sha256)
 
 
 def _today_module_groups() -> list[dict[str, Any]]:
@@ -1439,6 +1587,7 @@ def _generation_selection_prompt(selected: list[Any]) -> str:
             f"   - 来源选题表：{item.get('table') or '未记录'}\n"
             f"   - 对标复刻拆解编号：{item.get('benchmarkCaseId') or '未记录'}\n"
             f"   - 当前正式资产：{item.get('currentFormalPath') or '无'}"
+            + (f"\n   - 结构四输入模式：{item['structureInputMode']}" if item.get('structureInputMode') else "")
         )
     return "\n".join(lines) if lines else "- 本次扫描未发现待处理对象。"
 
@@ -1497,7 +1646,7 @@ def _today_module_prompt(module: dict[str, Any], selected: list[Any], *, approve
 本次为用户明确选择的生成清单：
 1. 只处理上方逐项清单，严格按顺序串行；每项都要先完成生成候选、再交小审、最后受控发布。
 2. 标记“首次生成”的项目不得引用旧正式版本；标记“重新生成”的项目必须新建候选和新版本，保留全部历史正式资产与审核记录。
-3. 不得因文件名未打 √ 而跳过“重新生成”项目；√ 仅是所有者人工确认标记，不是本次生成资格。
+3. 正文项目只能使用“已冻结结构四”：每份输入都必须带 √、哈希可核验，并以 `--input-mode owner-frozen` 调用正文计划准备器；未冻结的“已填写”结构四只可由工作区外的直接 Codex 路径调用，不得在工作台生成。
 4. 每项完成后在任务回写中记录模式、正式产物路径和小审结论；任一项目未获 approved 不得发布为正式结果。
 """
     return f"""请作为小姜执行“今日工作”刷新任务。
@@ -1600,7 +1749,7 @@ def _published_copy_paths() -> set[Path]:
             audit = json.loads(audit_path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             continue
-        if audit.get("artifactType") in {"final-copy-v2", "final-copy-v3"} and audit.get("status") == "approved":
+        if audit.get("artifactType") == "final-copy-v5" and audit.get("status") == "approved":
             paths.add(path)
     return paths
 
@@ -1697,7 +1846,7 @@ def generation_candidates(module_id: str) -> dict[str, Any]:
     """Return the common selectable catalog for structure and final-copy production.
 
     An ungenerated structure needs a selected topic plus a confirmed benchmark;
-    an ungenerated final copy needs a structure explicitly checked by its owner.
+    an ungenerated final copy needs a workbench-frozen Structure 4.
     Existing assets remain selectable for controlled regeneration.
     """
     if module_id not in {"structures", "copies"}:
@@ -1730,8 +1879,12 @@ def generation_candidates(module_id: str) -> dict[str, Any]:
             elif module_id == "copies":
                 if structure is None:
                     eligible, reason = False, "尚未生成对应编号的文案结构"
-                elif not _is_checked_filename(structure):
-                    eligible, reason = False, "文案结构尚未由所有者打 √ 确认"
+                else:
+                    structure_state = _structure_four_editor_state(structure)
+                    if not structure_state.get("structureFourFilled"):
+                        eligible, reason = False, "结构四尚未填写完整"
+                    elif not structure_state.get("workbenchEligible"):
+                        eligible, reason = False, "结构四已填写，待冻结"
             # A topic may branch into one or more benchmark cases, but every
             # generation selection must visibly identify its exact FNN source.
             # Omitting the ID for a single branch made two otherwise identical
@@ -1755,7 +1908,8 @@ def generation_candidates(module_id: str) -> dict[str, Any]:
                 "reason": reason,
                 "currentFormalPath": current_path,
                 "currentFormalSha256": current_hash,
-                "ownerConfirmed": bool(current and _is_checked_filename(current)),
+                "ownerConfirmed": bool(structure and _structure_four_editor_state(structure).get("workbenchEligible")),
+                "structureInputMode": "owner-frozen" if module_id == "copies" else "",
                 "structurePath": structure_path,
                 "structureSha256": structure_hash,
                 "structureFourStatus": _structure_four_editor_state(structure).get("structureFourStatus", "尚未生成结构") if structure else "尚未生成结构",
@@ -1825,7 +1979,7 @@ def _module_pending_items(module: dict[str, Any]) -> list[str]:
             and str(row.get("title") or "").strip() not in titles
         ]
     if module_id == "copies":
-        return [_project_relative_path(path) for path in sorted(_published_structure_paths()) if _structure_four_editor_state(path).get("structureFourFilled")]
+        return [_project_relative_path(path) for path in sorted(_published_structure_paths()) if _structure_four_editor_state(path).get("workbenchEligible")]
     return [_project_relative_path(path) for path in _module_files(_module_root(module))]
 
 
@@ -4031,7 +4185,7 @@ def _stage_attachments(session_id: str, attachments: Any) -> list[Path]:
 
 def create_session(payload: dict[str, Any], *, session_id: str | None = None) -> dict[str, Any]:
     action = str(payload.get("action", "general"))
-    defaults = {"generate-copy": "请小姜核验已填写结构四，并按现役正文链路分配小写与小审。", "generate-structure": "请小姜为已选中选题创建结构生成调度记录，交由小拆和小审处理。", "refresh-topics": "请小姜分配小策刷新对标账号的爆款选题表，并交小审审核。", "break-review": "请小姜分配小拆执行今日复盘“同步 IMA + 扫描待拆解 + 案例卡拆解 + 小审放行”的完整链路；同步无新增时也必须继续扫描待拆解资料，并显式回报 0 条结果。", "inventory-stats": "请小姜分配小息刷新原始资料入库统计，并交小审轻确认。", "today-refresh": "", "asset-edit-audit": "", "general": ""}
+    defaults = {"generate-copy": "请小姜核验已冻结结构四，并按现役正文链路以 owner-frozen 模式分配小写与小审。", "generate-structure": "请小姜为已选中选题创建结构生成调度记录，交由小拆和小审处理。", "refresh-topics": "请小姜分配小策刷新对标账号的爆款选题表，并交小审审核。", "break-review": "请小姜分配小拆执行今日复盘“同步 IMA + 扫描待拆解 + 案例卡拆解 + 小审放行”的完整链路；同步无新增时也必须继续扫描待拆解资料，并显式回报 0 条结果。", "inventory-stats": "请小姜分配小息刷新原始资料入库统计，并交小审轻确认。", "today-refresh": "", "asset-edit-audit": "", "general": ""}
     if action not in defaults:
         raise ValueError("未知任务动作")
     message = str(payload.get("message", "")).strip() or defaults[action]
@@ -4477,8 +4631,8 @@ def _count_audits(folder: str) -> int:
     return len(_markdown_files(FORMAL_AUDIT_ROOT / folder)) + len(list((FORMAL_AUDIT_ROOT / folder).glob("*.json"))) if (FORMAL_AUDIT_ROOT / folder).is_dir() else 0
 
 
-def _structure_four_count() -> int:
-    return sum(1 for path in _markdown_files(STRUCTURE_ROOT) if "结构四" in path.read_text(encoding="utf-8", errors="ignore"))
+def _frozen_structure_four_count() -> int:
+    return sum(1 for path in _markdown_files(STRUCTURE_ROOT) if _structure_four_editor_state(path).get("workbenchEligible"))
 
 
 def _generated_copy_count() -> int:
@@ -4506,7 +4660,7 @@ def _active_pipeline_snapshot() -> dict[str, Any]:
         {"id": "content-modules", "label": "爆款内容模块", "count": module_total, "formula": "现役处理库内容模块总数", "location": "02_处理库"},
         {"id": "topics", "label": "爆款选题", "count": _selected_topic_count(), "formula": "已选中且绑定有效对标编号的选题分支", "location": "04_选题库/02_选题分类"},
         {"id": "cases", "label": "对标爆款", "count": len(cases), "formula": "已审核对标复刻拆解数量", "location": "05_案例库/02_对标复刻拆解"},
-        {"id": "filled-structures", "label": "爆款结构文案", "count": _structure_four_count(), "formula": "已填写并冻结结构四", "location": "03_输出库/01_文案结构"},
+        {"id": "filled-structures", "label": "爆款结构文案", "count": _frozen_structure_four_count(), "formula": "已冻结且可核验的结构四", "location": "03_输出库/01_文案结构"},
         {"id": "final-copy", "label": "爆款成稿", "count": _generated_copy_count(), "formula": "正文成稿目录已落盘 Markdown 总数", "location": "03_输出库/02_正文成稿"},
     ]
     stages = [
@@ -4517,7 +4671,7 @@ def _active_pipeline_snapshot() -> dict[str, Any]:
     if display[2]["count"] <= 0:
         missing.append("暂无已选中选题")
     if display[4]["count"] <= 0:
-        missing.append("暂无已填写结构四")
+        missing.append("暂无已冻结结构四")
     return {"generatedAt": now(), "stages": stages, "steps": [item["label"] for item in display], "oneClick": {"enabled": not missing, "missing": missing}}
 
 
@@ -4531,7 +4685,7 @@ def active_today_workflow() -> dict[str, Any]:
         "summary": "工作台只展示现役链路；结构四由用户确认，正式发布必须经过小审。",
         "cards": [
             {"title": "已选中选题", "count": topic_count, "next": "锁定唯一选题行与已审核对标复刻拆解"},
-            {"title": "待冻结结构四", "count": max(0, topic_count - structure_count), "next": "用户填写并冻结结构四后，才可进入正文"},
+            {"title": "待冻结结构四", "count": max(0, topic_count - structure_count), "next": "用户填写完整结构四后，在文件名前添加 √ 完成工作台冻结"},
             {"title": "已发布正文", "count": int(stages.get("final-copy", {}).get("count", 0)), "next": "仅统计小审放行后的正式输出"},
         ],
     }
@@ -4585,7 +4739,7 @@ Skill 名称：正文成稿生成Skill
 执行人：小写
 本次模式：{'重新生成（保留历史版本）' if regenerate else '首次生成'}
 
-请读取该选题对应的已冻结结构四，按连续 FNN 大框架扩写正文，交小审独立审核，通过后受控发布。不得读取对标逐句、小结构或复刻画像，也不得覆盖历史正式文件。"""
+请读取该选题对应的已冻结结构四，并以 `prepare_framework_copy_task.py --input-mode owner-frozen` 锁定输入；按连续 FNN 大框架扩写正文，交小审独立审核，通过后受控发布。不得读取对标逐句、小结构或复刻画像，也不得覆盖历史正式文件。"""
 
 
 def _one_click_pipeline_batch_prompt(selected: list[dict[str, Any]]) -> str:
@@ -4598,7 +4752,7 @@ Skill 名称：正文成稿生成Skill
 {_generation_selection_prompt(selected)}
 
 请严格按：小姜分配 → 小写逐项串行生成 → 小审逐项独立审核 → 受控发布。
-标记“首次生成”的项目按当前已冻结结构四首次生成；标记“重新生成”的项目必须保留历史正式版本，只新建候选和新版本。文件名是否带 √ 不得影响本次重生成资格；√ 只服务人工确认和配图下游。每项都必须回写模式、正式产物路径与审核结论，未获 approved 不得发布。"""
+标记“首次生成”和“重新生成”的项目都只可使用当前带 √、已冻结且哈希可核验的结构四，并以 `prepare_framework_copy_task.py --input-mode owner-frozen` 建立计划；重新生成必须保留历史正式版本，只新建候选和新版本。每项都必须回写模式、正式产物路径与审核结论，未获 approved 不得发布。"""
 
 
 def create_one_click_pipeline_task(topic_id: str = "", regenerate: bool = False, selections: Any = None) -> dict[str, Any]:
@@ -4635,7 +4789,7 @@ def create_one_click_pipeline_task(topic_id: str = "", regenerate: bool = False,
         "title": "爆款流水线｜正文成稿｜" + (selected_items[0]["title"] if len(selected_items) == 1 else f"{len(selected_items)} 条"),
         "message": prompt,
         "skipApproval": True,
-        "workflow": {"pipeline": "active-six-module", "visibleStages": ["source-knowledge", "content-modules", "topics", "cases", "filled-structures", "final-copy"], "internalSteps": [1, 2, 3, 6, 9], "generationSelections": selected_items, "topicId": selected_items[0]["id"] if len(selected_items) == 1 else "", "benchmarkCaseId": selected_items[0]["benchmarkCaseId"] if len(selected_items) == 1 else "", "regenerate": any(item["generationMode"] == "regenerate" for item in selected_items)},
+        "workflow": {"pipeline": "active-six-module", "visibleStages": ["source-knowledge", "content-modules", "topics", "cases", "filled-structures", "final-copy"], "internalSteps": [1, 2, 3, 6, 9], "generationSelections": selected_items, "structureInputMode": "owner-frozen", "topicId": selected_items[0]["id"] if len(selected_items) == 1 else "", "benchmarkCaseId": selected_items[0]["benchmarkCaseId"] if len(selected_items) == 1 else "", "regenerate": any(item["generationMode"] == "regenerate" for item in selected_items)},
         "batch": task_batch,
     })
     return _session_summary(_queue_visible_task(session["id"]), include_events=False)
@@ -5018,13 +5172,22 @@ class WorkbenchHandler(SimpleHTTPRequestHandler):
     def do_DELETE(self) -> None:
         path = urlparse(self.path).path
         try:
-            if path.startswith("/api/plans/"):
+            if path == "/api/today/editor/file":
+                payload = self._payload()
+                self._json(delete_today_editor_file(
+                    str(payload.get("surface", "")),
+                    str(payload.get("id", "")),
+                    str(payload.get("expectedSha256", "")),
+                ))
+            elif path.startswith("/api/plans/"):
                 delete_plan(path.rsplit("/", 1)[-1])
                 self._json({"deleted": True})
             else:
                 self._json({"error": "接口不存在"}, HTTPStatus.NOT_FOUND)
         except FileNotFoundError as exc:
             self._json({"error": str(exc)}, HTTPStatus.NOT_FOUND)
+        except EditorConflictError as exc:
+            self._json({"error": str(exc)}, HTTPStatus.CONFLICT)
         except (ValueError, RuntimeError, json.JSONDecodeError) as exc:
             self._json({"error": str(exc)}, HTTPStatus.BAD_REQUEST)
         except Exception as exc:

@@ -257,7 +257,7 @@ function renderTodayEditorSaveState(){
   const node=$('[data-editor-save-state]');
   if(!node||!state.todayEditor)return;
   const labels={loading:'读取中',pending:'等待保存',saving:'保存中',saved:'已保存',conflict:'文件已更新',error:'保存失败',empty:'暂无文件'};
-  node.textContent=state.todayEditor.editMode&&state.todayEditor.draftDirty?'修改中，尚未覆盖原文':(labels[state.todayEditor.saveState]||'');
+  node.textContent=state.todayEditor.editMode&&state.todayEditor.draftDirty?'修改中，待保存正式文件':(labels[state.todayEditor.saveState]||'');
   node.dataset.state=state.todayEditor.saveState;
 }
 async function saveTodayEditorFile(options={}){
@@ -315,11 +315,13 @@ async function saveTodayEditorFile(options={}){
     }
     if(editor.surface==='structure'){
       file.structureFourFilled=Boolean(result.structureFourFilled);
+      file.structureFourFrozen=Boolean(result.structureFourFrozen);
+      file.workbenchEligible=Boolean(result.workbenchEligible);
       file.structureFourStatus=result.structureFourStatus||'未填写结构四';
       file.structureFourReason=result.structureFourReason||'';
-      file.pending=!file.structureFourFilled;
+      file.pending=!file.workbenchEligible;
       const catalogItem=editor.files.find(item=>item.id===previousId);
-      if(catalogItem) Object.assign(catalogItem,{structureFourFilled:file.structureFourFilled,structureFourStatus:file.structureFourStatus,structureFourReason:file.structureFourReason,pending:file.pending,modifiedAt:file.modifiedAt});
+      if(catalogItem) Object.assign(catalogItem,{structureFourFilled:file.structureFourFilled,structureFourFrozen:file.structureFourFrozen,workbenchEligible:file.workbenchEligible,structureFourStatus:file.structureFourStatus,structureFourReason:file.structureFourReason,pending:file.pending,modifiedAt:file.modifiedAt});
     }
     editor.saveState='saved';
     if(editor.surface==='structure'||requestedRename||options.exitEdit) render();
@@ -338,10 +340,12 @@ async function finishTodayEditorEdit({confirm=true}={}){
   captureTodayDocumentDraft();
   if(!editor.draftDirty){ editor.editMode=false; render(); return true; }
   const ownerConfirmedCase=editor.surface==='cases';
-  const prompt=ownerConfirmedCase?'确认直接保存为正式案例拆解吗？这会自动标记 √ 已确认并写入人工确认回执，无需小审。':'确认保存编辑候选吗？正式文件不会被直接覆盖，需小审通过后才可发布。';
+  const prompt=ownerConfirmedCase?'确认直接保存为正式案例拆解吗？这会自动标记 √ 已确认并写入人工确认回执，无需小审。':editor.surface==='structure'?'确认直接保存正式结构吗？不会送小审，也不会自动冻结正文。':'确认直接保存正式正文吗？不会送小审。';
   if(confirm&&!window.confirm(prompt))return false;
   await saveTodayEditorFile({exitEdit:true});
-  return state.todayEditor===editor&&editor.saveState==='saved';
+  const saved=state.todayEditor===editor&&editor.saveState==='saved';
+  if(saved&&confirm&&editor.surface==='structure')toast('已保存，待冻结；请在文件名添加 √ 后进入正文生成。');
+  return saved;
 }
 let taskRefreshTimer = 0;
 let manualRefreshInFlight = false;
@@ -806,20 +810,32 @@ function editorTableHTML(file, filter){
   const body=rows.map(({row,index})=>`<tr>${row.map((value,column)=>{ const cell=column===7?`<button class="today-topic-case-select ${value?'is-selected':''}" data-topic-case-select="${index}" type="button" aria-label="选择对标复刻拆解编号">${esc(value||'选择对标拆解')}</button>`:`<input data-topic-cell data-row="${index}" data-column="${column}" value="${esc(value)}" aria-label="${esc(table.columns[column])}">`; return `<td class="today-topic-column-${column}${column===1?' today-topic-freeze-boundary':''}">${cell}</td>`; }).join('')}</tr>`).join('');
   return `<div class="today-topic-table-wrap${frozenClass}" tabindex="0" aria-label="爆款选题表，可横向与纵向滚动"><table class="today-topic-table"><thead><tr>${headers}</tr></thead><tbody>${body}</tbody></table>${rows.length?'':`<div class="today-editor-empty">当前筛选条件下没有选题。</div>`}</div>`;
 }
+function appendTodayTopicRow(){
+  const editor=state.todayEditor, table=editor?.file?.table;
+  if(!editor||editor.surface!=='topics'||!table?.columns?.length)return;
+  const rowIndex=table.rows.length;
+  table.rows.push(Array.from({length:table.columns.length},()=>''));
+  scheduleTodayEditorSave();
+  render();
+  window.requestAnimationFrame(()=>document.querySelector(`[data-topic-cell][data-row="${rowIndex}"][data-column="0"]`)?.focus());
+}
 function renderTodayEditor(){
   const editor=state.todayEditor, isTopics=editor.surface==='topics', isStructure=editor.surface==='structure', isCopy=editor.surface==='copy', isCases=editor.surface==='cases', isDocument=isStructure||isCopy||isCases, files=editor.files.filter(item=>todayEditorFileMatchesFilter(editor,item)), active=editor.file;
-  const statusLabels={loading:'正在读取文件',pending:editor.editMode?'修改中，尚未覆盖原文':'将在停止输入后自动保存',saving:'正在自动保存',saved:'已保存',conflict:'文件已更新，请重新加载',error:editor.error||'保存失败',empty:'暂无可编辑文件'};
+  const statusLabels={loading:'正在读取文件',pending:editor.editMode?'修改中，待保存正式文件':'将在停止输入后自动保存',saving:'正在自动保存',saved:'已保存',conflict:'文件已更新，请重新加载',error:editor.error||'保存失败',empty:'暂无可编辑文件'};
   const compare=active&&isDocument&&editor.editMode?`<div class="today-editor-compare"><section class="today-editor-pane is-original"><header><b>原文</b><small>只读快照</small></header>${structureDocumentHTML({content:active.originalContent||'',structureDocument:parseStructureDocument(active.originalContent||'')},{editable:false})}</section><section class="today-editor-pane is-draft"><header><b>修改稿</b><span class="today-editor-filename" contenteditable="true" spellcheck="false" role="textbox" aria-label="文件名" data-structure-filename>${esc(active.label)}</span></header>${isCopy?`<textarea id="todayCopyMarkdownEditor" class="today-copy-markdown-editor" spellcheck="false" aria-label="正文 Markdown 修改稿">${esc(active.content||'')}</textarea>`:structureDocumentHTML(active,{editable:true})}</section></div>`:'';
   const work=active?(isTopics?editorTableHTML(active,editor.filter):isDocument?(editor.editMode?compare:structureDocumentHTML(active,{editable:false})):`<textarea id="todayMarkdownEditor" class="today-markdown-editor" spellcheck="false">${esc(active.content||'')}</textarea>`):`<div class="today-editor-empty">${esc(statusLabels[editor.saveState]||'请选择一个文件')}</div>`;
   const filterLabel=isTopics?'待编辑':isStructure?'待编辑':isCases?'待编辑':'待编辑';
   const fileList=files.length?files.map(item=>{
     const fillStatus=isStructure?`<span class="today-editor-file-status ${item.structureFourFilled?'is-filled':'is-unfilled'}" title="${esc(item.structureFourReason||'')}">${esc(item.structureFourStatus||'未填写结构四')}</span>`:isCopy?`<span class="today-editor-file-status ${item.pending?'is-unfilled':'is-written'}">${copyEditorStatusLabel(item)}</span>`:isCases?`<span class="today-editor-file-status ${item.pending?'is-unfilled':'is-filled'}">${item.pending?'待编辑':'已确认'}</span>`:`<small>${item.pending?'待编辑':'已标记'}</small>`;
-    return `<button class="${item.id===editor.activeFileId?'active':''}" data-editor-file="${esc(item.id)}"><b>${esc(item.label)}</b><span class="today-editor-file-meta">${fillStatus}<small>${esc(String(item.modifiedAt||'').slice(0,16).replace('T',' '))}</small></span></button>`;
+    const select=`<button class="today-editor-file-select ${item.id===editor.activeFileId?'active':''}" data-editor-file="${esc(item.id)}"><b>${esc(item.label)}</b><span class="today-editor-file-meta">${fillStatus}<small>${esc(String(item.modifiedAt||'').slice(0,16).replace('T',' '))}</small></span></button>`;
+    const deleteLabel=isCopy?'正文成稿':'文案结构';
+    return (isStructure||isCopy)?`<div class="today-editor-file-row">${select}<button class="today-editor-file-delete" data-editor-file-delete="${esc(item.id)}" data-editor-file-sha="${esc(item.sha256||'')}" type="button" title="永久删除此${deleteLabel}文件" aria-label="永久删除 ${esc(item.label)}">×</button></div>`:select;
   }).join(''):'<p>当前没有符合条件的文件。</p>';
   const activeStatus=isStructure&&active?`<span class="today-editor-document-status ${active.structureFourFilled?'is-filled':'is-unfilled'}" title="${esc(active.structureFourReason||'')}">${esc(active.structureFourStatus||'未填写结构四')}</span>`:isCopy&&active?`<span class="today-editor-document-status ${active.pending?'is-unfilled':'is-written'}">${copyEditorStatusLabel(active)}</span>`:isCases&&active?`<span class="today-editor-document-status ${active.pending?'is-unfilled':'is-filled'}">${active.pending?'待编辑':'已确认'}</span>`:'';
   const candidateAction=!['copy','topics','structure'].includes(editor.surface)&&active?.candidateId?`<button class="today-editor-candidate-submit" data-candidate-submit="${esc(active.candidateId)}" type="button">提交小审</button>`:'';
   const candidateHint=!['copy','topics','structure'].includes(editor.surface)&&active?.candidateId?`<small class="today-editor-candidate-state">候选已保存${active.candidateFilename?'（含文件名修改）':''}；正式文件需小审通过后才会更新。</small>`:'';
-  const surfaceHint=isTopics?'你的手动修改会自动写回爆款选题表。':isStructure?'标题加 √ 即视为已填写，并自动写回正式爆款结构。':isCopy?'你的手动修改会直接写回正式正文文件。':'你点击确认后，案例手动修改会直接写回正式文件，自动标记 √ 已确认并写入人工确认回执；不送小审。';
+  const surfaceHint=isTopics?'你的手动修改会自动写回爆款选题表。':isStructure?'修改会直接保存正式结构，不送小审；请手动在文件名加 √ 后冻结，才可进入正文生成。':isCopy?'你的手动修改会直接写回正式正文文件。':'你点击确认后，案例手动修改会直接写回正式文件，自动标记 √ 已确认并写入人工确认回执；不送小审。';
+  const topicAddRowAction=isTopics&&active?'<button class="today-topic-add-row" data-topic-add-row type="button">＋ 新增一行</button>':'';
   const secondaryFilter=isStructure?`<button data-editor-filter="filled" class="${editor.filter==='filled'?'active':''}">已填写</button>`:isCopy?`<button data-editor-filter="written" class="${editor.filter==='written'?'active':''}">已撰写</button>`:'';
   const caseTypeOptions=[['all','全部类型'],...(editor.caseTypes||[]).map(type=>[type,type])].map(([value,label])=>`<option value="${esc(value)}" ${editor.caseType===value?'selected':''}>${esc(label)}</option>`).join('');
   const filters=isCases?`<button data-editor-filter="pending" class="${editor.filter==='pending'?'active':''}">待编辑</button><button data-editor-filter="filled" class="${editor.filter==='filled'?'active':''}">已确认</button><select class="today-case-editor-type-filter" data-editor-case-type aria-label="筛选案例类型">${caseTypeOptions}</select>`:`<button data-editor-filter="pending" class="${editor.filter==='pending'?'active':''}">${filterLabel}</button>${secondaryFilter}<button data-editor-filter="all" class="${editor.filter==='all'?'active':''}">全部</button>`;
@@ -828,7 +844,7 @@ function renderTodayEditor(){
   // Case breakdown view keeps this toolbar intentionally minimal: only the
   // edit-mode toggle is user-facing. Save/audit hints remain in the workflow
   // state and are not repeated beside the document.
-  const documentTools=isCases?modeControl:`${activeStatus}${modeControl}${candidateAction}${candidateHint}<small>${surfaceHint}</small>`;
+  const documentTools=isCases?modeControl:`${activeStatus}${modeControl}${topicAddRowAction}${candidateAction}${candidateHint}<small>${surfaceHint}</small>`;
   const pageEyebrow='';
   const focusControl=`<button class="today-editor-focus-toggle" data-editor-focus-mode type="button" aria-pressed="${editor.focusMode?'true':'false'}" title="${editor.focusMode?'退出全屏':'进入全屏'}"><i>${editor.focusMode?icons.exitFullscreen:icons.fullscreen}</i><span>${editor.focusMode?'退出全屏':'全屏'}</span></button>`;
   const filesControl=editor.focusMode?`<button class="today-editor-files-toggle" data-editor-files-toggle type="button" aria-expanded="${editor.fileSidebarCollapsed?'false':'true'}" title="${editor.fileSidebarCollapsed?'展开文件列表':'收起文件列表'}"><i>${icons.layers}</i><span>${editor.fileSidebarCollapsed?'展开文件':'收起文件'}</span></button>`:'';
@@ -941,7 +957,10 @@ async function topicSelectionModal(){
 function generationCandidateRow(item){
   const disabled=!item.eligible;
   const status=disabled?item.reason:(item.generationLabel||'首次生成');
-  return `<label class="generation-select-row${disabled?' is-disabled':''}"><input type="checkbox" value="${esc(item.id)}" data-fingerprint="${esc(item.fingerprint)}" ${disabled?'disabled':''}><span><b>${esc(item.title)}</b></span><em class="generation-mode ${item.generationMode==='regenerate'?'is-regenerate':'is-initial'}">${esc(status)}</em></label>`;
+  const detail=item.updatedAt
+    ?`最近更新：${item.updatedAt.replace('T',' ').replace(/([+-]\d{2}:\d{2})$/,'')}`
+    :(disabled?'请先完成右侧提示的前置条件':'可首次生成');
+  return `<label class="generation-select-row${disabled?' is-disabled':''}" title="${esc(disabled?item.reason:'')}"><input type="checkbox" value="${esc(item.id)}" data-fingerprint="${esc(item.fingerprint)}" ${disabled?'disabled':''}><span><b>${esc(item.title)}</b><small>${esc(detail)}</small></span><em class="generation-mode ${disabled?'is-blocked':(item.generationMode==='regenerate'?'is-regenerate':'is-initial')}">${esc(status)}</em></label>`;
 }
 function bindGenerationSubmit(button){
   if(!button)return;
@@ -975,12 +994,18 @@ async function generationSelectionModal(moduleId,{pipeline=false}={}){
   try{
     const payload=await api(`/api/today/generation-candidates?moduleId=${encodeURIComponent(moduleId)}`);
     const items=payload.candidates||[];
-    const first=newestFirst(items.filter(item=>!item.generated&&item.eligible));
-    const redo=newestFirst(items.filter(item=>item.generated&&item.eligible));
+    // Keep body drafts that already have a structure visible even when the
+    // owner still needs to freeze it.  Hiding them made the selector report
+    // “未生成 0”, although the user had a real pending body job to finish.
+    // Rows without any body prerequisite stay out of this queue: they belong
+    // to the structure-generation step, not the final-copy step.
+    const first=newestFirst(items.filter(item=>!item.generated&&(item.eligible||(moduleId==='copies'&&Boolean(item.structurePath)))));
+    const redo=newestFirst(items.filter(item=>item.generated));
+    const selectable=items.filter(item=>item.eligible);
     const section=(title,rows,empty)=>`<section class="generation-select-group"><h3>${esc(title)} <small>${rows.length}</small></h3>${rows.length?rows.map(generationCandidateRow).join(''):`<p>${esc(empty)}</p>`}</section>`;
     const label=payload.label||'内容';
     const action=pipeline?'确认并打开 Codex':'开始生成';
-    modal(`<button class="close" data-close>×</button><section class="generation-select-modal"><span class="eyebrow">${esc(label)}</span><h2>选择本次要生成的内容</h2><p>未生成项会首次生成；已生成项会创建新版本重新生成。多项会在同一条任务中依次处理，并逐项经过小审。</p><p class="generation-submit-feedback" data-generation-feedback hidden></p><div class="generation-select-list">${section('未生成',first,'当前没有可首次生成的内容。')}${section('已生成',redo,'当前没有可重新生成的内容。')}</div><footer><button class="outline-button" data-close type="button">取消</button><button class="orange-button" data-generation-submit data-generation-module="${esc(moduleId)}" data-generation-pipeline="${pipeline?'true':'false'}" type="button" ${(first.length||redo.length)?'':'disabled'}>${esc(action)}</button></footer></section>`);
+    modal(`<button class="close" data-close>×</button><section class="generation-select-modal"><span class="eyebrow">${esc(label)}</span><h2>选择本次要生成的内容</h2><p>未生成项会首次生成；已生成项会创建新版本重新生成。灰色条目会保留在列表中，并明确显示需要先完成的条件。多项会在同一条任务中依次处理，并逐项经过小审。</p><p class="generation-submit-feedback" data-generation-feedback hidden></p><div class="generation-select-list">${section('未生成',first,'当前没有待首次生成的内容。')}${section('已生成',redo,'当前没有可重新生成的内容。')}</div><footer><button class="outline-button" data-close type="button">取消</button><button class="orange-button" data-generation-submit data-generation-module="${esc(moduleId)}" data-generation-pipeline="${pipeline?'true':'false'}" type="button" ${selectable.length?'':'disabled'}>${esc(action)}</button></footer></section>`);
     bindGenerationSubmit(document.querySelector('#modal [data-generation-submit]'));
   }catch(error){toast(error.message||'无法读取生成候选');}
 }
@@ -1372,6 +1397,48 @@ function bindPageEvents(){
     if(editor?.editMode&&editor.draftDirty&&!(await finishTodayEditorEdit({confirm:false})))return;
     await loadTodayEditorFile(button.dataset.editorFile);
   });
+  document.querySelectorAll('[data-editor-file-delete]').forEach(button=>button.onclick=async()=>{
+    const editor=state.todayEditor;
+    if(!editor||!['structure','copy'].includes(editor.surface))return;
+    const fileId=button.dataset.editorFileDelete;
+    const item=editor.files.find(file=>file.id===fileId);
+    if(!item?.sha256){ toast('文件状态已变化，请重新加载后再删除。'); return; }
+    const hasUnsavedDraft=editor.editMode&&editor.draftDirty&&editor.activeFileId===fileId;
+    const warning=hasUnsavedDraft?'当前未保存的修改也会一并丢失。\n\n':'';
+    const copyDelete=editor.surface==='copy';
+    const deleteMessage=copyDelete
+      ? '此操作不可恢复；只删除该正文成稿文件及其临时编辑候选，不会删除审核回执或发布历史。'
+      : '此操作不可恢复；只删除该文案结构文件及其临时编辑候选，不会删除审核回执或正文文件。';
+    if(!window.confirm(`${warning}确定永久删除“${item.label}”吗？\n\n${deleteMessage}`))return;
+    button.disabled=true;
+    try{
+      if(editor.saveTimer){ window.clearTimeout(editor.saveTimer); editor.saveTimer=0; }
+      const result=await api('/api/today/editor/file',{method:'DELETE',body:JSON.stringify({surface:editor.surface,id:fileId,expectedSha256:item.sha256})});
+      if(state.todayEditor!==editor)return;
+      editor.files=editor.files.filter(file=>file.id!==fileId);
+      const deletingActive=editor.activeFileId===fileId;
+      if(deletingActive){
+        editor.editMode=false;
+        editor.draftDirty=false;
+        editor.file=null;
+        editor.activeFileId='';
+      }
+      const fallbackId=result.fallbackId&&editor.files.some(file=>file.id===result.fallbackId)?result.fallbackId:'';
+      const visible=editor.files.filter(file=>todayEditorFileMatchesFilter(editor,file));
+      const nextId=fallbackId||(deletingActive?(visible[0]?.id||editor.files[0]?.id||''):editor.activeFileId);
+      if(nextId)await loadTodayEditorFile(nextId);
+      else { editor.saveState='empty'; render(); }
+      await refresh('editor-delete');
+      const currentState=copyDelete?result.currentCopyState:result.currentStructureState;
+      toast(copyDelete
+        ? (currentState==='fallback'?'已永久删除，已回退到最近可核验历史正文。':currentState==='pending-generation'?'已永久删除，当前正文已切换为待生成。':'已永久删除该正文成稿文件。')
+        : (currentState==='fallback'?'已永久删除，已回退到最近可核验历史版本。':currentState==='pending-generation'?'已永久删除，当前结构已切换为待生成。':'已永久删除该结构文件。'));
+    }catch(error){
+      if(state.todayEditor===editor){ toast(error.message||'删除失败，请重新加载后重试。'); }
+    }finally{
+      if(document.body.contains(button))button.disabled=false;
+    }
+  });
   document.querySelectorAll('[data-editor-filter]').forEach(button=>button.onclick=async()=>{
     const editor=state.todayEditor;
     if(!editor)return;
@@ -1451,6 +1518,7 @@ function bindPageEvents(){
     file.table.rows[Number(input.dataset.row)][Number(input.dataset.column)]=input.value;
     scheduleTodayEditorSave();
   });
+  document.querySelector('[data-topic-add-row]')?.addEventListener('click',appendTodayTopicRow);
   document.querySelectorAll('[data-topic-case-select]').forEach(button=>button.onclick=()=>topicBenchmarkCaseModal(Number(button.dataset.topicCaseSelect)));
   document.querySelectorAll('button[data-page]').forEach(b=>b.onclick=()=>{ void navigateToPage(b.dataset.page); });
   document.querySelectorAll('[data-module-refresh]').forEach(button=>button.onclick=async()=>{

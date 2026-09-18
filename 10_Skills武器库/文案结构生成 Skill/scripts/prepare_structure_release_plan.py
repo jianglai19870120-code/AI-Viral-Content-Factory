@@ -30,9 +30,9 @@ def main() -> int:
     handoff = json.loads(args.handoff.read_text(encoding="utf-8"))
     candidate = json.loads(args.candidate.read_text(encoding="utf-8"))
     binding = handoff.get("topic_table_binding")
-    allowed = {("copy-structure-handoff-v16", "copy-structure-v16")}
+    allowed = {("copy-structure-handoff-v19", "copy-structure-v19")}
     if (handoff.get("schema"), candidate.get("schema")) not in allowed or not isinstance(binding, dict):
-        raise SystemExit("发布计划只接受绑定选题表的同版本 V11/V12/V13 handoff 与候选")
+        raise SystemExit("发布计划只接受绑定选题表的同版本 V19 handoff 与候选")
     row = resolve_selected_topic(str(handoff.get("topic") or ""), benchmark_case_id=str(handoff.get("benchmark_case_id") or ""))
     if handoff_binding(row) != binding or candidate.get("topic_table_binding") != binding:
         raise SystemExit("选题表目标行或候选绑定已漂移")

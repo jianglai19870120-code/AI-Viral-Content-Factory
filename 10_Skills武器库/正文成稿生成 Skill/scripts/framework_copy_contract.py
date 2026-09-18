@@ -1,4 +1,4 @@
-"""Shared V3 final-copy contract helpers."""
+"""Shared V5 final-copy rendering helpers."""
 from __future__ import annotations
 
 import re

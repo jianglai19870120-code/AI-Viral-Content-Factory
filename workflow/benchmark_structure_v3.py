@@ -120,7 +120,7 @@ def validate_table_layout(content: str) -> None:
         raise ValueError("结构总表不能为空")
 
 
-def parse_markdown_text(content: str) -> list[dict[str, str]]:
+def parse_markdown_text(content: str, *, strict_small_names: bool = False) -> list[dict[str, str]]:
     """Parse one V3 table and reject non-contiguous or ambiguous framework groups."""
     lines = content.replace("\r\n", "\n").splitlines()
     validate_table_layout(content)
@@ -162,12 +162,12 @@ def parse_markdown_text(content: str) -> list[dict[str, str]]:
         elif major != current_major:
             raise ValueError("同一 FNN 的大框架名称必须一致")
     from workflow.benchmark_small_framework_naming import validate_small_framework_names
-    validate_small_framework_names(rows)
+    validate_small_framework_names(rows, strict=strict_small_names)
     return rows
 
 
-def parse_markdown(path: Path) -> list[dict[str, str]]:
-    return parse_markdown_text(path.read_text(encoding="utf-8"))
+def parse_markdown(path: Path, *, strict_small_names: bool = False) -> list[dict[str, str]]:
+    return parse_markdown_text(path.read_text(encoding="utf-8"), strict_small_names=strict_small_names)
 
 
 def source_without_footer(path: Path) -> str:
@@ -199,13 +199,27 @@ def framework_payload(rows: Iterable[dict[str, str]]) -> list[dict[str, str]]:
 
 
 def small_framework_payload(rows: Iterable[dict[str, str]]) -> list[dict[str, str | int]]:
+    from workflow.benchmark_small_framework_naming import small_framework_role
+    values = list(rows)
+    group_sizes: dict[str, int] = {}
+    for row in values:
+        block_id = row["编号"]
+        group_sizes[block_id] = group_sizes.get(block_id, 0) + 1
     ordinals: dict[str, int] = {}
     result: list[dict[str, str | int]] = []
-    for row in rows:
+    for row in values:
         block_id = row["编号"]
         ordinals[block_id] = ordinals.get(block_id, 0) + 1
+        try:
+            role = small_framework_role(row["大框架"], row["小框架"], group_sizes[block_id])
+        except ValueError:
+            # Historical owner-approved assets predate the display convention.
+            # New candidates are already rejected by strict parsing before a
+            # receipt can be created.
+            role = row["小框架"]
         result.append({
             "block_id": block_id, "ordinal": ordinals[block_id], "name": row["小框架"],
+            "role": role,
             "source_sha256": hashlib.sha256(row["小框架原文内容"].encode("utf-8")).hexdigest(),
         })
     return result

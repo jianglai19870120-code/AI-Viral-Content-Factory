@@ -1,43 +1,20 @@
-# 文案结构生成合同 V16
+# 文案结构生成合同 V19
 
-## 输入与边界
+活动合同为 `copy-structure-handoff-v19` / `copy-structure-v19`。旧版本落盘资产仅供人工查阅；系统不再提供旧版生成、校验、审核或发布。
 
-活动合同为 `copy-structure-handoff-v16` / `copy-structure-v16`。V15 及更早版本仅作历史查阅。输入仅为选题、已审核对标案例的连续 FNN 大框架，以及结构三所需的处理库正式模块；不读取小框架、功能蓝图、逐句/句群、复刻画像或内容对象池。
+## 输入锁定
 
-## 先锁母逻辑
+handoff 锁定选题、已审核对标案例、完整 FNN、大框架功能、每个小框架名称/顺序/原文要点，以及唯一 `writing-expression-contract-v3` 的 ID、版本、哈希和结构适用规则 ID。候选必须逐字段继承这些不可变输入。合同机器源是 `10_Skills武器库/contracts/writing-expression-contract-v3.json`；阅读版只由该源生成。
 
-- 所有候选共用 `title_contract`：`audience`、`title_promise`、`core_conflict`、`terminal_conclusion`、`completion_criteria`。三套结构必须共同兑现标题承诺。
-- 结构一至三各有不同的 `mother_logic`，并逐 FNN 写入 `logic_chain`：`answering_question`、`previous_dependency`、`necessary_conclusion`、`removal_impact`、`next_question`。相邻节点必须以前一节点结论为前提；删除任一节点必须使后续问题或最终结论失去支撑。
-- 候选行必须原样继承 handoff 的 `framework_block_id`、`framework_label`、`framework_function`、`formal_framework_type`、`asset_framework_type`。这些不是可编辑内容。
-- 只有逻辑链完整时才可填写结构一、二内容或让结构三检索同类型正式模块；模块只证明既定节点任务，不能反向决定母逻辑。
-- 三条 `terminal_conclusion` 必须与共享标题合同的 `terminal_conclusion` 完全一致；母逻辑、扣题结论和 FNN 推进链是生成内容的上游合同，不是可选预览说明。
+## 生成要求
 
-## 结构三原文证据
-
-- 每条非空 `evidence_chain` 必须有 `source_evidence`：`source_index`、`source_section`、`excerpt`、`evidence_role`、`support_explanation`。摘录必须是对应 `processing_sources` 文件和章节内可定位的连续原文。
-- 案例原文证据须分别覆盖场景/触发、行动/转折、结果/结论；误区须覆盖原误区及漏洞、后果或纠正；解决方案须填写 `step_no` 并摘录对应编号步骤的原文动作。
-- 人读稿在结构三每条论据后展示“原文依据（章节）”，便于直接核验；来源路径仍在出处列，哈希、来源索引和内部检索字段不得展示。
-
-## 框架映射
-
-- `big_frameworks` 完整保留对标三列表的 F01、F02……，并为每项固化非原文的 `framework_function`（该段在全文中承担的功能定义），用于正文交接。
-- `core_frameworks` 只保留能够映射到处理库正式内容家族的框架：观点、痛点、误区、解决方案、案例、推荐理由；它们按原 FNN 相对顺序出现，允许跳过支撑段编号。大框架名称可带序号或说明，只要名称包含且仅包含一个上述内容类型词，即映射为该类型（如“第二点：误区”→“误区”）；原始展示名称不改。
-- 开场、转场、观点回扣、行动引导属于优先排除的正文专属支撑词，即使其中含“观点”等正式类型词，也不得映射为核心框架；同时包含多个正式类型词或未包含任何正式类型词的名称不得猜测类型，应作为正文专属支撑段保留。
-- 开场、转场、观点回扣、行动引导等不能映射处理库的支撑段必须写入 `final_copy_only_frameworks`，标记 `generation_owner=final-copy`。它们不属于结构资产，不得出现在结构一至四、三套方向比较或结构三出处表，也不得进行资产检索。
-- 结构一至四的 `core_frameworks` 必须逐项覆盖同一核心框架顺序，不能增加、删除、合并或重排。
-- 结构一至三由小拆围绕选题填写各框架核心内容；结构四仅由用户填写与冻结。
-- 结构三每个非空核心框架必须有一条或多条 `processing_sources`；每项包含 `path`、`sha256`、`framework_type` 与 `section`。`path` 必须位于 `02_资产中心/02_处理库`，`framework_type` 必须等于该行正式模块类型，`sha256` 必须与当前文件一致。
-- 人读稿“出处”列只渲染 `processing_sources` 的处理库相对路径和引用段落；禁止渲染 `source_note`、选题表、对标复刻拆解或策划说明。未命中时内容及出处留空，并在 `asset_gap_note` 说明检索缺口。
-- 候选、预览和审核回执中不得出现 `structure_segments`、小结构、逐句、句群或复刻画像字段。
+- 结构一至三共用标题合同和最终结论，分别有完整 FNN 推进链；结构四仅留给用户填写。
+- `big_frameworks` 是结构一至四唯一行序列，任何开场、转场、成果背书或行动引导都不得跳过。非处理库框架在结构三保留空卡位，不得自行补写。
+- 每张非空小框架卡必须有 `source_coverage.source_content_excerpt` 与 `preservation_explanation`；摘录须在锁定原小框架要点内可定位，说明须说清保留的机制、场景、步骤或结果。
+- 结构三每张非空小框架卡必须另有 `source_evidence`，其出处章节和连续原文摘录必须可回到同类型正式处理库；不得用大框架层面的泛泛出处代替。
+- 三套结构分别声明 `reader_entry`、`reasoning_path`、`delivery_form`；任意两套三项中有任一项相同即为伪多版本。
+- 每张非空卡片遵守唯一写作文案表达合同中的结构适用规则；机械套话和未落地抽象词退回。
 
 ## 审核与发布
 
-小审核对标题承诺是否兑现、母逻辑、扣题结论、FNN 总顺序、相邻必然承接、删段是否断链、框架功能定义、核心/正文专属框架归属、结构四留白、结构三逐行出处和原文依据一致性。案例、误区、解决方案若只是可替换知识点、未完成链路任务或未能回到出处原文，一律退回。独立语义审稿必须逐结构提供扣题、承接、删段断裂证据，并逐结构三节点证明原文提取和类型任务。通过的 `copy-structure-v16` 才能进入用户冻结与正文 V3；历史结构只可查阅，不得作为新发布输入。
-
----
-
-• 带你3小时跑通用AI做IP，批量出爆款。
-• 有任何使用问题，可加入我们会员答疑群。
-• 我是姜来已来，微信： lact175
-
----
+小审逐卡引用候选原句、原小框架摘录和结构三正式来源原文，核验内容保留、具体性、口语化、标题服务关系和证据支撑。每对结构须分别证明三个角度维度的实际差异。只有当前 V19 候选、预览、独立审核和发布计划的哈希都一致且 `approved`，才可发布并进入用户冻结。

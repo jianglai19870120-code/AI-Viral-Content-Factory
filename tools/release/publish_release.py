@@ -39,6 +39,63 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def asset_inventory(root: Path) -> dict[str, str]:
+    """Return the active deliverable asset snapshot for mirror reporting.
+
+    The public projection is intentionally a complete replacement.  Keeping a
+    path-to-hash snapshot makes deletions visible before the temporary checkout
+    is cleared and gives the release state an auditable answer to “what was
+    taken down”.
+    """
+    asset_root = root / "02_资产中心"
+    if not asset_root.is_dir():
+        return {}
+    return {
+        path.relative_to(root).as_posix(): sha256(path)
+        for path in sorted(asset_root.rglob("*"))
+        if path.is_file() and path.name != ".gitkeep"
+    }
+
+
+def asset_change_summary(previous_root: Path, current_root: Path) -> dict[str, list[str] | int]:
+    return asset_change_summary_from_inventories(asset_inventory(previous_root), asset_inventory(current_root))
+
+
+def asset_change_summary_from_inventories(previous: dict[str, str], current: dict[str, str]) -> dict[str, list[str] | int]:
+    added = sorted(set(current) - set(previous))
+    deleted = sorted(set(previous) - set(current))
+    modified = sorted(path for path in set(previous) & set(current) if previous[path] != current[path])
+    return {
+        "scope": "02_资产中心 active-delivery mirror",
+        "added": added,
+        "modified": modified,
+        "deleted": deleted,
+        "addedCount": len(added),
+        "modifiedCount": len(modified),
+        "deletedCount": len(deleted),
+    }
+
+
+def asset_inventory_from_public_manifest(payload: str) -> dict[str, str]:
+    """Read the previous asset snapshot without checking out every old blob."""
+    try:
+        data = json.loads(payload)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError("GitHub 当前公开资产清单不可解析，拒绝执行镜像删除") from exc
+    records = data.get("records") if isinstance(data, dict) else None
+    if not isinstance(records, list):
+        raise RuntimeError("GitHub 当前公开资产清单缺少 records，拒绝执行镜像删除")
+    return {
+        str(item["path"]): str(item["sha256"])
+        for item in records
+        if isinstance(item, dict)
+        and str(item.get("path") or "").startswith("02_资产中心/")
+        and str(item.get("path") or "").split("/")[-1] != ".gitkeep"
+        and str(item.get("status") or "") == "public"
+        and str(item.get("sha256") or "")
+    }
+
+
 def run(root: Path, *command: str) -> None:
     result = subprocess.run([sys.executable, *command], cwd=root, env={**os.environ, "PYTHONUTF8": "1"})
     if result.returncode:
@@ -46,7 +103,13 @@ def run(root: Path, *command: str) -> None:
 
 
 def git(root: Path, *command: str) -> str:
-    result = subprocess.run(["git", *command], cwd=root, text=True, encoding="utf-8", errors="replace", capture_output=True)
+    try:
+        result = subprocess.run(
+            ["git", *command], cwd=root, text=True, encoding="utf-8", errors="replace", capture_output=True,
+            env={**os.environ, "GIT_TERMINAL_PROMPT": "0"}, timeout=300,
+        )
+    except subprocess.TimeoutExpired as exc:
+        raise RuntimeError(f"Git 命令超时 git {' '.join(command)}") from exc
     if result.returncode:
         raise RuntimeError(f"Git 命令失败 git {' '.join(command)}: {result.stderr.strip()}")
     return result.stdout.strip()
@@ -120,20 +183,32 @@ def build_public_stage(root: Path, destination: Path) -> None:
         raise RuntimeError("公开投影未生成 PUBLIC_ASSETS_MANIFEST.json")
 
 
-def push_public_projection(root: Path, stage: Path, version: str, branch: str) -> dict[str, str]:
+def push_public_projection(root: Path, stage: Path, version: str, branch: str) -> dict[str, Any]:
     remote = git(root, "remote", "get-url", "origin")
     with tempfile.TemporaryDirectory(prefix="ai-viral-public-git-") as temporary:
         checkout = Path(temporary) / "public"
-        clone = subprocess.run(["git", "clone", "--branch", branch, "--single-branch", remote, str(checkout)], text=True, encoding="utf-8", errors="replace", capture_output=True)
-        if clone.returncode:
-            raise RuntimeError("无法创建 GitHub 公开投影仓：" + clone.stderr.strip())
-        for child in checkout.iterdir():
-            if child.name == ".git":
-                continue
-            if child.is_dir():
-                shutil.rmtree(child)
-            else:
-                child.unlink()
+        checkout.mkdir()
+        # A projection is a complete replacement.  Fetch the previous commit
+        # and tree only, then rebuild the index from the current stage.  This
+        # avoids downloading every obsolete asset before deleting it.
+        git(checkout, "init")
+        git(checkout, "remote", "add", "origin", remote)
+        # GitHub occasionally resets the long-lived HTTP/2 ref negotiation on
+        # this Windows host.  HTTP/1.1 keeps the shallow metadata fetch
+        # resumable and remains fully non-interactive.
+        git(checkout, "-c", "http.version=HTTP/1.1", "fetch", "--depth=1", "--filter=blob:none", "origin", branch)
+        if git(checkout, "ls-remote", "--tags", "origin", f"refs/tags/{version}"):
+            raise RuntimeError(f"标签 {version} 已存在，拒绝覆盖")
+        try:
+            previous_manifest = git(checkout, "show", "FETCH_HEAD:PUBLIC_ASSETS_MANIFEST.json")
+        except RuntimeError as exc:
+            raise RuntimeError("无法读取 GitHub 当前公开资产清单，拒绝执行镜像删除") from exc
+        asset_changes = asset_change_summary_from_inventories(
+            asset_inventory_from_public_manifest(previous_manifest), asset_inventory(stage),
+        )
+        git(checkout, "update-ref", f"refs/heads/{branch}", "FETCH_HEAD")
+        git(checkout, "symbolic-ref", "HEAD", f"refs/heads/{branch}")
+        git(checkout, "read-tree", "--empty")
         for source in stage.rglob("*"):
             target = checkout / source.relative_to(stage)
             if source.is_dir():
@@ -148,13 +223,13 @@ def push_public_projection(root: Path, stage: Path, version: str, branch: str) -
             git(checkout, "commit", "-m", f"release: publish {version} public projection")
             commit = git(checkout, "rev-parse", "HEAD")
             git(checkout, "push", "origin", f"HEAD:refs/heads/{branch}")
-        existing = subprocess.run(["git", "rev-parse", "-q", "--verify", f"refs/tags/{version}"], cwd=checkout, text=True, encoding="utf-8", capture_output=True)
-        if existing.returncode == 0 and existing.stdout.strip() != commit:
-            raise RuntimeError(f"标签 {version} 已存在且指向不同提交，拒绝覆盖")
-        if existing.returncode:
-            git(checkout, "tag", "-a", version, "-m", f"Release {version}")
-            git(checkout, "push", "origin", version)
-    return {"commit": commit, "url": remote.removesuffix(".git") + "/releases/tag/" + version}
+        git(checkout, "tag", "-a", version, "-m", f"Release {version}")
+        git(checkout, "push", "origin", version)
+    return {
+        "commit": commit,
+        "url": remote.removesuffix(".git") + "/releases/tag/" + version,
+        "assetChanges": asset_changes,
+    }
 
 
 def execute(root: Path, version: str, *, dry_run: bool, skip_gates: bool, branch: str, state_path: Path) -> dict[str, Any]:

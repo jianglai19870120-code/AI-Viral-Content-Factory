@@ -35,7 +35,7 @@ def render(plan:dict,candidate:dict)->str:
 def render_annotations(plan:dict,candidate:dict)->str:
     lines=[f"# 正文段落注释｜{candidate['topic']}","","> 正式正文已内联展示 FNN、框架和主/辅写作手法；本文件保留框架功能、内容来源和手法选择理由，供写作与审核追溯。","", "| FNN | 大结构 | 框架功能 | 内容来源 | 主写作手法 | 辅写作手法 | 手法选择理由 | 正文段落 |", "| --- | --- | --- | --- | --- | --- | --- | --- |"]
     for number,item in enumerate(candidate['framework_mappings'],1):
-        source='结构四冻结内容' if item.get('content_source')=='user-frozen' else 'AI按框架功能补足'
+        source='结构四人工内容' if str(item.get('content_source') or '').startswith('user-filled') else 'AI按框架功能补足'
         auxiliary='、'.join(item.get('auxiliary_writing_methods') or []) or '无'
         lines.append(f"| {cell(item['framework_id'])} | {cell(item['framework_label'])} | {cell(item['framework_function'])} | {source} | {cell(item['primary_writing_method'])} | {cell(auxiliary)} | {cell(item['method_rationale'])} | 第 {number} 段 |")
     return append_brand_footer_text('\n'.join(lines)+'\n')

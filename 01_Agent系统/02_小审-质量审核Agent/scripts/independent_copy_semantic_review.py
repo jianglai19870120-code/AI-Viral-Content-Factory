@@ -1,184 +1,70 @@
 #!/usr/bin/env python3
-"""Create and validate non-self-signed semantic reviews for universal copy assets."""
+"""Independent V19 structure review generated from the V3 contract."""
 from __future__ import annotations
-
-import hashlib
-import json
+import argparse, hashlib, json, sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
-import argparse
 
+ROOT = Path(__file__).resolve().parents[3]
+if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
+from workflow.writing_contract import guidance_snapshot, resolve_contract, rule_ids, rules_for, validate_guidance_snapshot
 
-def digest(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+def digest(path: Path) -> str: return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def card_ids(candidate: dict) -> list[str]:
+    found=[]
+    for name in ("structure_one", "structure_two", "structure_three"):
+        rows=(((candidate.get("structures") or {}).get(name) or {}).get("core_frameworks") or [])
+        for framework in rows:
+            for card in framework.get("small_framework_cards", []) if isinstance(framework, dict) else []:
+                if isinstance(card, dict) and str(card.get("content") or "").strip(): found.append(f"{name}/{framework.get('core_framework_id') or ''}/{card.get('small_framework_id') or ''}")
+    return found
 
-def structure_review_ids(artifact: dict[str, Any]) -> list[str]:
-    plans = artifact.get("structures") if isinstance(artifact.get("structures"), dict) else {}
-    result: list[str] = []
-    names = ("structure_one", "structure_two", "structure_three") if artifact.get("schema") in {"copy-structure-v13", "copy-structure-v14", "copy-structure-v15"} else ("structure_one", "structure_two", "structure_three", "structure_four")
-    for name in names:
-        plan = plans.get(name) if isinstance(plans.get(name), dict) else {}
-        frameworks = plan.get("core_frameworks") if isinstance(plan.get("core_frameworks"), list) else []
-        for framework in frameworks:
-            if isinstance(framework, dict) and (artifact.get("schema") not in {"copy-structure-v13", "copy-structure-v14", "copy-structure-v15"} or str(framework.get("core_claim") or "").strip()):
-                result.append(f"{name}/{framework.get('core_framework_id') or ''}")
-    return result
-
+def active(plan: Path, candidate: Path) -> tuple[dict, dict, dict, list[str]]:
+    handoff=json.loads(plan.read_text(encoding="utf-8")); artifact=json.loads(candidate.read_text(encoding="utf-8"))
+    if (handoff.get("schema"), artifact.get("schema")) != ("copy-structure-handoff-v19", "copy-structure-v19"): raise ValueError("独立结构审核只接受 V19 handoff/candidate")
+    binding=artifact.get("writing_contract") if isinstance(artifact.get("writing_contract"),dict) else {}; resolve_contract(binding); rules=rule_ids(binding,"structure")
+    if handoff.get("writing_contract") != binding or handoff.get("writing_contract_rule_ids") != rules or artifact.get("writing_contract_rule_ids") != rules: raise ValueError("V19 结构候选未完整锁定 V3 合同及规则 ID")
+    validate_guidance_snapshot(handoff.get("writing_contract_guidance_snapshot"), binding, "structure")
+    validate_guidance_snapshot(artifact.get("writing_contract_guidance_snapshot"), binding, "structure")
+    return handoff, artifact, binding, rules
 
 def prepare(kind: str, plan: Path, candidate: Path, target: Path) -> Path:
-    source = json.loads(plan.read_text(encoding="utf-8"))
-    artifact = json.loads(candidate.read_text(encoding="utf-8"))
-    if kind == "copy-structure" and artifact.get("schema") in {"copy-structure-v15", "copy-structure-v16"}:
-        rows = structure_review_ids(artifact)
-        payload = {
-            "schema": "independent-copy-semantic-review-v16" if artifact.get("schema") == "copy-structure-v16" else "independent-copy-semantic-review-v15", "kind": kind, "status": "needs-review",
-            "reviewer": {"reviewer_id": "", "independence_attestation": ""}, "plan_path": str(plan.resolve()), "candidate_path": str(candidate.resolve()),
-            "plan_sha256": digest(plan), "candidate_sha256": digest(candidate), "created_at": datetime.now(timezone.utc).isoformat(),
-            "scorecard": {key: None for key in ["选题兑现度", "内容具体度", "节点独立性", "逻辑推进", "框架功能正确", "论点论据匹配", "口播可扩写性"]}, "total_score": None,
-            "vetoes": {key: False for key in ["标题承诺错位", "相邻节点无必然承接", "可替换并列知识点", "抽象案例", "伪多版本", "无资产伪装结构三", "编造可核验事实"]},
-            "summary": "", "item_reviews": [{"id": row, "verdict": "needs-review", "reasoning": "", "evidence": []} for row in rows],
-            "logic_chain_reviews": [{"structure": name, "verdict": "needs-review", "reasoning": "", "title_fulfillment_evidence": "", "dependency_evidence": "", "removal_impact_evidence": ""} for name in ("structure_one", "structure_two", "structure_three")],
-        }
-        if artifact.get("schema") == "copy-structure-v16":
-            payload["source_evidence_reviews"] = [{"id": row, "verdict": "needs-review", "reasoning": "", "source_native_evidence": "", "type_specific_evidence": ""} for row in rows if row.startswith("structure_three/")]
-        target.parent.mkdir(parents=True, exist_ok=True); target.write_text(json.dumps(payload, ensure_ascii=False, indent=2)+"\n",encoding="utf-8"); return target
-    if kind == "copy-structure" and artifact.get("schema") in {"copy-structure-v13", "copy-structure-v14"}:
-        rows = structure_review_ids(artifact)
-        payload = {
-            "schema": "independent-copy-semantic-review-v13", "kind": kind, "status": "needs-review",
-            "reviewer": {"reviewer_id": "", "independence_attestation": ""},
-            "plan_path": str(plan.resolve()), "candidate_path": str(candidate.resolve()),
-            "plan_sha256": digest(plan), "candidate_sha256": digest(candidate), "created_at": datetime.now(timezone.utc).isoformat(),
-            "scorecard": {key: None for key in ["选题兑现度", "内容具体度", "节点独立性", "逻辑推进", "框架功能正确", "论点论据匹配", "口播可扩写性"]},
-            "total_score": None,
-            "vetoes": {key: False for key in ["标题承诺错位", "三点以上同一观点", "抽象案例", "伪多版本", "无资产伪装结构三", "编造可核验事实"]},
-            "summary": "", "item_reviews": [{"id": row, "verdict": "needs-review", "reasoning": "", "evidence": []} for row in rows],
-        }
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        return target
-    if kind == "copy-structure":
-        rows = structure_review_ids(artifact)
-        item_key, criteria = "id", [
-            "通用选题结构类型与命题完整性",
-            "命题回答义务与逐大框架语义锚定",
-            "三条路线核心问题判断因果机制说服路径与落点两两独立",
-            "逐大框架核心论点清晰且核心论据直接证明论点",
-            "论据手法适配框架职责且不是换手法伪装路线差异",
-            "结构三逐大框架分类检索、论据来源与命题支撑",
-            "后台小结构完整性、结构四双项空白状态与正文桥接",
-        ]
-    elif kind == "final-copy":
-        rows = artifact.get("unit_mappings") if isinstance(artifact.get("unit_mappings"), list) else []
-        item_key, criteria = "unit_no", ["结构与推进保持", "内容与主题意图符合", "表达复刻约束符合"]
-    else:
-        raise ValueError("kind 必须为 copy-structure 或 final-copy")
-    payload = {
-        "schema": "independent-copy-semantic-review-v1", "kind": kind, "status": "needs-review",
-        "reviewer": {"reviewer_id": "", "independence_attestation": ""},
-        "plan_path": str(plan.resolve()), "candidate_path": str(candidate.resolve()),
-        "plan_sha256": digest(plan), "candidate_sha256": digest(candidate),
-        "created_at": datetime.now(timezone.utc).isoformat(),
-        "checks": [{"id": item, "status": "needs-review", "summary": "", "evidence": []} for item in criteria],
-        "item_reviews": ([{"id": row, "verdict": "needs-review", "reasoning": "", "evidence": []} for row in rows]
-                         if kind == "copy-structure" else [{"id": str(row.get(item_key) or ""), "verdict": "needs-review", "reasoning": "", "evidence": []} for row in rows if isinstance(row, dict)]),
-    }
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    return target
-
+    if kind != "copy-structure": raise ValueError("当前独立语义审核只服务 V19 文案结构")
+    _, artifact, binding, rules=active(plan,candidate)
+    snapshot=guidance_snapshot(binding,"structure"); by_id={rule["id"]:rule for rule in snapshot["rules"]}
+    payload={"schema":"independent-copy-semantic-review-v19","kind":kind,"status":"needs-review","reviewer":{"reviewer_id":"","independence_attestation":""},"plan_path":str(plan.resolve()),"candidate_path":str(candidate.resolve()),"plan_sha256":digest(plan),"candidate_sha256":digest(candidate),"created_at":datetime.now(timezone.utc).isoformat(),"writing_contract":binding,"writing_contract_rule_ids":rules,"writing_contract_guidance_snapshot":snapshot,"contract_checks":[{"id":key,"source_anchors":by_id[key]["source_anchors"],"rule_text":by_id[key]["directive"],"original_guidance":by_id[key]["original_guidance"],"status":"needs-review","summary":"","evidence":[{"item_id":"","candidate_quote":"","reasoning":""}]} for key in rules],"item_reviews":[{"id":key,"verdict":"needs-review","reasoning":"","candidate_quote":"","source_content_quote":"","specificness_evidence":"","evidence":[]} for key in card_ids(artifact)],"route_comparison_reviews":[{"pair":key,"verdict":"needs-review","reader_entry_evidence":"","reasoning_path_evidence":"","delivery_form_evidence":""} for key in ("structure_one/structure_two","structure_one/structure_three","structure_two/structure_three")]}
+    target.parent.mkdir(parents=True,exist_ok=True);target.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8");return target
 
 def validate(kind: str, plan: Path, candidate: Path, review_path: Path) -> list[str]:
-    errors: list[str] = []
-    review = json.loads(review_path.read_text(encoding="utf-8"))
-    artifact = json.loads(candidate.read_text(encoding="utf-8"))
-    if kind == "copy-structure" and artifact.get("schema") in {"copy-structure-v15", "copy-structure-v16"}:
-        expected=set(structure_review_ids(artifact))
-        version="v16" if artifact.get("schema")=="copy-structure-v16" else "v15"
-        if review.get("schema")!=f"independent-copy-semantic-review-{version}" or review.get("kind")!=kind or review.get("status")!="completed":return [f"{version.upper()} 独立语义审核类型或状态错误"]
-        if review.get("plan_sha256")!=digest(plan) or review.get("candidate_sha256")!=digest(candidate):errors.append("V15 独立语义审核未绑定当前计划与候选哈希")
-        reviewer=review.get("reviewer") if isinstance(review.get("reviewer"),dict) else {}
-        if len(str(reviewer.get("reviewer_id") or "").strip())<3 or len(str(reviewer.get("independence_attestation") or "").strip())<16 or reviewer.get("reviewer_id")==(artifact.get("producer") or {}).get("agent_id"):errors.append("V15 独立语义审核的审稿人或独立性声明不合格")
-        required=["选题兑现度", "内容具体度", "节点独立性", "逻辑推进", "框架功能正确", "论点论据匹配", "口播可扩写性"]; scorecard=review.get("scorecard") if isinstance(review.get("scorecard"),dict) else {}; scores=[scorecard.get(key) for key in required]
-        if set(scorecard)!=set(required) or any(not isinstance(x,(int,float)) or x<0 or x>100 for x in scores):errors.append("V15 语义评分必须完整覆盖七项且每项为 0-100")
-        elif review.get("total_score")!=round(sum(scores)/len(scores),1) or round(sum(scores)/len(scores),1)<80:errors.append("V15 语义总分必须等于七项平均分且不低于 80")
-        vetoes=review.get("vetoes") if isinstance(review.get("vetoes"),dict) else {}; required_vetoes={"标题承诺错位", "相邻节点无必然承接", "可替换并列知识点", "抽象案例", "伪多版本", "无资产伪装结构三", "编造可核验事实"}
-        if set(vetoes)!=required_vetoes or any(x is not False for x in vetoes.values()):errors.append("V15 一票否决项必须完整填写且全部为 false")
-        reviews=review.get("item_reviews") if isinstance(review.get("item_reviews"),list) else []
-        if {str(x.get("id") or "") for x in reviews if isinstance(x,dict)}!=expected or any(x.get("verdict")!="passed" or len(str(x.get("reasoning") or "").strip())<12 or not x.get("evidence") for x in reviews if isinstance(x,dict)):errors.append("V15 语义审核未逐节点给出合格判断和证据")
-        chain=review.get("logic_chain_reviews") if isinstance(review.get("logic_chain_reviews"),list) else []; names={"structure_one","structure_two","structure_three"}
-        if {str(x.get("structure") or "") for x in chain if isinstance(x,dict)}!=names or any(x.get("verdict")!="passed" or len(str(x.get("reasoning") or "").strip())<12 or not all(str(x.get(k) or "").strip() for k in ("title_fulfillment_evidence","dependency_evidence","removal_impact_evidence")) for x in chain if isinstance(x,dict)):errors.append("V15 母逻辑审核必须逐结构证明扣题、承接与删段断裂")
-        if version == "v16":
-            expected_sources={item for item in expected if item.startswith("structure_three/")}; source_reviews=review.get("source_evidence_reviews") if isinstance(review.get("source_evidence_reviews"),list) else []
-            if {str(x.get("id") or "") for x in source_reviews if isinstance(x,dict)}!=expected_sources or any(x.get("verdict")!="passed" or len(str(x.get("reasoning") or "").strip())<12 or not str(x.get("source_native_evidence") or "").strip() or not str(x.get("type_specific_evidence") or "").strip() for x in source_reviews if isinstance(x,dict)):
-                errors.append("V16 结构三原文证据审核未逐节点证明原文提取和类型任务")
-        return errors
-    if kind == "copy-structure" and artifact.get("schema") in {"copy-structure-v13", "copy-structure-v14"}:
-        expected = set(structure_review_ids(artifact))
-        if review.get("schema") != "independent-copy-semantic-review-v13" or review.get("kind") != kind or review.get("status") != "completed":
-            return ["V13 独立语义审核类型或状态错误"]
-        if review.get("plan_sha256") != digest(plan) or review.get("candidate_sha256") != digest(candidate):
-            errors.append("V13 独立语义审核未绑定当前计划与候选哈希")
-        reviewer = review.get("reviewer") if isinstance(review.get("reviewer"), dict) else {}
-        if len(str(reviewer.get("reviewer_id") or "").strip()) < 3 or len(str(reviewer.get("independence_attestation") or "").strip()) < 16 or reviewer.get("reviewer_id") == (artifact.get("producer") or {}).get("agent_id"):
-            errors.append("V13 独立语义审核的审稿人或独立性声明不合格")
-        required = ["选题兑现度", "内容具体度", "节点独立性", "逻辑推进", "框架功能正确", "论点论据匹配", "口播可扩写性"]
-        scorecard = review.get("scorecard") if isinstance(review.get("scorecard"), dict) else {}
-        scores = [scorecard.get(key) for key in required]
-        if set(scorecard) != set(required) or any(not isinstance(value, (int, float)) or value < 0 or value > 100 for value in scores):
-            errors.append("V13 语义评分必须完整覆盖七项且每项为 0-100")
-        else:
-            expected_total = round(sum(scores) / len(scores), 1)
-            if review.get("total_score") != expected_total or expected_total < 80:
-                errors.append("V13 语义总分必须等于七项平均分且不低于 80")
-        vetoes = review.get("vetoes") if isinstance(review.get("vetoes"), dict) else {}
-        required_vetoes = {"标题承诺错位", "三点以上同一观点", "抽象案例", "伪多版本", "无资产伪装结构三", "编造可核验事实"}
-        if set(vetoes) != required_vetoes or any(value is not False for value in vetoes.values()):
-            errors.append("V13 一票否决项必须完整填写且全部为 false")
-        reviews = review.get("item_reviews") if isinstance(review.get("item_reviews"), list) else []
-        if {str(item.get("id") or "") for item in reviews if isinstance(item, dict)} != expected or any(item.get("verdict") != "passed" or len(str(item.get("reasoning") or "").strip()) < 12 or not item.get("evidence") for item in reviews if isinstance(item, dict)):
-            errors.append("V13 语义审核未逐项给出合格判断和证据")
-        return errors
-    if review.get("schema") != "independent-copy-semantic-review-v1" or review.get("kind") != kind or review.get("status") != "completed":
-        errors.append("独立语义审核类型或状态错误")
-    if review.get("plan_sha256") != digest(plan) or review.get("candidate_sha256") != digest(candidate):
-        errors.append("独立语义审核未绑定当前计划与候选哈希")
-    reviewer = review.get("reviewer") if isinstance(review.get("reviewer"), dict) else {}
-    producer = artifact.get("producer") if isinstance(artifact.get("producer"), dict) else {}
-    if len(str(reviewer.get("reviewer_id") or "").strip()) < 3 or len(str(reviewer.get("independence_attestation") or "").strip()) < 16:
-        errors.append("独立语义审核缺少审稿人或独立性声明")
-    if producer.get("agent_id") and producer.get("agent_id") == reviewer.get("reviewer_id"):
-        errors.append("独立审稿人不得与执行人相同")
-    checks = review.get("checks") if isinstance(review.get("checks"), list) else []
-    if not checks or any(item.get("status") != "passed" or len(str(item.get("summary") or "").strip()) < 12 or not item.get("evidence") for item in checks if isinstance(item, dict)):
-        errors.append("独立语义审核检查项缺少通过结论或可定位证据")
-    if kind == "copy-structure":
-        expected_ids = set(structure_review_ids(artifact))
-    else:
-        expected_rows = artifact.get("unit_mappings")
-        expected_ids = {str(row.get("unit_no") or "") for row in expected_rows if isinstance(row, dict)} if isinstance(expected_rows, list) else set()
-    reviews = review.get("item_reviews") if isinstance(review.get("item_reviews"), list) else []
-    review_ids = {str(item.get("id") or "") for item in reviews if isinstance(item, dict)}
-    if review_ids != expected_ids:
-        errors.append("独立语义审核未逐项覆盖当前候选")
-    elif any(item.get("verdict") != "passed" or len(str(item.get("reasoning") or "").strip()) < 12 or not item.get("evidence") for item in reviews if isinstance(item, dict)):
-        errors.append("独立语义审核逐项判断或证据不足")
+    try: _, artifact, binding, rules=active(plan,candidate); review=json.loads(review_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError, json.JSONDecodeError) as exc: return [f"V19 独立语义审核不可验证：{exc}"]
+    errors=[]; expected_cards=set(card_ids(artifact)); expected_rules=set(rules)
+    if review.get("schema")!="independent-copy-semantic-review-v19" or review.get("kind")!=kind or review.get("status")!="completed": return ["V19 独立语义审核类型或状态错误"]
+    if review.get("plan_sha256")!=digest(plan) or review.get("candidate_sha256")!=digest(candidate) or review.get("writing_contract")!=binding or review.get("writing_contract_rule_ids")!=rules: errors.append("V19 独立语义审核未锁定当前哈希或 V3 合同")
+    try: validate_guidance_snapshot(review.get("writing_contract_guidance_snapshot"), binding, "structure")
+    except ValueError: errors.append("V19 独立语义审核未锁定完整口播原文与规则快照")
+    reviewer=review.get("reviewer") if isinstance(review.get("reviewer"),dict) else {}
+    if len(str(reviewer.get("reviewer_id") or "").strip())<3 or len(str(reviewer.get("independence_attestation") or "").strip())<16 or reviewer.get("reviewer_id")==(artifact.get("producer") or {}).get("agent_id"): errors.append("V19 审稿人或独立性声明不合格")
+    checks=review.get("contract_checks") if isinstance(review.get("contract_checks"),list) else []
+    by_id={rule["id"]:rule for rule in guidance_snapshot(binding,"structure")["rules"]}
+    if {str(item.get("id") or "") for item in checks if isinstance(item,dict)}!=expected_rules or any(item.get("status")!="passed" or item.get("source_anchors")!=by_id.get(str(item.get("id") or ""),{}).get("source_anchors") or item.get("rule_text")!=by_id.get(str(item.get("id") or ""),{}).get("directive") or item.get("original_guidance")!=by_id.get(str(item.get("id") or ""),{}).get("original_guidance") or not str(item.get("summary") or "").strip() or not item.get("evidence") for item in checks if isinstance(item,dict)): errors.append("V3 合同规则未逐条给出完整原文、锚点、结论和证据")
+    cards={}
+    for name in ("structure_one","structure_two","structure_three"):
+        for framework in (((artifact.get("structures") or {}).get(name) or {}).get("core_frameworks") or []):
+            for card in framework.get("small_framework_cards",[]) if isinstance(framework,dict) else []: cards[f"{name}/{framework.get('core_framework_id') or ''}/{card.get('small_framework_id') or ''}"]=card
+    for check in checks:
+        evidence=check.get("evidence") if isinstance(check,dict) else []
+        if not isinstance(evidence,list) or not evidence or any(not isinstance(row,dict) or str(row.get("item_id") or "") not in cards or not str(row.get("candidate_quote") or "").strip() or str(row.get("candidate_quote") or "") not in str(cards[str(row.get("item_id"))].get("content") or "") or not str(row.get("reasoning") or "").strip() for row in evidence): errors.append("V19 合同审核证据必须逐规则定位当前候选卡和原句");break
+    items=review.get("item_reviews") if isinstance(review.get("item_reviews"),list) else []
+    if {str(item.get("id") or "") for item in items if isinstance(item,dict)}!=expected_cards: errors.append("V19 审核未逐卡覆盖全部候选内容")
+    for item in items:
+        card=cards.get(str(item.get("id") or ""),{}) if isinstance(item,dict) else {}; coverage=card.get("source_coverage") if isinstance(card.get("source_coverage"),dict) else {}
+        if not isinstance(item,dict) or item.get("verdict")!="passed" or len(str(item.get("reasoning") or "").strip())<12 or not str(item.get("candidate_quote") or "").strip() or str(item.get("candidate_quote") or "") not in str(card.get("content") or "") or not str(item.get("source_content_quote") or "").strip() or str(item.get("source_content_quote") or "") not in str(coverage.get("source_content_excerpt") or "") or len(str(item.get("specificness_evidence") or "").strip())<12 or not item.get("evidence"): errors.append("V19 审核必须逐卡引用候选原句、原小框架与具体性依据");break
+    routes=review.get("route_comparison_reviews") if isinstance(review.get("route_comparison_reviews"),list) else []; pairs={"structure_one/structure_two","structure_one/structure_three","structure_two/structure_three"}
+    if {str(item.get("pair") or "") for item in routes if isinstance(item,dict)}!=pairs or any(item.get("verdict")!="passed" or not all(str(item.get(key) or "").strip() for key in ("reader_entry_evidence","reasoning_path_evidence","delivery_form_evidence")) for item in routes if isinstance(item,dict)): errors.append("V19 审核未逐对证明三套结构的实质差异")
     return errors
 
-
 def main() -> int:
-    parser = argparse.ArgumentParser(description="创建通用文案独立语义审稿请求")
-    parser.add_argument("--kind", choices=["copy-structure", "final-copy"], required=True)
-    parser.add_argument("--plan", type=Path, required=True)
-    parser.add_argument("--candidate", type=Path, required=True)
-    parser.add_argument("--target", type=Path, required=True)
-    args = parser.parse_args()
-    target = prepare(args.kind, args.plan.resolve(), args.candidate.resolve(), args.target.resolve())
-    print(json.dumps({"status": "needs-review", "review": str(target)}, ensure_ascii=False))
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+    parser=argparse.ArgumentParser(description="创建 V19 文案结构独立语义审稿请求");parser.add_argument("--kind",choices=["copy-structure"],required=True);parser.add_argument("--plan",type=Path,required=True);parser.add_argument("--candidate",type=Path,required=True);parser.add_argument("--target",type=Path,required=True);args=parser.parse_args();target=prepare(args.kind,args.plan.resolve(),args.candidate.resolve(),args.target.resolve());print(json.dumps({"status":"needs-review","review":str(target)},ensure_ascii=False));return 0
+if __name__=="__main__":raise SystemExit(main())

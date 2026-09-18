@@ -38,14 +38,14 @@ class TopicStructureReleaseTests(unittest.TestCase):
             "topic": "人工冻结选题", "benchmark_case_id": "TJX-001",
         }
         candidate.write_text(json.dumps({
-            "schema": "copy-structure-v16", "topic": "人工冻结选题", "benchmark_case_id": "TJX-001",
+            "schema": "copy-structure-v19", "topic": "人工冻结选题", "benchmark_case_id": "TJX-001",
             "topic_table_binding": binding,
             "structures": {"structure_four": {"core_frameworks": [
                 {"framework_block_id": "F02", "framework_label": "第一点：案例"},
                 {"framework_block_id": "F03", "framework_label": "第二点：误区"},
             ]}},
         }, ensure_ascii=False), encoding="utf-8")
-        handoff.write_text(json.dumps({"schema": "copy-structure-handoff-v16"}), encoding="utf-8")
+        handoff.write_text(json.dumps({"schema": "copy-structure-handoff-v19"}), encoding="utf-8")
         candidate_sha = hashlib.sha256(candidate.read_bytes()).hexdigest()
         handoff_sha = hashlib.sha256(handoff.read_bytes()).hexdigest()
         old_output = root / "旧正式结构.md"
@@ -57,7 +57,7 @@ class TopicStructureReleaseTests(unittest.TestCase):
             "planned_output_path": str(old_output.resolve()),
         }, ensure_ascii=False), encoding="utf-8")
         receipt.write_text(json.dumps({
-            "schema": "audit-receipt-v3", "artifactType": "copy-structure-v16", "status": "approved",
+            "schema": "audit-receipt-v3", "artifactType": "copy-structure-v19", "status": "approved",
             "subject": {"candidateSha256": candidate_sha, "handoffSha256": handoff_sha,
                         "releasePlanSha256": hashlib.sha256(plan.read_bytes()).hexdigest()},
         }, ensure_ascii=False), encoding="utf-8")
@@ -165,13 +165,13 @@ class TopicStructureReleaseTests(unittest.TestCase):
             receipt = root / "receipt.json"
             index = root / "index.json"
             binding = {"topic_table_path": "a", "topic_table_relative_path": "a.md", "topic_table_line": 5, "row_fingerprint": "a" * 64, "topic": "唯一选题", "benchmark_case_id": "GHX-002"}
-            candidate.write_text(json.dumps({"schema": "copy-structure-v8", "topic": "唯一选题", "benchmark_case_id": "GHX-002", "topic_table_binding": binding}), encoding="utf-8")
+            candidate.write_text(json.dumps({"schema": "copy-structure-v19", "topic": "唯一选题", "benchmark_case_id": "GHX-002", "topic_table_binding": binding}), encoding="utf-8")
             output.write_text("正式内容", encoding="utf-8")
             digest = hashlib.sha256(candidate.read_bytes()).hexdigest()
-            handoff = root / "handoff.json"; handoff.write_text(json.dumps({"schema": "copy-structure-handoff-v9"}), encoding="utf-8")
+            handoff = root / "handoff.json"; handoff.write_text(json.dumps({"schema": "copy-structure-handoff-v19"}), encoding="utf-8")
             plan = root / "plan.json"
             plan.write_text(json.dumps({"schema": "copy-structure-release-plan-v1", "topic_table_binding": binding, "topic": "唯一选题", "benchmark_case_id": "GHX-002", "candidate_path": str(candidate.resolve()), "candidate_sha256": digest, "handoff_path": str(handoff.resolve()), "handoff_sha256": hashlib.sha256(handoff.read_bytes()).hexdigest(), "planned_output_path": str(output.resolve())}), encoding="utf-8")
-            receipt.write_text(json.dumps({"schema": "audit-receipt-v3", "artifactType": "copy-structure-v8", "status": "approved", "subject": {"candidateSha256": digest, "handoffSha256": hashlib.sha256(handoff.read_bytes()).hexdigest(), "releasePlanSha256": hashlib.sha256(plan.read_bytes()).hexdigest()}}), encoding="utf-8")
+            receipt.write_text(json.dumps({"schema": "audit-receipt-v3", "artifactType": "copy-structure-v19", "status": "approved", "subject": {"candidateSha256": digest, "handoffSha256": hashlib.sha256(handoff.read_bytes()).hexdigest(), "releasePlanSha256": hashlib.sha256(plan.read_bytes()).hexdigest()}}), encoding="utf-8")
             entry = releases.build_release_entry(binding=binding, output_path=output, candidate_path=candidate, audit_receipt_path=receipt, release_plan_path=plan)
             releases.write_release_index_entry(entry, index)
             self.assertIn(("唯一选题", "GHX-002"), releases.verified_release_bindings(index))
@@ -182,20 +182,20 @@ class TopicStructureReleaseTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); candidate = root / "candidate.json"; output = root / "out.md"; receipt = root / "receipt.json"; plan = root / "plan.json"; handoff = root / "handoff.json"; index = root / "index.json"
             binding = {"topic_table_path": "a", "topic_table_relative_path": "a.md", "topic_table_line": 5, "row_fingerprint": "a" * 64, "topic": "唯一选题", "benchmark_case_id": "GHX-002"}
-            candidate.write_text(json.dumps({"schema":"copy-structure-v8","topic":"唯一选题","benchmark_case_id":"GHX-002","topic_table_binding":binding}), encoding="utf-8"); output.write_text("out",encoding="utf-8"); handoff.write_text("{}",encoding="utf-8")
+            candidate.write_text(json.dumps({"schema":"copy-structure-v19","topic":"唯一选题","benchmark_case_id":"GHX-002","topic_table_binding":binding}), encoding="utf-8"); output.write_text("out",encoding="utf-8"); handoff.write_text("{}",encoding="utf-8")
             candidate_sha=hashlib.sha256(candidate.read_bytes()).hexdigest(); handoff_sha=hashlib.sha256(handoff.read_bytes()).hexdigest()
             plan.write_text(json.dumps({"schema":"copy-structure-release-plan-v1","topic_table_binding":binding,"topic":"唯一选题","benchmark_case_id":"GHX-002","candidate_path":str(candidate.resolve()),"candidate_sha256":candidate_sha,"handoff_path":str(handoff.resolve()),"handoff_sha256":handoff_sha,"planned_output_path":str(output.resolve())}),encoding="utf-8")
-            plan_sha=hashlib.sha256(plan.read_bytes()).hexdigest(); receipt.write_text(json.dumps({"schema":"audit-receipt-v3","artifactType":"copy-structure-v8","status":"approved","subject":{"candidateSha256":candidate_sha,"handoffSha256":handoff_sha,"releasePlanSha256":"bad"}}),encoding="utf-8")
+            plan_sha=hashlib.sha256(plan.read_bytes()).hexdigest(); receipt.write_text(json.dumps({"schema":"audit-receipt-v3","artifactType":"copy-structure-v19","status":"approved","subject":{"candidateSha256":candidate_sha,"handoffSha256":handoff_sha,"releasePlanSha256":"bad"}}),encoding="utf-8")
             entry={"topic_table_path":"a","topic_table_relative_path":"a.md","topic_table_line":5,"row_fingerprint":"a"*64,"topic":"唯一选题","benchmark_case_id":"GHX-002","output_path":str(output.resolve()),"output_sha256":hashlib.sha256(output.read_bytes()).hexdigest(),"candidate_path":str(candidate.resolve()),"candidate_sha256":candidate_sha,"audit_receipt_path":str(receipt.resolve()),"release_plan_path":str(plan.resolve()),"release_plan_sha256":plan_sha}
             releases.write_release_index_entry(entry,index)
             self.assertNotIn(("唯一选题","GHX-002"),releases.verified_release_bindings(index))
 
-    def test_v9_candidate_uses_v9_receipt(self) -> None:
+    def test_v19_candidate_uses_v19_receipt(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); candidate = root / "candidate.json"; receipt = root / "receipt.json"
-            candidate.write_text(json.dumps({"schema": "copy-structure-v9"}), encoding="utf-8")
+            candidate.write_text(json.dumps({"schema": "copy-structure-v19"}), encoding="utf-8")
             candidate_sha = hashlib.sha256(candidate.read_bytes()).hexdigest()
-            receipt.write_text(json.dumps({"schema": "audit-receipt-v3", "artifactType": "copy-structure-v9", "status": "approved", "subject": {"candidateSha256": candidate_sha}}), encoding="utf-8")
+            receipt.write_text(json.dumps({"schema": "audit-receipt-v3", "artifactType": "copy-structure-v19", "status": "approved", "subject": {"candidateSha256": candidate_sha}}), encoding="utf-8")
             self.assertTrue(releases._receipt_approves_candidate(receipt, candidate))
 
     def test_migration_drops_only_retired_last_column(self) -> None:

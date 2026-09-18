@@ -48,6 +48,12 @@ def load_server():
 
 
 class WorkbenchV1ContractTest(unittest.TestCase):
+    def test_topic_editor_exposes_an_append_row_control(self):
+        frontend = FRONTEND.read_text(encoding="utf-8")
+        self.assertIn('data-topic-add-row', frontend)
+        self.assertIn('function appendTodayTopicRow()', frontend)
+        self.assertIn("table.rows.push(Array.from({length:table.columns.length},()=>''))", frontend)
+
     def test_registered_asset_directories_are_real(self):
         missing = [key for key, item in active_paths(ROOT).items() if not item["exists"]]
         self.assertEqual(missing, [], f"现役资产目录不存在：{missing}")

@@ -266,7 +266,7 @@ def _published_final_copy_count() -> int:
             audit = json.loads(receipt.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             continue
-        if audit.get("artifactType") in {"final-copy-v2", "final-copy-v3"} and audit.get("status") == "approved":
+        if audit.get("artifactType") == "final-copy-v5" and audit.get("status") == "approved":
             paths.add(formal)
     try:
         for entry in load_release_index().get("entries", []):

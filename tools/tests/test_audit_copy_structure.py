@@ -16,15 +16,16 @@ AUDIT = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(AUDIT)
 
 
-class CopyStructureAuditNamingTests(unittest.TestCase):
-    def test_accepts_topic_first_release_name(self) -> None:
-        self.assertTrue(AUDIT.future_release_name_valid("赚钱就是两件事_做对的事和把事情做对_GHX-002_20260906-195747.md"))
-        self.assertTrue(AUDIT.future_release_name_valid("选题_GHX-002_20260906-195747_02.md"))
+class CopyStructureAuditContractTests(unittest.TestCase):
+    def test_accepts_only_current_v19_handoff_and_candidate(self) -> None:
+        self.assertTrue(AUDIT.uses_current_contract(
+            {"schema": "copy-structure-handoff-v19"}, {"schema": "copy-structure-v19"}
+        ))
 
-    def test_rejects_legacy_or_invalid_release_name(self) -> None:
-        self.assertFalse(AUDIT.future_release_name_valid("GHX-002_选题_20260906-195747.md"))
-        self.assertFalse(AUDIT.future_release_name_valid("选题_ABC-002_20260906-195747.md"))
-        self.assertFalse(AUDIT.future_release_name_valid("选题_GHX-002_20260906.md"))
+    def test_rejects_retired_contracts(self) -> None:
+        self.assertFalse(AUDIT.uses_current_contract(
+            {"schema": "copy-structure-handoff-v16"}, {"schema": "copy-structure-v16"}
+        ))
 
 
 if __name__ == "__main__":

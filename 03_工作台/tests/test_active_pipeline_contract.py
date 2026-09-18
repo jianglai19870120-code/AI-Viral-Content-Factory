@@ -166,15 +166,64 @@ class ActivePipelineContractTest(unittest.TestCase):
         self.assertEqual(result["candidateStatus"], "none")
         self.assertEqual(saved_text.rstrip(), before.rstrip())
 
-    def test_checked_structure_filename_is_immediately_filled(self):
+    def test_owner_topic_save_appends_a_blank_nine_column_row_without_rewriting_the_table_tail(self):
+        server = load_server()
+        formal_template = next(path for path in server._today_editor_paths("topics") if path.is_file())
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "topics.md"
+            source.write_text(formal_template.read_text(encoding="utf-8"), encoding="utf-8")
+            before = server._parse_markdown_table(source)
+            original_tail = before["lines"][before["headerIndex"] + 2 + len(before["rows"]):]
+            rows = [*before["rows"], ["" for _ in before["columns"]]]
+            previous_root = server.TODAY_CANDIDATE_ROOT
+            previous_resolver = server._today_editor_resolve_file
+            server.TODAY_CANDIDATE_ROOT = Path(temporary)
+            server._today_editor_resolve_file = lambda surface, file_id: source
+            try:
+                result = server.save_today_editor_file("topics", "temporary-topic", server._sha256_file(source), {"rows": rows})
+                saved = server._parse_markdown_table(source)
+            finally:
+                server.TODAY_CANDIDATE_ROOT = previous_root
+                server._today_editor_resolve_file = previous_resolver
+        self.assertTrue(result["saved"])
+        self.assertEqual(len(saved["rows"]), len(before["rows"]) + 1)
+        self.assertEqual(saved["rows"][-1], [""] * len(before["columns"]))
+        self.assertEqual(saved["lines"][saved["headerIndex"] + 2 + len(saved["rows"]):], original_tail)
+
+    def test_new_topic_row_rejects_a_typed_unregistered_case_code_without_writing(self):
+        server = load_server()
+        formal_template = next(path for path in server._today_editor_paths("topics") if path.is_file())
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "topics.md"
+            source.write_text(formal_template.read_text(encoding="utf-8"), encoding="utf-8")
+            before_text = source.read_text(encoding="utf-8")
+            table = server._parse_markdown_table(source)
+            invalid_row = ["" for _ in table["columns"]]
+            invalid_row[7] = "FAKE-001"
+            previous_root = server.TODAY_CANDIDATE_ROOT
+            previous_resolver = server._today_editor_resolve_file
+            server.TODAY_CANDIDATE_ROOT = Path(temporary)
+            server._today_editor_resolve_file = lambda surface, file_id: source
+            try:
+                with self.assertRaisesRegex(ValueError, "必须通过选择器"):
+                    server.save_today_editor_file("topics", "temporary-topic", server._sha256_file(source), {"rows": [*table["rows"], invalid_row]})
+                saved_text = source.read_text(encoding="utf-8")
+            finally:
+                server.TODAY_CANDIDATE_ROOT = previous_root
+                server._today_editor_resolve_file = previous_resolver
+        self.assertEqual(saved_text, before_text)
+
+    def test_checked_incomplete_structure_is_not_filled_or_frozen(self):
         server = load_server()
         with tempfile.TemporaryDirectory() as temporary:
             checked = Path(temporary) / "√手动确认的爆款结构.md"
             checked.write_text("# 结构尚未完整填写\n", encoding="utf-8")
             state = server._structure_four_editor_state(checked)
-        self.assertTrue(state["structureFourFilled"])
-        self.assertEqual(state["structureFourStatus"], "已填写结构四")
-        self.assertEqual(state["structureFourReason"], "")
+        self.assertFalse(state["structureFourFilled"])
+        self.assertFalse(state["structureFourFrozen"])
+        self.assertFalse(state["workbenchEligible"])
+        self.assertEqual(state["structureFourStatus"], "待填写结构四")
+        self.assertIn("尚未填写完整", state["structureFourReason"])
 
     def test_structure_card_counts_every_file_and_only_unchecked_files_as_pending(self):
         server = load_server()
@@ -400,7 +449,7 @@ class ActivePipelineContractTest(unittest.TestCase):
             structure.write_text("# structure", encoding="utf-8")
             previous_paths, previous_state = server._published_structure_paths, server._structure_four_editor_state
             server._published_structure_paths = lambda: {structure}
-            server._structure_four_editor_state = lambda path: {"structureFourFilled": True}
+            server._structure_four_editor_state = lambda path: {"structureFourFilled": True, "workbenchEligible": True}
             try:
                 scope = server._module_pending_items(module)
             finally:
@@ -445,7 +494,7 @@ class ActivePipelineContractTest(unittest.TestCase):
             server._topic_rows, server._approved_case_ids, server._latest_structure_for_topic_case = previous
         self.assertEqual(candidate["title"], "单一对标选题 · GHX-001")
 
-    def test_copy_generation_catalog_requires_owner_checked_structure(self):
+    def test_copy_generation_catalog_requires_completed_structure_four(self):
         server = load_server()
         with tempfile.TemporaryDirectory() as temporary:
             structure = Path(temporary) / "结构.md"
@@ -457,22 +506,39 @@ class ActivePipelineContractTest(unittest.TestCase):
             server._topic_rows = lambda: rows
             server._approved_case_ids = lambda: {"GHX-001"}
             server._latest_structure_for_topic_case = lambda title, case_id: structure
-            server._structure_four_editor_state = lambda path: {"structureFourFilled": True, "structureFourStatus": "已冻结结构四"}
+            server._structure_four_editor_state = lambda path: {"structureFourFilled": True, "structureFourFrozen": False, "workbenchEligible": False, "structureFourStatus": "已填写，待冻结"}
             server._latest_copy_for_topic_case = lambda title, case_id: copy
             try:
                 unchecked = server.generation_candidates("copies")["candidates"][0]
-                checked_structure = structure.with_name("√结构.md")
-                structure.rename(checked_structure)
-                server._latest_structure_for_topic_case = lambda title, case_id: checked_structure
                 candidate = server.generation_candidates("copies")["candidates"][0]
             finally:
                 (server._topic_rows, server._approved_case_ids, server._latest_structure_for_topic_case, server._structure_four_editor_state, server._latest_copy_for_topic_case) = previous
         self.assertFalse(unchecked["eligible"])
-        self.assertIn("打 √", unchecked["reason"])
-        self.assertTrue(candidate["eligible"])
+        self.assertEqual(unchecked["reason"], "结构四已填写，待冻结")
+        self.assertFalse(candidate["eligible"])
         self.assertTrue(candidate["generated"])
         self.assertEqual("regenerate", candidate["generationMode"])
         self.assertFalse(candidate["ownerConfirmed"])
+
+    def test_copy_generation_catalog_accepts_only_frozen_structure_four(self):
+        server = load_server()
+        with tempfile.TemporaryDirectory() as temporary:
+            structure = Path(temporary) / "√结构.md"
+            structure.write_text("# 文案结构：测试选题\n", encoding="utf-8")
+            rows = [{"id": "topics.md:1", "title": "测试选题", "selected": True, "benchmarkCaseId": "GHX-001", "tableFile": "topics.md", "tablePath": "topics.md"}]
+            previous = (server._topic_rows, server._approved_case_ids, server._latest_structure_for_topic_case, server._structure_four_editor_state, server._latest_copy_for_topic_case)
+            server._topic_rows = lambda: rows
+            server._approved_case_ids = lambda: {"GHX-001"}
+            server._latest_structure_for_topic_case = lambda title, case_id: structure
+            server._structure_four_editor_state = lambda path: {"structureFourFilled": True, "structureFourFrozen": True, "workbenchEligible": True, "structureFourStatus": "已冻结结构四"}
+            server._latest_copy_for_topic_case = lambda title, case_id: None
+            try:
+                candidate = server.generation_candidates("copies")["candidates"][0]
+            finally:
+                (server._topic_rows, server._approved_case_ids, server._latest_structure_for_topic_case, server._structure_four_editor_state, server._latest_copy_for_topic_case) = previous
+        self.assertTrue(candidate["eligible"])
+        self.assertEqual(candidate["reason"], "")
+        self.assertTrue(candidate["ownerConfirmed"])
 
     def test_gallery_candidates_split_checked_copies_by_gallery_folder(self):
         server = load_server()
@@ -530,15 +596,16 @@ class ActivePipelineContractTest(unittest.TestCase):
                 "id": "topics.md:1", "title": "做对的事", "selected": True,
                 "benchmarkCaseId": "GHX-001<br>TJX-001", "tableFile": "topics.md", "tablePath": "topics.md",
             }]
-            previous = (server._topic_rows, server._approved_case_ids, server._latest_structure_for_topic_case, server._latest_copy_for_topic_case)
+            previous = (server._topic_rows, server._approved_case_ids, server._latest_structure_for_topic_case, server._latest_copy_for_topic_case, server._structure_four_editor_state)
             server._topic_rows = lambda: rows
             server._approved_case_ids = lambda: {"GHX-001", "TJX-001"}
             server._latest_structure_for_topic_case = lambda title, case_id: {"GHX-001": ghx_structure, "TJX-001": tjx_structure}.get(case_id)
             server._latest_copy_for_topic_case = lambda title, case_id: tjx_copy if case_id == "TJX-001" else None
+            server._structure_four_editor_state = lambda path: {"structureFourFilled": True, "structureFourFrozen": True, "workbenchEligible": True, "structureFourStatus": "已冻结结构四"}
             try:
                 candidates = server.generation_candidates("copies")["candidates"]
             finally:
-                (server._topic_rows, server._approved_case_ids, server._latest_structure_for_topic_case, server._latest_copy_for_topic_case) = previous
+                (server._topic_rows, server._approved_case_ids, server._latest_structure_for_topic_case, server._latest_copy_for_topic_case, server._structure_four_editor_state) = previous
         self.assertEqual({item["benchmarkCaseId"] for item in candidates}, {"GHX-001", "TJX-001"})
         self.assertNotEqual(candidates[0]["id"], candidates[1]["id"])
         tjx = next(item for item in candidates if item["benchmarkCaseId"] == "TJX-001")
@@ -613,7 +680,7 @@ class ActivePipelineContractTest(unittest.TestCase):
             formal = copy_root / "approved.md"
             formal.write_text("approved", encoding="utf-8")
             receipt = audit_root / "receipt.json"
-            receipt.write_text(json.dumps({"artifactType": "final-copy-v3", "status": "approved"}), encoding="utf-8")
+            receipt.write_text(json.dumps({"artifactType": "final-copy-v5", "status": "approved"}), encoding="utf-8")
             publication = audit_root / "publication.json"
             publication.write_text(json.dumps({"schema": "final-copy-publication-v1", "status": "published", "formalPath": str(formal), "formalSha256": server._sha256_file(formal), "auditReceipt": str(receipt)}), encoding="utf-8")
             previous_copy, previous_audit = server.COPY_ROOT, server.FORMAL_AUDIT_ROOT
@@ -625,21 +692,21 @@ class ActivePipelineContractTest(unittest.TestCase):
             finally:
                 server.COPY_ROOT, server.FORMAL_AUDIT_ROOT = previous_copy, previous_audit
 
-    def test_final_copy_v3_publication_is_counted(self):
+    def test_final_copy_v5_publication_is_counted(self):
         server = load_server()
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary); copy_root = root / "copies"; audit_root = root / "final-copy"
             copy_root.mkdir(); audit_root.mkdir()
-            formal = copy_root / "approved-v3.md"; formal.write_text("# V3 正文\n", encoding="utf-8")
+            formal = copy_root / "approved-v5.md"; formal.write_text("# V5 正文\n", encoding="utf-8")
             receipt = audit_root / "receipt.json"
-            receipt.write_text(json.dumps({"schema": "audit-receipt-v3", "artifactType": "final-copy-v3", "status": "approved"}), encoding="utf-8")
+            receipt.write_text(json.dumps({"schema": "audit-receipt-v3", "artifactType": "final-copy-v5", "status": "approved"}), encoding="utf-8")
             publication = audit_root / "publication.json"
             publication.write_text(json.dumps({"schema": "final-copy-publication-v1", "status": "published", "formalPath": str(formal), "formalSha256": server._sha256_file(formal), "auditReceipt": str(receipt)}), encoding="utf-8")
             previous_copy, previous_audit = server.COPY_ROOT, server.FORMAL_AUDIT_ROOT
             server.COPY_ROOT, server.FORMAL_AUDIT_ROOT = copy_root, root
             try:
                 self.assertEqual(server._published_copy_paths(), {formal.resolve()})
-                self.assertEqual(server._output_copy_titles(), {"V3正文"})
+                self.assertEqual(server._output_copy_titles(), {"V5正文"})
             finally:
                 server.COPY_ROOT, server.FORMAL_AUDIT_ROOT = previous_copy, previous_audit
 

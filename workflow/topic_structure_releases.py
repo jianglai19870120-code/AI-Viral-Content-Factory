@@ -26,8 +26,11 @@ TOPIC_FILES = (
 from workflow.benchmark_cases import CASE_ID
 
 OWNER_FREEZE_SCHEMA = "owner-structure-four-freeze-v1"
-STRUCTURE_CANDIDATE_SCHEMAS = {"copy-structure-v14", "copy-structure-v15", "copy-structure-v16"}
-RELEASE_CANDIDATE_SCHEMAS = {"copy-structure-v8", "copy-structure-v9", "copy-structure-v13", *STRUCTURE_CANDIDATE_SCHEMAS}
+STRUCTURE_CANDIDATE_SCHEMAS = {"copy-structure-v19"}
+RELEASE_CANDIDATE_SCHEMAS = STRUCTURE_CANDIDATE_SCHEMAS
+STRUCTURE_OUTPUT_ROOT = ROOT / "02_资产中心" / "03_输出库" / "01_文案结构"
+RELOCATION_AUDIT_ROOT = ROOT / "01_Agent系统" / "02_小审-质量审核Agent" / "00_正式审核回执" / "copy-structure"
+RELOCATION_SCHEMA = "copy-structure-release-relocation-v1"
 
 
 def parse_benchmark_case_ids(value: str) -> tuple[str, ...]:
@@ -44,6 +47,11 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _same_path(left: Path, right: Path) -> bool:
+    """Compare Windows paths without treating drive-letter casing as identity drift."""
+    return os.path.normcase(str(left.resolve())) == os.path.normcase(str(right.resolve()))
+
+
 def _markdown_row(line: str) -> list[str]:
     return [cell.strip() for cell in line.strip().strip("|").split("|")]
 
@@ -57,7 +65,7 @@ def _structure_markdown_identity(path: Path) -> tuple[str, str]:
     title = next((line.removeprefix("# 文案结构｜").strip() for line in lines if line.startswith("# 文案结构｜")), "")
     case = next((line.removeprefix("对标复刻拆解：").strip() for line in lines if line.startswith("对标复刻拆解：")), "")
     if not title or not CASE_ID.fullmatch(case):
-        raise ValueError("人工冻结结构缺少合法标题或对标复刻拆解编号")
+        raise ValueError("人工填写结构缺少合法标题或对标复刻拆解编号")
     return title, case
 
 
@@ -66,8 +74,10 @@ def _frozen_structure_four_rows(path: Path) -> list[dict[str, str]]:
     section = next((index for index, line in enumerate(lines) if line.strip() == "## 结构四"), None)
     if section is None:
         raise ValueError("人工冻结结构缺少结构四章节")
-    header = ["编号", "核心大框架", "核心内容"]
-    starts = [index for index, line in enumerate(lines[section + 1:], section + 1) if _markdown_row(line) == header]
+    # V19 public Markdown renders this column as “大框架”; older formal
+    # releases used “核心大框架”.  Both denote the same locked FNN field.
+    headers = {("编号", "核心大框架", "核心内容"), ("编号", "大框架", "核心内容")}
+    starts = [index for index, line in enumerate(lines[section + 1:], section + 1) if tuple(_markdown_row(line)) in headers]
     if len(starts) != 1:
         raise ValueError("结构四必须且只能有一张 FNN 核心框架表")
     rows: list[dict[str, str]] = []
@@ -76,7 +86,7 @@ def _frozen_structure_four_rows(path: Path) -> list[dict[str, str]]:
         values = _markdown_row(lines[index])
         if len(values) != 3 or not all(values):
             raise ValueError("结构四每个核心 FNN 框架必须填写非空核心内容")
-        rows.append({"framework_id": values[0], "framework_label": values[1], "frozen_content": values[2]})
+        rows.append({"framework_id": values[0], "framework_label": values[1], "filled_content": values[2]})
         index += 1
     if not rows:
         raise ValueError("结构四没有可冻结的核心框架")
@@ -102,18 +112,30 @@ def _expected_structure_four(candidate: Path) -> list[dict[str, Any]]:
     return [row for row in rows if isinstance(row, dict)]
 
 
-def _validate_owner_structure_four(path: Path, entry: dict[str, Any], candidate: Path) -> None:
-    if not path.is_file() or not _owner_confirmed_path(path):
-        raise ValueError("人工冻结结构必须是存在且文件名带 √ 的正式 Markdown")
+def _validate_filled_structure_four(path: Path, entry: dict[str, Any], candidate: Path) -> None:
+    """Validate a complete owner-filled Structure Four without freezing it.
+
+    A filled structure is sufficient for the direct final-copy Skill.  It is
+    deliberately not a release-index state: the owner must still use a leading
+    check mark to make the same file a workbench-frozen input.
+    """
+    if not path.is_file() or path.suffix.lower() != ".md":
+        raise ValueError("人工填写结构必须是存在的 Markdown 文件")
     title, case = _structure_markdown_identity(path)
     if title != str(entry.get("topic") or "") or case != str(entry.get("benchmark_case_id") or ""):
-        raise ValueError("人工冻结结构的标题或对标编号与已审核结构候选不一致")
+        raise ValueError("人工填写结构的标题或对标编号与已审核结构候选不一致")
     actual = _frozen_structure_four_rows(path)
     expected = _expected_structure_four(candidate)
     expected_ids = [str(row.get("framework_block_id") or "") for row in expected]
     expected_labels = [str(row.get("framework_label") or "") for row in expected]
     if [row["framework_id"] for row in actual] != expected_ids or [row["framework_label"] for row in actual] != expected_labels:
         raise ValueError("人工结构四的核心 FNN 编号或名称与已审核正文骨架不一致")
+
+
+def _validate_owner_structure_four(path: Path, entry: dict[str, Any], candidate: Path) -> None:
+    if not _owner_confirmed_path(path):
+        raise ValueError("人工冻结结构必须是文件名带 √ 的正式 Markdown")
+    _validate_filled_structure_four(path, entry, candidate)
 
 
 def relative(path: Path) -> str:
@@ -253,14 +275,37 @@ def _receipt_approves_candidate(receipt: Path, candidate: Path) -> bool:
         candidate_schema = json.loads(candidate.read_text(encoding="utf-8")).get("schema")
     except (OSError, json.JSONDecodeError):
         return False
-    # Historical structure releases remain verifiable, even though only
-    # V14–V16 candidates may be consumed by the current final-copy contract.
-    expected_type = {
-        "copy-structure-v8": "copy-structure-v8", "copy-structure-v9": "copy-structure-v9",
-        "copy-structure-v13": "copy-structure-v13", "copy-structure-v14": "copy-structure-v14",
-        "copy-structure-v15": "copy-structure-v15", "copy-structure-v16": "copy-structure-v16",
-    }.get(candidate_schema)
-    return data.get("schema") == "audit-receipt-v3" and expected_type is not None and data.get("artifactType") == expected_type and data.get("status") == "approved" and subject.get("candidateSha256") == digest(candidate)
+    return data.get("schema") == "audit-receipt-v3" and candidate_schema == "copy-structure-v19" and data.get("artifactType") == candidate_schema and data.get("status") == "approved" and subject.get("candidateSha256") == digest(candidate)
+
+
+def _relocation_is_current(entry: dict[str, Any], plan: dict[str, Any], candidate: Path, receipt: Path) -> bool:
+    relocation = entry.get("relocation")
+    if not isinstance(relocation, dict) or relocation.get("schema") != RELOCATION_SCHEMA or relocation.get("status") != "relocated":
+        return False
+    source = Path(str(relocation.get("from_path") or "")); target = Path(str(relocation.get("to_path") or ""))
+    receipt_path = Path(str(relocation.get("receipt_path") or ""))
+    if (
+        not receipt_path.is_file()
+        or relocation.get("receipt_sha256") != digest(receipt_path)
+        or source.resolve() != Path(str(plan.get("planned_output_path") or "")).resolve()
+        or target.resolve() != Path(str(entry.get("output_path") or "")).resolve()
+        or relocation.get("output_sha256") != entry.get("output_sha256")
+        or relocation.get("candidate_sha256") != digest(candidate)
+        or relocation.get("audit_receipt_path") != str(receipt.resolve())
+    ):
+        return False
+    try:
+        proof = json.loads(receipt_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False
+    return proof == {
+        "schema": RELOCATION_SCHEMA, "status": "relocated", "from_path": str(source.resolve()),
+        "to_path": str(target.resolve()), "output_sha256": entry.get("output_sha256"),
+        "release_plan_path": str(Path(str(entry.get("release_plan_path") or "")).resolve()),
+        "release_plan_sha256": entry.get("release_plan_sha256"), "candidate_path": str(candidate.resolve()),
+        "candidate_sha256": digest(candidate), "audit_receipt_path": str(receipt.resolve()),
+        "migrated_at": relocation.get("migrated_at"),
+    }
 
 
 def _release_plan_approved_for_entry(entry: dict[str, Any], candidate: Path, receipt: Path) -> bool:
@@ -282,7 +327,7 @@ def _release_plan_approved_for_entry(entry: dict[str, Any], candidate: Path, rec
         or any(plan_binding.get(key) != value for key, value in binding.items())
         or plan.get("candidate_sha256") != digest(candidate)
         or Path(str(plan.get("candidate_path") or "")).resolve() != candidate.resolve()
-        or Path(str(plan.get("planned_output_path") or "")).resolve() != Path(str(entry.get("output_path") or "")).resolve()
+        or (Path(str(plan.get("planned_output_path") or "")).resolve() != Path(str(entry.get("output_path") or "")).resolve() and not _relocation_is_current(entry, plan, candidate, receipt))
         or not handoff.is_file()
         or plan.get("handoff_sha256") != digest(handoff)
     ):
@@ -345,7 +390,7 @@ def _receipt_approves_final_copy(receipt: Path, candidate: Path) -> bool:
     except (OSError, json.JSONDecodeError):
         return False
     subject = data.get("subject") if isinstance(data.get("subject"), dict) else {}
-    return data.get("schema") == "audit-receipt-v3" and data.get("artifactType") in {"final-copy-v2", "final-copy-v3"} and data.get("status") == "approved" and subject.get("candidateSha256") == digest(candidate)
+    return data.get("schema") == "audit-receipt-v3" and data.get("artifactType") == "final-copy-v5" and data.get("status") == "approved" and subject.get("candidateSha256") == digest(candidate)
 
 
 def verified_final_copy(entry: dict[str, Any]) -> bool:
@@ -403,6 +448,47 @@ def verified_release_bindings(path: Path = INDEX_PATH) -> dict[tuple[str, str], 
     return result
 
 
+def resolve_filled_structure_input(*, structure_markdown: Path, path: Path = INDEX_PATH) -> dict[str, Any]:
+    """Resolve a complete Structure Four for direct final-copy generation.
+
+    This is intentionally separate from :func:`verified_release_bindings`.
+    Direct Codex use may consume a complete owner edit before its filename is
+    check-marked, but it must still inherit a current approved V19 structure
+    candidate and audit receipt.  The returned snapshot is not written to the
+    release index, so filling a table never silently freezes it for the
+    workbench.
+    """
+    structure_markdown = structure_markdown.resolve()
+    topic, case = _structure_markdown_identity(structure_markdown)
+    candidates = [
+        entry for entry in load_release_index(path).get("entries", [])
+        if isinstance(entry, dict)
+        and entry.get("topic") == topic
+        and entry.get("benchmark_case_id") == case
+    ]
+    for base in reversed(candidates):
+        evidence = _approved_structure_evidence(base)
+        if evidence is None:
+            continue
+        candidate, receipt = evidence
+        try:
+            _validate_filled_structure_four(structure_markdown, base, candidate)
+        except ValueError:
+            continue
+        resolved = dict(base)
+        resolved["base_release_output_path"] = str(base.get("output_path") or "")
+        resolved["base_release_output_sha256"] = str(base.get("output_sha256") or "")
+        resolved["output_path"] = str(structure_markdown)
+        resolved["output_sha256"] = digest(structure_markdown)
+        resolved["structure_four_frozen"] = False
+        resolved["structure_input_authority"] = "owner-filled-direct"
+        resolved["structure_candidate_path"] = str(candidate.resolve())
+        resolved["structure_candidate_sha256"] = digest(candidate)
+        resolved["audit_receipt_path"] = str(receipt.resolve())
+        return resolved
+    raise ValueError("未找到与完整结构四匹配的当前已审核 V19 文案结构")
+
+
 def record_owner_frozen_structure(*, structure_markdown: Path, path: Path = INDEX_PATH) -> dict[str, Any]:
     """Append the owner's current structure-four authority without rewriting history."""
     structure_markdown = structure_markdown.resolve()
@@ -416,7 +502,20 @@ def record_owner_frozen_structure(*, structure_markdown: Path, path: Path = INDE
         if evidence is None:
             continue
         candidate, receipt = evidence
-        _validate_owner_structure_four(structure_markdown, base, candidate)
+        # A newer structure release may legitimately have changed its FNN
+        # labels after the owner froze an earlier approved Structure 4.  Keep
+        # searching for the newest compatible approved candidate instead of
+        # aborting the whole recovery on that incompatible release.
+        try:
+            _validate_owner_structure_four(structure_markdown, base, candidate)
+        except ValueError as exc:
+            # Only an FNN-label mismatch can indicate that this is an older
+            # approved release and a later compatible one may still exist.
+            # Invalid owner content must be surfaced, not hidden behind the
+            # generic “no evidence” error.
+            if "核心 FNN 编号或名称" in str(exc):
+                continue
+            raise
         updated = dict(base)
         updated["owner_structure_four"] = {
             "schema": OWNER_FREEZE_SCHEMA,
@@ -473,6 +572,67 @@ def write_release_index_entry(entry: dict[str, Any], path: Path = INDEX_PATH) ->
         os.replace(temporary, path)
     finally:
         temporary.unlink(missing_ok=True)
+
+
+def relocate_verified_structure_release(*, topic: str, benchmark_case_id: str, path: Path = INDEX_PATH) -> dict[str, Any]:
+    """Move one root-level formal structure with an immutable proof trail.
+
+    Original release plans and audit receipts are never rewritten.  The append-only
+    index records a relocation proof that binds the old planned output to its new,
+    case-derived directory and the unchanged file hash.
+    """
+    from workflow.case_output_directories import resolve_case_output_directory
+
+    key = (topic.strip(), benchmark_case_id.strip())
+    current = verified_release_bindings(path).get(key)
+    if current is None:
+        raise ValueError("迁移前必须存在当前、可核验的正式结构发布绑定")
+    source = Path(str(current.get("output_path") or "")).resolve()
+    destination_dir = resolve_case_output_directory(key[1], "structure", create=True)
+    destination_dir.mkdir(parents=True, exist_ok=True)
+    destination = (destination_dir / source.name).resolve()
+    if _same_path(source.parent, destination_dir):
+        return current
+    if not _same_path(source.parent, STRUCTURE_OUTPUT_ROOT):
+        raise ValueError("仅允许迁移误放在文案结构根目录的正式文件")
+    expected_hash = str(current.get("output_sha256") or "")
+    if not source.is_file() or digest(source) != expected_hash:
+        raise ValueError("迁移源文件缺失或哈希与已审核发布索引不一致")
+    if destination.exists() and digest(destination) != expected_hash:
+        raise ValueError("目标目录已存在同名但不同内容的文件，拒绝覆盖")
+
+    entries = load_release_index(path).get("entries", [])
+    for entry in reversed(entries):
+        relocation = entry.get("relocation") if isinstance(entry, dict) else None
+        if isinstance(relocation, dict) and entry.get("topic") == key[0] and entry.get("benchmark_case_id") == key[1] and Path(str(relocation.get("to_path") or "")).resolve() == destination:
+            if verified_release_bindings(path).get(key) is not None:
+                return verified_release_bindings(path)[key]
+
+    moved = False
+    try:
+        if not destination.exists():
+            os.replace(source, destination); moved = True
+        migrated_at = datetime.now(timezone.utc).astimezone().isoformat()
+        receipt = RELOCATION_AUDIT_ROOT / f"{benchmark_case_id}_{re.sub(r'[^\w\u4e00-\u9fff-]+', '_', topic).strip('_')}_迁移回执.json"
+        proof = {
+            "schema": RELOCATION_SCHEMA, "status": "relocated", "from_path": str(source), "to_path": str(destination),
+            "output_sha256": expected_hash, "release_plan_path": str(Path(str(current["release_plan_path"])).resolve()),
+            "release_plan_sha256": str(current["release_plan_sha256"]), "candidate_path": str(Path(str(current["candidate_path"])).resolve()),
+            "candidate_sha256": str(current["candidate_sha256"]), "audit_receipt_path": str(Path(str(current["audit_receipt_path"])).resolve()), "migrated_at": migrated_at,
+        }
+        receipt.parent.mkdir(parents=True, exist_ok=True)
+        receipt.write_text(json.dumps(proof, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        updated = dict(current)
+        updated["output_path"] = str(destination); updated["output_sha256"] = expected_hash
+        updated["relocation"] = {"schema": RELOCATION_SCHEMA, "status": "relocated", "from_path": str(source), "to_path": str(destination), "output_sha256": expected_hash, "candidate_sha256": str(current["candidate_sha256"]), "audit_receipt_path": str(Path(str(current["audit_receipt_path"])).resolve()), "receipt_path": str(receipt.resolve()), "receipt_sha256": digest(receipt), "migrated_at": migrated_at}
+        if not _release_plan_approved_for_entry(updated, Path(str(current["candidate_path"])), Path(str(current["audit_receipt_path"]))):
+            raise ValueError("迁移证据无法重放原发布计划与小审回执")
+        write_release_index_entry(updated, path)
+        return updated
+    except Exception:
+        if moved and destination.is_file() and not source.exists():
+            os.replace(destination, source)
+        raise
 
 
 def append_final_copy_binding(*, topic: str, benchmark_case_id: str, output_path: Path,

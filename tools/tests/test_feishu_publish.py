@@ -112,10 +112,10 @@ class FeishuPublishTests(unittest.TestCase):
 
     def test_release_preflight_and_dry_run_are_non_mutating(self) -> None:
         root = Path(__file__).resolve().parents[2]
-        preflight(root, "v3.2.1")
+        preflight(root, "v3.2.2")
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory) / "state.json"
-            result = execute(root, "v3.2.1", dry_run=True, skip_gates=True, branch="main", state_path=state)
+            result = execute(root, "v3.2.2", dry_run=True, skip_gates=True, branch="main", state_path=state)
         self.assertEqual(result["status"], "dry-run")
         self.assertFalse(state.exists())
 
@@ -135,7 +135,7 @@ class FeishuPublishTests(unittest.TestCase):
                  patch.object(publish_release, "git", return_value="https://github.com/example/factory.git"), \
                  patch.object(publish_release.FeishuConfig, "from_environment", return_value=self.config()), \
                  patch.object(publish_release, "FeishuPublisher", return_value=ReadyPublisher()):
-                result = inspect_preflight(root, "v3.2.1", state)
+                result = inspect_preflight(root, "v3.2.2", state)
         self.assertEqual(result["status"], "preflight-passed")
         self.assertEqual(result["feishu_page"]["zip_name"], "VIP.zip")
         self.assertFalse(state.exists())

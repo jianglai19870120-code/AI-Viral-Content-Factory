@@ -427,9 +427,12 @@ body[data-page="today"] .assistant-avatar {
 .today-case-editor-type-filter { flex: 1 1 auto; width: 0; min-width: 0; padding: 9px 29px 9px 11px; border: 1px solid #e1d8cf; border-radius: 8px; outline: 0; background: #fffdfa; color: #453c35; font: 400 14px/1.2 var(--sans); }
 .today-case-editor-type-filter:hover, .today-case-editor-type-filter:focus { border-color: #ffae6a; box-shadow: 0 0 0 3px #ff9b481c; }
 .today-editor-file-list { display: grid; max-height: 710px; gap: 6px; overflow: auto; padding: 13px; }
-.today-editor-file-list > button { display: grid; gap: 7px; width: 100%; padding: 14px; border: 1px solid transparent; border-radius: 10px; background: transparent; color: var(--ink); text-align: left; }
-.today-editor-file-list > button:hover { border-color: #ffd5b4; background: #fff8f1; }
-.today-editor-file-list > button.active { border-color: #ffb679; background: #fff3e8; box-shadow: inset 3px 0 var(--orange); }
+.today-editor-file-list > button, .today-editor-file-select { display: grid; gap: 7px; width: 100%; padding: 14px; border: 1px solid transparent; border-radius: 10px; background: transparent; color: var(--ink); text-align: left; }
+.today-editor-file-list > button:hover, .today-editor-file-select:hover { border-color: #ffd5b4; background: #fff8f1; }
+.today-editor-file-list > button.active, .today-editor-file-select.active { border-color: #ffb679; background: #fff3e8; box-shadow: inset 3px 0 var(--orange); }
+.today-editor-file-row { display: grid; grid-template-columns: minmax(0, 1fr) 34px; align-items: stretch; gap: 5px; }
+.today-editor-file-delete { align-self: center; width: 34px; height: 34px; padding: 0; border: 1px solid transparent; border-radius: 8px; background: transparent; color: #9b9189; font: 400 22px/1 var(--sans); }
+.today-editor-file-delete:hover, .today-editor-file-delete:focus-visible { border-color: #f4b9af; background: #fff0ee; color: #c64c3b; outline: 0; }
 .today-editor-file-list b { overflow: hidden; font: 500 16px/1.3 var(--sans); text-overflow: ellipsis; white-space: nowrap; }
 .today-editor-file-list small, .today-editor-file-list p { margin: 0; color: #867e76; font: 300 13px/1.35 var(--sans); }
 .today-editor-file-meta { display: flex; min-width: 0; align-items: center; justify-content: space-between; gap: 8px; }
@@ -520,6 +523,8 @@ body[data-page="today"] .assistant-avatar {
 .today-topic-case-select { display:block; width:100%; min-width:150px; padding:11px; border:1px solid transparent; background:transparent; color:#9b5719; font:400 14px/1.35 var(--sans); text-align:left; text-decoration:underline; text-decoration-color:#f3c9a3; text-underline-offset:3px; }
 .today-topic-case-select:hover, .today-topic-case-select:focus-visible { border-color:#ffba7f; outline:0; background:#fff8f1; text-decoration-color:var(--orange); }
 .today-topic-case-select.is-selected { color:#553c29; text-decoration:none; }
+.today-topic-add-row { padding: 8px 12px; border: 1px solid #e0b07d; border-radius: 8px; background: #fff8f1; color: #9a5011; font: 500 14px/1 var(--sans); white-space: nowrap; }
+.today-topic-add-row:hover, .today-topic-add-row:focus-visible { border-color: #ff9b48; outline: 0; background: #fff1e4; color: #b84e00; }
 .today-topic-table th > span { display: inline-block; }
 .today-topic-freeze-toggle { display: inline-flex; width: 27px; height: 27px; margin-left: 8px; align-items: center; justify-content: center; padding: 5px; border: 1px solid #e3d7cc; border-radius: 7px; background: #fffefd; color: #786d63; vertical-align: middle; }
 .today-topic-freeze-toggle .brand-icon { display: block; width: 15px; height: 15px; }

@@ -1,19 +1,17 @@
-"""Shared human-review gates for final-copy-v3 semantic quality."""
+"""Shared human-review gates for final-copy semantic quality."""
 from __future__ import annotations
 
+import sys
+from pathlib import Path
 
-REQUIRED_CHECK_IDS = (
-    "冻结内容覆盖",
-    "非核心功能完成",
-    "FNN推进连贯",
-    "写作手法适配",
-    "口播与事实边界",
-    "逻辑不自相矛盾",
-    "抽象表达可落地",
-    "段落不跑题",
-    "方案可执行可验证",
-    "开头具备停留理由",
-    "段落有新增推进",
-    "口播完整连贯",
-    "收束降低行动门槛",
-)
+ROOT = Path(__file__).resolve().parents[3]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from workflow.writing_contract import rule_ids
+
+
+def required_check_ids(binding: dict | None = None) -> tuple[str, ...]:
+    """The V5 review checklist is the V3 contract's final-copy rule set."""
+    if not isinstance(binding, dict):
+        raise ValueError("V5 正文审核必须携带写作文案表达合同绑定")
+    return tuple(rule_ids(binding, "final-copy"))

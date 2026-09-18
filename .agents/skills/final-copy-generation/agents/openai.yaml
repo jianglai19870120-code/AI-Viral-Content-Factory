@@ -1,4 +1,4 @@
 interface:
   display_name: "正文成稿生成 Skill"
-  short_description: "按完整 FNN 大框架生成正文：结构四冻结核心内容，非核心段按已审核框架功能补足，并输出写作手法注释。"
+  short_description: "按完整 FNN 与人工填写结构四的大框架内容生成正文，并输出写作手法注释；工作台另要求冻结确认。"
   default_prompt: "使用 $final-copy-generation 按AI爆款内容工厂正式调度和审核链执行任务。"
